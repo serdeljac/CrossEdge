@@ -12,6 +12,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "bulma": "^0.9.4",
     "gsap": "^3.11.3",
     "jquery": "^3.6.1",
     "pinia": "^2.0.28",
@@ -19,7 +20,9 @@
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
+    "@babel/cli": "^7.19.3",
     "@babel/core": "^7.20.5",
+    "@babel/preset-env": "^7.20.2",
     "@rushstack/eslint-patch": "^1.1.4",
     "@types/jsdom": "^20.0.1",
     "@types/node": "^18.11.12",
