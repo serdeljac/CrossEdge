@@ -98,7 +98,7 @@ body {
 
 .sidebar {
     width: 340px;
-    background-color: #111c2a;
+    background-color: $sidebar_bg;
     color: #7c7c7c;
     height: 100vh;
     position: absolute;
@@ -112,17 +112,15 @@ body {
     overflow-y: scroll;
 
     &::-webkit-scrollbar {
-        background-color: red;
-        width: 14px;
+        background-color: transparent;
+        width: 20px;
     }
 
     &::-webkit-scrollbar-thumb {
-        background: #300;
-        border-radius: 3px;
-        width: 7px;
+        border-radius: 100px;
+        background: #8070d4;
+        border: 6px solid $sidebar_bg;
     }
-
-
 
     .header {
         display: flex;
