@@ -15,10 +15,20 @@ const router = createRouter({
       component: () => import('../views/true_end.vue')
     },
     {
-      path: '/synthesis',
-      name: 'synthesis',
-      component: () => import('../views/synthesis.vue')
-    }
+      path: '/Items',
+      name: 'items',
+      component: () => import('../views/items.vue')
+    },
+    {
+      path: '/Titles',
+      name: 'titles',
+      component: () => import('../views/titles.vue')
+    },
+    {
+      path: '/Maps',
+      name: 'maps',
+      component: () => import('../views/map.vue')
+    },
   ]
 })
 

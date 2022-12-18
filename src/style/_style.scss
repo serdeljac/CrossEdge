@@ -13,7 +13,7 @@ html {
 }
 
 body {
-    background: $background url(@/assets/crossedge_logo.jpg) center/cover no-repeat;
+    background: $background url(@/assets/crossedge_logo2.jpg) center/cover no-repeat;
     width: 100%;
     height: 100vh;
     min-height: 850px;
@@ -22,7 +22,6 @@ body {
     scrollbar-width: none;
     font-family: 'Kanit', sans-serif;
 }
-
 
 .landing-select {
     margin: 40px auto 0;
@@ -47,5 +46,40 @@ body {
         color: #fff;
         font-size: 2.5rem;
         font-style: italic;
+    }
+}
+
+
+
+
+
+
+
+.true_end_guide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px auto;
+    color: #fff;
+    width: 100%;
+    max-width: 1200px;
+
+    .title {
+        display: flex;
+        align-items: center;
+
+        h2 {
+            margin-left: 20px;
+            font-size: 5.0rem;
+            color: #fff;
+        }
+    }
+
+    .guide {
+
+        .step {
+            display: flex;
+
+        }
     }
 }

@@ -8,27 +8,13 @@
       <div class="column is-one-thirds contents guides">
         <h2>Guides</h2>
         <ul>
-          <li>
-            <router-link
-              :to="{
-                name: 'trueend',
-              }"
-            >
-              True Ending Guide
-            </router-link>
-          </li>
-          <li>
-            <router-link
-              :to="{
-                name: 'synthesis',
-              }"
-            >
-              Synthesis tombs
-            </router-link>
-          </li>
-          <li>Arcane Tombs</li>
-          <li>Titles</li>
-          <li>Costumes</li>
+          <li><router-link :to="{name: 'trueend',}">True Ending Guide</router-link></li>
+          <li><router-link :to="{name: 'items',}">Synthesis Tombs</router-link></li>
+          <li><router-link :to="{ name: 'items',}">Arcane Tombs</router-link></li>
+          <li><router-link :to="{ name: 'items',}">Secret Albums</router-link></li>
+          <li><router-link :to="{ name: 'items',}">Active Skills</router-link></li>
+          <li><router-link :to="{ name: 'items',}">Costumes</router-link></li>
+          <li><router-link :to="{ name: 'titles',}">Titles</router-link></li>
         </ul>
       </div>
       <div class="column is-one-thirds contents worldmaps">
@@ -54,7 +40,7 @@
       <div class="column is-one-thirds contents dungeons">
         <h2>Dungeons</h2>
         <ul>
-          <li>Dungeon - 1</li>
+          <li>Renuit</li>
           <li>Dungeon - 2</li>
           <li>Dungeon - 3</li>
           <li>Dungeon - 4</li>
