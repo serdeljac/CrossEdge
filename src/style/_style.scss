@@ -103,7 +103,6 @@ body {
     height: 100vh;
     position: absolute;
     left: 0;
-    // left: -400px;
     top: 0;
     z-index: 999;
     box-shadow: 0px -11px 31px -27px #000;
@@ -167,8 +166,57 @@ body {
                 color: #fff;
             }
         }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/************************************************************
+    map.vue
+************************************************************/
+
+.zeine1 {
+    background-image: url(@/assets/Zeine_1.jpg);
+}
+
+.world_map {
+    // max-width: 1250px;
+    width: 65vw;
+    height: 100vh;
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    left: 340px;
+
+
+    .container {
+        min-width: 100%;
+        min-height: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .storyevent {
+        cursor: pointer;
 
     }
 
+    img {
+        position: absolute;
+        z-index: 100;
+    }
 
 }
