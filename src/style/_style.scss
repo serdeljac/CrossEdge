@@ -49,6 +49,22 @@ body {
     }
 }
 
+.ce-icon {
+    transition: all .23s ease;
+    cursor: pointer;
+    position: absolute;
+
+    &:hover {
+        filter: drop-shadow(0px 0px 5px rgb(244, 255, 194));
+    }
+
+    rect,
+    circle,
+    polygon,
+    path {
+        fill: none;
+    }
+}
 
 
 
@@ -189,6 +205,11 @@ body {
 
 .zeine1 {
     background-image: url(@/assets/maps/Zeine_1.jpg);
+
+    &>div {
+        cursor: pointer;
+        position: absolute;
+    }
 }
 
 .world_map {
@@ -209,14 +230,6 @@ body {
         background-position: center;
     }
 
-    .storyevent {
-        cursor: pointer;
-        position: absolute;
-    }
 
-    .town {
-        cursor: pointer;
-        position: absolute;
-    }
 
 }

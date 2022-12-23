@@ -36,6 +36,12 @@
             <div class="tablet tablet5">
                 <tablet />
             </div>
+            <div class="tablet dungeon1">
+                <dungeon />
+            </div>
+            <div class="tablet dungeon2">
+                <dungeon />
+            </div>
         </div>
 
     </div>
@@ -47,10 +53,11 @@ import storyevent from './parts/storyevent.vue';
 import soulevent from './parts/soulevent.vue';
 import zeinetown from './parts/zeine_town.vue';
 import tablet from './parts/tablet.vue';
+import dungeon from './parts/dungeon.vue';
 
 
     export default {
         name: "Map_layout",
-    components: { storyevent, soulevent, zeinetown, tablet },
+    components: { storyevent, soulevent, zeinetown, tablet, dungeon },
     }
 </script>
