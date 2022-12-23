@@ -188,7 +188,7 @@ body {
 ************************************************************/
 
 .zeine1 {
-    background-image: url(@/assets/Zeine_1.jpg);
+    background-image: url(@/assets/maps/Zeine_1.jpg);
 }
 
 .world_map {
@@ -211,12 +211,12 @@ body {
 
     .storyevent {
         cursor: pointer;
-
+        position: absolute;
     }
 
-    img {
+    .town {
+        cursor: pointer;
         position: absolute;
-        z-index: 100;
     }
 
 }
