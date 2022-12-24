@@ -12,7 +12,6 @@
 
     import axios from 'axios';
 
-
     export default {
         name: "Map_Details",
         data() {
@@ -23,7 +22,7 @@
         },
         methods: {
             allRecords() {
-                axios.get('stjepane_crossedge.json').then(response => { this.posts = response.data[2].data })
+                axios.get('../stores/mysql.js').then(response => { this.posts = response.data }).catch((err) => console.log(err));
             }
         },
         props: [
