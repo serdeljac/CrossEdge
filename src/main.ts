@@ -3,7 +3,7 @@ import { createPinia } from 'pinia'
 
 import App from './App.vue'
 import router from './router'
-import axios from 'axios'
+
 
 const app = createApp(App)
 
@@ -12,6 +12,6 @@ app.use(router)
 
 app.mount('#app')
 
-require("@babel/core").transform("code", {
-    presets: ["@babel/preset-env"],
-});
+// require("@babel/core").transform("code", {
+//     presets: ["@babel/preset-env"],
+// });

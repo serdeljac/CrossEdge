@@ -1,5 +1,7 @@
+<!-- eslint-disable prettier/prettier -->
 <template>
     <div class="map_details">
+        <input type='button' @click='allRecords()' value='Select All users'>
         {{ info }}
         <br />
         {{ posts }}
@@ -10,6 +12,7 @@
 
     import axios from 'axios';
 
+
     export default {
         name: "Map_Details",
         data() {
@@ -18,11 +21,11 @@
                 posts: null
             }
         },
-    mounted: function () {
-        axios.get('https://jsonplaceholder.typicode.com/posts')
-            .then(response => this.posts = response)
-            .catch(error => this.posts = [{title: "error"}]);
-    },
+        methods: {
+            allRecords() {
+                axios.get('stjepane_crossedge.json').then(response => { this.posts = response.data[2].data })
+            }
+        },
         props: [
             'info'
         ],
