@@ -3,7 +3,7 @@
 <template>
     <div class="world_map">
         <div class="container zeine1">
-            <div class="storyevent story-1">
+            <div class="storyevent story-1"  @click="$emit('iconActive', 'story1')">
                 <storyevent />
             </div>
             <div class="storyevent story-2">
@@ -93,5 +93,15 @@ import soul from './parts/soul.vue';
     export default {
         name: "Map_layout",
     components: { storyevent, soulevent, zeinetown, tablet, dungeon, soul },
+    data() {
+        return {
+
+        }
+    },
+    methods: {
+        target(ev) {
+            this.$emit(ev);
+        }
+    }
     }
 </script>
