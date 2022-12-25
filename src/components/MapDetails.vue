@@ -9,7 +9,6 @@
 </template>
 
 <script>
-
     import axios from 'axios';
 
     export default {
@@ -17,18 +16,17 @@
         data() {
             return {
                 allData: undefined,
-                posts: null
+                posts: null,
             }
         },
         methods: {
             allRecords() {
-                axios.get('../stores/mysql.js').then(response => { this.posts = response.data }).catch((err) => console.log(err));
+                axios.get('stjepane_crossedge.sql').then(response => { this.posts = response.data }).catch((err) => console.log(err));
             }
         },
         props: [
             'info'
         ],
-
     }
 </script>
 
