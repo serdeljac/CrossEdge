@@ -4,12 +4,12 @@
         <input type='button' @click='allRecords()' value='Select All users'>
         {{ info }}
         <br />
-        {{ posts }}
+        {{ database }}
     </div>
 </template>
 
 <script>
-    import axios from 'axios';
+    // import axios from 'axios';
 
     export default {
         name: "Map_Details",
@@ -17,11 +17,12 @@
             return {
                 allData: undefined,
                 posts: null,
+                database: null
             }
         },
         methods: {
             allRecords() {
-                axios.get('stjepane_crossedge.sql').then(response => { this.posts = response.data }).catch((err) => console.log(err));
+                // axios.get('../assets/stjepane_crossedge').then(response => { this.posts = response.data }).catch((err) => console.log(err));
             }
         },
         props: [
