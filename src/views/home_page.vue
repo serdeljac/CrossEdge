@@ -8,19 +8,19 @@
       <div class="column is-one-thirds contents guides">
         <h2>Guides</h2>
         <ul>
-          <li><router-link :to="{name: 'trueend',}">True Ending Guide</router-link></li>
-          <li><router-link :to="{name: 'items',}">Synthesis Tombs</router-link></li>
-          <li><router-link :to="{ name: 'items',}">Arcane Tombs</router-link></li>
-          <li><router-link :to="{ name: 'items',}">Secret Albums</router-link></li>
-          <li><router-link :to="{ name: 'items',}">Active Skills</router-link></li>
-          <li><router-link :to="{ name: 'items',}">Costumes</router-link></li>
-          <li><router-link :to="{ name: 'titles',}">Titles</router-link></li>
+          <li>True Ending Guide</li>
+          <li>Synthesis Tombs</li>
+          <li>Arcane Tombs</li>
+          <li>Secret Albums</li>
+          <li>Active Skills</li>
+          <li>Costumes</li>
+          <li>Titles</li>
         </ul>
       </div>
       <div class="column is-one-thirds contents worldmaps">
         <h2>Maps</h2>
         <ul>
-          <li>Zeine - Area 1</li>
+          <li><router-link :to="{ name: 'zeine 1',}">Zeine - Area 1</router-link></li>
           <li>Zeine - Area 2</li>
           <li>Zeine - Area 3</li>
           <li>Wilkiet - Area 1</li>
@@ -55,5 +55,3 @@ export default {
   name: "Home",
 };
 </script>
-
-<style lang="scss" scoped></style>

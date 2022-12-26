@@ -13,8 +13,7 @@ html {
 }
 
 body {
-    // background: $background url(@/assets/crossedge_logo.jpg) center/cover no-repeat;
-    background-color: $background;
+    background: $background url(@/assets/crossedge_bg.jpg) center/cover no-repeat;
     width: 100%;
     height: 100vh;
     min-height: 850px;
@@ -24,6 +23,13 @@ body {
     font-family: 'Kanit', sans-serif;
 }
 
+
+
+
+/************************************************************
+    VIEWS/home_page.vue
+************************************************************/
+
 .landing-select {
     margin: 40px auto 0;
     border-radius: 7px;
@@ -31,24 +37,31 @@ body {
     width: 80%;
     box-shadow: 0px 0px 12px 10px rgba(0, 0, 0, 0.116);
     padding: 1.2em;
-}
 
-.site-banner {
-    margin: 15px auto 40px;
-    width: 320px;
-}
-
-.contents {
-    text-align: center;
-    font-size: 1.3rem;
-
-    h2 {
-        text-align: center;
-        color: #fff;
-        font-size: 2.5rem;
-        font-style: italic;
+    .site-banner {
+        margin: 15px auto 40px;
+        width: 320px;
     }
+
+    .contents {
+        text-align: center;
+        font-size: 1.3rem;
+
+        h2 {
+            text-align: center;
+            color: #fff;
+            font-size: 2.5rem;
+            font-style: italic;
+        }
+    }
+
 }
+
+
+
+/************************************************************
+    COMPONENTS/parts/home_page.vue
+************************************************************/
 
 .ce-icon {
     transition: all .23s ease;
@@ -72,6 +85,10 @@ body {
 
 
 
+/************************************************************
+    VIEWS/true_end.vue
+************************************************************/
+
 .true_end_guide {
     display: flex;
     flex-direction: column;
@@ -91,14 +108,6 @@ body {
             color: #fff;
         }
     }
-
-    .guide {
-
-        .step {
-            display: flex;
-
-        }
-    }
 }
 
 
@@ -108,10 +117,10 @@ body {
 
 
 
-/************************************************************
-    sidebar.vue
-************************************************************/
 
+/************************************************************
+    COMPONENTS/sidebar.vue
+************************************************************/
 
 .sidebar {
     width: 340px;
@@ -193,25 +202,9 @@ body {
 
 
 
-
-
-
-
-
-
-
 /************************************************************
     map.vue
 ************************************************************/
-
-.zeine1 {
-    background-image: url(@/assets/maps/Zeine_1.jpg);
-
-    &>div {
-        cursor: pointer;
-        position: absolute;
-    }
-}
 
 .world_map {
     // max-width: 1250px;
@@ -223,6 +216,10 @@ body {
     bottom: 0px;
     left: 340px;
 
+    .icn {
+        cursor: pointer;
+        position: absolute;
+    }
 
     .container {
         min-width: 100%;
@@ -230,9 +227,6 @@ body {
         background-repeat: no-repeat;
         background-position: center;
     }
-
-
-
 }
 
 
@@ -248,5 +242,112 @@ body {
     width: 328px;
     height: 100vh;
     top: 0;
-    background: red;
+    background: rgb(12, 3, 53);
+    color: #fff;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__display {
+        overflow-y: scroll;
+        max-height: 500px;
+
+        &::-webkit-scrollbar {
+            background-color: transparent;
+            width: 20px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border-radius: 100px;
+            background: #8070d4;
+            border: 6px solid rgb(12, 3, 53);
+            cursor: pointer;
+        }
+    }
+
+    h3 {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    hr {
+        opacity: 0.7;
+        margin: 10px 5px;
+    }
+
+    .target {
+        font-size: 1.4rem;
+        text-align: center;
+        display: grid;
+        grid-template-columns: 30px auto;
+        align-items: center;
+        margin: 10px 0;
+    }
+
+    .rewards {
+        font-size: 1.3rem;
+        margin-top: 20px;
+    }
+}
+
+.detail_change {
+    height: 100%;
+    margin-bottom: 10px;
+}
+
+.map_checklist {
+    max-height: 300px;
+    height: 100%;
+    overflow-y: scroll;
+    width: 100%;
+    border: 1px solid #fff;
+    padding: 0.5em 1em;
+
+    &::-webkit-scrollbar {
+        background-color: transparent;
+        width: 20px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 100px;
+        background: #8070d4;
+        border: 6px solid rgb(12, 3, 53);
+        cursor: pointer;
+    }
+
+    h4 {
+        font-size: 1.3rem;
+    }
+}
+
+.battle__forced {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+
+
+}
+
+.battle__title {
+    text-align: center;
+    font-size: 1.3rem;
+    margin-top: 20px;
+}
+
+.true_end_path {
+    font-size: 1.3rem;
+}
+
+.target_complete {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+    background-color: transparent;
+
+    &.complete {
+        background-color: #fff
+    }
 }
