@@ -12,14 +12,14 @@
             <div class="icn storyevent story-6"         @click="getEventList('ez107')"><storyevent /></div>
             <div class="icn soulevent soulevent-1"      @click="getEventList('ez109')"><soulevent /></div>
             <div class="icn town town-1"                @click="getEventList('ez104')"><zeinetown /></div>
-            <div class="icn town town-2"><zeinetown /></div>
-            <div class="icn tablet tablet-1"><tablet /></div>
-            <div class="icn tablet tablet-2"><tablet /></div>
-            <div class="icn tablet tablet-3"><tablet /></div>
-            <div class="icn tablet tablet-4"><tablet /></div>
-            <div class="icn tablet tablet-5"><tablet /></div>
+            <div class="icn town town-2"                @click="getEventList('ez114')"><zeinetown /></div>
+            <div class="icn tablet tablet-1"            @click="getEventList('ez110')"><tablet /></div>
+            <div class="icn tablet tablet-2"            @click="getEventList('ez111')"><tablet /></div>
+            <div class="icn tablet tablet-3"            @click="getEventList('ez112')"><tablet /></div>
+            <div class="icn tablet tablet-4"            @click="getEventList('ez113')"><tablet /></div>
+            <div class="icn tablet tablet-5"            @click="getEventList('ez115')"><tablet /></div>
             <div class="icn tablet dungeon-1"           @click="getEventList('ez108')"><dungeon /></div>
-            <div class="icn tablet dungeon-2"><dungeon /></div>
+            <div class="icn tablet dungeon-2"           @click="getEventList('ez116')"><dungeon /></div>
             <div class="icn soul soul-1"                @click="getSoulsList('z101')"><soul /></div>
             <div class="icn soul soul-2"                @click="getSoulsList('z102')"><soul /></div>
             <div class="icn soul soul-3"                @click="getSoulsList('z103')"><soul /></div>
@@ -89,11 +89,11 @@ import json_eventList from '@/assets/data/events.json';
     .soulevent-1 {transform: translate3d(511px, 381px, 0px);}
     .town-1 {transform: translate3d(908px, 473px, 0px);}
     .town-2 {transform: translate3d(282px, 283px, 0px);}
-    .tablet-1 {transform: translate3d(690px, 115px, 0px);}
-    .tablet-2 {transform: translate3d(1153px, 560px, 0px);}
-    .tablet-3 {transform: translate3d(646px, 497px, 0px);}
-    .tablet-4 {transform: translate3d(759px, 460px, 0px);}
-    .tablet-5 {transform: translate3d(837px, 472px, 0px);}
+    .tablet-1 {transform: translate3d(1153px, 560px, 0px);}
+    .tablet-2 {transform: translate3d(646px, 497px, 0px);}
+    .tablet-3 {transform: translate3d(759px, 460px, 0px);}
+    .tablet-4 {transform: translate3d(837px, 472px, 0px);}
+    .tablet-5 {transform: translate3d(690px, 115px, 0px);}
     .dungeon-1 {transform: translate3d(757px, 267px, 0px);}
     .dungeon-2 {transform: translate3d(961px, 330px, 0px);}
     .soul-1 {transform: translate3d(971px, 704px, 0px);}

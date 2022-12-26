@@ -1,11 +1,12 @@
 <!-- eslint-disable prettier/prettier -->
 <template>
     <div class="map_details">
-        <div class="detail_change">
-            <h3>
-            {{ mapName }}
-            </h3>
-            <hr />
+
+        <h3>{{ mapName }}</h3>
+        <hr />
+
+        <div class="map_details__change">
+
             <!-- SOUL REWARDS INFO -->
             <div v-for="data in info" :key="data.id" class="map_details__display">
                 <div v-if="data.Target == 'Soul'">
@@ -102,7 +103,6 @@
                 <li>(44) Hell Dog x5 [Bottom Island]</li>
             </ul>
         </div>
-        
     </div>
 </template>
 

@@ -36,10 +36,10 @@
             <div class="tbc-set">
                 <p>MAPS</p>
                 <ul>
-                    <li>Zeine - Area 1</li>
+                    <li><router-link :to="{ name: 'zeine 1', }">Zeine - Area 1</router-link></li>
                     <li>Zeine - Area 2</li>
                     <li>Zeine - Area 3</li>
-                    <li>Wilkiet - Area 1</li>
+                    <li><router-link :to="{ name: 'wilkiet 1',}">Wilkiet - Area 1</router-link></li>
                     <li>Wilkiet - Area 2</li>
                     <li>Wilkiet - Area 3</li>
                     <li>Brosste - Area 1</li>
