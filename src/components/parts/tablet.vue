@@ -7,11 +7,10 @@
 
 <style lang="scss" scoped>
     .image-tablet {clip-path: url(#path-tablet);}
-    svg {width: 42px;}
 </style>
 
 <script lang="ts">
 export default {
-    name: "Tablet",
+    name: "Icon_tablet",
 }
 </script>

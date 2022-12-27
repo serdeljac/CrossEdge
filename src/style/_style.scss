@@ -114,10 +114,6 @@ body {
 
 
 
-
-
-
-
 /************************************************************
     COMPONENTS/sidebar.vue
 ************************************************************/
@@ -198,16 +194,11 @@ body {
 
 
 
-
-
-
-
 /************************************************************
     map.vue
 ************************************************************/
 
 .world_map {
-    // max-width: 1250px;
     width: 65vw;
     height: 100vh;
     position: fixed;
@@ -245,18 +236,134 @@ body {
     background: rgb(12, 3, 53);
     color: #fff;
     padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        background-color: transparent;
+        width: 20px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 100px;
+        background: #8070d4;
+        border: 6px solid rgb(12, 3, 53);
+        cursor: pointer;
+    }
 
     h3 {
         font-size: 2.5rem;
         text-align: center;
+        line-height: 1;
     }
+
+    hr {
+        opacity: 0.7;
+        margin: 15px 5px;
+    }
+
+    .checkbox {
+        width: 30px;
+        height: 30px;
+        border: 1px solid #fff;
+        border-radius: 5px;
+        margin-right: 10px;
+        cursor: pointer;
+        background-color: transparent;
+
+        &.complete {
+            background-color: #fff
+        }
+    }
+
+    .mark_completion {
+        font-size: 1.4rem;
+        text-align: center;
+        display: grid;
+        grid-template-columns: 30px auto;
+        align-items: center;
+        margin: 10px 0;
+    }
+
+    .title {
+        text-align: center;
+        margin: 10px 0;
+        color: #fff;
+    }
+
+    .sub {
+        font-style: italic;
+    }
+
+    .te_next-destination {
+        background-color: #2b1b7a;
+        border-radius: 5px;
+        padding: 0.4rem 0.8rem;
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+    }
+
+    .te_action {
+        @extend .te_next-destination;
+        background-color: #a0074e
+    }
+
+    .event_recruit {
+        @extend .te_next-destination;
+        background-color: #05765b
+    }
+
+    .event_reward {
+        @extend .te_next-destination;
+        background-color: #05765b
+    }
+
+    .event_tablet {
+        @extend .te_next-destination;
+        background-color: #1d0892
+    }
+
+    .event_tablet_p {
+        @extend .te_next-destination;
+        background-color: #1d0892
+    }
+
+    .soul_rewards {
+        @extend .te_next-destination;
+        background-color: #0588c0
+    }
+
+    .town {
+        @extend .te_next-destination;
+        background-color: #61109b
+    }
+
+    .event_battles {
+        &__forced {
+            @extend .te_next-destination;
+            margin: 10px 0 0;
+            border-radius: 5px 5px 0 0px;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     &__change {
         height: 100%;
-        margin-bottom: 10px;
     }
 
     &__display {
@@ -278,81 +385,22 @@ body {
 
 
 
-    hr {
-        opacity: 0.7;
-        margin: 10px 5px;
-    }
 
-    .target {
-        font-size: 1.4rem;
-        text-align: center;
-        display: grid;
-        grid-template-columns: 30px auto;
-        align-items: center;
-        margin: 10px 0;
-    }
 
-    .rewards {
-        font-size: 1.3rem;
-        margin-top: 20px;
-    }
+
 }
 
 
 
-.map_checklist {
-    max-height: 300px;
-    height: 100%;
-    overflow-y: scroll;
-    width: 100%;
-    border: 1px solid #fff;
-    padding: 0.5em 1em;
 
-    &::-webkit-scrollbar {
-        background-color: transparent;
-        width: 20px;
-    }
 
-    &::-webkit-scrollbar-thumb {
-        border-radius: 100px;
-        background: #8070d4;
-        border: 6px solid rgb(12, 3, 53);
-        cursor: pointer;
-    }
 
-    h4 {
-        font-size: 1.3rem;
-    }
-}
 
-.battle__forced {
-    font-size: 1.3rem;
-    margin-bottom: 20px;
-}
 
-.battle__title {
-    text-align: center;
-    font-size: 1.3rem;
-    margin-top: 20px;
-}
 
-.true_end_path {
-    font-size: 1.3rem;
-}
 
-.target_complete {
-    width: 30px;
-    height: 30px;
-    border: 1px solid #fff;
-    border-radius: 5px;
-    margin-right: 10px;
-    cursor: pointer;
-    background-color: transparent;
 
-    &.complete {
-        background-color: #fff
-    }
-}
+
 
 .dungeon {
     text-align: center;

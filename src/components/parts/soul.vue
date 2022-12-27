@@ -8,11 +8,10 @@
 
 <style lang="scss" scoped>
     .image-soul {clip-path: url(#path-tablet);}
-    svg {width: 22px;}
 </style>
 
 <script lang="ts">
 export default {
-    name: "Tablet",
+    name: "Icon_soul",
 }
 </script>

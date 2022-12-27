@@ -7,11 +7,10 @@
 
 <style lang="scss" scoped>
     .image-dungeon {clip-path: url(#path-dungeon-orb);}
-    svg {width: 20px;}
 </style>
 
 <script lang="ts">
 export default {
-    name: "Dungeon"
+    name: "Icon_dungeon"
 }
 </script>

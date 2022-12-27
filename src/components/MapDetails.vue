@@ -1,109 +1,102 @@
 <!-- eslint-disable prettier/prettier -->
 <template>
-    <div class="map_details">
+    <div class="map_details" v-for="data in info" :key="data.id">
 
-        <h3>{{ mapName }}</h3>
+        <div class="title">
+            <h4 v-if="data.Target == 'Soul'">{{ data.Target }} #{{ data.Soul }}</h4>
+            <h4 v-if="data.Target == 'Event'">{{ data.Name }}</h4>
+        </div>
+        
+        <hr />
+        <p class="mark_completion"><span class="checkbox"></span>Mark as Completed</p>
         <hr />
 
-        <div class="map_details__change">
 
-            <!-- SOUL REWARDS INFO -->
-            <div v-for="data in info" :key="data.id" class="map_details__display">
-                <div v-if="data.Target == 'Soul'">
 
-                    <p class="target">
-                            <div class="target_complete"></div>
-                            {{ data.Target }} #{{ data.Soul }}
-                    </p>
 
-                    <p class="conditions" v-if="data.Condition">
-                        True End route complete
-                    </p>
-                    
-                    <div class="rewards">
-                        <p>Rewards:</p>
-                        <ul>
-                            <li>{{ data.Type1 }} - {{ data.Treasure1 }} x{{ data.Qty1 }}</li>
-                            <li>{{ data.Type2 }} - {{ data.Treasure2 }} x{{ data.Qty2 }}</li>
-                            <li v-if="data.Treasure3">{{ data.Type3 }} - {{ data.Treasure3 }} x{{ data.Qty3 }}</li>
-                        </ul>
-                    </div>
+
+        <!-- Table Display -->
+
+        <div class="event_tablet" v-if="data.Type == 'Tablet'">
+            <p>Unlocked From:</p>
+            <p class="sub">{{ data.Unlock }}</p>
+        </div>
+
+        <div class="event_tablet_p" v-if="data.Type == 'Tablet_p'">
+            <p>Souls in area:</p>
+            <ul v-for="data in info" :key="data.id">
+                <li>Total Souls: </li>
+                <li>Total Soul Events: </li>
+            </ul>
+        </div>
+
+
+
+
+        <div class="town" v-if="data.Type == 'Town'">
+            <p>Unlock Requirement:</p>
+            <p class="sub">{{ data.Unlock }}</p>
+        </div>
+
+        <div class="soul_rewards" v-if="data.Target == 'Soul'">
+            <p>Rewards:</p>
+            <p class="sub">{{ data.Type1 }} - {{ data.Treasure1 }} x{{ data.Qty1 }}</p>
+            <p class="sub">{{ data.Type2 }} - {{ data.Treasure2 }} x{{ data.Qty2 }}</p>
+            <p class="sub" v-if="data.Treasure3">{{ data.Type3 }} - {{ data.Treasure3 }} x{{ data.Qty3 }}</p>
+        </div>
+
+        <div class="dungeon" v-if="data.Type == 'Dungeon'">
+            <p>Open Dungeon Map</p>
+        </div>
+
+        
+
+
+
+
+
+
+
+
+        <div class="te_action" v-if="data.TE_requirement">
+            <p>True End Action:</p>
+            <p class="sub">{{ data.TE_requirement }}</p>
+        </div>
+
+        <div class="event_battles" v-if="data.Battle1">
+            <div>
+                <div class="event_battles__forced">
+                    <p>Battle 1 Characters:</p>
+                    <p class="sub">{{ data.Battle1_char }}</p>
                 </div>
+                <img :src="`src/assets/battle/${data.Battle1}`" alt="Battle1" />
             </div>
-
-            
-            <!-- EVENTS INFO -->
-            <div v-for="data in info" :key="data.id" class="map_details__display">
-                <div v-if="data.Target == 'Event'">
-            
-                    <p class="target">
-                        <div class="target_complete"></div>
-                        {{ data.Name }}
-                    </p>
-
-                    <p class="conditions" v-if="data.TE_requirement">
-                        True End Requirement: {{ data.TE_requirement }}
-                    </p>
-            
-                    
-
-                    <div class="battle" v-if="data.Battle1">
-                        <p v-if="data.Forced" class="battle__forced"><span>Forced Character:</span><br /> {{ data.Forced }}</p>
-                        <div class="battle_image">
-                            <div>
-                            <p class="battle__title">Battle 1</p>
-                            <img :src="`src/assets/battle/${data.Battle1}`" alt="Battle1" />
-                            </div>
-                            <div v-if="data.Battle2">
-                            <p class="battle__title">Battle 2</p>
-                            <img :src="`src/assets/battle/${data.Battle2}`" alt="Battle2" />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="dungeon" v-if="data.Dungeon">
-                        <p>Open Dungeon Map</p>
-                    </div>
-            
-                    <div class="rewards">
-                        <p v-if="data.Recruit">Recruit: {{ data.Recruit }}</p>
-                        <p v-if="data.Reward">Reward: {{ data.Reward }}</p>
-                    </div>
-                    <p class="true_end_path" v-if="data.TE_path">
-                        Next: {{ data.TE_path }}
-                    </p>
+            <div v-if="data.Battle2">
+                <div class="event_battles__forced">
+                    <p>Battle 2 Characters:</p>
+                    <p class="sub">{{ data.Battle2_char }}</p>
                 </div>
+                <img :src="`src/assets/battle/${data.Battle2}`" alt="Battle1" />
             </div>
         </div>
-        <div class="map_checklist">
-            <h3>Checklist</h3>
-            <h4>Souls Aquired:</h4>
-            <ul>
-                <li>Soul Rewards: 0/10</li>
-                <li>Soul Events: 0/1</li>
-            </ul>
-            <br />
-            <h4>Events</h4>
-            <ul>
-                    <li>Start</li>
-                    <li>Anfir Field</li>
-                    <li>Ancient Town of Myr</li>
-                    <li>Myr Suburb Mansion</li>
-                    <li>Nephyis Cliff</li>
-                    <li>Ferna Sara</li>
-                    <li>Len Forest</li>
-                    <li>Renuit Enterance</li>
-                    <li>Niu Spa</li>
-            </ul>
-            <br />
-            <h4>Enemies (for titles)</h4>
-            <ul>
-                <li>(1) Hornet x10 [Bottom island]</li>
-                <li>(6) Vampire Bat x7 [Northwest island]</li>
-                <li>(44) Hell Dog x5 [Bottom Island]</li>
-            </ul>
+
+        <div class="event_reward" v-if="data.Reward">
+            <p>Reward:</p>
+            <p class="sub">{{ data.Reward }}</p>
+        </div>
+
+        <div class="event_recruit" v-if="data.Recruit">
+            <p>Character Recruit:</p>
+            <p class="sub">{{ data.Recruit }}</p>
+        </div>
+
+        <div class="te_next-destination" v-if="data.TE_path && data.Type != 'Town' && data.Type != 'Tablet'">
+            <p>Next Destination:</p>
+            <p class="sub">{{ data.TE_path }}</p>
         </div>
     </div>
+
+
 </template>
 
 <script lang="ts">

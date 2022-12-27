@@ -18,8 +18,8 @@
             <div class="icn tablet tablet-3"            @click="getEventList('ez112')"><tablet /></div>
             <div class="icn tablet tablet-4"            @click="getEventList('ez113')"><tablet /></div>
             <div class="icn tablet tablet-5"            @click="getEventList('ez115')"><tablet /></div>
-            <div class="icn tablet dungeon-1"           @click="getEventList('ez108')"><dungeon /></div>
-            <div class="icn tablet dungeon-2"           @click="getEventList('ez116')"><dungeon /></div>
+            <div class="icn dungeon dungeon-1"          @click="getEventList('ez108')"><dungeon /></div>
+            <div class="icn dungeon dungeon-2"          @click="getEventList('ez116')"><dungeon /></div>
             <div class="icn soul soul-1"                @click="getSoulsList('z101')"><soul /></div>
             <div class="icn soul soul-2"                @click="getSoulsList('z102')"><soul /></div>
             <div class="icn soul soul-3"                @click="getSoulsList('z103')"><soul /></div>
@@ -77,7 +77,15 @@ import json_eventList from '@/assets/data/events.json';
 </script>
 
 <style lang="scss" scoped>
-.zeine1 {background-image: url(@/assets/maps/Zeine_1.jpg);}
+.zeine1 {
+        background-image: url(@/assets/maps/Zeine_1.jpg);
+        .icon-dungeon {width: 20px;}
+        .icon-soul {width: 22px;}
+        .icon-soul-event {width: 70px;}
+        .icon-story-event {width: 70px;}
+        .icon-tablet {width: 42px;}
+        .icon-zeine-town {width: 49px;}
+    }
     
     .story-1 {transform: translate3d(1013px, 706px, 0px);}
     .story-2 {transform: translate3d(1054px, 654px, 0px);}

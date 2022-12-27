@@ -18,13 +18,15 @@
             <div class="icn soulevent soulevent-7"      @click="getEventList('')"><soulevent /></div>
             <div class="icn soulevent soulevent-8"      @click="getEventList('')"><soulevent /></div>
             <div class="icn soulevent soulevent-9"      @click="getEventList('')"><soulevent /></div>
-            <div class="icn town town-1"                @click="getEventList('')"><zeinetown /></div>
-            <div class="icn town town-2"                @click="getEventList('')"><zeinetown /></div>
-            <div class="icn town town-3"                @click="getEventList('')"><zeinetown /></div>
+            <div class="icn town town-1"                @click="getEventList('')"><wilkiettown /></div>
+            <div class="icn town town-2"                @click="getEventList('')"><wilkiettown /></div>
+            <div class="icn town town-3"                @click="getEventList('')"><wilkiettown /></div>
             <div class="icn tablet tablet-1"            @click="getEventList('')"><tablet /></div>
             <div class="icn tablet tablet-2"            @click="getEventList('')"><tablet /></div>
             <div class="icn tablet tablet-3"            @click="getEventList('')"><tablet /></div>
             <div class="icn tablet tablet-4"            @click="getEventList('')"><tablet /></div>
+            <div class="icn dungeon dungeon-1"          @click="getEventList('')"><dungeon /></div>
+            <div class="icn dungeon dungeon-2"          @click="getEventList('')"><dungeon /></div>
             <div class="icn soul soul-1"                @click="getSoulsList('')"><soul /></div>
             <div class="icn soul soul-2"                @click="getSoulsList('')"><soul /></div>
             <div class="icn soul soul-3"                @click="getSoulsList('')"><soul /></div>
@@ -55,7 +57,7 @@ import mapDetails from '@/components/MapDetails.vue';
 //Icons
 import storyevent from '@/components/parts/storyevent.vue';
 import soulevent from '@/components/parts/soulevent.vue';
-import zeinetown from '@/components/parts/zeine_town.vue';
+import wilkiettown from '@/components/parts/wilkiet_town.vue';
 import tablet from '@/components/parts/tablet.vue';
 import dungeon from '@/components/parts/dungeon.vue';
 import soul from '@/components/parts/soul.vue';
@@ -66,7 +68,7 @@ import json_eventList from '@/assets/data/events.json';
 
     export default {
         name: "Map_layout",
-    components: { storyevent, soulevent, zeinetown, tablet, dungeon, soul, sidebar, mapDetails },
+    components: { storyevent, soulevent, wilkiettown, tablet, dungeon, soul, sidebar, mapDetails },
         data() {
             return {
                 soulList: null,

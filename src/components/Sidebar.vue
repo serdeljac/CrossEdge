@@ -10,7 +10,9 @@
 
         <div class="subheader">
             <h2 class="title">
+                <router-link :to="{ name: 'home', }">
                 CROSS EDGE
+                </router-link>
             </h2>
         </div>
 
@@ -37,7 +39,7 @@
                 <p>MAPS</p>
                 <ul>
                     <li><router-link :to="{ name: 'zeine 1', }">Zeine - Area 1</router-link></li>
-                    <li>Zeine - Area 2</li>
+                    <li><router-link :to="{ name: 'zeine 2', }">Zeine - Area 2</router-link></li>
                     <li>Zeine - Area 3</li>
                     <li><router-link :to="{ name: 'wilkiet 1',}">Wilkiet - Area 1</router-link></li>
                     <li>Wilkiet - Area 2</li>
