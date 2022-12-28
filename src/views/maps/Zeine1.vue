@@ -4,22 +4,24 @@
     <sidebar />
     <div class="world_map">
         <div class="container zeine1">
-            <div class="icn storyevent story-1"         @click="getEventList('ez101')"><storyevent /></div>
-            <div class="icn storyevent story-2"         @click="getEventList('ez102')"><storyevent /></div>
-            <div class="icn storyevent story-3"         @click="getEventList('ez103')"><storyevent /></div>
-            <div class="icn storyevent story-4"         @click="getEventList('ez105')"><storyevent /></div>
-            <div class="icn storyevent story-5"         @click="getEventList('ez106')"><storyevent /></div>
-            <div class="icn storyevent story-6"         @click="getEventList('ez107')"><storyevent /></div>
-            <div class="icn soulevent soulevent-1"      @click="getEventList('ez109')"><soulevent /></div>
-            <div class="icn town town-1"                @click="getEventList('ez104')"><zeinetown /></div>
-            <div class="icn town town-2"                @click="getEventList('ez114')"><zeinetown /></div>
-            <div class="icn tablet tablet-1"            @click="getEventList('ez110')"><tablet /></div>
-            <div class="icn tablet tablet-2"            @click="getEventList('ez111')"><tablet /></div>
-            <div class="icn tablet tablet-3"            @click="getEventList('ez112')"><tablet /></div>
-            <div class="icn tablet tablet-4"            @click="getEventList('ez113')"><tablet /></div>
-            <div class="icn tablet tablet-5"            @click="getEventList('ez115')"><tablet /></div>
-            <div class="icn dungeon dungeon-1"          @click="getEventList('ez108')"><dungeon /></div>
-            <div class="icn dungeon dungeon-2"          @click="getEventList('ez116')"><dungeon /></div>
+            <div class="icn order storyevent story-1"         @click="getEventList('evt001')" order="1"><storyevent /></div>
+            <div class="icn order storyevent story-2"         @click="getEventList('evt002')" order="2"><storyevent /></div>
+            <div class="icn order storyevent story-3"         @click="getEventList('evt003')" order="3"><storyevent /></div>
+            <div class="icn order town town-1"                @click="getEventList('evt004')" order="4"><zeinetown /></div>
+            <div class="icn order storyevent story-4"         @click="getEventList('evt005')" order="5"><storyevent /></div>
+            <div class="icn order storyevent story-5"         @click="getEventList('evt006')" order="6"><storyevent /></div>
+            <div class="icn order storyevent story-6"         @click="getEventList('evt007')" order="7"><storyevent /></div>
+            <div class="icn order dungeon dungeon-1"          @click="getEventList('evt008')" order="8"><dungeon /></div>
+            <div class="icn order soulevent soulevent-1"      @click="getEventList('')"       order="?"><soulevent /></div>
+
+            <div class="icn town town-2"                @click="getEventList('icn001')"><zeinetown /></div>
+            <div class="icn tablet tablet-1"            @click="getEventList('icn002')"><tablet /></div>
+            <div class="icn tablet tablet-2"            @click="getEventList('icn003')"><tablet /></div>
+            <div class="icn tablet tablet-3"            @click="getEventList('icn004')"><tablet /></div>
+            <div class="icn tablet tablet-4"            @click="getEventList('icn005')"><tablet /></div>
+            <div class="icn tablet tablet-5"            @click="getEventList('icn006')"><tablet /></div>
+            <div class="icn dungeon dungeon-2"          @click="getEventList('icn007')"><dungeon /></div>
+
             <div class="icn soul soul-1"                @click="getSoulsList('z101')"><soul /></div>
             <div class="icn soul soul-2"                @click="getSoulsList('z102')"><soul /></div>
             <div class="icn soul soul-3"                @click="getSoulsList('z103')"><soul /></div>

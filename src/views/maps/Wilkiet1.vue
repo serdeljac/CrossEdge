@@ -4,20 +4,25 @@
     <sidebar />
     <div class="world_map">
         <div class="container wilkiet1">
-            <div class="icn storyevent story-1"         @click="getEventList('')"><storyevent /></div>
-            <div class="icn storyevent story-2"         @click="getEventList('')"><storyevent /></div>
-            <div class="icn storyevent story-3"         @click="getEventList('')"><storyevent /></div>
-            <div class="icn storyevent story-4"         @click="getEventList('')"><storyevent /></div>
-            <div class="icn storyevent story-5"         @click="getEventList('')"><storyevent /></div>
-            <div class="icn soulevent soulevent-1"      @click="getEventList('')"><soulevent /></div>
-            <div class="icn soulevent soulevent-2"      @click="getEventList('')"><soulevent /></div>
-            <div class="icn soulevent soulevent-3"      @click="getEventList('')"><soulevent /></div>
-            <div class="icn soulevent soulevent-4"      @click="getEventList('')"><soulevent /></div>
-            <div class="icn soulevent soulevent-5"      @click="getEventList('')"><soulevent /></div>
-            <div class="icn soulevent soulevent-6"      @click="getEventList('')"><soulevent /></div>
-            <div class="icn soulevent soulevent-7"      @click="getEventList('')"><soulevent /></div>
-            <div class="icn soulevent soulevent-8"      @click="getEventList('')"><soulevent /></div>
-            <div class="icn soulevent soulevent-9"      @click="getEventList('')"><soulevent /></div>
+            <div class="icn order dungeon dungeon-1"          @click="getEventList('evt009')" order="1"><dungeon /></div>            
+            <div class="icn order storyevent story-1"         @click="getEventList('evt010')" order="2"><storyevent /></div>
+            <div class="icn order storyevent story-2"         @click="getEventList('evt011')" order="3"><storyevent /></div>
+            <div class="icn order storyevent story-3"         @click="getEventList('evt012')" order="4"><storyevent /></div>
+            <div class="icn order soulevent soulevent-1"      @click="getEventList('evt013')" order="5"><soulevent /></div>
+            <div class="icn order soulevent soulevent-2"      @click="getEventList('evt014')" order="6"><soulevent /></div>
+            <div class="icn order soulevent soulevent-3"      @click="getEventList('evt015')" order="7"><soulevent /></div>
+            <div class="icn order storyevent story-4"         @click="getEventList('evt016')" order="8"><storyevent /></div>
+            <div class="icn order soulevent soulevent-4"      @click="getEventList('evt017')" order="9"><soulevent /></div>
+            <div class="icn order soulevent soulevent-5"      @click="getEventList('evt018')" order="10"><soulevent /></div>
+            <div class="icn order storyevent story-5"         @click="getEventList('evt019')" order="11"><storyevent /></div>
+            <div class="icn order soulevent soulevent-6"      @click="getEventList('evt020')" order="12"><soulevent /></div>
+            <div class="icn order dungeon dungeon-2"          @click="getEventList('evt021')" order="13"><dungeon /></div>            
+            <div class="icn order soulevent soulevent-7"      @click="getEventList('evt022')" order="14"><soulevent /></div>
+            <div class="icn order soulevent soulevent-8"      @click="getEventList('evt023')" order="15"><soulevent /></div>
+            <div class="icn order soulevent soulevent-9"      @click="getEventList('evt024')" order="16"><soulevent /></div>
+
+
+
             <div class="icn town town-1"                @click="getEventList('')"><wilkiettown /></div>
             <div class="icn town town-2"                @click="getEventList('')"><wilkiettown /></div>
             <div class="icn town town-3"                @click="getEventList('')"><wilkiettown /></div>
@@ -25,8 +30,8 @@
             <div class="icn tablet tablet-2"            @click="getEventList('')"><tablet /></div>
             <div class="icn tablet tablet-3"            @click="getEventList('')"><tablet /></div>
             <div class="icn tablet tablet-4"            @click="getEventList('')"><tablet /></div>
-            <div class="icn dungeon dungeon-1"          @click="getEventList('')"><dungeon /></div>
-            <div class="icn dungeon dungeon-2"          @click="getEventList('')"><dungeon /></div>
+            
+
             <div class="icn soul soul-1"                @click="getSoulsList('')"><soul /></div>
             <div class="icn soul soul-2"                @click="getSoulsList('')"><soul /></div>
             <div class="icn soul soul-3"                @click="getSoulsList('')"><soul /></div>
@@ -90,6 +95,17 @@ import json_eventList from '@/assets/data/events.json';
 </script>
 
 <style lang="scss" scoped>
-    .wilkiet1 {background-image: url(@/assets/maps/Wilkiet_1.jpg);}
+.wilkiet1 {
+        background-image: url(@/assets/maps/Wilkiet_1.jpg);
+        .icon-dungeon {width: 20px;}
+        .icon-soul {width: 22px;}
+        .icon-soul-event {width: 70px;}
+        .icon-story-event {width: 59px;}
+        .icon-tablet {width: 42px;}
+        .icon-zeine-town {width: 49px;}
+    }
 
+    .dungeon-1 {transform: translate3d(1148px, 199px, 0px);}
+    .story-1 {transform: translate3d(1035px, 188px, 0px)}
+    .story-2 {transform: translate3d(958px, 389px, 0px);}
 </style>

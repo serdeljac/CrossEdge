@@ -4,7 +4,7 @@
 
         <div class="title">
             <h4 v-if="data.Target == 'Soul'">{{ data.Target }} #{{ data.Soul }}</h4>
-            <h4 v-if="data.Target == 'Event'">{{ data.Name }}</h4>
+            <h4 v-if="data.Target != 'Soul'">{{ data.Name }}</h4>
         </div>
         
         <hr />
@@ -15,11 +15,10 @@
 
 
 
-        <!-- Table Display -->
-
-        <div class="event_tablet" v-if="data.Type == 'Tablet'">
+        <!-- Tablet Display -->
+        <div class="event_tablet" v-if="data.Type == 'Tablet' || data.Type == 'DLC'">
             <p>Unlocked From:</p>
-            <p class="sub">{{ data.Unlock }}</p>
+            <p class="sub">{{ data.Unlock_condition }}</p>
         </div>
 
         <div class="event_tablet_p" v-if="data.Type == 'Tablet_p'">
@@ -32,12 +31,15 @@
 
 
 
-
+        <!-- Town Display -->
         <div class="town" v-if="data.Type == 'Town'">
             <p>Unlock Requirement:</p>
-            <p class="sub">{{ data.Unlock }}</p>
+            <p class="sub">{{ data.Unlock_condition }}</p>
         </div>
 
+
+
+        <!-- Soul Display -->
         <div class="soul_rewards" v-if="data.Target == 'Soul'">
             <p>Rewards:</p>
             <p class="sub">{{ data.Type1 }} - {{ data.Treasure1 }} x{{ data.Qty1 }}</p>
@@ -45,44 +47,47 @@
             <p class="sub" v-if="data.Treasure3">{{ data.Type3 }} - {{ data.Treasure3 }} x{{ data.Qty3 }}</p>
         </div>
 
-        <div class="dungeon" v-if="data.Type == 'Dungeon'">
+
+        <!-- Dungeon Display -->
+        <div class="dungeon" v-if="data.Type == 'Dungeon' || data.Type == 'DLC'">
             <p>Open Dungeon Map</p>
         </div>
 
         
 
-
-
-
-
-
-
-
-        <div class="te_action" v-if="data.TE_requirement">
+        <!-- Event Display -->
+        <div class="te_action" v-if="data.True_end_task">
             <p>True End Action:</p>
-            <p class="sub">{{ data.TE_requirement }}</p>
+            <p class="sub">{{ data.True_end_task }}</p>
         </div>
 
-        <div class="event_battles" v-if="data.Battle1">
+        <div class="event_battles" v-if="data.Battle1_img">
             <div>
                 <div class="event_battles__forced">
                     <p>Battle 1 Characters:</p>
-                    <p class="sub">{{ data.Battle1_char }}</p>
+                    <p class="sub">{{ data.Battle1_team }}</p>
                 </div>
-                <img :src="`src/assets/battle/${data.Battle1}`" alt="Battle1" />
+                <img :src="`src/assets/battle/${data.Battle1_img}`" alt="Battle1" />
             </div>
-            <div v-if="data.Battle2">
+            <div v-if="data.Battle2_img">
                 <div class="event_battles__forced">
                     <p>Battle 2 Characters:</p>
-                    <p class="sub">{{ data.Battle2_char }}</p>
+                    <p class="sub">{{ data.Battle2_team }}</p>
                 </div>
-                <img :src="`src/assets/battle/${data.Battle2}`" alt="Battle1" />
+                <img :src="`src/assets/battle/${data.Battle2_img}`" alt="Battle2" />
+            </div>
+            <div v-if="data.Battle3_img">
+                <div class="event_battles__forced">
+                    <p>Battle 2 Characters:</p>
+                    <p class="sub">{{ data.Battle3_team }}</p>
+                </div>
+                <img :src="`src/assets/battle/${data.Battle3_img}`" alt="Battle3" />
             </div>
         </div>
 
-        <div class="event_reward" v-if="data.Reward">
+        <div class="event_reward" v-if="data.Rewards">
             <p>Reward:</p>
-            <p class="sub">{{ data.Reward }}</p>
+            <p class="sub">{{ data.Rewards }}</p>
         </div>
 
         <div class="event_recruit" v-if="data.Recruit">
@@ -90,10 +95,6 @@
             <p class="sub">{{ data.Recruit }}</p>
         </div>
 
-        <div class="te_next-destination" v-if="data.TE_path && data.Type != 'Town' && data.Type != 'Tablet'">
-            <p>Next Destination:</p>
-            <p class="sub">{{ data.TE_path }}</p>
-        </div>
     </div>
 
 
