@@ -44,7 +44,7 @@
                     <li><router-link :to="{ name: 'wilkiet 1',}">Wilkiet - Area 1</router-link></li>
                     <li>Wilkiet - Area 2</li>
                     <li>Wilkiet - Area 3</li>
-                    <li>Brosste - Area 1</li>
+                    <li><router-link :to="{ name: 'brosste 1',}">Brosste - Area 1</router-link></li>
                     <li>Brosste - Area 2</li>
                     <li>Brosste - Area 3</li>
                     <li>Pragma - Area 1</li>
