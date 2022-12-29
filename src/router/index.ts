@@ -26,14 +26,14 @@ const router = createRouter({
       component: () => import('../views/maps/Zeine2.vue')
     },
     {
-      path: '/zeine2',
-      name: 'zeine 2',
-      component: () => import('../views/maps/Zeine2.vue')
-    },
-    {
       path: '/wilkiet1',
       name: 'wilkiet 1',
       component: () => import('../views/maps/Wilkiet1.vue')
+    },
+    {
+      path: '/wilkiet2',
+      name: 'wilkiet 2',
+      component: () => import('../views/maps/Wilkiet2.vue')
     },
     {
       path: '/brosste1',
