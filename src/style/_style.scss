@@ -1,5 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;1,300&display=swap');
 
+@mixin sm {
+    @media (max-width: #{$screen-sm-min}) {
+        @content;
+    }
+}
+
+@mixin md {
+    @media (max-width: #{$screen-md-min}) {
+        @content;
+    }
+}
+
+@mixin lg {
+    @media (max-width: #{$screen-lg-min}) {
+        @content;
+    }
+}
+
+@mixin xl {
+    @media (max-width: #{$screen-xl-min}) {
+        @content;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 *,
 a {
     box-sizing: border-box;
@@ -21,6 +58,34 @@ body {
     -ms-overflow-style: none;
     scrollbar-width: none;
     font-family: 'Kanit', sans-serif;
+}
+
+.btn-sml {
+    width: 72px;
+    height: 70px;
+    font-size: 50px;
+    text-align: center;
+    border-radius: 40px;
+    font-weight: 800;
+    font-family: 'Courier New', Courier, monospace;
+    border: none;
+    box-shadow: 0 0 3px 2px #000;
+    transform: scale(0.4);
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 45px;
+    z-index: 101;
+    transition: all .47s ease;
+
+    &:hover {
+        background: #7c7c7c;
+    }
+
+    &.opened {
+        left: 295px;
+        transform: rotate(180deg) scale(0.4);
+    }
 }
 
 
@@ -119,41 +184,89 @@ body {
 ************************************************************/
 
 .sidebar {
-    width: 340px;
-    background-color: $sidebar_bg;
+    background: linear-gradient(125deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, #1000ff 100%);
     color: #7c7c7c;
     height: 100vh;
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 999;
     box-shadow: 0px -11px 31px -27px #000;
     transition: all .47s ease;
-    padding: 20px 2rem;
-    overflow-y: scroll;
+    width: 330px;
+    box-shadow: 2px 0 10px 3px rgba(0, 0, 0, 0.54);
+    position: absolute;
+    z-index: 100;
+    top: 0;
 
-    &::-webkit-scrollbar {
-        background-color: transparent;
-        width: 20px;
+    &.compact {
+        width: 80px;
+
+        .container {
+            width: 330px;
+        }
     }
 
-    &::-webkit-scrollbar-thumb {
-        border-radius: 100px;
-        background: #8070d4;
-        border: 6px solid $sidebar_bg;
+    .container {
+        transition: all .35s ease;
+        left: 0;
+        padding: 20px 5px 20px 2rem;
+    }
+
+    .container-mobile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
     }
 
     .header {
         display: flex;
+        justify-content: space-between;
 
-        .logo {
+        &__title {
+            display: inline-flex;
+        }
+
+        &__logo {
             width: 40px;
         }
 
-        .site {
+        &__site {
             color: #fff;
             font-size: 2rem;
             margin-left: 20px;
+        }
+
+        &__button {
+            width: 45px;
+            padding-top: 7px;
+        }
+
+        &__menu {
+            cursor: pointer;
+            transition: all .23s ease;
+            position: absolute;
+            width: 40px;
+            left: 250px;
+            z-index: 999;
+
+            rect {
+                fill: #fff;
+            }
+        }
+    }
+
+    .wrapper-scroll {
+        height: calc(100vh - 80px);
+        overflow-y: scroll;
+        padding-right: 10px;
+
+        &::-webkit-scrollbar {
+            background-color: transparent;
+            width: 10px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border-radius: 100px;
+            background: #1d44f0;
+            border: 1px solid rgba(255, 255, 255, 0.32);
         }
     }
 
@@ -189,59 +302,169 @@ body {
             }
         }
     }
+
 }
 
-
+.overlay {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0px;
+    top: 0;
+    z-index: 95;
+    background-color: rgba(2, 0, 36, 0.4);
+}
 
 
 /************************************************************
     map.vue
 ************************************************************/
 
-.world_map {
-    width: 65vw;
-    height: 100vh;
-    position: fixed;
-    right: 0px;
-    top: 0px;
-    bottom: 0px;
-    left: 340px;
+.map_room {
 
-    .icn {
-        cursor: pointer;
-        position: absolute;
 
-        &.order::after {
-            content: attr(order);
-            background: #fff;
-            color: #000;
-            width: 20px;
-            position: absolute;
-            height: 20px;
-            display: flex;
-            line-height: 0.8;
-            font-size: 15px;
-            transform: translate(9px, 27px);
-            border-radius: 10px;
-            opacity: 0.7;
-            justify-content: center;
-            align-items: center;
-        }
+    &__interact {
+        margin-left: 340px;
+        display: grid;
+        grid-template-columns: auto 330px;
+        max-width: 1600px;
 
-        &.order.dungeon::after {
-            transform: translate(11px, 12px);
+        @include xl {
+            margin-left: 90px;
         }
     }
 
-    .container {
-        min-width: 100%;
-        min-height: 100%;
-        background-repeat: no-repeat;
-        background-position: center;
+    &__display {
+        overflow-y: scroll;
+        padding-top: 20px;
+
+        &::-webkit-scrollbar {
+            background-color: transparent;
+        }
     }
+
+    &__header {
+        padding: 0 10px;
+        display: flex;
+        justify-content: space-between;
+
+        &>div {
+            display: inline-flex;
+            align-items: baseline;
+        }
+
+        .tab {
+            padding: 10px 10px 5px;
+            background: rgb(0, 105, 100);
+            background: linear-gradient(349deg, rgba(0, 105, 100, 1) 0%, rgba(11, 6, 38, 1) 45%, rgba(5, 33, 102, 1) 100%);
+            font-size: 1.5rem;
+            border-radius: 15px;
+            margin-right: 5px;
+            line-height: 1;
+            height: 50px;
+            color: rgb(131, 131, 131);
+            cursor: pointer;
+            border: none;
+            transition: all .23s ease;
+
+            &:hover {
+                box-shadow: 0px 0px 7px 3px rgb(95, 127, 6);
+            }
+
+
+            &.active {
+                color: #fff;
+            }
+        }
+
+        h2 {
+            color: #fff;
+            font-size: 3rem;
+            margin: 0 60px 0 20px;
+
+            &::first-letter {
+                text-transform: capitalize
+            }
+        }
+
+        p,
+        span {
+            color: #fff;
+            margin-right: 10px;
+            font-size: 1.2rem;
+
+            &::first-letter {
+                text-transform: capitalize
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.map_room {
+    min-height: 100vh;
+    transition: all .45s ease;
+
+    &.active {
+        grid-template-columns: auto 330px;
+        margin-left: 115px;
+
+        .map_room__map {
+            max-width: none;
+        }
+    }
+
+
+
+
+
+
+    &__map {
+        height: 100%;
+        max-width: 1200px;
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        border-radius: 2px;
+    }
+
+}
 
 
 /************************************************************
@@ -249,12 +472,10 @@ body {
 ************************************************************/
 
 .map_details {
-    position: absolute;
     right: 0;
-    width: 328px;
-    height: 100vh;
+    width: 320px;
+    min-height: 100vh;
     top: 0;
-    background: rgb(12, 3, 53);
     color: #fff;
     padding: 2rem;
     overflow-y: scroll;
