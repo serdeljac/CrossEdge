@@ -1,22 +1,24 @@
 <!-- eslint-disable prettier/prettier -->
 
 <template>
-    <div class="map_room"> 
+    <main class="map_room"> 
         <sidebar />
         <div class="map_room__interact">
             
             <div class="map_room__display">
                 <header class="map_room__header">
-                    <div>
-                        <h2>{{ currentMap }}</h2>
-                        <span>NEXT: </span>
-                        <p>{{ nextMap }}</p>
-                    </div>  
-                    <div>
-                        <button class="tab tab1" v-bind:class="{ 'active': tabSelect == 'tab1' }" @click="setActiveTab('tab1')">Event Info</button>
-                        <button class="tab tab2" v-bind:class="{ 'active': tabSelect == 'tab2' }" @click="setActiveTab('tab2')">Titles in area</button>
-                        <button class="tab tab3" v-bind:class="{ 'active': tabSelect == 'tab3' }" @click="setActiveTab('tab3')">Bestiary</button>
-                    </div>
+                        <div class="map_room__title">
+                            <h2>{{ currentMap }}</h2>
+                        </div>
+                        <div class="map_room__nextmap">
+                            <span>Next Map: </span>
+                            <p>{{ nextMap }}</p>
+                        </div>
+                        <div class="map_room__tabs">
+                            <button class="tab tab1" v-bind:class="{ 'active': tabSelect == 'tab1' }" @click="setActiveTab('tab1')">Event Info</button>
+                            <button class="tab tab2" v-bind:class="{ 'active': tabSelect == 'tab2' }" @click="setActiveTab('tab2')">Titles in area</button>
+                            <button class="tab tab3" v-bind:class="{ 'active': tabSelect == 'tab3' }" @click="setActiveTab('tab3')">Bestiary</button>
+                        </div>
                 </header>
 
                 <div class="map_room__map" :class="currentMap">
@@ -53,11 +55,9 @@
                     </div>
                 </div>
             </div>
-
             <mapDetails :info="dataArray" :mapName="currentMap" :tabOpen="tabSelect"/>
         </div>
-        
-    </div>
+    </main>
 
 </template>
 

@@ -1,8 +1,8 @@
 <!-- eslint-disable prettier/prettier -->
 <template>
-    <div class="map_details" v-for="data in info" :key="data.id">
+    <div class="map_details" >
 
-        <div v-if="tabOpen == 'tab1'">
+        <div v-if="tabOpen == 'tab1'" v-for="data in info" :key="data.id">
             <div class="title">
                 
                 <h4 v-if="data.target == 'Soul Reward'">{{ data.target }} #{{ data.soul }}</h4>
@@ -123,8 +123,13 @@
 
         
         </div>
+
     </div>
 
+    <div class="view_all_link">
+        <p v-if="tabOpen == 'tab2'">View all Titles</p>
+        <p v-if="tabOpen == 'tab3'">View all Bestiary</p>
+    </div>
 
 </template>
 
