@@ -1,7 +1,8 @@
 <!-- eslint-disable prettier/prettier -->
 <template>
     <div class="map_details" v-for="data in info" :key="data.id">
-        <div v-if="data.target == 'guide' || data.target == 'Soul Reward'">
+
+        <div v-if="tabOpen == 'tab1'">
             <div class="title">
                 
                 <h4 v-if="data.target == 'Soul Reward'">{{ data.target }} #{{ data.soul }}</h4>
@@ -70,14 +71,57 @@
             </div>
  
         </div>
-        <div v-if="data.target == 'bestiary'">
-            <div class="bestiary">
-                <ul>
-                    <li v-for="data in info" :key="data.id">
-                        {{ data.name }}
-                    </li>
-                </ul>
+
+        <div class="bestiary" v-if="tabOpen == 'tab2'">
+
+            <h3>Enemies to defeat:</h3>
+            
+            <div class="tbl" v-for="data in info" :key="data.id">
+                <div v-if="data.kill_title">
+                    <p class="bestiary__monster">(#{{ data.ID }}) {{ data.name }}</p>
+                    <ul class="bestiary__title">
+                        <li>Location: {{ data.area }}</li>
+                        <li v-if="data.kill_title">Title: {{ data.kill_title }} - Defeat {{ data.kill_count }}</li>
+                    </ul>
+                </div>
             </div>
+
+            <hr>
+
+            <h3>Items to aquire:</h3>
+
+            <div class="tbl" v-for="data in info" :key="data.id">
+                <div v-if="data.item_title">
+                    <p class="bestiary__monster">(#{{ data.ID }}) {{ data.name }}</p>
+                    <ul class="bestiary__title">
+                        <li>Location: {{ data.area }}</li>
+                        <li v-if="data.item_title">Title: {{ data.item_title }} - {{ getDropType(data.name, data.item_name) }} {{
+                        data.item_name }} {{ data.item_count }}</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="bestiary" v-if="tabOpen == 'tab3'">
+        
+            <h3>Bestiary:</h3>
+        
+            <div class="tbl" v-for="data in info" :key="data.id">
+                <div>
+                    <p class="bestiary__monster">(#{{ data.ID }}) {{ data.name }}</p>
+                    <ul class="bestiary__title">
+                        <li>Location: {{ data.area }}</li>
+                        <li class="item_drop" v-if="data.drop1">Drop 1: {{ data.drop1 }}</li>
+                        <li class="item_drop" v-if="data.drop2">Drop 2: {{ data.drop2 }}</li>
+                        <li class="item_rare" v-if="data.rare1">Rare 1: {{ data.rare1 }}</li>
+                        <li class="item_rare" v-if="data.rare2">Rare 2: {{ data.rare2 }}</li>
+                        <li class="item_overkill" v-if="data.overkill">Overkill: {{ data.overkill }}</li>
+                    </ul>
+                </div>
+            </div>
+
+        
         </div>
     </div>
 
@@ -85,12 +129,27 @@
 </template>
 
 <script lang="ts">
+import json_bestiaryList from '@/assets/data/bestiary.json';
+
     export default {
         name: "Map_Details",
         props: 
-            {'info' : {type: Object},
-            'mapName' : {type: String}},
-    }
+            {
+                'info' : {type: Object},
+                'mapName' : {type: String},
+                'tabOpen' : {type: String},
+        },
+        methods: {
+            getDropType(x, y) {
+
+
+                const getInfo = json_bestiaryList[2];
+                // const z = getInfo.data.filter(function (e) { return e.zone == props.mapName });
+                // console.log(z);
+                // this.dataArray = x;
+
+         }   
+        }}
 </script>
 
 

@@ -109,7 +109,7 @@
             sidebarForce() {
                 let winW = window.innerWidth;
 
-                if (winW <= 1400) {
+                if (winW <= 1800) {
                     this.mobileMode = true;
                     
                 }else {

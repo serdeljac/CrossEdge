@@ -468,10 +468,12 @@ body {
 
 .map_details {
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
     color: #fff;
     padding: 20px 10px;
     overflow-y: scroll;
+    background-color: rgba(0, 0, 0, 0.839);
+    box-shadow: -8px 0 10px 3px rgba(0, 0, 0, 0.839);
 
     &::-webkit-scrollbar {
         background-color: transparent;
@@ -484,10 +486,6 @@ body {
         border: 6px solid rgb(12, 3, 53);
         cursor: pointer;
     }
-
-
-
-
 
     .title {
         text-align: center;
@@ -519,9 +517,6 @@ body {
         opacity: 0.7;
         margin: 15px 5px;
     }
-
-
-
 
     //CHECKBOX
     .mark_completion {
@@ -585,21 +580,27 @@ body {
     }
 
 
+    .bestiary {
+        font-size: 1.2rem;
+
+        h3 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        &__monster {
+            font-size: 1.6rem;
+        }
+
+        &__title {
+            margin-bottom: 20px;
+            color: #777;
+            padding-left: 10px;
+        }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
 
 
 
