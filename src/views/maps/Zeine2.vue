@@ -6,52 +6,42 @@
         <div class="map_room__interact">
             
             <div class="map_room__display">
-                <header class="map_room__header">
-                        <div class="map_room__title">
-                            <h2>{{ currentMap }}</h2>
-                        </div>
-                        <div class="map_room__nextmap">
-                            <span>Next Map: </span>
-                            <p>{{ nextMap }}</p>
-                        </div>
-                        <div class="map_room__tabs">
-                            <button class="tab tab1" v-bind:class="{ 'active': tabSelect == 'tab1' }" @click="setActiveTab('tab1')">Event Info</button>
-                            <button class="tab tab2" v-bind:class="{ 'active': tabSelect == 'tab2' }" @click="setActiveTab('tab2')">Titles in area</button>
-                            <button class="tab tab3" v-bind:class="{ 'active': tabSelect == 'tab3' }" @click="setActiveTab('tab3')">Bestiary</button>
-                        </div>
-                </header>
+                <mapRoomHeader :currentMap="currentMap" :nextMap="nextMap" @changeTab="setActiveTab" />
 
                 <div class="map_room__map" :class="currentMap">
 
                     <div class="contain events">
-                        <div class="icn order storyevent story-1"         @click="getEventList('evt001')" order="1"><storyevent /></div>
-                        <div class="icn order storyevent story-2"         @click="getEventList('evt002')" order="2"><storyevent /></div>
-                        <div class="icn order storyevent story-3"         @click="getEventList('evt003')" order="3"><storyevent /></div>
-                        <div class="icn order town town-1"                @click="getEventList('evt004')" order="4"><zeinetown /></div>
-                        <div class="icn order storyevent story-4"         @click="getEventList('evt005')" order="5"><storyevent /></div>
-                        <div class="icn order storyevent story-5"         @click="getEventList('evt006')" order="6"><storyevent /></div>
-                        <div class="icn order storyevent story-6"         @click="getEventList('evt007')" order="7"><storyevent /></div>
-                        <div class="icn order dungeon dungeon-1"          @click="getEventList('evt008')" order="8"><dungeon /></div>
-                        <div class="icn order soulevent soulevent-1"      @click="getEventList('evt063')" order="63"><soulevent /></div>
+                        <div class="icn order dungeon dungeon-1"          @click="getEventList('evt042')" order="42"><dungeon /></div>
+                        <div class="icn order storyevent story-1"         @click="getEventList('evt043')" order="43"><storyevent /></div>
+                        <div class="icn order soulevent soulevent-1"      @click="getEventList('evt044')" order="44"><soulevent /></div>
+                        <div class="icn order soulevent soulevent-2"      @click="getEventList('evt046')" order="46"><soulevent /></div>
+                        <div class="icn order storyevent story-2"         @click="getEventList('evt047')" order="47"><storyevent /></div>
+                        <div class="icn order soulevent soulevent-3"      @click="getEventList('evt048')" order="48"><soulevent /></div>
+                        <div class="icn order soulevent soulevent-4"      @click="getEventList('evt049')" order="49"><soulevent /></div>
+                        <div class="icn order storyevent story-3"         @click="getEventList('evt050')" order="50"><storyevent /></div>
+                        <div class="icn order dungeon dungeon-2"          @click="getEventList('evt051')" order="51"><dungeon /></div>
+                        
+                        <div class="icn town town-1"                      @click="getEventList('icn027')"><zeinetown /></div>
+                        <div class="icn town town-2"                      @click="getEventList('icn028')"><zeinetown /></div>
+                        <div class="icn tablet tablet-1"                  @click="getEventList('icn029')"><tablet /></div>
+                        <div class="icn tablet tablet-2"                  @click="getEventList('icn030')"><tablet /></div>
+                        <div class="icn tablet tablet-3"                  @click="getEventList('icn031')"><tablet /></div>
+                        <div class="icn tablet tablet-4"                  @click="getEventList('icn032')"><tablet /></div>
 
-                        <div class="icn town town-2"                      @click="getEventList('icn001')"><zeinetown /></div>
-                        <div class="icn tablet tablet-1"                  @click="getEventList('icn002')"><tablet /></div>
-                        <div class="icn tablet tablet-2"                  @click="getEventList('icn003')"><tablet /></div>
-                        <div class="icn tablet tablet-3"                  @click="getEventList('icn004')"><tablet /></div>
-                        <div class="icn tablet tablet-4"                  @click="getEventList('icn005')"><tablet /></div>
-                        <div class="icn tablet tablet-5"                  @click="getEventList('icn006')"><tablet /></div>
-                        <div class="icn dungeon dungeon-2"                @click="getEventList('icn007')"><dungeon /></div>
-
-                        <div class="icn soul soul-1"                      @click="getSoulsList('z101')"><soul /></div>
-                        <div class="icn soul soul-2"                      @click="getSoulsList('z102')"><soul /></div>
-                        <div class="icn soul soul-3"                      @click="getSoulsList('z103')"><soul /></div>
-                        <div class="icn soul soul-4"                      @click="getSoulsList('z104')"><soul /></div>
-                        <div class="icn soul soul-5"                      @click="getSoulsList('z105')"><soul /></div>
-                        <div class="icn soul soul-6"                      @click="getSoulsList('z106')"><soul /></div>
-                        <div class="icn soul soul-7"                      @click="getSoulsList('z107')"><soul /></div>
-                        <div class="icn soul soul-8"                      @click="getSoulsList('z108')"><soul /></div>
-                        <div class="icn soul soul-9"                      @click="getSoulsList('z109')"><soul /></div>
-                        <div class="icn soul soul-10"                     @click="getSoulsList('z110')"><soul /></div>
+                        <div class="icn soul soul-1"                      @click="getSoulsList('z201')"><soul /></div>
+                        <div class="icn soul soul-2"                      @click="getSoulsList('z202')"><soul /></div>
+                        <div class="icn soul soul-3"                      @click="getSoulsList('z203')"><soul /></div>
+                        <div class="icn soul soul-4"                      @click="getSoulsList('z204')"><soul /></div>
+                        <div class="icn soul soul-5"                      @click="getSoulsList('z205')"><soul /></div>
+                        <div class="icn soul soul-6"                      @click="getSoulsList('z206')"><soul /></div>
+                        <div class="icn soul soul-7"                      @click="getSoulsList('z207')"><soul /></div>
+                        <div class="icn soul soul-8"                      @click="getSoulsList('z208')"><soul /></div>
+                        <div class="icn soul soul-9"                      @click="getSoulsList('z209')"><soul /></div>
+                        <div class="icn soul soul-10"                     @click="getSoulsList('z210')"><soul /></div>
+                        <div class="icn soul soul-11"                     @click="getSoulsList('z211')"><soul /></div>
+                        <div class="icn soul soul-12"                     @click="getSoulsList('z212')"><soul /></div>
+                        <div class="icn soul soul-13"                     @click="getSoulsList('z213')"><soul /></div>
+                        <div class="icn soul soul-14"                     @click="getSoulsList('z214')"><soul /></div>
                     </div>
                 </div>
             </div>
@@ -65,6 +55,7 @@
 
 //Components
 import sidebar from '@/components/Sidebar.vue';
+import mapRoomHeader from '@/components/MapRoomHeader.vue';
 import mapDetails from '@/components/MapDetails.vue';
 
 //Icons
@@ -82,19 +73,19 @@ import json_bestiaryList from '@/assets/data/bestiary.json';
 
     export default {
         name: "Map_Zeine2",
-        components: { storyevent, soulevent, zeinetown, tablet, dungeon, soul, sidebar, mapDetails },
+        components: { storyevent, soulevent, zeinetown, tablet, dungeon, soul, sidebar, mapRoomHeader, mapDetails },
         data() {
             return {
-                dataArray: null,
+                dataArray: [],
                 currentMap: 'zeine-2',
                 nextMap: 'zeine-3',
-                tabSelect: 'tab1',
-                defaultEvt: 'evt001'
+                tabSelect: '',
+                defaultEvt: 'evt042'
             }
         },
         mounted() {
             window.addEventListener("resize", this.adjustIcons);
-            this.getEventList('evt001');
+            this.getEventList(this.defaultEvt);
         },
         methods: {
             getSoulsList(id) {
@@ -124,12 +115,7 @@ import json_bestiaryList from '@/assets/data/bestiary.json';
                 } else if (x == 'tab3') {
                     this.getBestiaryList(this.currentMap);
                 }
-
             },
         },
     }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

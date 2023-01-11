@@ -6,20 +6,7 @@
         <div class="map_room__interact">
             
             <div class="map_room__display">
-                <header class="map_room__header">
-                        <div class="map_room__title">
-                            <h2>{{ currentMap }}</h2>
-                        </div>
-                        <div class="map_room__nextmap">
-                            <span>Next Map: </span>
-                            <p>{{ nextMap }}</p>
-                        </div>
-                        <div class="map_room__tabs">
-                            <button class="tab tab1" v-bind:class="{ 'active': tabSelect == 'tab1' }" @click="setActiveTab('tab1')">Event Info</button>
-                            <button class="tab tab2" v-bind:class="{ 'active': tabSelect == 'tab2' }" @click="setActiveTab('tab2')">Titles in area</button>
-                            <button class="tab tab3" v-bind:class="{ 'active': tabSelect == 'tab3' }" @click="setActiveTab('tab3')">Bestiary</button>
-                        </div>
-                </header>
+                <mapRoomHeader :currentMap="currentMap" :nextMap="nextMap" @changeTab="setActiveTab" />
 
                 <div class="map_room__map" :class="currentMap">
 
@@ -65,6 +52,7 @@
 
 //Components
 import sidebar from '@/components/Sidebar.vue';
+import mapRoomHeader from '@/components/MapRoomHeader.vue';
 import mapDetails from '@/components/MapDetails.vue';
 
 //Icons
@@ -82,19 +70,19 @@ import json_bestiaryList from '@/assets/data/bestiary.json';
 
     export default {
         name: "Map_Zeine1",
-        components: { storyevent, soulevent, zeinetown, tablet, dungeon, soul, sidebar, mapDetails },
+        components: { storyevent, soulevent, zeinetown, tablet, dungeon, soul, sidebar, mapRoomHeader, mapDetails },
         data() {
             return {
-                dataArray: null,
+                dataArray: [],
                 currentMap: 'zeine-1',
                 nextMap: 'wilkiet-1',
-                tabSelect: 'tab1',
+                tabSelect: '',
                 defaultEvt: 'evt001'
             }
         },
         mounted() {
             window.addEventListener("resize", this.adjustIcons);
-            this.getEventList('evt001');
+            this.getEventList(this.defaultEvt);
         },
         methods: {
             getSoulsList(id) {
