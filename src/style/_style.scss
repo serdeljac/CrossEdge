@@ -127,8 +127,12 @@ body {
         transform: translate(9px, 25px);
     }
 
-    &.town::after {
+    &.town.ziene::after {
         transform: translate(26px, 25px);
+    }
+
+    &.town.wilkiet::after {
+        transform: translate(33px, 25px);
     }
 
     &.dungeon::after {

@@ -13,7 +13,7 @@
 
                         <div class="icn order dungeon dungeon-1"          @click="getEventList('evt030')" order="30"><dungeon /></div>
                         <div class="icn order storyevent story-1"         @click="getEventList('evt033')" order="33"><storyevent /></div>
-                        <div class="icn order town wilkiet town-1"                @click="getEventList('evt034')" order="34"><wilkiettown /></div>
+                        <div class="icn order town wilkiet town-1"        @click="getEventList('evt034')" order="34"><wilkiettown /></div>
                         <div class="icn order soulevent soulevent-1"      @click="getEventList('evt035')" order="35"><soulevent /></div>
                         <div class="icn order soulevent soulevent-2"      @click="getEventList('evt036')" order="36"><soulevent /></div>
                         <div class="icn order soulevent soulevent-3"      @click="getEventList('evt037')" order="37"><soulevent /></div>                        
@@ -23,7 +23,7 @@
                         <div class="icn order dungeon dungeon-2"          @click="getEventList('evt041')" order="41"><dungeon /></div>
                         <div class="icn order soulevent soulevent-5"      @click="getEventList('evt100')" order="100"><soulevent /></div>                        
 
-                        <div class="icn town wilkiet town-2"                      @click="getEventList('icn021')"><wilkiettown /></div>
+                        <div class="icn town wilkiet town-2"              @click="getEventList('icn021')"><wilkiettown /></div>
                         <div class="icn tablet tablet-1"                  @click="getEventList('icn022')"><tablet /></div>
                         <div class="icn tablet tablet-2"                  @click="getEventList('icn023')"><tablet /></div>
                         <div class="icn tablet tablet-3"                  @click="getEventList('icn024')"><tablet /></div>
