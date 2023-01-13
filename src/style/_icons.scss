@@ -16,7 +16,7 @@
     .story-6 {transform: translate3d(271px, 103px, 0px);}
     .story-7 {transform: translate3d(680px, 549px, 0px);}
     .soulevent-1 {transform: translate3d(447px, 272px, 0px);}
-    .town-1 {transform: translate3d(789px, 354px, 0px);}
+    .town-1 {transform: translate3d(787px, 354px, 0px);}
     .town-2 {transform: translate3d(259px, 195px, 0px);}
     .tablet-1 {transform: translate3d(995px, 425px, 0px);}
     .tablet-2 {transform: translate3d(570px, 370px, 0px)} 
@@ -128,12 +128,11 @@
     .icon-story-event {width: 57px;}
     .icon-tablet {width: 37px;}
     .icon-wilkiet-town {width: 58px;}
-    
+
     .dungeon-1 {transform: translate3d(985px, 226px, 0px);}
     .story-1 {transform: translate3d(895px, 220px, 0px);}
     .story-2 {transform: translate3d(839px, 388px, 0px);}
     .story-3 {transform: translate3d(668px, 348px, 0px);}
-    
     .soulevent-1 {transform: translate3d(1031px, 336px, 0px);}
     .soulevent-2 {transform: translate3d(896px, 262px, 0px);}
     .soulevent-3 {transform: translate3d(615px, 510px, 0px);}
@@ -146,7 +145,6 @@
     .soulevent-6 {transform: translate3d(333px, 297px, 0px);}
     .soulevent-7 {transform: translate3d(168px, 297px, 0px);}
     .soulevent-8 {transform: translate3d(786px, 307px, 0px);}
-
     .town-1 {transform: translate3d(811px, 268px, 0px);}
     .town-2 {transform: translate3d(546px, 462px, 0px);}
     .town-3 {transform: translate3d(356px, 223px, 0px);}
@@ -172,4 +170,49 @@
     .soul-14 {transform: translate3d(752px, 145px, 0px);}
     .soul-15 {transform: translate3d(206px, 421px, 0px);}
     .soul-16 {transform: translate3d(491px, 273px, 0px);}
+}
+
+
+.wilkiet-2 {
+    background-image: url(@/assets/maps/Wilkiet_2.jpg);
+    height: 464px !important;
+    .icon-dungeon {width: 25px;}
+    .icon-soul {width: 19px;}
+    .icon-soul-event {width: 65px;}
+    .icon-story-event {width: 57px;}
+    .icon-tablet {width: 37px;}
+    .icon-wilkiet-town {width: 58px;}
+    
+    .dungeon-1 {transform: translate3d(845px, 267px, 0px);}
+    .story-1 {transform: translate3d(723px, 216px, 0px);}
+    .town-1 {transform: translate3d(673px, 187px, 0px);}
+    .soulevent-1 {transform: translate3d(541px, 273px, 0px);}
+    .soulevent-2 {transform: translate3d(1020px, 354px, 0px);}
+    .soulevent-3 {transform: translate3d(294px, 265px, 0px);}
+    .soulevent-4 {transform: translate3d(540px, 120px, 0px);}
+    .story-2 {transform: translate3d(432px, 241px, 0px);}
+    .story-3 {transform: translate3d(250px, 170px, 0px);}
+    .dungeon-2 {transform: translate3d(143px, 83px, 0px);}
+    .soulevent-5 {transform: translate3d(91px, 100px, 0px);}
+    .town-2 {transform: translate3d(228px, 58px, 0px);}
+    .tablet-1 {transform: translate3d(581px, 189px, 0px);}
+    .tablet-2 {transform: translate3d(363px, 199px, 0px);} 
+    .tablet-3 {transform: translate3d(252px, 95px, 0px);}
+    .tablet-4 {transform: translate3d(259px, 3px, 0px);}
+    .dungeon-3 {transform: translate3d(442px, 124px, 0px);}
+
+    .soul-1 {transform: translate3d(917px, 275px, 0px);}
+    .soul-2 {transform: translate3d(603px, 300px, 0px);}
+    .soul-3 {transform: translate3d(672px, 75px, 0px);}
+    .soul-4 {transform: translate3d(443px, 340px, 0px);}
+    .soul-5 {transform: translate3d(368px, 317px, 0px);}
+    .soul-6 {transform: translate3d(364px, 62px, 0px);}
+    .soul-7 {transform: translate3d(329px, 131px, 0px);}
+    .soul-8 {transform: translate3d(178px, 264px, 0px);}
+    .soul-9 {transform: translate3d(108px, 183px, 0px);}
+    .soul-10 {transform: translate3d(51px, 56px, 0px);}
+    .soul-11 {transform: translate3d(744px, 185px, 0px);}
+    .soul-12 {transform: translate3d(958px, 352px, 0px);}
+    .soul-13 {transform: translate3d(571px, 256px, 0px);}
+    .soul-14 {transform: translate3d(420px, 150px, 0px);}
 }

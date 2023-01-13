@@ -86,7 +86,7 @@ import json_eventList from '@/assets/data/events.json';
 import json_bestiaryList from '@/assets/data/bestiary.json';
 
     export default {
-        name: "Map_Wilkiet",
+        name: "Map_Wilkiet1",
     components: { storyevent, soulevent, wilkiettown, tablet, dungeon, soul, sidebar, mapRoomHeader, mapDetails },
         data() {
             return {

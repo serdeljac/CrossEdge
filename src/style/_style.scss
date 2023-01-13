@@ -102,6 +102,11 @@ body {
 
 .icn {
 
+    &.order {
+        position: relative;
+        z-index: 80;
+    }
+
     &.order::after {
         content: attr(order);
         width: 16px;
