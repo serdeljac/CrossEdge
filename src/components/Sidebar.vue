@@ -56,7 +56,7 @@
                         <ul>
                             <li><router-link :to="{ name: 'zeine 1', }">Zeine - Area 1</router-link></li>
                             <li><router-link :to="{ name: 'zeine 2', }">Zeine - Area 2</router-link></li>
-                            <li>Zeine - Area 3</li>
+                            <li><router-link :to="{ name: 'zeine 3', }">Zeine - Area 3</router-link></li>
                             <li><router-link :to="{ name: 'wilkiet 1',}">Wilkiet - Area 1</router-link></li>
                             <li><router-link :to="{ name: 'wilkiet 2',}">Wilkiet - Area 2</router-link></li>
                             <li>Wilkiet - Area 3</li>
@@ -68,7 +68,6 @@
                             <li>Pragma - Area 3</li>
                             <li>Ida - Area 1</li>
                             <li>Ida - Area 2</li>
-                            <li>Ida - Area 3</li>
                         </ul>
                     </div>
 

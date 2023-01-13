@@ -1,4 +1,3 @@
-
 .zeine-1 {
     background-image: url(@/assets/maps/Zeine_1.jpg);
     height: 697px !important;
@@ -37,7 +36,6 @@
     .soul-9 {transform: translate3d(355px, 47px, 0px);}
     .soul-10 {transform: translate3d(355px, 511px, 0px);}
 }
-
 
 .zeine-2 {
     background-image: url(@/assets/maps/Zeine_2.jpg);
@@ -100,7 +98,6 @@
     .soulevent-5 {transform: translate3d(992px, 83px, 0px);}
     .story-3 {transform: translate3d(779px, 387px, 0px);}
     .dungeon-2 {transform: translate3d(773px, 361px, 0px);}
-
     .town-1 {transform: translate3d(889px, 325px, 0px);}
     .town-2 {transform: translate3d(449px, 223px, 0px);}
     .tablet-1 {transform: translate3d(458px, 264px, 0px);}
@@ -120,4 +117,59 @@
     .soul-12 {transform: translate3d(525px, 86px, 0px);}
     .soul-13 {transform: translate3d(709px, 341px, 0px);}
     .soul-14 {transform: translate3d(1033px, 107px, 0px);}
+}
+
+.wilkiet-1 {
+    background-image: url(@/assets/maps/Wilkiet_1.jpg);
+    height: 904px !important;
+    .icon-dungeon {width: 25px;}
+    .icon-soul {width: 19px;}
+    .icon-soul-event {width: 65px;}
+    .icon-story-event {width: 57px;}
+    .icon-tablet {width: 37px;}
+    .icon-wilkiet-town {width: 58px;}
+    
+    .dungeon-1 {transform: translate3d(985px, 226px, 0px);}
+    .story-1 {transform: translate3d(895px, 220px, 0px);}
+    .story-2 {transform: translate3d(839px, 388px, 0px);}
+    .story-3 {transform: translate3d(668px, 348px, 0px);}
+    
+    .soulevent-1 {transform: translate3d(1031px, 336px, 0px);}
+    .soulevent-2 {transform: translate3d(896px, 262px, 0px);}
+    .soulevent-3 {transform: translate3d(615px, 510px, 0px);}
+    .story-4 {transform: translate3d(357px, 522px, 0px);}
+    .story-5 {transform: translate3d(345px, 382px, 0px);}
+    .soulevent-4 {transform: translate3d(507px, 366px, 0px);}
+    .story-6 {transform: translate3d(460px, 232px, 0px);}
+    .soulevent-5 {transform: translate3d(632px, 160px, 0);}
+    .dungeon-2 {transform: translate3d(569px, 701px, 0px);}
+    .soulevent-6 {transform: translate3d(333px, 297px, 0px);}
+    .soulevent-7 {transform: translate3d(168px, 297px, 0px);}
+    .soulevent-8 {transform: translate3d(786px, 307px, 0px);}
+
+    .town-1 {transform: translate3d(811px, 268px, 0px);}
+    .town-2 {transform: translate3d(546px, 462px, 0px);}
+    .town-3 {transform: translate3d(356px, 223px, 0px);}
+    .tablet-1 {transform: translate3d(630px, 442px, 0px);}
+    .tablet-2 {transform: translate3d(392px, 491px, 0px);} 
+    .tablet-3 {transform: translate3d(351px, 279px, 0px);}
+    .tablet-4 {transform: translate3d(383px, 641px, 0px);}
+    .tablet-5 {transform: translate3d(738px, 579px, 0px);}
+
+    .soul-1 {transform: translate3d(729px, 295px, 0px);}
+    .soul-2 {transform: translate3d(970px, 348px, 0px);}
+    .soul-3 {transform: translate3d(871px, 420px, 0px);}
+    .soul-4 {transform: translate3d(593px, 440px, 0px);}
+    .soul-5 {transform: translate3d(337px, 564px, 0px);}
+    .soul-6 {transform: translate3d(302px, 393px, 0px);}
+    .soul-7 {transform: translate3d(467px, 355px, 0px);}
+    .soul-8 {transform: translate3d(741px, 95px, 0px);}
+    .soul-9 {transform: translate3d(525px, 86px, 0px);}
+    .soul-10 {transform: translate3d(308px, 152px, 0px);}
+    .soul-11 {transform: translate3d(67px, 304px, 0px);}
+    .soul-12 {transform: translate3d(143px, 534px, 0px);}
+    .soul-13 {transform: translate3d(501px, 519px, 0px);}
+    .soul-14 {transform: translate3d(752px, 145px, 0px);}
+    .soul-15 {transform: translate3d(206px, 421px, 0px);}
+    .soul-16 {transform: translate3d(491px, 273px, 0px);}
 }
