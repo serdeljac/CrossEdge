@@ -22,8 +22,8 @@
                         <div class="icn order storyevent story-3"         @click="getEventList('evt060')" order="60"><storyevent /></div>
                         <div class="icn order dungeon dungeon-2"          @click="getEventList('evt061')" order="61"><dungeon /></div>
                         
-                        <div class="icn town town-1"                      @click="getEventList('icn033')"><zeinetown /></div>
-                        <div class="icn town town-2"                      @click="getEventList('icn034')"><zeinetown /></div>
+                        <div class="icn town ziene town-1"                      @click="getEventList('icn033')"><zeinetown /></div>
+                        <div class="icn town ziene town-2"                      @click="getEventList('icn034')"><zeinetown /></div>
                         <div class="icn tablet tablet-1"                  @click="getEventList('icn035')"><tablet /></div>
                         <div class="icn tablet tablet-2"                  @click="getEventList('icn036')"><tablet /></div>
                         <div class="icn tablet tablet-3"                  @click="getEventList('icn037')"><tablet /></div>

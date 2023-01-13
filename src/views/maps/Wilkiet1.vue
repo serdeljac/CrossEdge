@@ -29,9 +29,9 @@
                         <div class="icn order soulevent soulevent-7"      @click="getEventList('evt032')" order="32"><soulevent /></div>
                         <div class="icn order soulevent soulevent-8"      @click="getEventList('evt045')" order="45"><soulevent /></div>
 
-                        <div class="icn town town-1"                      @click="getEventList('icn008')"><wilkiettown /></div>
-                        <div class="icn town town-2"                      @click="getEventList('icn009')"><wilkiettown /></div>
-                        <div class="icn town town-3"                      @click="getEventList('icn010')"><wilkiettown /></div>
+                        <div class="icn town wilkiet town-1"                      @click="getEventList('icn008')"><wilkiettown /></div>
+                        <div class="icn town wilkiet town-2"                      @click="getEventList('icn009')"><wilkiettown /></div>
+                        <div class="icn town wilkiet town-3"                      @click="getEventList('icn010')"><wilkiettown /></div>
                         <div class="icn tablet tablet-1"                  @click="getEventList('icn011')"><tablet /></div>
                         <div class="icn tablet tablet-2"                  @click="getEventList('icn012')"><tablet /></div>
                         <div class="icn tablet tablet-3"                  @click="getEventList('icn013')"><tablet /></div>
