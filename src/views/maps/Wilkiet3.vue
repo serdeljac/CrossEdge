@@ -23,7 +23,7 @@
                         <div class="icn order storyevent story-3"         @click="getEventList('evt072')" order="72"><storyevent /></div>
                         <div class="icn order storyevent story-4"         @click="getEventList('evt073')" order="73"><storyevent /></div>
                         <div class="icn order dungeon dungeon-2"          @click="getEventList('evt074')" order="74"><dungeon /></div>
-                        <div class="icn order soulevent soulevent-5"      @click="getEventList('evt099')" order="99"><soulevent /></div>                        
+                        <div class="icn order soulevent soulevent-7"      @click="getEventList('evt099')" order="99"><soulevent /></div>                        
 
                         <div class="icn town wilkiet town-1"              @click="getEventList('icn038')"><wilkiettown /></div>
                         <div class="icn town wilkiet town-2"              @click="getEventList('icn039')"><wilkiettown /></div>

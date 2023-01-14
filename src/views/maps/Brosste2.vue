@@ -26,20 +26,22 @@
                         <div class="icn tablet tablet-2"                  @click="getEventList('icn019')"><tablet /></div>
                         <div class="icn tablet tablet-3"                  @click="getEventList('icn020')"><tablet /></div>
 
-                        <div class="icn soul soul-1"                      @click="getSoulsList('b101')"><soul /></div>
-                        <div class="icn soul soul-2"                      @click="getSoulsList('b102')"><soul /></div>
-                        <div class="icn soul soul-3"                      @click="getSoulsList('b103')"><soul /></div>
-                        <div class="icn soul soul-4"                      @click="getSoulsList('b104')"><soul /></div>
-                        <div class="icn soul soul-5"                      @click="getSoulsList('b105')"><soul /></div>
-                        <div class="icn soul soul-6"                      @click="getSoulsList('b106')"><soul /></div>
-                        <div class="icn soul soul-7"                      @click="getSoulsList('b107')"><soul /></div>
-                        <div class="icn soul soul-8"                      @click="getSoulsList('b108')"><soul /></div>
-                        <div class="icn soul soul-9"                      @click="getSoulsList('b109')"><soul /></div>
-                        <div class="icn soul soul-10"                     @click="getSoulsList('b110')"><soul /></div>
-                        <div class="icn soul soul-11"                     @click="getSoulsList('b111')"><soul /></div>
-                        <div class="icn soul soul-12"                     @click="getSoulsList('b112')"><soul /></div>
-                        <div class="icn soul soul-13"                     @click="getSoulsList('b113')"><soul /></div>
-                        <div class="icn soul soul-14"                     @click="getSoulsList('b114')"><soul /></div>
+                        <div class="icn soul soul-1"                      @click="getSoulsList('b201')"><soul /></div>
+                        <div class="icn soul soul-2"                      @click="getSoulsList('b202')"><soul /></div>
+                        <div class="icn soul soul-3"                      @click="getSoulsList('b203')"><soul /></div>
+                        <div class="icn soul soul-4"                      @click="getSoulsList('b204')"><soul /></div>
+                        <div class="icn soul soul-5"                      @click="getSoulsList('b205')"><soul /></div>
+                        <div class="icn soul soul-6"                      @click="getSoulsList('b206')"><soul /></div>
+                        <div class="icn soul soul-7"                      @click="getSoulsList('b207')"><soul /></div>
+                        <div class="icn soul soul-8"                      @click="getSoulsList('b208')"><soul /></div>
+                        <div class="icn soul soul-9"                      @click="getSoulsList('b209')"><soul /></div>
+                        <div class="icn soul soul-10"                     @click="getSoulsList('b210')"><soul /></div>
+                        <div class="icn soul soul-11"                     @click="getSoulsList('b211')"><soul /></div>
+                        <div class="icn soul soul-12"                     @click="getSoulsList('b212')"><soul /></div>
+                        <div class="icn soul soul-13"                     @click="getSoulsList('b213')"><soul /></div>
+                        <div class="icn soul soul-14"                     @click="getSoulsList('b214')"><soul /></div>
+                        <div class="icn soul soul-15"                     @click="getSoulsList('b215')"><soul /></div>
+                        <div class="icn soul soul-16"                     @click="getSoulsList('b216')"><soul /></div>
 
                 </div>
 
@@ -76,10 +78,10 @@ import json_bestiaryList from '@/assets/data/bestiary.json';
         data() {
             return {
                 dataArray: [],
-                currentMap: 'brosste-1',
-                nextMap: 'wilkiet-2',
+                currentMap: 'brosste-2',
+                nextMap: 'brosste-3',
                 tabSelect: '',
-                defaultEvt: 'evt022'
+                defaultEvt: 'evt075'
             }
         },
         mounted() {
