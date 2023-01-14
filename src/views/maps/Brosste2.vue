@@ -27,7 +27,7 @@
                         <div class="icn tablet tablet-1"                  @click="getEventList('icn044')"><tablet /></div>
                         <div class="icn tablet tablet-2"                  @click="getEventList('icn045')"><tablet /></div>
                         <div class="icn tablet tablet-3"                  @click="getEventList('icn046')"><tablet /></div>
-                        <div class="icn dungeon dungeon-3"          @click="getEventList('icn047')"><dungeon /></div>
+                        <div class="icn dungeon dungeon-3"                @click="getEventList('icn047')"><dungeon /></div>
 
                         <div class="icn soul soul-1"                      @click="getSoulsList('b201')"><soul /></div>
                         <div class="icn soul soul-2"                      @click="getSoulsList('b202')"><soul /></div>
