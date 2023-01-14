@@ -60,6 +60,11 @@ const router = createRouter({
       name: 'brosste 3',
       component: () => import('../views/maps/Brosste3.vue')
     },
+    {
+      path: '/pragma1',
+      name: 'pragma 1',
+      component: () => import('../views/maps/Pragma1.vue')
+    },
     // {
     //   path: '/Titles',
     //   name: 'titles',

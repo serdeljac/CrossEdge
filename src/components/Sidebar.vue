@@ -40,6 +40,7 @@
                     <div class="tbc-set">
                         <p>GUIDE</p>
                         <ul>
+                            <li>TIPS *Must Read*</li> 
                             <li>TRUE ENDING GUIDE</li>
                             <li>Synthesis Tombs</li>
                             <li>Arcane Tombs</li>
@@ -63,7 +64,7 @@
                             <li><router-link :to="{ name: 'brosste 1',}">Brosste - Area 1</router-link></li>
                             <li><router-link :to="{ name: 'brosste 2',}">Brosste - Area 2</router-link></li>
                             <li><router-link :to="{ name: 'brosste 3',}">Brosste - Area 3</router-link></li>
-                            <li>Pragma - Area 1</li>
+                            <li><router-link :to="{ name: 'pragma 1',}">Pragma - Area 1</router-link></li>
                             <li>Pragma - Area 2</li>
                             <li>Pragma - Area 3</li>
                             <li>Ida - Area 1</li>
