@@ -68,7 +68,9 @@
                             <li>Pragma - Area 2</li>
                             <li>Pragma - Area 3</li>
                             <li>Ida - Area 1</li>
-                            <li>Ida - Area 2</li>
+                            <li>Ida - Area 1 (True End)</li>
+                            <li>Ida - Area 2 (True End)</li>
+                            <li>Ida - Area 3 (True End)</li>
                         </ul>
                     </div>
 
