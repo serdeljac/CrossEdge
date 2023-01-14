@@ -11,20 +11,23 @@
 
                 <div class="map_room__map" :class="currentMap">
 
-                        <div class="icn order dungeon dungeon-1"          @click="getEventList('evt022')" order="22"><dungeon /></div>
-                        <div class="icn order soulevent soulevent-1"      @click="getEventList('evt023')" order="23"><soulevent /></div>
-                        <div class="icn order storyevent story-1"         @click="getEventList('evt024')" order="24"><storyevent /></div>
-                        <div class="icn order soulevent soulevent-2"      @click="getEventList('evt025')" order="25"><soulevent /></div>
-                        <div class="icn order soulevent soulevent-3"      @click="getEventList('evt026')" order="26"><soulevent /></div>                        
-                        <div class="icn order soulevent soulevent-4"      @click="getEventList('evt027')" order="27"><soulevent /></div>
-                        <div class="icn order storyevent story-2"         @click="getEventList('evt028')" order="28"><storyevent /></div>
-                        <div class="icn order dungeon dungeon-2"          @click="getEventList('evt029')" order="29"><dungeon /></div>
+                        <div class="icn order dungeon dungeon-1"          @click="getEventList('evt075')" order="75"><dungeon /></div>
+                        <div class="icn order storyevent story-1"         @click="getEventList('evt076')" order="76"><storyevent /></div>
+                        <div class="icn order soulevent soulevent-1"      @click="getEventList('evt077')" order="77"><soulevent /></div>
+                        <div class="icn order soulevent soulevent-2"      @click="getEventList('evt078')" order="78"><soulevent /></div>
+                        <div class="icn order soulevent soulevent-3"      @click="getEventList('evt079')" order="79"><soulevent /></div>                        
+                        <div class="icn order storyevent story-2"         @click="getEventList('evt080')" order="80"><storyevent /></div>
+                        <div class="icn order storyevent story-3"         @click="getEventList('evt081')" order="81"><storyevent /></div>
+                        <div class="icn order soulevent soulevent-4"      @click="getEventList('evt082')" order="82"><soulevent /></div>
+                        <div class="icn order soulevent soulevent-5"      @click="getEventList('evt083')" order="83"><soulevent /></div>
+                        <div class="icn order dungeon dungeon-2"          @click="getEventList('evt084')" order="84"><dungeon /></div>
 
-                        <div class="icn town brosste town-1"              @click="getEventList('icn016')"><brosstetown /></div>
-                        <div class="icn town brosste town-2"              @click="getEventList('icn017')"><brosstetown /></div>
-                        <div class="icn tablet tablet-1"                  @click="getEventList('icn018')"><tablet /></div>
-                        <div class="icn tablet tablet-2"                  @click="getEventList('icn019')"><tablet /></div>
-                        <div class="icn tablet tablet-3"                  @click="getEventList('icn020')"><tablet /></div>
+                        <div class="icn town brosste town-1"              @click="getEventList('icn042')"><brosstetown /></div>
+                        <div class="icn town brosste town-2"              @click="getEventList('icn043')"><brosstetown /></div>
+                        <div class="icn tablet tablet-1"                  @click="getEventList('icn044')"><tablet /></div>
+                        <div class="icn tablet tablet-2"                  @click="getEventList('icn045')"><tablet /></div>
+                        <div class="icn tablet tablet-3"                  @click="getEventList('icn046')"><tablet /></div>
+                        <div class="icn dungeon dungeon-3"          @click="getEventList('icn047')"><dungeon /></div>
 
                         <div class="icn soul soul-1"                      @click="getSoulsList('b201')"><soul /></div>
                         <div class="icn soul soul-2"                      @click="getSoulsList('b202')"><soul /></div>
