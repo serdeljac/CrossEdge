@@ -65,11 +65,11 @@ const router = createRouter({
       name: 'pragma 1',
       component: () => import('../views/maps/Pragma1.vue')
     },
-    // {
-    //   path: '/Titles',
-    //   name: 'titles',
-    //   component: () => import('../views/titles.vue')
-    // },
+    {
+      path: '/Titles',
+      name: 'titles',
+      component: () => import('../views/titles.vue')
+    },
     // {
     //   path: '/Maps',
     //   name: 'maps',

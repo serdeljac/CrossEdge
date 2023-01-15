@@ -1,0 +1,230 @@
+<template>
+    <sidebar />
+    <main class="titles" >
+        <div class="titles_wrapper">
+
+            <div class="titles_header">
+                <h2>
+                    Cross Edge Titles List
+                </h2>
+            </div>
+
+            <div class="titles_group defeat_enemies">
+                <div class="titles_sub-header">
+                    <h3>#1 - #8 (Defeat # of enemies)</h3>
+                    <p>Note 1: This is accumulative and does not reset per playthrough</p>
+                    <p>Note 2: No need to farm; should aquire while achieveing other titles</p>
+                </div>
+                <div class="titles_list">
+                    <titles_list :data="accum_kills" />
+                </div>
+            </div>
+
+            <div class="titles_group accum_battles">
+                <div class="titles_sub-header">
+                    <h3>#9 - #15 (Win # of battles)</h3>
+                    <p>Note 1: This is accumulative and does not reset per playthrough</p>
+                    <p>Note 2: No need to farm; should aquire while achieveing other titles</p>
+                </div>
+                <div class="titles_list">
+                    <titles_list :data="accum_battles" />
+                </div>
+            </div>
+
+            <div class="titles_group accum_dmg">
+                <div class="titles_sub-header">
+                    <h3>#16 - #22 (Deal # of damage)</h3>
+                    <p>Note 1: This does not reset per playthrough</p>
+                    <p>Note 2: Most likely will be achieved during fights in 5-2.</p>
+                </div>
+                <div class="titles_list">
+                    <titles_list :data="accum_dmg" />
+                </div>
+            </div>
+
+            <div class="titles_group accum_hits">
+                <div class="titles_sub-header">
+                    <h3>#23 - #28 (Achieve # of combo hits)</h3>
+                    <p>Note 1: This does not reset per playthrough</p>
+                    <p>Note 2: Most likely will be achieved during fights in 5-2.</p>
+                </div>
+                <div class="titles_list">
+                    <titles_list :data="accum_hits" />
+                </div>
+            </div>
+
+            <div class="titles_group aquire_arcane">
+                <div class="titles_sub-header">
+                    <h3>#29 - #30 (Aquire all combo moves)</h3>
+                    <p>Note 1: This does not reset per playthrough</p>
+                    <p>Note 2: This will be aquired after true end completion, and titles #31-#92.</p>
+                </div>
+                <div class="titles_list">
+                    <titles_list :data="aquire_arcane" />
+                </div>
+            </div>
+
+            <div class="titles_group te_defeat">
+                <div class="titles_sub-header">
+                    <h3>#31 - #50 (Defeat enemies in true end mode)</h3>
+                    <p>Note 1: This will reset after every playthrough</p>
+                    <p>Note 2: Titles will unlock only after achieving true end requirements (After event #).</p>
+                </div>
+                <div class="titles_list">
+                    <titles_list :data="te_defeat" />
+                </div>
+            </div>
+
+            <div class="titles_group defeat">
+                <div class="titles_sub-header">
+                    <h3>#51 - #80 (Defeat enemies # of times)</h3>
+                    <p>Note 1: #51 - #71 does not reset per playthrough</p>
+                    <p>Note 2: #72 - #80 will reset every paythrough</p>
+                    <p>Note 3: Titles #72 - #80 will unlock only after achieving true end requirements (After event #).</p>
+                </div>
+                <div class="titles_list">
+                    <titles_list :data="defeat" />
+                </div>
+            </div>
+
+            <div class="titles_group enemy_items">
+                <div class="titles_sub-header">
+                    <h3>#81 - #92 (Aquire items from enemy drops # of times)</h3>
+                    <p>Note 1: This does not reset per playthrough</p>
+                    <p>Note 2: Must have items in inventory at the same time per title.</p>
+                    <p>Note 3: Yorks EX ability '' increase rare drops. Also equp 'Drop Rate Up' on all characters</p>
+                </div>
+                <div class="titles_list">
+                    <titles_list :data="enemy_items" />
+                </div>
+            </div>
+
+            <div class="titles_group heal_items">
+                <div class="titles_sub-header">
+                    <h3>#93 - #98 (Aquire # of healing items)</h3>
+                    <p>Note 1: This does not reset per playthrough</p>
+                    <p>Note 2: Must have items in inventory at the same time per title.</p>
+                </div>
+                <div class="titles_list">
+                    <titles_list :data="heal_items" />
+                </div>
+            </div>
+
+            <div class="titles_group full_collect">
+                <div class="titles_sub-header">
+                    <h3>#99 - #102 (Aquire all items in set categories)</h3>
+                    <p>Note 1: This does not reset per playthrough</p>
+                    <p>Note 2: Only need to be in inventory once.</p>
+                </div>
+                <div class="titles_list">
+                    <titles_list :data="full_collect" />
+                </div>
+            </div>
+
+            <div class="titles_group soul_search">
+                <div class="titles_sub-header">
+                    <h3>#103 - #107 (Find # of souls)</h3>
+                    <p>Note 1: ????</p>
+                    <p>Note 2: Easier on second playthrough after reaching sould search lvl 10.</p>
+                </div>
+                <div class="titles_list">
+                    <titles_list :data="full_collect" />
+                </div>
+            </div>
+
+            <div class="titles_group accum_gold">
+                <div class="titles_sub-header">
+                    <h3>#108 - #112 (Posses # amount of gold at once)</h3>
+                    <p>Note 1: ????</p>
+                    <p>Note 2: This should be easily aquired after multiple playthroughs and/or purchasing DLC.</p>
+                </div>
+                <div class="titles_list">
+                    <titles_list :data="accum_gold" />
+                </div>
+            </div>
+
+            <div class="titles_group accum_synth">
+                <div class="titles_sub-header">
+                    <h3>#113 - #117 (Synthesise # of times)</h3>
+                    <p>Note 1: This does not reset per playthrough</p>
+                    <p>Note 2: This will be aquired while achieveing titles #99 - #102.</p>
+                </div>
+                <div class="titles_list">
+                    <titles_list :data="accum_synth" />
+                </div>
+            </div>
+
+            <div class="titles_group accum_upgrades">
+                <div class="titles_sub-header">
+                    <h3>#118 - #122 (Upgrade # of times)</h3>
+                    <p>Note 1: This does not reset per playthrough</p>
+                    <p>Note 2: This will be aquired while achieveing titles #99 - #102.</p>
+                </div>
+                <div class="titles_list">
+                    <titles_list :data="accum_upgrades" />
+                </div>
+            </div>
+
+            <div class="titles_group final">
+                <div class="titles_sub-header">
+                    <h3>#123 (Complete everything)</h3>
+                    <p>Note 1: This does not reset per playthrough</p>
+                    <p>Note 2: Most likely the last trophy/achievement to aquire.</p>
+                </div>
+                <div class="titles_list">
+                    <titles_list :data="final" />
+                </div>
+            </div>
+          
+        </div>
+        
+    </main>
+</template>
+
+<script>
+import sidebar from '@/components/Sidebar.vue';
+import titles_list from '@/components/parts/append_title.vue'
+import json_titles from '@/assets/data/titles.json';
+
+    export default {
+        name: 'Titles List',
+    components: { sidebar, titles_list },
+        data() {
+            return {
+                accum_kills: [],
+                accum_battles: [],
+                accum_dmg: [],
+                accum_hits: [],
+                aquire_arcane: [],
+                te_defeat: [],
+                defeat: [],
+                enemy_items: [],
+                heal_items: [],
+                full_collect: [],
+                soul_search: [],
+                accum_gold: [],
+                accum_synth: [],
+                accum_upgrades: [],
+                final: [],
+            }
+        },
+        created() {
+            const arr = json_titles[2].data;
+            this.accum_kills = arr.filter(function (e) { return e.category == 'accum_kills' });
+            this.accum_battles = arr.filter(function (e) { return e.category == 'accum_battles' });
+            this.accum_dmg = arr.filter(function (e) { return e.category == 'accum_dmg' });
+            this.accum_hits = arr.filter(function (e) { return e.category == 'accum_hits' });
+            this.aquire_arcane = arr.filter(function (e) { return e.category == 'aquire_arcane' });
+            this.te_defeat = arr.filter(function (e) { return e.category == 'te_defeat' });
+            this.defeat = arr.filter(function (e) { return e.category == 'defeat' });
+            this.enemy_items = arr.filter(function (e) { return e.category == 'enemy_items' });
+            this.heal_items = arr.filter(function (e) { return e.category == 'heal_items' });
+            this.full_collect = arr.filter(function (e) { return e.category == 'full_collect' });
+            this.soul_search = arr.filter(function (e) { return e.category == 'soul_search' });
+            this.accum_gold = arr.filter(function (e) { return e.category == 'accum_gold' });
+            this.accum_synth = arr.filter(function (e) { return e.category == 'accum_synth' });
+            this.accum_upgrades = arr.filter(function (e) { return e.category == 'accum_upgrades' });
+            this.final = arr.filter(function (e) { return e.category == 'final' });
+        }
+    }
+</script>

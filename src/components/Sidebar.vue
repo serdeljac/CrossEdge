@@ -47,7 +47,7 @@
                             <li>Secret Albums</li>
                             <li>Active Skills</li>
                             <li>Costumes</li>
-                            <li>Titles</li>
+                            <li><router-link :to="{ name: 'titles', }">Titles</router-link></li>
                             <li>TOOL: Checklist</li>
                         </ul>
                     </div>

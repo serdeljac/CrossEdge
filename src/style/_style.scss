@@ -66,10 +66,21 @@ body {
     width: 100%;
     height: 100vh;
     min-height: 850px;
-    overflow: hidden;
+    overflow-x: hidden;
     -ms-overflow-style: none;
     scrollbar-width: none;
     font-family: 'Kanit', sans-serif;
+
+    &::-webkit-scrollbar {
+            background-color: transparent;
+            width: 10px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border-radius: 100px;
+            background: #1d44f0;
+            border: 1px solid rgba(255, 255, 255, 0.32);
+        }
 }
 
 .btn-sml {
@@ -492,10 +503,6 @@ body {
 
 }
 
-
-
-
-
 /************************************************************
     MapDetails.vue
 ************************************************************/
@@ -640,18 +647,96 @@ body {
 
 }
 
-    .view_all_link {
-        position: absolute;
-        bottom: 0;
-        z-index: 100;
-        right: 0;
-        width: 330px;
-        height: 70px;
-        color: #fff;
-        font-size: 2.5rem;
-        background: #000;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: -8px 0 10px 3px rgba(0, 0, 0, 0.839);
+.view_all_link {
+    position: absolute;
+    bottom: 0;
+    z-index: 100;
+    right: 0;
+    width: 330px;
+    height: 70px;
+    color: #fff;
+    font-size: 2.5rem;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: -8px 0 10px 3px rgba(0, 0, 0, 0.839);
+}
+
+/************************************************************
+    titles.vue
+************************************************************/
+
+.titles {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    color: #fff;
+
+    &::before {
+        content: '';
+        display: block;
+        width: 330px; 
     }
+    
+    &_wrapper {
+        max-width: 1400px;
+        width: 100%;
+        min-height: 1000px;
+        margin: 20px 1.5rem;
+        padding: 20px;
+        background: rgb(4,98,117);
+        background: radial-gradient(circle, rgba(4,98,117,1) 1%, rgba(8,64,135,1) 29%, rgba(8,8,115,1) 100%);
+    }
+
+    &_header {
+        font-size: 3rem;
+        font-weight: bold;
+        font-style: italic;
+        text-align: center;
+    }
+
+    &_sub-header {
+        font-size: 1.5rem;
+        color: #bbb;
+        margin: 40px 0 20px;
+
+        p {
+            font-size: 1rem;
+            padding-left: 20px;
+        }
+    }
+
+    &_list {
+
+        ul {
+            display: inline-flex;
+            width: 100%;
+        }
+
+        &-num {
+        width: 35px;
+    }
+    &-name {
+        width: 180px;
+    }
+    &-requir {
+        width: 400px;
+    }
+    &-reward {
+        width: 160px;
+    }
+    &-gold {
+        width: 80px;
+    }
+    &-ep {
+        width: 50px;
+    }
+    &-tp {
+        width: 50px;
+    }
+    }
+
+    
+    
+}
