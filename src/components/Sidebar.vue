@@ -45,6 +45,7 @@
                             <li>TOOL: Team Setup</li>
                             <li>TOOL: Synthesis Guide</li>
                             <li><router-link :to="{ name: 'titles', }">Titles</router-link></li>
+                            <li><router-link :to="{ name: 'personalteam', }">Personal Team Setup</router-link></li>
                         </ul>
                     </div>
 

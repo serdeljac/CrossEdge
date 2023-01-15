@@ -24,6 +24,8 @@
                     <li>Kill bosses in fewest turns!
                         <p>You gain more shared PP the quicker you defeat the bosses. Overkill bosses should be secondary!</p>
                     </li>
+                    <li>Level up abilities</li>
+                        <p>To gain ability XP, you need to use abilities on higher level enemies, then win battle</p>
                 </ul>
             </div>
 
@@ -81,7 +83,7 @@
                 <ul>
                     <li>Item collecting:
                         <p>Overkill everything!</p>
-                        <p>York (snipe) and Aisha () can Steal. Use as much as possible.</p>
+                        <p>York (Snipe) and Anesha (Mystic Body) can Steal. Use as much as possible.</p>
                         <p>Equip on all characters the active skills 'Drop Rate Up' (I don't believe they stack on the same character)</p>
                         <p>York's 'Faceoff' EX skill dramatically increases rare drop rates.</p>
                     </li>

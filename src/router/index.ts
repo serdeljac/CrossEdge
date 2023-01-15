@@ -70,6 +70,11 @@ const router = createRouter({
       name: 'playthrough',
       component: () => import('../views/playthrough.vue')
     },
+    {
+      path: '/personalTeam',
+      name: 'personalteam',
+      component: () => import('../views/personalteam.vue')
+    },
     // {
     //   path: '/Maps',
     //   name: 'maps',
