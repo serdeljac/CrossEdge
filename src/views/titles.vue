@@ -92,7 +92,7 @@
                     <h3>#81 - #92 (Aquire items from enemy drops # of times)</h3>
                     <p>Note 1: This does not reset per playthrough</p>
                     <p>Note 2: Must have items in inventory at the same time per title.</p>
-                    <p>Note 3: Yorks EX ability '' increase rare drops. Also equp 'Drop Rate Up' on all characters</p>
+                    <p>Note 3: Yorks EX ability 'Faceoff' increases rare drops. Also equp 'Drop Rate Up' on all characters</p>
                 </div>
                 <div class="titles_list">
                     <titles_list :data="enemy_items" />

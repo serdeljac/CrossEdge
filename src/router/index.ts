@@ -11,11 +11,6 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/trueend',
-      name: 'trueend',
-      component: () => import('../views/true_end.vue')
-    },
-    {
       path: '/zeine1',
       name: 'zeine 1',
       component: () => import('../views/maps/Zeine1.vue')
@@ -69,6 +64,11 @@ const router = createRouter({
       path: '/Titles',
       name: 'titles',
       component: () => import('../views/titles.vue')
+    },
+    {
+      path: '/PlaythroughTips',
+      name: 'playthrough',
+      component: () => import('../views/playthrough.vue')
     },
     // {
     //   path: '/Maps',

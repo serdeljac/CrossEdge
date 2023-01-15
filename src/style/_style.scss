@@ -716,27 +716,72 @@ body {
 
         &-num {
         width: 35px;
-    }
-    &-name {
-        width: 180px;
-    }
-    &-requir {
-        width: 400px;
-    }
-    &-reward {
-        width: 160px;
-    }
-    &-gold {
-        width: 80px;
-    }
-    &-ep {
-        width: 50px;
-    }
-    &-tp {
-        width: 50px;
-    }
+        }
+        &-name {
+            width: 180px;
+        }
+        &-requir {
+            width: 400px;
+        }
+        &-reward {
+            width: 160px;
+        }
+        &-gold {
+            width: 80px;
+        }
+        &-ep {
+            width: 50px;
+        }
+        &-tp {
+            width: 50px;
+        }
     }
 
     
     
+}
+
+/************************************************************
+    playthrough.vue
+************************************************************/
+
+.playthrough {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    color: #fff;
+
+    &::before {
+        content: '';
+        display: block;
+        width: 330px; 
+    }
+
+    &_wrapper {
+        max-width: 1400px;
+        width: 100%;
+        min-height: 1000px;
+        margin: 20px 1.5rem;
+        padding: 20px;
+        background: rgb(4,98,117);
+        background: radial-gradient(circle, rgba(4,98,117,1) 1%, rgba(8,64,135,1) 29%, rgba(8,8,115,1) 100%);
+    }
+
+    &_header {
+        font-size: 3rem;
+        font-weight: bold;
+        font-style: italic;
+        text-align: center;
+    }
+
+    &_sub-header {
+        font-size: 1.5rem;
+        color: #bbb;
+        margin: 40px 0 20px;
+
+        p {
+            font-size: 1rem;
+            padding-left: 20px;
+        }
+    }
 }

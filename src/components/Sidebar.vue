@@ -40,20 +40,16 @@
                     <div class="tbc-set">
                         <p>GUIDE</p>
                         <ul>
-                            <li>TIPS *Must Read*</li> 
-                            <li>TRUE ENDING GUIDE</li>
-                            <li>Synthesis Tombs</li>
-                            <li>Arcane Tombs</li>
-                            <li>Secret Albums</li>
-                            <li>Active Skills</li>
-                            <li>Costumes</li>
+                            <li><router-link :to="{ name: 'playthrough', }">Playthrough TIPS</router-link></li>
+                            <li>Inventory List</li>
+                            <li>TOOL: Team Setup</li>
+                            <li>TOOL: Synthesis Guide</li>
                             <li><router-link :to="{ name: 'titles', }">Titles</router-link></li>
-                            <li>TOOL: Checklist</li>
                         </ul>
                     </div>
 
                     <div class="tbc-set">
-                        <p>MAPS</p>
+                        <p>WORLD MAPS</p>
                         <ul>
                             <li><router-link :to="{ name: 'zeine 1', }">Zeine - Area 1</router-link></li>
                             <li><router-link :to="{ name: 'zeine 2', }">Zeine - Area 2</router-link></li>
@@ -71,6 +67,29 @@
                             <li>Ida - Area 1 (True End)</li>
                             <li>Ida - Area 2 (True End)</li>
                             <li>Ida - Area 3 (True End)</li>
+                        </ul>
+                    </div>
+
+                    <div class="tbc-set">
+                        <p>DUNGEON MAPS</p>
+                        <ul>
+                            <li>Dungeon</li>
+                            <li>Dungeon</li>
+                            <li>Dungeon</li>
+                            <li>Dungeon</li>
+                            <li>Dungeon</li>
+                            <li>Dungeon</li>
+                            <li>Dungeon</li>
+                            <li>Dungeon</li>
+                            <li>Dungeon</li>
+                            <li>Dungeon</li>
+                            <li>Dungeon</li>
+                            <li>Dungeon</li>
+                            <li>DungeonDLC</li>
+                            <li>DungeonDLC</li>
+                            <li>DungeonDLC</li>
+                            <li>DungeonDLC</li>
+                            <li>DungeonDLC</li>
                         </ul>
                     </div>
 
