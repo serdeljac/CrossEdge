@@ -81,6 +81,11 @@ const router = createRouter({
       component: () => import('../views/maps/Ida1te.vue')
     },
     {
+      path: '/ida2-TrueEnd',
+      name: 'ida 2te',
+      component: () => import('../views/maps/Ida2te.vue')
+    },
+    {
       path: '/Titles',
       name: 'titles',
       component: () => import('../views/titles.vue')
