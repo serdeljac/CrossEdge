@@ -63,7 +63,7 @@
                             <li><router-link :to="{ name: 'brosste 3',}">Brosste - Area 3</router-link></li>
                             <li><router-link :to="{ name: 'pragma 1',}">Pragma - Area 1</router-link></li>
                             <li><router-link :to="{ name: 'pragma 2',}">Pragma - Area 2</router-link></li>
-                            <li>Pragma - Area 3</li>
+                            <li><router-link :to="{ name: 'pragma 3',}">Pragma - Area 3</router-link></li>
                             <li>Ida - Area 1</li>
                             <li>Ida - Area 1 (True End)</li>
                             <li>Ida - Area 2 (True End)</li>
