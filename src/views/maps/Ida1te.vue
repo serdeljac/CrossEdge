@@ -9,7 +9,7 @@
 
                 <mapRoomHeader :currentMap="currentMap" :nextMap="nextMap" @changeTab="setActiveTab" />
 
-                <div class="map_room__map" :class="currentMap">
+                <div class="map_room__map ida-1te">
 
                         <div class="icn order dungeon dungeon-1"          @click="getEventList('evt119')" order="119"><dungeon /></div>
                         <div class="icn order soulevent soulevent-1"      @click="getEventList('evt120')" order="120"><soulevent /></div>
@@ -25,9 +25,6 @@
                         <div class="icn town ida town-1"                  @click="getEventList('icn073')"><idatown /></div>
                         <div class="icn town ida town-2"                  @click="getEventList('icn074')"><idatown /></div>
                         <div class="icn tablet tablet-1"                  @click="getEventList('icn075')"><tablet /></div>
-                        <div class="icn tablet tablet-2"                  @click="getEventList('icn076')"><tablet /></div>
-                        <div class="icn tablet tablet-3"                  @click="getEventList('icn077')"><tablet /></div>
-                        <div class="icn tablet tablet-4"                  @click="getEventList('icn078')"><tablet /></div>
                         <div class="icn dungeon dungeon-2"                @click="getEventList('icn079')"><dungeon /></div>
 
                         <div class="icn soul soul-1"                      @click="getSoulsList('i101')"><soul /></div>
@@ -42,9 +39,6 @@
                         <div class="icn soul soul-10"                     @click="getSoulsList('i110')"><soul /></div>
                         <div class="icn soul soul-11"                     @click="getSoulsList('i111')"><soul /></div>
                         <div class="icn soul soul-12"                     @click="getSoulsList('i112')"><soul /></div>
-                        <div class="icn soul soul-13"                     @click="getSoulsList('i113')"><soul /></div>
-                        <div class="icn soul soul-14"                     @click="getSoulsList('i114')"><soul /></div>
-                        <div class="icn soul soul-15"                     @click="getSoulsList('i115')"><soul /></div>
 
                 </div>
 
@@ -76,15 +70,15 @@ import json_eventList from '@/assets/data/events.json';
 import json_bestiaryList from '@/assets/data/bestiary.json';
 
     export default {
-        name: "Map_Ida1",
+        name: "Map_Ida1_TrueEnd",
     components: { storyevent, soulevent, idatown, tablet, dungeon, soul, sidebar, mapRoomHeader, mapDetails },
         data() {
             return {
                 dataArray: [],
-                currentMap: 'ida-1',
-                nextMap: 'ida-1 (True End)',
+                currentMap: 'ida-1 (True End)',
+                nextMap: 'ida-2 (True End)',
                 tabSelect: '',
-                defaultEvt: 'evt132'
+                defaultEvt: 'evt141'
             }
         },
         mounted() {
