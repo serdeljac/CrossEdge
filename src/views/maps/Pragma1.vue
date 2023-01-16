@@ -121,7 +121,3 @@ import json_bestiaryList from '@/assets/data/bestiary.json';
         },
     }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

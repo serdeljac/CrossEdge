@@ -61,6 +61,11 @@ const router = createRouter({
       component: () => import('../views/maps/Pragma1.vue')
     },
     {
+      path: '/pragma2',
+      name: 'pragma 2',
+      component: () => import('../views/maps/Pragma2.vue')
+    },
+    {
       path: '/Titles',
       name: 'titles',
       component: () => import('../views/titles.vue')
