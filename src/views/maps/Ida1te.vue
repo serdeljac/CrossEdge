@@ -11,20 +11,18 @@
 
                 <div class="map_room__map ida-1te">
 
-                        <div class="icn order dungeon dungeon-1"          @click="getEventList('evt119')" order="119"><dungeon /></div>
-                        <div class="icn order soulevent soulevent-1"      @click="getEventList('evt120')" order="120"><soulevent /></div>
-                        <div class="icn order soulevent soulevent-2"      @click="getEventList('evt121')" order="121"><soulevent /></div>
-                        <div class="icn order soulevent soulevent-3"      @click="getEventList('evt122')" order="122"><soulevent /></div>
-                        <div class="icn order soulevent soulevent-4"      @click="getEventList('evt124')" order="124"><soulevent /></div>
-                        <div class="icn order storyevent story-1"         @click="getEventList('evt123')" order="123"><storyevent /></div>
-                        <div class="icn order storyevent story-2"         @click="getEventList('evt126')" order="126"><storyevent /></div>
-                        <div class="icn order storyevent story-3"         @click="getEventList('evt127')" order="127"><storyevent /></div>
-                        <div class="icn order storyevent story-4"         @click="getEventList('evt127')" order="127"><storyevent /></div>
-                        
+                        <div class="icn dungeon dungeon-1"                @click="getEventList('evt119')"><dungeon /></div>
+                        <div class="icn storyevent story-1"               @click="getEventList('evt141')"><storyevent /></div>
+                        <div class="icn soulevent soulevent-1"            @click="getEventList('evt142')"><soulevent /></div>
+                        <div class="icn soulevent soulevent-2"            @click="getEventList('evt143')"><soulevent /></div>
+                        <div class="icn soulevent soulevent-3"            @click="getEventList('evt144')"><soulevent /></div>
+                        <div class="icn soulevent soulevent-4"            @click="getEventList('evt145')"><soulevent /></div>
+                        <div class="icn soulevent soulevent-5"            @click="getEventList('evt146')"><soulevent /></div>
+                        <div class="icn soulevent soulevent-6"            @click="getEventList('evt147')"><soulevent /></div>
                         
                         <div class="icn town ida town-1"                  @click="getEventList('icn073')"><idatown /></div>
                         <div class="icn town ida town-2"                  @click="getEventList('icn074')"><idatown /></div>
-                        <div class="icn tablet tablet-1"                  @click="getEventList('icn075')"><tablet /></div>
+                        <div class="icn tablet tablet-1"                  @click="getEventList('icn078')"><tablet /></div>
                         <div class="icn dungeon dungeon-2"                @click="getEventList('icn079')"><dungeon /></div>
 
                         <div class="icn soul soul-1"                      @click="getSoulsList('i101')"><soul /></div>

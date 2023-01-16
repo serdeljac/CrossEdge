@@ -11,16 +11,15 @@
 
                 <div class="map_room__map" :class="currentMap">
 
-                        <div class="icn order dungeon dungeon-1"          @click="getEventList('evt119')" order="119"><dungeon /></div>
-                        <div class="icn order soulevent soulevent-1"      @click="getEventList('evt120')" order="120"><soulevent /></div>
-                        <div class="icn order soulevent soulevent-2"      @click="getEventList('evt121')" order="121"><soulevent /></div>
-                        <div class="icn order soulevent soulevent-3"      @click="getEventList('evt122')" order="122"><soulevent /></div>
-                        <div class="icn order soulevent soulevent-4"      @click="getEventList('evt124')" order="124"><soulevent /></div>
-                        <div class="icn order storyevent story-1"         @click="getEventList('evt123')" order="123"><storyevent /></div>
-                        <div class="icn order storyevent story-2"         @click="getEventList('evt126')" order="126"><storyevent /></div>
-                        <div class="icn order storyevent story-3"         @click="getEventList('evt127')" order="127"><storyevent /></div>
-                        <div class="icn order storyevent story-4"         @click="getEventList('evt127')" order="127"><storyevent /></div>
-                        
+                        <div class="icn order dungeon dungeon-1"          @click="getEventList('evt132')" order="132"><dungeon /></div>
+                        <div class="icn order soulevent soulevent-1"      @click="getEventList('evt133')" order="133"><soulevent /></div>
+                        <div class="icn order soulevent soulevent-2"      @click="getEventList('evt134')" order="134"><soulevent /></div>
+                        <div class="icn order soulevent soulevent-3"      @click="getEventList('evt135')" order="135"><soulevent /></div>
+                        <div class="icn order soulevent soulevent-4"      @click="getEventList('evt136')" order="136"><soulevent /></div>
+                        <div class="icn order storyevent story-1"         @click="getEventList('evt137')" order="137"><storyevent /></div>
+                        <div class="icn order storyevent story-2"         @click="getEventList('evt138')" order="138"><storyevent /></div>
+                        <div class="icn order storyevent story-3"         @click="getEventList('evt139')" order="139"><storyevent /></div>
+                        <div class="icn order storyevent story-4"         @click="getEventList('evt140')" order="140"><storyevent /></div>
                         
                         <div class="icn town ida town-1"                  @click="getEventList('icn073')"><idatown /></div>
                         <div class="icn town ida town-2"                  @click="getEventList('icn074')"><idatown /></div>
