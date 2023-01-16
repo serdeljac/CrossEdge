@@ -71,6 +71,11 @@ const router = createRouter({
       component: () => import('../views/maps/Pragma3.vue')
     },
     {
+      path: '/ida1',
+      name: 'ida 1',
+      component: () => import('../views/maps/Ida1.vue')
+    },
+    {
       path: '/Titles',
       name: 'titles',
       component: () => import('../views/titles.vue')
