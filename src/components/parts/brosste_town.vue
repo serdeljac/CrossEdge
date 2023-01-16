@@ -7,7 +7,6 @@
 
 <style lang="scss" scoped>
     .image-brosste_town {clip-path: url(#path-brosste_town);}
-    svg {width: 49px;}
 </style>
 
 <script lang="ts">

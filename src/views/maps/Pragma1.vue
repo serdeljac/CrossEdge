@@ -20,8 +20,8 @@
                         <div class="icn order soulevent soulevent-3"      @click="getEventList('evt105')" order="105"><soulevent /></div>                                                
                         <div class="icn order dungeon dungeon-2"          @click="getEventList('evt106')" order="106"><dungeon /></div>
                         
-                        <div class="icn town pragma town-1"               @click="getEventList('icn055')"><brosstetown /></div>
-                        <div class="icn town pragma town-2"               @click="getEventList('icn056')"><brosstetown /></div>
+                        <div class="icn town pragma town-1"               @click="getEventList('icn055')"><pragmatown /></div>
+                        <div class="icn town pragma town-2"               @click="getEventList('icn056')"><pragmatown /></div>
                         <div class="icn tablet tablet-1"                  @click="getEventList('icn057')"><tablet /></div>
                         <div class="icn tablet tablet-2"                  @click="getEventList('icn058')"><tablet /></div>
                         <div class="icn tablet tablet-3"                  @click="getEventList('icn059')"><tablet /></div>
@@ -62,7 +62,7 @@ import mapDetails from '@/components/MapDetails.vue';
 //Icons
 import storyevent from '@/components/parts/storyevent.vue';
 import soulevent from '@/components/parts/soulevent.vue';
-import brosstetown from '@/components/parts/brosste_town.vue';
+import pragmatown from '@/components/parts/pragma_town.vue';
 import tablet from '@/components/parts/tablet.vue';
 import dungeon from '@/components/parts/dungeon.vue';
 import soul from '@/components/parts/soul.vue';
@@ -74,7 +74,7 @@ import json_bestiaryList from '@/assets/data/bestiary.json';
 
     export default {
         name: "Map_Brosste1",
-    components: { storyevent, soulevent, brosstetown, tablet, dungeon, soul, sidebar, mapRoomHeader, mapDetails },
+    components: { storyevent, soulevent, pragmatown, tablet, dungeon, soul, sidebar, mapRoomHeader, mapDetails },
         data() {
             return {
                 dataArray: [],
