@@ -22,7 +22,7 @@
 
             <!-- Dungeon Display -->
             <div class="dungeon" v-if="data.type == 'Dungeon' || data.type == 'DLC'">
-                <p>Open Dungeon Map</p>
+                <button class="btn" @click="openDungeonMap()">Open Dungeon Map</button>
             </div>
 
             <!-- Event Display -->
@@ -145,6 +145,9 @@ import json_bestiaryList from '@/assets/data/bestiary.json';
                 'tabOpen' : {type: String},
         },
         methods: {
+            openDungeonMap() {
+                console.log('Opened!')
+            },
             getDropType(x, y) {
 
 
