@@ -2,7 +2,7 @@
 
 <template>
     <main class="map_room"> 
-        <sidebar />
+        
         <div class="map_room__interact">
             
             <div class="map_room__display">

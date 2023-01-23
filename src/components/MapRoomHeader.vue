@@ -15,7 +15,7 @@
     </header>
 </template>
 
-<script>
+<script lang="ts">
     export default {
         name: "Map_Room_Headers",
         data() {
@@ -29,11 +29,12 @@
             'nextMap': { type: String },
         },
         beforeMount() {
-            this.$emit('changeTab', this.tabSelect);
+            this.$emit('selectTab', this.tabSelect);
         },
         methods: {
             setActiveTab(val) {
-                this.$emit('changeTab', val);
+                this.tabSelect = val;
+                this.$emit('selectTab', val);
             }
         }
     }

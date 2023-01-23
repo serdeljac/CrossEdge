@@ -171,93 +171,22 @@ body {
 }
 
 
+.content {
+    
+    max-width: 2200px;
+    margin: 1.6rem 2rem 1.6rem calc(330px + 2rem);
 
-
-
-
-
-
-/************************************************************
-    VIEWS/home_page.vue
-************************************************************/
-
-.landing-select {
-    margin: 40px auto 0;
-    border-radius: 7px;
-    background-color: $background;
-    width: 80%;
-    box-shadow: 0px 0px 12px 10px rgba(0, 0, 0, 0.116);
-    padding: 1.2em;
-
-    .site-banner {
-        margin: 15px auto 40px;
-        width: 320px;
+    &.size-default {
+        display: block;
     }
 
-    .contents {
-        text-align: center;
-        font-size: 1.3rem;
-
-        h2 {
-            text-align: center;
-            color: #fff;
-            font-size: 2.5rem;
-            font-style: italic;
-        }
+    .size-map {
+        display: grid;
+        grid-template-columns: auto 330px;
     }
 
-}
-
-
-
-/************************************************************
-    COMPONENTS/parts/home_page.vue
-************************************************************/
-
-.ce-icon {
-    transition: all .23s ease;
-    cursor: pointer;
-    position: absolute;
-
-    &:hover {
-        filter: drop-shadow(0px 0px 5px rgb(244, 255, 194));
-    }
-
-    rect,
-    circle,
-    polygon,
-    path {
-        fill: none;
-    }
-}
-
-
-
-
-
-
-/************************************************************
-    VIEWS/true_end.vue
-************************************************************/
-
-.true_end_guide {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 40px auto;
-    color: #fff;
-    width: 100%;
-    max-width: 1200px;
-
-    .title {
-        display: flex;
-        align-items: center;
-
-        h2 {
-            margin-left: 20px;
-            font-size: 5.0rem;
-            color: #fff;
-        }
+    @include xl {
+        margin: 1.6rem 2rem 1.6rem calc(80px + 2rem);
     }
 }
 
@@ -398,22 +327,100 @@ body {
     background-color: rgba(2, 0, 36, 0.4);
 }
 
+
+
+/************************************************************
+    VIEWS/home_page.vue
+************************************************************/
+
+.landing-select {
+    border-radius: 7px;
+    background-color: $background;
+    width: 100%;
+    box-shadow: 0px 0px 12px 10px rgba(0, 0, 0, 0.116);
+    padding: 1.2em;
+
+    .site-banner {
+        margin: 15px auto 40px;
+        width: 320px;
+    }
+
+    .contents {
+        text-align: center;
+        font-size: 1.3rem;
+
+        h2 {
+            text-align: center;
+            color: #fff;
+            font-size: 2.5rem;
+            font-style: italic;
+        }
+    }
+
+}
+
+
+
+/************************************************************
+    COMPONENTS/parts/home_page.vue
+************************************************************/
+
+.ce-icon {
+    transition: all .23s ease;
+    cursor: pointer;
+    position: absolute;
+
+    &:hover {
+        filter: drop-shadow(0px 0px 5px rgb(244, 255, 194));
+    }
+
+    rect,
+    circle,
+    polygon,
+    path {
+        fill: none;
+    }
+}
+
+
+
+
+
+
+/************************************************************
+    VIEWS/true_end.vue
+************************************************************/
+
+.true_end_guide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px auto;
+    color: #fff;
+    width: 100%;
+    max-width: 1200px;
+
+    .title {
+        display: flex;
+        align-items: center;
+
+        h2 {
+            margin-left: 20px;
+            font-size: 5.0rem;
+            color: #fff;
+        }
+    }
+}
+
+
+
+
+
 /************************************************************
     map.vue
 ************************************************************/
 
 .map_room {
-
-    &__interact {
-        margin-left: 340px;
-        display: grid;
-        grid-template-columns: auto 330px;
-        max-width: 1600px;
-
-        @include xl {
-            margin-left: 90px;
-        }
-    }
 
     &__display {
         overflow-x: hidden;

@@ -38,21 +38,21 @@
                         <p>Mandatory Team:</p>
                         <p class="sub">{{ data.battle1_team }}</p>
                     </div>
-                    <img :src="`src/assets/battle/${data.battle1_img}`" alt="Battle1" />
+                    <img :src="`/src/assets/battle/${data.battle1_img}`" alt="Battle1" />
                 </div>
                 <div v-if="data.battle2_img">
                     <div class="event_battles__forced">
                         <p>Mandatory Team:</p>
                         <p class="sub">{{ data.battle2_team }}</p>
                     </div>
-                    <img :src="`src/assets/battle/${data.battle2_img}`" alt="Battle2" />
+                    <img :src="`/src/assets/battle/${data.battle2_img}`" alt="Battle2" />
                 </div>
                 <div v-if="data.battle3_img">
                     <div class="event_battles__forced">
                         <p>Mandatory Team:</p>
                         <p class="sub">{{ data.battle3_team }}</p>
                     </div>
-                    <img :src="`src/assets/battle/${data.battle3_img}`" alt="Battle3" />
+                    <img :src="`/src/assets/battle/${data.battle3_img}`" alt="Battle3" />
                 </div>
             </div>
 
@@ -134,7 +134,7 @@
 </template>
 
 <script lang="ts">
-import json_bestiaryList from '@/assets/data/bestiary.json';
+
 
     export default {
         name: "Map_Details",
@@ -146,12 +146,12 @@ import json_bestiaryList from '@/assets/data/bestiary.json';
         },
         methods: {
             openDungeonMap() {
-                console.log('Opened!')
+                console.log(this.info);
             },
             getDropType(x, y) {
 
 
-                const getInfo = json_bestiaryList[2];
+                // const getInfo = json_bestiaryList[2];
                 // const z = getInfo.data.filter(function (e) { return e.zone == props.mapName });
                 // console.log(z);
                 // this.dataArray = x;
@@ -159,9 +159,3 @@ import json_bestiaryList from '@/assets/data/bestiary.json';
          }   
         }}
 </script>
-
-
-
-
-
-

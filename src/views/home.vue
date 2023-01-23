@@ -20,20 +20,21 @@
       <div class="column is-one-thirds contents worldmaps">
         <h2>Maps</h2>
         <ul>
-          <li><router-link :to="{ name: 'zeine 1',}">Zeine - Area 1</router-link></li>
-          <li><router-link :to="{ name: 'zeine 2',}">Zeine - Area 2</router-link></li>
-          <li><router-link :to="{ name: 'zeine 3',}">Zeine - Area 3</router-link></li>
-          <li><router-link :to="{ name: 'wilkiet 1',}">Wilkiet - Area 1</router-link></li>
-          <li><router-link :to="{ name: 'wilkiet 2',}">Wilkiet - Area 2</router-link></li>
-          <li><router-link :to="{ name: 'wilkiet 3',}">Wilkiet - Area 3</router-link></li>
-          <li><router-link :to="{ name: 'brosste 1',}">Brosste - Area 1</router-link></li>
-          <li><router-link :to="{ name: 'brosste 2',}">Brosste - Area 2</router-link></li>
-          <li><router-link :to="{ name: 'brosste 3',}">Brosste - Area 3</router-link></li>
-          <li><router-link :to="{ name: 'pragma 1',}">Pragma - Area 1</router-link></li>
-          <!-- <li><router-link :to="{ name: 'pragma 2',}">Pragma - Area 2</router-link></li> -->
-          <!-- <li><router-link :to="{ name: 'pragma 3',}">Pragma - Area 3</router-link></li> -->
-          <!-- <li><router-link :to="{ name: 'ida 1',}">Ida - Area 1</router-link></li> -->
-          <!-- <li><router-link :to="{ name: 'ida 2',}">Ida - Area 2</router-link></li> -->
+            <!-- <li><router-link :to="{ name: 'zeine 1', }">Zeine - Area 1</router-link></li>
+            <li><router-link :to="{ name: 'zeine 2', }">Zeine - Area 2</router-link></li>
+            <li><router-link :to="{ name: 'zeine 3', }">Zeine - Area 3</router-link></li>
+            <li><router-link :to="{ name: 'wilkiet 1', }">Wilkiet - Area 1</router-link></li>
+            <li><router-link :to="{ name: 'wilkiet 2', }">Wilkiet - Area 2</router-link></li>
+            <li><router-link :to="{ name: 'wilkiet 3', }">Wilkiet - Area 3</router-link></li>
+            <li><router-link :to="{ name: 'brosste 1', }">Brosste - Area 1</router-link></li>
+            <li><router-link :to="{ name: 'brosste 2', }">Brosste - Area 2</router-link></li>
+            <li><router-link :to="{ name: 'brosste 3', }">Brosste - Area 3</router-link></li>
+            <li><router-link :to="{ name: 'pragma 1', }">Pragma - Area 1</router-link></li>
+            <li><router-link :to="{ name: 'pragma 2', }">Pragma - Area 2</router-link></li>
+            <li><router-link :to="{ name: 'pragma 3', }">Pragma - Area 3</router-link></li>
+            <li><router-link :to="{ name: 'ida 1', }">Ida - Area 1</router-link></li>
+            <li><router-link :to="{ name: 'ida 1te', }">Ida - Area 1 (True End)</router-link></li>
+            <li><router-link :to="{ name: 'ida 2te', }">Ida - Area 2 (True End)</router-link></li> -->
           <!-- <li><router-link :to="{ name: 'ida 3',}">Ida - Area 3</router-link></li> -->
         </ul>
       </div>

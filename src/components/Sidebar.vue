@@ -1,15 +1,7 @@
 <template>
-    <aside class="sidebar" v-bind:class="{ 'compact': mobileMode && !menuExpand }">
+    <aside class="sidebar" :class="{ 'compact': sidebarMode}">
 
-        
-
-        <button 
-            class="btn-sml"
-            v-if="mobileMode"
-            v-bind:class="{'opened': menuExpand}"
-            @click="expandMenu()">➜</button>
-
-        <div class="container" v-if="!mobileMode || menuExpand">
+        <div class="container" v-if="!sidebarMode">
             
 
             <!-- Title -->
@@ -37,7 +29,7 @@
                 <div class="tablecontents">
                     <h3>TABLE OF CONTENTS</h3>
 
-                    <div class="tbc-set">
+                    <!-- <div class="tbc-set">
                         <p>GUIDE</p>
                         <ul>
                             <li><router-link :to="{ name: 'playthrough', }">Playthrough TIPS</router-link></li>
@@ -47,9 +39,16 @@
                             <li><router-link :to="{ name: 'titles', }">Titles</router-link></li>
                             <li><router-link :to="{ name: 'personalteam', }">Personal Team Setup</router-link></li>
                         </ul>
-                    </div>
+                    </div> -->
 
                     <div class="tbc-set">
+                        <p>WORLD MAPS</p>
+                        <ul>
+                            <li @click="chooseMap('zeine-1')">Zeine - Area 1</li>
+                        </ul>
+                    </div>
+
+                    <!-- <div class="tbc-set">
                         <p>WORLD MAPS</p>
                         <ul>
                             <li><router-link :to="{ name: 'zeine 1', }">Zeine - Area 1</router-link></li>
@@ -69,9 +68,9 @@
                             <li><router-link :to="{ name: 'ida 2te',}">Ida - Area 2 (True End)</router-link></li>
                             <li>Ida - Area 3 (True End)</li>
                         </ul>
-                    </div>
+                    </div> -->
 
-                    <div class="tbc-set">
+                    <!-- <div class="tbc-set">
                         <p>DUNGEON MAPS</p>
                         <ul>
                             <li>Renuit</li>
@@ -92,55 +91,66 @@
                             <li>Schine Baal - Pragma 2</li>
                             <li>Eldehel - Ida 1</li>
                         </ul>
-                    </div>
+                    </div> -->
 
-                    <div class="tbc-set-3">
+                    <!-- <div class="tbc-set-3">
                         <hr>
                         <p>Leave a comment</p>
                         <p>Logout</p>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
 
-        <div class="container-mobile" v-if="mobileMode && !menuExpand">
+        <button 
+            class="btn-sml"
+            v-if="sidebarMode || mobileExpand"
+            :class="{ 'opened': mobileExpand }"
+            @click="expandMenu()">➜
+        </button>
+
+        <div class="container-mobile" v-if="sidebarMode">
             <p>HOME</p>
             <p>DUNGEON</p>
         </div>
 
-
     </aside>
-    <div class="overlay" v-if="menuExpand" @click="expandMenu()"></div>
+
+    <div class="overlay" v-if="!sidebarMode && mobileExpand" @click="expandMenu()"></div>
 </template>
 
-<script>
+<script lang="ts">
     export default {
         name: "Sidebar",
         data() {
             return {
-                mobileMode: undefined,
-                menuExpand: false
+                sidebarMode: undefined,
+                mobileExpand: false,
             }
         },
         mounted() {
-            
             window.addEventListener("resize", this.sidebarForce);
             this.sidebarForce();
         },
         methods: {
             sidebarForce() {
                 let winW = window.innerWidth;
+                this.mobileExpand = false;
 
                 if (winW <= 1800) {
-                    this.mobileMode = true;
+                    this.sidebarMode = true;
+                } else {
+                    this.sidebarMode = false;
                     
-                }else {
-                    this.mobileMode = false;
-                    this.menuExpand = false;
                 }
             },
             expandMenu() {
-                this.menuExpand = !this.menuExpand;
+                this.mobileExpand = !this.mobileExpand;
+                this.sidebarMode = !this.sidebarMode;
+            },
+            chooseMap(map) {
+                this.$router.push({ name: map, params: {selectedMap: map} });
+
             }
         }
     }
