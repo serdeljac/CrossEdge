@@ -8,7 +8,6 @@
     <div class="icn order storyevent story-6"         @click="getEventList('events', 'evt007')" order="7"><storyevent /></div>
     <div class="icn order dungeon dungeon-1"          @click="getEventList('events', 'evt008')" order="8"><dungeon /></div>
     <div class="icn order soulevent soulevent-1"      @click="getEventList('events', 'evt063')" order="63"><soulevent /></div>
-
     <div class="icn town ziene town-2"                @click="getEventList('events', 'icn001')"><zeinetown /></div>
     <div class="icn tablet tablet-1"                  @click="getEventList('events', 'icn002')"><tablet /></div>
     <div class="icn tablet tablet-2"                  @click="getEventList('events', 'icn003')"><tablet /></div>
@@ -37,23 +36,23 @@
     import dungeon from '@/components/parts/dungeon.vue';
     import soul from '@/components/parts/soul.vue';
 
-    export default {
-        name: "MapZeine1",
-        components: { storyevent, soulevent, zeinetown, tablet, dungeon, soul },
-        data() {
-            return {
-                nextMap: 'wilkiet-1',
-                defaultEvt: 'evt001',
-            }
+export default {
+    name: "MapZeine1",
+    components: { storyevent, soulevent, zeinetown, tablet, dungeon, soul },
+    data() {
+        return {
+            nextMap: 'wilkiet-1',
+            defaultEvt: 'evt001',
+        }
+    },
+emits: ['setDefaults', 'evtSelect'],
+    mounted() {
+        this.$emit('setDefaults', ['events', this.defaultEvt, 'tab1', this.nextMap]);
+    },
+    methods: {
+        getEventList(type, id) {
+            this.$emit('evtSelect', [type, id, 'tab1']);
         },
-    emits: ['setDefaults', 'evtSelect'],
-        mounted() {
-            this.$emit('setDefaults', ['events', this.defaultEvt, 'tab1', this.nextMap]);
-        },
-        methods: {
-            getEventList(type, id) {
-                this.$emit('evtSelect', [type, id, 'tab1']);
-            },
-        },
-    }
+    },
+}
 </script>

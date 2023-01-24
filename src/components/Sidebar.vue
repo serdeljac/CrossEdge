@@ -45,6 +45,8 @@
                         <p>WORLD MAPS</p>
                         <ul>
                             <li @click="chooseMap('zeine-1')">Zeine - Area 1</li>
+                            <li @click="chooseMap('zeine-2')">Zeine - Area 2</li>
+                            <li @click="chooseMap('zeine-3')">Zeine - Area 3</li>
                         </ul>
                     </div>
 

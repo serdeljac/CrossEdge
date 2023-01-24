@@ -95,6 +95,6 @@ import json_bestiaryList from '@/assets/data/bestiary.json';
                     this.dataArray = x;
                 }
             },
-        }
+        },
     }
 </script>
