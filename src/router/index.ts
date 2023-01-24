@@ -21,7 +21,6 @@ const router = createRouter({
           path: ':selectedMap',
           name: 'zeine-1',
           component: () => import('../views/maps/Zeine1.vue'),
-          props: true,
         }
       ]
     },

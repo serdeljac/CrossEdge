@@ -1,6 +1,6 @@
 <template>
   <sidebar  />
-  <main class="content">
+  <main class="main-content">
     <RouterView />
   </main>
 </template>

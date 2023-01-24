@@ -1,8 +1,6 @@
 <template>
     <header class="map_room__header">
-        <div class="map_room__title">
-            <h2>{{ currentMap }}</h2>
-        </div>
+        <h2 class="map_room__title">{{ currentMap }}</h2>
         <div class="map_room__nextmap">
             <span>Next Map: </span>
             <p>{{ nextMap }}</p>
