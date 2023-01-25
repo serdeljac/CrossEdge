@@ -1,117 +1,55 @@
-<!-- eslint-disable prettier/prettier -->
-
 <template>
-    <main class="map_room"> 
-        <sidebar />
-        <div class="map_room__interact">
-            
-            <div class="map_room__display">
+    <div class="icn dungeon dungeon-1"                @click="getEventList('events', 'evt119')"><dungeon /></div>
+    <div class="icn storyevent story-1"               @click="getEventList('events', 'evt141')"><storyevent /></div>
+    <div class="icn soulevent soulevent-1"            @click="getEventList('events', 'evt142')"><soulevent /></div>
+    <div class="icn soulevent soulevent-2"            @click="getEventList('events', 'evt143')"><soulevent /></div>
+    <div class="icn soulevent soulevent-3"            @click="getEventList('events', 'evt144')"><soulevent /></div>
+    <div class="icn soulevent soulevent-4"            @click="getEventList('events', 'evt145')"><soulevent /></div>
+    <div class="icn soulevent soulevent-5"            @click="getEventList('events', 'evt146')"><soulevent /></div>
+    <div class="icn soulevent soulevent-6"            @click="getEventList('events', 'evt147')"><soulevent /></div>
+    <div class="icn town ida town-1"                  @click="getEventList('events', 'icn073')"><idatown /></div>
+    <div class="icn town ida town-2"                  @click="getEventList('events', 'icn074')"><idatown /></div>
+    <div class="icn tablet tablet-1"                  @click="getEventList('events', 'icn078')"><tablet /></div>
+    <div class="icn dungeon dungeon-2"                @click="getEventList('events', 'icn079')"><dungeon /></div>
 
-                <mapRoomHeader :currentMap="currentMap" :nextMap="nextMap" @changeTab="setActiveTab" />
-
-                <div class="map_room__map ida-1te">
-
-                        <div class="icn dungeon dungeon-1"                @click="getEventList('evt119')"><dungeon /></div>
-                        <div class="icn storyevent story-1"               @click="getEventList('evt141')"><storyevent /></div>
-                        <div class="icn soulevent soulevent-1"            @click="getEventList('evt142')"><soulevent /></div>
-                        <div class="icn soulevent soulevent-2"            @click="getEventList('evt143')"><soulevent /></div>
-                        <div class="icn soulevent soulevent-3"            @click="getEventList('evt144')"><soulevent /></div>
-                        <div class="icn soulevent soulevent-4"            @click="getEventList('evt145')"><soulevent /></div>
-                        <div class="icn soulevent soulevent-5"            @click="getEventList('evt146')"><soulevent /></div>
-                        <div class="icn soulevent soulevent-6"            @click="getEventList('evt147')"><soulevent /></div>
-                        
-                        <div class="icn town ida town-1"                  @click="getEventList('icn073')"><idatown /></div>
-                        <div class="icn town ida town-2"                  @click="getEventList('icn074')"><idatown /></div>
-                        <div class="icn tablet tablet-1"                  @click="getEventList('icn078')"><tablet /></div>
-                        <div class="icn dungeon dungeon-2"                @click="getEventList('icn079')"><dungeon /></div>
-
-                        <div class="icn soul soul-1"                      @click="getSoulsList('i101')"><soul /></div>
-                        <div class="icn soul soul-2"                      @click="getSoulsList('i102')"><soul /></div>
-                        <div class="icn soul soul-3"                      @click="getSoulsList('i103')"><soul /></div>
-                        <div class="icn soul soul-4"                      @click="getSoulsList('i104')"><soul /></div>
-                        <div class="icn soul soul-5"                      @click="getSoulsList('i105')"><soul /></div>
-                        <div class="icn soul soul-6"                      @click="getSoulsList('i106')"><soul /></div>
-                        <div class="icn soul soul-7"                      @click="getSoulsList('i107')"><soul /></div>
-                        <div class="icn soul soul-8"                      @click="getSoulsList('i108')"><soul /></div>
-                        <div class="icn soul soul-9"                      @click="getSoulsList('i109')"><soul /></div>
-                        <div class="icn soul soul-10"                     @click="getSoulsList('i110')"><soul /></div>
-                        <div class="icn soul soul-11"                     @click="getSoulsList('i111')"><soul /></div>
-                        <div class="icn soul soul-12"                     @click="getSoulsList('i112')"><soul /></div>
-
-                </div>
-
-            </div>
-            <mapDetails :info="dataArray" :mapName="currentMap" :tabOpen="tabSelect"/>
-        </div>
-    </main>
-
+    <div class="icn soul soul-1"                      @click="getEventList('souls', 'i101')"><soul /></div>
+    <div class="icn soul soul-2"                      @click="getEventList('souls', 'i102')"><soul /></div>
+    <div class="icn soul soul-3"                      @click="getEventList('souls', 'i103')"><soul /></div>
+    <div class="icn soul soul-4"                      @click="getEventList('souls', 'i104')"><soul /></div>
+    <div class="icn soul soul-5"                      @click="getEventList('souls', 'i105')"><soul /></div>
+    <div class="icn soul soul-6"                      @click="getEventList('souls', 'i106')"><soul /></div>
+    <div class="icn soul soul-7"                      @click="getEventList('souls', 'i107')"><soul /></div>
+    <div class="icn soul soul-8"                      @click="getEventList('souls', 'i108')"><soul /></div>
+    <div class="icn soul soul-9"                      @click="getEventList('souls', 'i109')"><soul /></div>
+    <div class="icn soul soul-10"                     @click="getEventList('souls', 'i110')"><soul /></div>
+    <div class="icn soul soul-11"                     @click="getEventList('souls', 'i111')"><soul /></div>
+    <div class="icn soul soul-12"                     @click="getEventList('souls', 'i112')"><soul /></div>
 </template>
 
 <script lang="ts">
-
-//Components
-import sidebar from '@/components/Sidebar.vue';
-import mapRoomHeader from '@/components/MapRoomHeader.vue';
-import mapDetails from '@/components/MapDetails.vue';
-
-//Icons
-import storyevent from '@/components/parts/storyevent.vue';
-import soulevent from '@/components/parts/soulevent.vue';
-import idatown from '@/components/parts/ida_town.vue';
-import tablet from '@/components/parts/tablet.vue';
-import dungeon from '@/components/parts/dungeon.vue';
-import soul from '@/components/parts/soul.vue';
-
-//Data
-import json_soulList from '@/assets/data/souls.json';
-import json_eventList from '@/assets/data/events.json';
-import json_bestiaryList from '@/assets/data/bestiary.json';
+    import storyevent from '@/components/parts/storyevent.vue';
+    import soulevent from '@/components/parts/soulevent.vue';
+    import idatown from '@/components/parts/ida_town.vue';
+    import tablet from '@/components/parts/tablet.vue';
+    import dungeon from '@/components/parts/dungeon.vue';
+    import soul from '@/components/parts/soul.vue';
 
     export default {
-        name: "Map_Ida1_TrueEnd",
-    components: { storyevent, soulevent, idatown, tablet, dungeon, soul, sidebar, mapRoomHeader, mapDetails },
+        name: "MapIda1TrueEnd",
+        components: { storyevent, soulevent, idatown, tablet, dungeon, soul },
         data() {
             return {
-                dataArray: [],
-                currentMap: 'ida-1 (True End)',
                 nextMap: 'ida-2 (True End)',
-                tabSelect: '',
-                defaultEvt: 'evt141'
+                defaultEvt: 'evt119',
             }
         },
+        emits: ['setDefaults', 'evtSelect'],
         mounted() {
-            window.addEventListener("resize", this.adjustIcons);
-            this.getEventList(this.defaultEvt);
+            this.$emit('setDefaults', ['events', this.defaultEvt, 'tab1', this.nextMap]);
         },
         methods: {
-            getSoulsList(id) {
-                this.tabSelect = 'tab1';
-                const getInfo = json_soulList[2];
-                const x = getInfo.data.filter(function(e) {return e.ID == id});
-                this.dataArray = x;
-            },
-            getEventList(id) {
-                this.tabSelect = 'tab1';
-                const getInfo = json_eventList[2];
-                const x = getInfo.data.filter(function (e) { return e.ID == id });
-                this.dataArray = x;
-            },
-            getBestiaryList(id) {
-                const getInfo = json_bestiaryList[2];
-                const x = getInfo.data.filter(function (e) { return e.zone == id });
-                this.dataArray = x;
-            },
-            setActiveTab(x) {
-                this.tabSelect = x;
-
-                if (x == 'tab1') {
-                    this.getEventList(this.defaultEvt);
-                }else if (x == 'tab2') {
-                    this.getBestiaryList(this.currentMap);
-                } else if (x == 'tab3') {
-                    this.getBestiaryList(this.currentMap);
-                }
-
+            getEventList(type, id) {
+                this.$emit('evtSelect', [type, id, 'tab1']);
             },
         },
     }

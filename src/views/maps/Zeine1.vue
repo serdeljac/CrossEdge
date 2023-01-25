@@ -36,23 +36,23 @@
     import dungeon from '@/components/parts/dungeon.vue';
     import soul from '@/components/parts/soul.vue';
 
-export default {
-    name: "MapZeine1",
-    components: { storyevent, soulevent, zeinetown, tablet, dungeon, soul },
-    data() {
-        return {
-            nextMap: 'wilkiet-1',
-            defaultEvt: 'evt001',
-        }
-    },
-emits: ['setDefaults', 'evtSelect'],
-    mounted() {
-        this.$emit('setDefaults', ['events', this.defaultEvt, 'tab1', this.nextMap]);
-    },
-    methods: {
-        getEventList(type, id) {
-            this.$emit('evtSelect', [type, id, 'tab1']);
+    export default {
+        name: "MapZeine1",
+        components: { storyevent, soulevent, zeinetown, tablet, dungeon, soul },
+        data() {
+            return {
+                nextMap: 'wilkiet-1',
+                defaultEvt: 'evt001',
+            }
         },
-    },
-}
+        emits: ['setDefaults', 'evtSelect'],
+        mounted() {
+            this.$emit('setDefaults', ['events', this.defaultEvt, 'tab1', this.nextMap]);
+        },
+        methods: {
+            getEventList(type, id) {
+                this.$emit('evtSelect', [type, id, 'tab1']);
+            },
+        },
+    }
 </script>
