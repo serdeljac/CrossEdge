@@ -1,0 +1,17 @@
+<template>
+    <header class="main_header">
+        <img src="../assets/crossedge_logo.jpg" alt="Cross Edge" />
+        <div class="platform">
+            <p>PS3/XBOX</p>
+        </div>
+        <div>
+            <h1>Cross Edge Interactive Guide <span>v1.0.0</span></h1>
+        </div>
+    </header>
+</template>
+
+<script lang="ts">
+    export default {
+        name: "mainHeader"
+    }
+</script>

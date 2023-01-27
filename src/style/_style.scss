@@ -807,77 +807,38 @@ body {
 
 
 
+/************************************************************
+    APP (Root)
+************************************************************/
 
+.main-content {
+    width: calc(100vw - $sidebarWidth-lg);
+    margin-left: $sidebarWidth-lg;
+    padding: 1rem 20px 2rem;
+    transition: all .23s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
+    &.mobile {
+        width: calc(100vw - $sidebarWidth-sm);
+        margin-left: $sidebarWidth-sm;
+    }
+}
 
 /************************************************************
     HOME PAGE
 ************************************************************/
 
-.mobile .landing {
-    width: calc(100vw - $sidebarWidth-sm);
-    margin-left: $sidebarWidth-sm;
-}
-
 .landing {
-    width: calc(100vw - $sidebarWidth-lg);
-    margin-left: $sidebarWidth-lg;
-    padding: 2rem 20px;
-    transition: all .23s ease;;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     color: #fff;
-
-    &_header {
-        max-width: 1300px;
-        width: 100%;
-        font-size: 3.6rem;
-        display: grid;
-        grid-template-columns: 180px auto;
-        column-gap: 40px;
-        padding: 1rem;
-        border-radius: 2px;
-        margin-bottom: 40px;
-        line-height: 1;
-        background: $sidebar-bg;
-        @extend .ce-shadow;
-
-        img {
-            grid-row: 1 / span 2;
-        }
-
-        .platform {
-            font-size: 1.7rem;
-            color: #939393;
-            opacity: 0.65;
-            font-style: italic;
-            text-align: right;
-        }
-
-        h1 {
-            transform: translateY(8px);
-        }
-
-        span {
-            font-size: 1.7rem;
-            color: #939393;
-            margin-left: 20px;
-            font-style: italic;
-        }
-    }
-
-    &_contents {
-        padding: 2rem;
-        max-width: 1300px;
-        width: 100%;
-        border-radius: 2px;
-        display: grid;
-        grid-template-columns: minmax(auto, 450px) minmax(auto, 450px);
-        justify-content: space-around;
-        row-gap: 40px;
-    }
+    width: 100%;
+    max-width: 1300px;
+    display: grid;
+    grid-template-columns: minmax(auto, 450px) minmax(auto, 450px);
+    justify-content: space-around;
+    row-gap: 40px;
 
     section {
         width: 100%;
@@ -910,12 +871,113 @@ body {
             font-size: 2.5rem;
         }
     }
-
-    
 }
 
 /************************************************************
-    FOOTER
+    MAP ROOM
+************************************************************/
+
+.maproom {
+    color: #fff;
+    width: 100%;
+    max-width: 1300px;
+    background: $body-bg;
+    @extend .ce-shadow;
+    min-height: 80px;
+
+    &_contents {
+        display: grid;
+        grid-template-columns: minmax(auto, 450px) minmax(auto, 450px) minmax(auto, 450px);
+        justify-content: space-around;
+        row-gap: 40px;
+        padding-bottom: 20px;
+    }
+
+    .mapblock {
+
+        &-img {
+            width: 350px;
+            height: 270px;
+            overflow: hidden;
+            margin: auto;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+        }
+
+        h3 {
+            padding: 2px 15px;
+            font-size: 20px;
+            background: #0d9097;
+            border-radius: 20px 0 0;
+        }
+
+        &.zeine1 .mapblock-img {
+            background-image: url(@/assets/maps/Zeine_1.jpg);
+        }
+        &.zeine2 .mapblock-img {
+            background-image: url(@/assets/maps/Zeine_2.jpg);
+            background-position: 30% 50%;
+        }
+        &.zeine3 .mapblock-img {
+            background-image: url(@/assets/maps/Zeine_3.jpg);
+            background-position: 90% 50%;
+        }
+        &.wilkiet1 .mapblock-img {
+            background-image: url(@/assets/maps/Wilkiet_1.jpg);
+            background-position: 90% 50%;
+        }
+        &.wilkiet2 .mapblock-img {
+            background-image: url(@/assets/maps/Wilkiet_2.jpg);
+            background-position: 40% 50%;
+        }
+        &.wilkiet3 .mapblock-img {
+            background-image: url(@/assets/maps/Wilkiet_3.jpg);
+            background-position: 30% 50%;
+        }
+        &.brosste1 .mapblock-img {
+            background-image: url(@/assets/maps/Brosste_1.jpg);
+            background-position: 50% 0%;
+        }
+        &.brosste2 .mapblock-img {
+            background-image: url(@/assets/maps/Brosste_2.jpg);
+            background-position: 30% 0%;
+        }
+        &.brosste3 .mapblock-img {
+            background-image: url(@/assets/maps/Brosste_3.jpg);
+            background-position: 60% 50%;
+        }
+        &.pragma1 .mapblock-img {
+            background-image: url(@/assets/maps/Pragma_1.jpg);
+            background-position: center;
+        }
+        &.pragma2 .mapblock-img {
+            background-image: url(@/assets/maps/Pragma_2.jpg);
+            background-position: 100% 50%;
+        }
+        &.pragma3 .mapblock-img {
+            background-image: url(@/assets/maps/Pragma_3.jpg);
+            background-position: center;
+        }
+        &.ida1 .mapblock-img {
+            background-image: url(@/assets/maps/Ida_1.jpg);
+            background-position: center;
+        }
+        &.ida2 .mapblock-img {
+            background-image: url(@/assets/maps/Ida_2.jpg);
+            background-position: center;
+        }
+        
+    }
+
+
+}
+
+/************************************************************
+    PARTS - FOOTER
 ************************************************************/
 
 .footer {
@@ -928,4 +990,70 @@ body {
     justify-content: flex-end;
     font-size: 1.6rem;
     font-style: italic;
+}
+
+/************************************************************
+    PARTS - MAIN HEADER
+************************************************************/
+
+.main_header {
+    max-width: 1300px;
+    width: 100%;
+    font-size: 3.6rem;
+    display: grid;
+    grid-template-columns: 180px auto;
+    column-gap: 40px;
+    padding: 1rem;
+    border-radius: 2px;
+    margin-bottom: 40px;
+    line-height: 1;
+    background: $sidebar-bg;
+    @extend .ce-shadow;
+
+    img {
+        grid-row: 1 / span 2;
+    }
+
+    .platform {
+        font-size: 1.7rem;
+        color: #939393;
+        opacity: 0.65;
+        font-style: italic;
+        text-align: right;
+    }
+
+    h1 {
+        transform: translateY(8px);
+        color: #fff;
+        font-weight: 100;
+    }
+
+    span {
+        font-size: 1.7rem;
+        color: #939393;
+        margin-left: 20px;
+        font-style: italic;
+    }
+}
+
+/************************************************************
+    PARTS - SUB HEADER
+************************************************************/
+
+.sub-header {
+    margin: 20px;
+    font-size: 3.8rem;
+    border-bottom: 2px solid #fff;
+    display: inline-flex;
+    align-items: flex-end;
+    width: calc(100% - 40px);
+    justify-content: space-between;
+    p {
+        font-weight: 100;
+        font-size: 2.3rem;
+        margin-bottom: 5px;
+        &:hover a{
+            color: #697ee1;
+        }
+    }
 }

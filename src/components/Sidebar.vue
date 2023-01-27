@@ -41,7 +41,7 @@
                         </ul>
                     </div> -->
 
-                    <div class="tbc-set">
+                    <!-- <div class="tbc-set">
                         <p>WORLD MAPS</p>
                         <ul>
                             <li @click="chooseMap('zeine-1')">Zeine - Area 1</li>
@@ -60,7 +60,7 @@
                             <li @click="chooseMap('ida-1 (True End)')">Ida - Area 1 (True End)</li>
                             <li @click="chooseMap('ida-2 (True End)')">Ida - Area 2 (True End)</li>
                         </ul>
-                    </div>
+                    </div> -->
 
                     <!-- <div class="tbc-set">
                         <p>WORLD MAPS</p>
