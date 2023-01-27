@@ -13,12 +13,12 @@
           <h2>Dungeons</h2>
         </section>
 
-        <section class="landing_contents-playTips"  @click="routerPush('playthrough')">
+        <section class="landing_contents-playTips" @click="routerPush('playthrough')">
           <div class="section-img"></div>
           <h2>Playthrough Tips</h2>
         </section>
 
-        <section class="landing_contents-titles">
+        <section class="landing_contents-titles" @click="routerPush('titles')">
           <div class="section-img"></div>
           <h2>Titles</h2>
         </section>

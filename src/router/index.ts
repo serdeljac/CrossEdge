@@ -19,7 +19,11 @@ const router = createRouter({
       name: 'playthrough',
       component: () => import('../views/playthrough.vue')
     },
-
+    {
+      path: '/Titles',
+      name: 'titles',
+      component: () => import('../views/titles.vue')
+    },
 
 
 
@@ -30,11 +34,7 @@ const router = createRouter({
       name: 'mapRoom2',
       component: () => import('../views/maps.vue'),
     },
-    {
-      path: '/Titles',
-      name: 'titles',
-      component: () => import('../views/titles.vue')
-    },
+
 
     {
       path: '/personalTeam',

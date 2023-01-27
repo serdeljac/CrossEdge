@@ -97,22 +97,14 @@
                 </ul>
             </div>
         </div>
-
-        
-   
-
     </div>
 </template>
 
 <script>
-import subHeader from '@/components/subHeader.vue';
+    import subHeader from '@/components/subHeader.vue';
 
     export default {
         name: "PlaythroughTips",
     components: { subHeader }
     }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

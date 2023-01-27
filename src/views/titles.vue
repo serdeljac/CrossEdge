@@ -1,13 +1,7 @@
 <template>
-    <sidebar />
-    <main class="titles" >
-        <div class="titles_wrapper">
-
-            <div class="titles_header">
-                <h2>
-                    Cross Edge Titles List
-                </h2>
-            </div>
+    <div class="titles" >
+        <subHeader :headerName="'Titles'" />
+        <div class="titles_content">
 
             <div class="titles_group defeat_enemies">
                 <div class="titles_sub-header">
@@ -177,18 +171,17 @@
             </div>
           
         </div>
-        
-    </main>
+    </div>
 </template>
 
 <script>
-import sidebar from '@/components/Sidebar.vue';
-import titles_list from '@/components/parts/append_title.vue'
-import json_titles from '@/assets/data/titles.json';
+    import subHeader from '@/components/subHeader.vue';
+    import titles_list from '@/components/parts/append_title.vue'
+    import json_titles from '@/assets/data/titles.json';
 
     export default {
         name: 'Titles List',
-    components: { sidebar, titles_list },
+        components: { subHeader, titles_list },
         data() {
             return {
                 accum_kills: [],

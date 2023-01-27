@@ -681,42 +681,34 @@ body {
 }
 
 /************************************************************
-    titles.vue
+    TITLES
 ************************************************************/
 
 .titles {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
     color: #fff;
-
-    &::before {
-        content: '';
-        display: block;
-        width: 330px; 
-    }
+    width: 100%;
+    max-width: 1300px;
+    background: $body-bg;
+    @extend .ce-shadow;
+    min-height: 80px;
     
-    &_wrapper {
-        max-width: 1400px;
-        width: 100%;
-        min-height: 1000px;
-        margin: 20px 1.5rem;
+    &_content {
         padding: 20px;
-        background: rgb(4,98,117);
-        background: radial-gradient(circle, rgba(4,98,117,1) 1%, rgba(8,64,135,1) 29%, rgba(8,8,115,1) 100%);
     }
 
-    &_header {
-        font-size: 3rem;
-        font-weight: bold;
-        font-style: italic;
-        text-align: center;
+    &_group {
+        margin-bottom: 40px;
+        &.final {
+            margin-bottom: 20px;
+        }
     }
 
     &_sub-header {
-        font-size: 1.5rem;
-        color: #bbb;
-        margin: 40px 0 20px;
+        font-size: 2.2rem;
+        color: #fff;
+        margin-bottom: 20px;
+
+        h3 {margin-bottom: 5px;}
 
         p {
             font-size: 1rem;
@@ -758,49 +750,6 @@ body {
     
 }
 
-/************************************************************
-    PLAYTHROUGH TIPS
-************************************************************/
-
-.playthrough {
-    color: #fff;
-    width: 100%;
-    max-width: 1300px;
-    background: $body-bg;
-    @extend .ce-shadow;
-    min-height: 80px;
-
-    &_content {
-        width: 100%;
-        padding: 20px;
-        }
-
-    &_sub-header {
-        font-size: 1.5rem;
-        margin-bottom: 40px;
-
-        h3 {
-            width: 100%;
-            font-size: 3rem;
-            color: #fff;
-        }
-
-        ul {
-            margin-left: 20px;
-            font-size: 1.6rem;
-        }
-
-        li {
-            margin-bottom: 10px;
-            color: #ccc;
-        }
-
-        p {
-            padding-left: 20px;
-            font-style: italic;
-        }
-    }
-}
 
 
 
@@ -973,6 +922,50 @@ body {
     }
 
 
+}
+
+/************************************************************
+    PLAYTHROUGH TIPS
+************************************************************/
+
+.playthrough {
+    color: #fff;
+    width: 100%;
+    max-width: 1300px;
+    background: $body-bg;
+    @extend .ce-shadow;
+    min-height: 80px;
+
+    &_content {
+        width: 100%;
+        padding: 20px;
+        }
+
+    &_sub-header {
+        font-size: 1.5rem;
+        margin-bottom: 40px;
+
+        h3 {
+            width: 100%;
+            font-size: 3rem;
+            color: #fff;
+        }
+
+        ul {
+            margin-left: 20px;
+            font-size: 1.6rem;
+        }
+
+        li {
+            margin-bottom: 10px;
+            color: #ccc;
+        }
+
+        p {
+            padding-left: 20px;
+            font-style: italic;
+        }
+    }
 }
 
 /************************************************************
