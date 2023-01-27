@@ -3,13 +3,19 @@
     <div class="landing">
       <header class="landing_header">
         <img src="../assets/crossedge_logo.jpg" alt="Cross Edge" />
-        <h1>Cross Edge Interactive Guide</h1>
-        <p>v1.0.0</p>
+        <div class="platform">
+          <p>PS3/XBOX</p>
+        </div>
+        <div>
+          <h1>Cross Edge Interactive Guide <span>v1.0.0</span></h1>
+        </div>
       </header>
 
       <div class="landing_contents">
-        <section class="landing_contents-mapRoom">
-          <div class="section-img"></div>
+        <section class="landing_contents-mapRoom" @click="pageChange('mapRoom')">
+          <div class="section-img">
+            <img src="../assets/icons/homemaps.jpg" />
+          </div>
           <h2>Maps</h2>
         </section>
         <section class="landing_contents-dungeons">
@@ -26,7 +32,7 @@
         </section>
         <section class="landing_contents-inventory">
           <div class="section-img"></div>
-          <h2>Weapons/Armor/Accessories/Items</h2>
+          <h2>Inventory</h2>
         </section>
         <section class="landing_contents-toolTeam">
           <div class="section-img"></div>
@@ -42,7 +48,16 @@
 </template>
 
 <script lang="ts">
+import gsap from 'gsap';
+
 export default {
-  name: "Home",
+  name: "homePage",
+  methods: {
+    pageChange(pg) {
+      if (pg == 'mapRoom') {
+        this.$router.push({ name: 'mapRoom'});
+      }
+    },
+  }
 };
 </script>
