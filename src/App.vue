@@ -3,14 +3,16 @@
   <main class="main-content" :class="{'mobile': sidebarMode}">
     <RouterView />
   </main>
+  <footerMain />
 </template>
 
 <script lang="ts">
 import sidebar from '@/components/Sidebar.vue';
+import footerMain from '@/views/footer.vue';
 
   export default {
     name: "AppMount",
-    components: { sidebar },
+  components: { sidebar, footerMain },
     data() {
       return {
         sidebarMode: true
