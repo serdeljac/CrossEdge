@@ -28,36 +28,33 @@
     <div class="icn soul soul-10"                     @click="getEventList('souls', 'i110')"><soul /></div>
     <div class="icn soul soul-11"                     @click="getEventList('souls', 'i111')"><soul /></div>
     <div class="icn soul soul-12"                     @click="getEventList('souls', 'i112')"><soul /></div>
-    <div class="icn soul soul-13"                     @click="getEventList('souls', 'i113')"><soul /></div>
-    <div class="icn soul soul-14"                     @click="getEventList('souls', 'i114')"><soul /></div>
-    <div class="icn soul soul-15"                     @click="getEventList('souls', 'i115')"><soul /></div>
 </template>
 
 <script lang="ts">
-import storyevent from '@/components/parts/storyevent.vue';
-import soulevent from '@/components/parts/soulevent.vue';
-import idatown from '@/components/parts/ida_town.vue';
-import tablet from '@/components/parts/tablet.vue';
-import dungeon from '@/components/parts/dungeon.vue';
-import soul from '@/components/parts/soul.vue';
+    import storyevent from '@/components/parts/storyevent.vue';
+    import soulevent from '@/components/parts/soulevent.vue';
+    import idatown from '@/components/parts/ida_town.vue';
+    import tablet from '@/components/parts/tablet.vue';
+    import dungeon from '@/components/parts/dungeon.vue';
+    import soul from '@/components/parts/soul.vue';
 
-export default {
-    name: "MapIda1",
-    components: { storyevent, soulevent, idatown, tablet, dungeon, soul },
-    data() {
-        return {
-            nextMap: 'ida-1 (True End)',
-            defaultEvt: 'evt132',
-        }
-    },
-    emits: ['setDefaults', 'evtSelect'],
-    mounted() {
-        this.$emit('setDefaults', ['events', this.defaultEvt, 'tab1', this.nextMap]);
-    },
-    methods: {
-        getEventList(type, id) {
-            this.$emit('evtSelect', [type, id, 'tab1']);
+    export default {
+        name: "MapIda1",
+        components: { storyevent, soulevent, idatown, tablet, dungeon, soul },
+        data() {
+            return {
+                nextMap: 'ida-1 (True End)',
+                defaultEvt: 'evt132',
+            }
         },
-    },
-}
+        emits: ['setDefaults', 'evtSelect'],
+        mounted() {
+            this.$emit('setDefaults', ['events', this.defaultEvt, 'tab1', this.nextMap]);
+        },
+        methods: {
+            getEventList(type, id) {
+                this.$emit('evtSelect', [type, id, 'tab1']);
+            },
+        },
+    }
 </script>

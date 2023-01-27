@@ -34,30 +34,30 @@
 </template>
 
 <script lang="ts">
-import storyevent from '@/components/parts/storyevent.vue';
-import soulevent from '@/components/parts/soulevent.vue';
-import wilkiettown from '@/components/parts/wilkiet_town.vue';
-import tablet from '@/components/parts/tablet.vue';
-import dungeon from '@/components/parts/dungeon.vue';
-import soul from '@/components/parts/soul.vue';
+    import storyevent from '@/components/parts/storyevent.vue';
+    import soulevent from '@/components/parts/soulevent.vue';
+    import wilkiettown from '@/components/parts/wilkiet_town.vue';
+    import tablet from '@/components/parts/tablet.vue';
+    import dungeon from '@/components/parts/dungeon.vue';
+    import soul from '@/components/parts/soul.vue';
 
-export default {
-    name: "MapWilkiet3",
-    components: { storyevent, soulevent, wilkiettown, tablet, dungeon, soul },
-    data() {
-        return {
-            nextMap: 'brosste-2',
-            defaultEvt: 'evt001',
-        }
-    },
-    emits: ['setDefaults', 'evtSelect'],
-    mounted() {
-        this.$emit('setDefaults', ['events', this.defaultEvt, 'tab1', this.nextMap]);
-    },
-    methods: {
-        getEventList(type, id) {
-            this.$emit('evtSelect', [type, id, 'tab1']);
+    export default {
+        name: "MapWilkiet3",
+        components: { storyevent, soulevent, wilkiettown, tablet, dungeon, soul },
+        data() {
+            return {
+                nextMap: 'brosste-2',
+                defaultEvt: 'evt062',
+            }
         },
-    },
-}
+        emits: ['setDefaults', 'evtSelect'],
+        mounted() {
+            this.$emit('setDefaults', ['events', this.defaultEvt, 'tab1', this.nextMap]);
+        },
+        methods: {
+            getEventList(type, id) {
+                this.$emit('evtSelect', [type, id, 'tab1']);
+            },
+        },
+    }
 </script>

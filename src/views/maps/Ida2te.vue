@@ -16,30 +16,30 @@
 </template>
 
 <script lang="ts">
-import storyevent from '@/components/parts/storyevent.vue';
-import soulevent from '@/components/parts/soulevent.vue';
-import ida2town from '@/components/parts/ida2_town.vue';
-import tablet from '@/components/parts/tablet.vue';
-import dungeon from '@/components/parts/dungeon.vue';
-import soul from '@/components/parts/soul.vue';
+    import storyevent from '@/components/parts/storyevent.vue';
+    import soulevent from '@/components/parts/soulevent.vue';
+    import ida2town from '@/components/parts/ida2_town.vue';
+    import tablet from '@/components/parts/tablet.vue';
+    import dungeon from '@/components/parts/dungeon.vue';
+    import soul from '@/components/parts/soul.vue';
 
-export default {
-    name: "MapIda1TrueEnd",
-    components: { storyevent, soulevent, ida2town, tablet, dungeon, soul },
-    data() {
-        return {
-            nextMap: 'ida-3 (True End)',
-            defaultEvt: 'evt148',
-        }
-    },
-    emits: ['setDefaults', 'evtSelect'],
-    mounted() {
-        this.$emit('setDefaults', ['events', this.defaultEvt, 'tab1', this.nextMap]);
-    },
-    methods: {
-        getEventList(type, id) {
-            this.$emit('evtSelect', [type, id, 'tab1']);
+    export default {
+        name: "MapIda1TrueEnd",
+        components: { storyevent, soulevent, ida2town, tablet, dungeon, soul },
+        data() {
+            return {
+                nextMap: 'ida-3 (True End)',
+                defaultEvt: 'evt148',
+            }
         },
-    },
-}
+        emits: ['setDefaults', 'evtSelect'],
+        mounted() {
+            this.$emit('setDefaults', ['events', this.defaultEvt, 'tab1', this.nextMap]);
+        },
+        methods: {
+            getEventList(type, id) {
+                this.$emit('evtSelect', [type, id, 'tab1']);
+            },
+        },
+    }
 </script>

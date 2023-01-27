@@ -26,23 +26,20 @@
         <mapDetails
             :defaults="static"
             :tabOpen="tabSelect"
-            :info="dataArray"
-             />
+            :info="dataArray"/>
     </div>
-    
 </template>
 
 <script lang="ts">
-
-import mapDetails from '@/components/MapDetails.vue';
-import json_soulList from '@/assets/data/souls.json';
-import json_eventList from '@/assets/data/events.json';
-import json_bestiaryList from '@/assets/data/bestiary.json';
+    import mapDetails from '@/components/MapDetails.vue';
+    import json_soulList from '@/assets/data/souls.json';
+    import json_eventList from '@/assets/data/events.json';
+    import json_bestiaryList from '@/assets/data/bestiary.json';
 
     export default {
         name: 'MapRoom',
         props: ['selectedMap'],
-        components: { mapDetails },
+    components: { mapDetails },
         data() {
             return {
                 static: {
@@ -56,13 +53,14 @@ import json_bestiaryList from '@/assets/data/bestiary.json';
                 evetArray: {},
                 bestArray: {},
                 dataArray: {},
-                tabSelect: 'tab1'
+                tabSelect: 'tab1',
             }
         },
         beforeMount() {
             this.soulArray = json_soulList[2];
             this.evetArray = json_eventList[2];
             this.bestArray = json_bestiaryList[2];
+            console.log(this.selectedMap);
         },
         methods: {
             setActiveTab(tab) {

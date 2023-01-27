@@ -3,7 +3,7 @@
     <div class="icn order storyevent story-1"         @click="getEventList('events', 'evt076')" order="76"><storyevent /></div>
     <div class="icn order soulevent soulevent-1"      @click="getEventList('events', 'evt077')" order="77"><soulevent /></div>
     <div class="icn order soulevent soulevent-2"      @click="getEventList('events', 'evt078')" order="78"><soulevent /></div>
-    <div class="icn order soulevent soulevent-3"      @click="getEventList('events', 'evt079')" order="79"><soulevent /></div>                        
+    <div class="icn order soulevent soulevent-3"      @click="getEventList('events', 'evt079')" order="79"><soulevent /></div>
     <div class="icn order storyevent story-2"         @click="getEventList('events', 'evt080')" order="80"><storyevent /></div>
     <div class="icn order storyevent story-3"         @click="getEventList('events', 'evt081')" order="81"><storyevent /></div>
     <div class="icn order soulevent soulevent-4"      @click="getEventList('events', 'evt082')" order="82"><soulevent /></div>

@@ -4,7 +4,7 @@
     <div class="icn order storyevent story-2"         @click="getEventList('events', 'evt087')" order="87"><storyevent /></div>
     <div class="icn order soulevent soulevent-1"      @click="getEventList('events', 'evt088')" order="88"><soulevent /></div>
     <div class="icn order soulevent soulevent-2"      @click="getEventList('events', 'evt089')" order="89"><soulevent /></div>
-    <div class="icn order soulevent soulevent-3"      @click="getEventList('events', 'evt090')" order="90"><soulevent /></div>                                                
+    <div class="icn order soulevent soulevent-3"      @click="getEventList('events', 'evt090')" order="90"><soulevent /></div>
     <div class="icn order storyevent story-3"         @click="getEventList('events', 'evt091')" order="91"><storyevent /></div>
     <div class="icn order soulevent soulevent-4"      @click="getEventList('events', 'evt092')" order="92"><soulevent /></div>
     <div class="icn order soulevent soulevent-5"      @click="getEventList('events', 'evt093')" order="93"><soulevent /></div>

@@ -5,12 +5,12 @@
         <div class="icn order storyevent story-3"         @click="getEventList('events', 'evt012')" order="12"><storyevent /></div>
         <div class="icn order soulevent soulevent-1"      @click="getEventList('events', 'evt013')" order="13"><soulevent /></div>
         <div class="icn order soulevent soulevent-2"      @click="getEventList('events', 'evt014')" order="14"><soulevent /></div>
-        <div class="icn order soulevent soulevent-3"      @click="getEventList('events', 'evt015')" order="15"><soulevent /></div>                        
+        <div class="icn order soulevent soulevent-3"      @click="getEventList('events', 'evt015')" order="15"><soulevent /></div>
         <div class="icn order storyevent story-4"         @click="getEventList('events', 'evt016')" order="16"><storyevent /></div>
         <div class="icn order storyevent story-5"         @click="getEventList('events', 'evt017')" order="17"><storyevent /></div>
-        <div class="icn order soulevent soulevent-4"      @click="getEventList('events', 'evt018')" order="18"><soulevent /></div>                        
+        <div class="icn order soulevent soulevent-4"      @click="getEventList('events', 'evt018')" order="18"><soulevent /></div>
         <div class="icn order storyevent story-6"         @click="getEventList('events', 'evt019')" order="19"><storyevent /></div>
-        <div class="icn order soulevent soulevent-5"      @click="getEventList('events', 'evt020')" order="20"><soulevent /></div>                        
+        <div class="icn order soulevent soulevent-5"      @click="getEventList('events', 'evt020')" order="20"><soulevent /></div>
         <div class="icn order dungeon dungeon-2"          @click="getEventList('events', 'evt021')" order="21"><dungeon /></div>
         <div class="icn order soulevent soulevent-6"      @click="getEventList('events', 'evt031')" order="31"><soulevent /></div>
         <div class="icn order soulevent soulevent-7"      @click="getEventList('events', 'evt032')" order="32"><soulevent /></div>
