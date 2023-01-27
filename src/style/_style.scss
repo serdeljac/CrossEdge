@@ -39,8 +39,24 @@
 }
 
 
+.ce-shadow {
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
 
+.ce-header-bg {
+    background: rgb(18,107,103);
+    background: linear-gradient(171deg, rgba(18,107,103,1) 0%, rgba(5,66,102,1) 100%);
+}
 
+.ce-body-bg {
+    background: rgb(4,68,29);
+    background: linear-gradient(171deg, rgba(4,68,29,1) 0%, rgba(5,28,65,1) 100%);
+}
+
+.ce-section-bg {
+    background: rgb(224,224,224);
+    background: linear-gradient(171deg, rgba(224,224,224,1) 0%, rgba(121,121,121,1) 55%, rgba(47,47,47,1) 100%);
+}
 
 
 
@@ -202,17 +218,17 @@ body {
     height: 100vh;
     box-shadow: 0px -11px 31px -27px #000;
     transition: all .47s ease;
-    width: 330px;
+    width: $sidebarWidth-lg;
     box-shadow: 2px 0 10px 3px rgba(0, 0, 0, 0.54);
     position: absolute;
     z-index: 100;
     top: 0;
 
     &.compact {
-        width: 80px;
+        width: $sidebarWidth-sm;
 
         .container {
-            width: 330px;
+            width: $sidebarWidth-lg;
         }
     }
 
@@ -325,38 +341,6 @@ body {
     top: 0;
     z-index: 95;
     background-color: rgba(2, 0, 36, 0.4);
-}
-
-
-
-/************************************************************
-    VIEWS/home_page.vue
-************************************************************/
-
-.landing-select {
-    border-radius: 7px;
-    background-color: $background;
-    width: 100%;
-    box-shadow: 0px 0px 12px 10px rgba(0, 0, 0, 0.116);
-    padding: 1.2em;
-
-    .site-banner {
-        margin: 15px auto 40px;
-        width: 320px;
-    }
-
-    .contents {
-        text-align: center;
-        font-size: 1.3rem;
-
-        h2 {
-            text-align: center;
-            color: #fff;
-            font-size: 2.5rem;
-            font-style: italic;
-        }
-    }
-
 }
 
 
@@ -809,4 +793,94 @@ body {
             padding-left: 20px;
         }
     }
+}
+
+
+
+
+
+
+
+
+/************************************************************
+    HOME PAGE
+************************************************************/
+
+.mobile .landing {
+    width: calc(100vw - $sidebarWidth-sm);
+    margin-left: $sidebarWidth-sm;
+}
+
+.landing {
+    width: calc(100vw - $sidebarWidth-lg);
+    margin-left: $sidebarWidth-lg;
+    padding: 2rem 20px;
+    transition: all .23s ease;;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+
+    &_header {
+        max-width: 1300px;
+        width: 100%;
+        
+        font-size: 3.6rem;
+        display: inline-flex;
+        align-items: flex-end;
+        padding: 1rem;
+        border-radius: 2px;
+        margin-bottom: 40px;
+        line-height: 1;
+        @extend .ce-shadow;
+        @extend .ce-header-bg;
+
+        img {
+            width: 240px;
+            margin-right: 40px;
+        }
+
+        p {
+            font-size: 1.7rem;
+            color: #939393;
+            margin-left: 20px;
+            transform: translateY(-3px);
+            font-style: italic;
+        }
+    }
+
+    &_contents {
+        padding: 2rem;
+        max-width: 1300px;
+        width: 100%;
+        border-radius: 2px;
+        display: grid;
+        
+        @extend .ce-body-bg;
+        @extend .ce-shadow;
+    }
+
+    section {
+        max-width: 550px;
+        width: 100%;
+        @extend .ce-section-bg;
+        @extend .ce-shadow;
+        border-radius: 10px;
+        margin: 10px;
+        padding: 10px;
+
+        .section-img {
+            width: 100%;
+            height: 80px;
+            background: blue;
+        }
+
+        h2 {
+            text-align: right;
+            font-size: 2rem;
+        }
+    }
+
+    
 }

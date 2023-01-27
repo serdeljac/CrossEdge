@@ -1,6 +1,6 @@
 <template>
-  <sidebar  />
-  <main class="main-content">
+  <sidebar @detectSize="detectSize"/>
+  <main class="main-content" :class="{'mobile': sidebarMode}">
     <RouterView />
   </main>
 </template>
@@ -17,6 +17,10 @@ import sidebar from '@/components/Sidebar.vue';
       }
     },
     methods: {
+      detectSize(size) {
+        this.sidebarMode = size;
+        console.log(size);
+      }
     }
   }
 </script>

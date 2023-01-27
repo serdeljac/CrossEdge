@@ -145,6 +145,7 @@
         mounted() {
             window.addEventListener("resize", this.sidebarForce);
             this.sidebarForce();
+            
         },
         methods: {
             sidebarForce() {
@@ -157,6 +158,7 @@
                     this.sidebarMode = false;
                     
                 }
+                this.$emit('detectSize', this.sidebarMode);
             },
             expandMenu() {
                 this.mobileExpand = !this.mobileExpand;
@@ -164,7 +166,6 @@
             },
             chooseMap(map) {
                 this.$router.push({ name: map, params: {selectedMap: map} });
-
             }
         }
     }
