@@ -1,13 +1,7 @@
 <template>
-    <sidebar />
-
-    <main class="playthrough">
-        <div class="playthrough_wrapper">
-            <div class="playthrough_header">
-                <h2>
-                    Cross Edge Tips and Guide
-                </h2>
-            </div>
+    <div class="playthrough">
+        <subHeader :headerName="'Playthrough Tips'" />
+        <div class="playthrough_content">
 
             <div class="playthrough_sub-header">
                 <h3>Before you begin:</h3>
@@ -24,8 +18,9 @@
                     <li>Kill bosses in fewest turns!
                         <p>You gain more shared PP the quicker you defeat the bosses. Overkill bosses should be secondary!</p>
                     </li>
-                    <li>Level up abilities</li>
+                    <li>Level up abilities
                         <p>To gain ability XP, you need to use abilities on higher level enemies, then win battle</p>
+                    </li>
                 </ul>
             </div>
 
@@ -106,15 +101,15 @@
         
    
 
-    </main>
+    </div>
 </template>
 
 <script>
-import sidebar from '@/components/Sidebar.vue';
+import subHeader from '@/components/subHeader.vue';
 
     export default {
         name: "PlaythroughTips",
-        components: {sidebar}
+    components: { subHeader }
     }
 </script>
 

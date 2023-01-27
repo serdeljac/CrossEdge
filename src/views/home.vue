@@ -13,7 +13,7 @@
           <h2>Dungeons</h2>
         </section>
 
-        <section class="landing_contents-playTips">
+        <section class="landing_contents-playTips"  @click="routerPush('playthrough')">
           <div class="section-img"></div>
           <h2>Playthrough Tips</h2>
         </section>
@@ -37,7 +37,7 @@
           <div class="section-img"></div>
           <h2>Tool: Synthesis Guide</h2>
         </section>
-        
+
     </div>
 </template>
 
