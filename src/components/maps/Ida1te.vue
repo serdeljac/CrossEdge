@@ -39,7 +39,7 @@
         components: { storyevent, soulevent, idatown, tablet, dungeon, soul },
         data() {
             return {
-                nextMap: 'ida-2 (True End)',
+                nextMap: 'ida-2',
                 defaultEvt: 'evt119',
             }
         },

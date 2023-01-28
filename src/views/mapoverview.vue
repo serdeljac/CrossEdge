@@ -6,7 +6,7 @@
                 <h2 class="map-overview__title">{{ properMapName }}</h2>
                 <div class="map-overview__nextmap">
                     <span>Next Map: </span>
-                    <p @click="chooseMap">{{ properMapName }}</p>
+                    <p @click="chooseMap">{{ properNextMapName }}</p>
                 </div>
                 <div class="map-overview__tabs">
                     <button class="tab tab1" :class="{ 'active': tabSelect == 'tab1' }" @click="setActiveTab('tab1')">Event Info</button>
@@ -15,7 +15,7 @@
                 </div>
             </header>
 
-            <div class="map-overview__map" :class="properClassName">
+            <div class="map-overview__map" :class="static['currentMap']">
                 <div class="contain events">
                     <zeine1 v-if="selectedMap=='zeine-1'" @setDefaults="appendDefaults" @evtSelect="evtSelect" />
                     <zeine2 v-if="selectedMap=='zeine-2'" @setDefaults="appendDefaults" @evtSelect="evtSelect" />
@@ -62,7 +62,7 @@
     import pragma3 from '../components/maps/Pragma3.vue';
     import ida1 from '../components/maps/Ida1.vue';
 import ida1te from '../components/maps/Ida1te.vue';
-import ida2te from '../components/maps/Ida2te.vue';
+import ida2te from '../components/maps/Ida2.vue';
 
     export default {
         name: 'MapRoom',
@@ -84,8 +84,25 @@ import ida2te from '../components/maps/Ida2te.vue';
                 routerNext: '',
                 properMapName: '',
                 properNextMapName: '',
-                properClassName: '',
                 tabSelect: 'tab1',
+                names: {
+                    'zeine-1': 'Zeine 1',
+                    'zeine-2': 'Zeine 2',
+                    'zeine-3': 'Zeine 3',
+                    'wilkiet-1': 'Wilkiet 1',
+                    'wilkiet-2': 'Wilkiet 2',
+                    'wilkiet-3': 'Wilkiet 3',
+                    'brosste-1': 'Brosste 1',
+                    'brosste-2': 'Brosste 2',
+                    'brosste-3': 'Brosste 3',
+                    'pragma-1': 'Pragma 1',
+                    'pragma-2': 'Pragma 2',
+                    'pragma-3': 'Pragma 3',
+                    'ida-1': 'Ida 1',
+                    'ida-1te': 'Ida 1 (True End)',
+                    'ida-2': 'Ida 2',
+                    'ida-3': 'Ida 3',
+                }
             }
         },
         beforeMount() {
@@ -130,56 +147,9 @@ import ida2te from '../components/maps/Ida2te.vue';
             chooseMap() {
                 this.$router.push({ name: this.static['nextMap'], params: { selectedMap: this.static['nextMap'] } });
             },
-            fixname(map) {
-                if (map == 'zeine-1') {
-                    this.properMapName = 'Zeine 1';
-                    this.properClassName = map;
-                } else if (map == 'zeine-2') {
-                    this.properMapName = 'Zeine 2';
-                    this.properClassName = map;
-                } else if (map == 'zeine-3') {
-                    this.properMapName = 'Zeine 3';
-                    this.properClassName = map;
-                } else if (map == 'brosste-1') {
-                    this.properMapName = 'Brosste 1';
-                    this.properClassName = map;
-                } else if (map == 'brosste-2') {
-                    this.properMapName = 'Brosste 2';
-                    this.properClassName = map;
-                } else if (map == 'brosste-3') {
-                    this.properMapName = 'Brosste 3';
-                    this.properClassName = map;
-                } else if (map == 'wilkiet-1') {
-                    this.properMapName = 'Wilkiet 1';
-                    this.properClassName = map;
-                } else if (map == 'wilkiet-2') {
-                    this.properMapName = 'Wilkiet 2';
-                    this.properClassName = map;
-                } else if (map == 'wilkiet-3') {
-                    this.properMapName = 'Wilkiet 3';
-                    this.properClassName = map;
-                } else if (map == 'pragma-1') {
-                    this.properMapName = 'Pragma 1';
-                    this.properClassName = map;
-                } else if (map == 'pragma-2') {
-                    this.properMapName = 'Pragma 2';
-                    this.properClassName = map;
-                } else if (map == 'pragma-3') {
-                    this.properMapName = 'Pragma 3';
-                    this.properClassName = map;
-                } else if (map == 'ida-1') {
-                    this.properMapName = 'Ida 1';
-                    this.properClassName = map;
-                } else if (map == 'ida-1 (True End)') {
-                    this.properMapName = 'Ida 1 (True End)';
-                    this.properClassName = 'ida1te';
-                } else if (map == 'ida-2 (True End)') {
-                    this.properMapName = 'Ida 2 (True End)';
-                    this.properClassName = 'ida2te';
-                } else if (map == 'ida-3 (True End)') {
-                    this.properMapName = 'Ida 3 (True End)';
-                    this.properClassName = 'ida3te';
-                }
+            fixname(curMap, nxtMap) {
+                this.properMapName = curMap;
+                this.properNextMapName = nxtMap;
                 
             }
         },

@@ -24,11 +24,11 @@
     import soul from '@/components/parts/soul.vue';
 
     export default {
-        name: "MapIda2TrueEnd",
+        name: "MapIda2",
         components: { storyevent, soulevent, ida2town, tablet, dungeon, soul },
         data() {
             return {
-                nextMap: 'ida-3 (True End)',
+                nextMap: 'ida-3',
                 defaultEvt: 'evt148',
             }
         },
