@@ -8,8 +8,8 @@
 </template>
 
 <script lang="ts">
-import sidebar from '@/components/Sidebar.vue';
-import headerMain from '@/components/header.vue';
+import sidebar from '@/components/sidebar.vue';
+import headerMain from '@/components/main-header.vue';
 import footerMain from '@/components/footer.vue';
 
   export default {
@@ -24,7 +24,6 @@ import footerMain from '@/components/footer.vue';
     methods: {
       detectSize(size) {
         this.sidebarMode = size;
-        console.log(size);
       },
       checkLink(val) {
         this.mapOverview = val;

@@ -175,7 +175,7 @@
 </template>
 
 <script>
-    import subHeader from '@/components/subHeader.vue';
+    import subHeader from '@/components/main-subheader.vue';
     import titles_list from '@/components/parts/append_title.vue'
     import json_titles from '@/assets/data/titles.json';
 

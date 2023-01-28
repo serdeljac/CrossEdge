@@ -90,7 +90,7 @@
 </template>
 
 <script lang="ts">
-import subHeader from '@/components/subHeader.vue';
+import subHeader from '@/components/main-subheader.vue';
 
     export default {
         name: 'mapRoom',

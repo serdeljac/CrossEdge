@@ -101,7 +101,7 @@
 </template>
 
 <script>
-    import subHeader from '@/components/subHeader.vue';
+import subHeader from '@/components/main-subheader.vue';
 
     export default {
         name: "PlaythroughTips",

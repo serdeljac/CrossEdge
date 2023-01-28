@@ -31,7 +31,7 @@
 </template>
 
 <script lang="ts">
-    import mapDetails from '@/components/MapDetails.vue';
+    import mapDetails from '@/components/mapoverview-details.vue';
     import json_soulList from '@/assets/data/souls.json';
     import json_eventList from '@/assets/data/events.json';
     import json_bestiaryList from '@/assets/data/bestiary.json';
