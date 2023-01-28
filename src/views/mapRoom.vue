@@ -94,14 +94,14 @@
 
             <section class="mapblock ida1">
                 <h3>Ida 1 (True End)</h3>
-                <div class="mapblock-contain" @click="chooseMap('ida-1 (True End)')">
+                <div class="mapblock-contain" @click="chooseMap('ida-1te')">
                     <div class="mapblock-img"></div>
                 </div>
             </section>
 
             <section class="mapblock ida2">
                 <h3>Ida 2</h3>
-                <div class="mapblock-contain" @click="chooseMap('ida-2 (True End)')">
+                <div class="mapblock-contain" @click="chooseMap('ida-2')">
                     <div class="mapblock-img"></div>
                 </div>
             </section>

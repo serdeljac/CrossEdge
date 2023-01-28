@@ -60,6 +60,7 @@
                         <p>Defeat bosses in fewest turns to gain PP</p>
                         <p>Complete requirements for titles in areas</p>
                         <p>Aquire all Arcane books and Sythesis recipes</p>
+                        <p>You can regain title rewards on EVERY PLAYTHROUGH!</p>
                     </li>
                     <li>Final Playthrough:
                         <p>Plan your best team for the toughest fights:</p>
@@ -100,7 +101,7 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
 import subHeader from '@/components/main-subheader.vue';
 
     export default {

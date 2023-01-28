@@ -105,19 +105,19 @@ const router = createRouter({
     },
     {
       path: '/:selectedMap',
-      name: 'ida-1 (True End)',
+      name: 'ida-1te',
       component: MapOverview,
       props: true
     },
     {
       path: '/:selectedMap',
-      name: 'ida-2 (True End)',
+      name: 'ida-2',
       component: MapOverview,
       props: true
     },
     {
       path: '/:selectedMap',
-      name: 'ida-3 (True End)',
+      name: 'ida-3',
       component: MapOverview,
       props: true
     },

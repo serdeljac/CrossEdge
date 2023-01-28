@@ -30,8 +30,8 @@
                     <pragma2 v-if="selectedMap=='pragma-2'" @setDefaults="appendDefaults" @evtSelect="evtSelect" />
                     <pragma3 v-if="selectedMap=='pragma-3'" @setDefaults="appendDefaults" @evtSelect="evtSelect" />
                     <ida1 v-if="selectedMap=='ida-1'" @setDefaults="appendDefaults" @evtSelect="evtSelect" />
-                    <ida1te v-if="selectedMap=='ida-1 (True End)'" @setDefaults="appendDefaults" @evtSelect="evtSelect" />
-                    <ida2te v-if="selectedMap=='ida-2 (True End)'" @setDefaults="appendDefaults" @evtSelect="evtSelect" />
+                    <ida1te v-if="selectedMap=='ida-1te'" @setDefaults="appendDefaults" @evtSelect="evtSelect" />
+                    <ida2 v-if="selectedMap=='ida-2'" @setDefaults="appendDefaults" @evtSelect="evtSelect" />
                 </div>
             </div>
         </div>
@@ -61,13 +61,13 @@
     import pragma2 from '../components/maps/Pragma2.vue';
     import pragma3 from '../components/maps/Pragma3.vue';
     import ida1 from '../components/maps/Ida1.vue';
-import ida1te from '../components/maps/Ida1te.vue';
-import ida2te from '../components/maps/Ida2.vue';
+    import ida1te from '../components/maps/Ida1te.vue';
+    import ida2 from '../components/maps/Ida2.vue';
 
     export default {
         name: 'MapRoom',
         props: ['selectedMap'],
-        components: { mapDetails, zeine1, zeine2, zeine3, wilkiet1, wilkiet2, wilkiet3, brosste1, brosste2, brosste3, pragma1, pragma2, pragma3, ida1, ida1te, ida2te },
+        components: { mapDetails, zeine1, zeine2, zeine3, wilkiet1, wilkiet2, wilkiet3, brosste1, brosste2, brosste3, pragma1, pragma2, pragma3, ida1, ida1te, ida2 },
         data() {
             return {
                 static: {
@@ -148,8 +148,8 @@ import ida2te from '../components/maps/Ida2.vue';
                 this.$router.push({ name: this.static['nextMap'], params: { selectedMap: this.static['nextMap'] } });
             },
             fixname(curMap, nxtMap) {
-                this.properMapName = curMap;
-                this.properNextMapName = nxtMap;
+                this.properMapName = this.names[curMap];
+                this.properNextMapName = this.names[nxtMap];
                 
             }
         },

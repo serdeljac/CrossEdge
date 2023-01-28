@@ -6,7 +6,7 @@
             <div class="titles_group defeat_enemies">
                 <div class="titles_sub-header">
                     <h3>#1 - #8 (Defeat # of enemies)</h3>
-                    <p>Note 1: This is accumulative and does not reset per playthrough</p>
+                    <p>Note 1: This is accumulative through all playthroughs</p>
                     <p>Note 2: No need to farm; should aquire while achieveing other titles</p>
                 </div>
                 <div class="titles_list">
@@ -17,7 +17,7 @@
             <div class="titles_group accum_battles">
                 <div class="titles_sub-header">
                     <h3>#9 - #15 (Win # of battles)</h3>
-                    <p>Note 1: This is accumulative and does not reset per playthrough</p>
+                    <p>Note 1: This is accumulative through all playthroughs</p>
                     <p>Note 2: No need to farm; should aquire while achieveing other titles</p>
                 </div>
                 <div class="titles_list">
@@ -28,8 +28,7 @@
             <div class="titles_group accum_dmg">
                 <div class="titles_sub-header">
                     <h3>#16 - #22 (Deal # of damage)</h3>
-                    <p>Note 1: This does not reset per playthrough</p>
-                    <p>Note 2: Most likely will be achieved during fights in 5-2.</p>
+                    <p>Note 1: Most likely will be achieved during fights in 5-2.</p>
                 </div>
                 <div class="titles_list">
                     <titles_list :data="accum_dmg" />
@@ -39,8 +38,7 @@
             <div class="titles_group accum_hits">
                 <div class="titles_sub-header">
                     <h3>#23 - #28 (Achieve # of combo hits)</h3>
-                    <p>Note 1: This does not reset per playthrough</p>
-                    <p>Note 2: Most likely will be achieved during fights in 5-2.</p>
+                    <p>Note 1: Most likely will be achieved during fights in 5-2.</p>
                 </div>
                 <div class="titles_list">
                     <titles_list :data="accum_hits" />
@@ -50,8 +48,7 @@
             <div class="titles_group aquire_arcane">
                 <div class="titles_sub-header">
                     <h3>#29 - #30 (Aquire all combo moves)</h3>
-                    <p>Note 1: This does not reset per playthrough</p>
-                    <p>Note 2: This will be aquired after true end completion, and titles #31-#92.</p>
+                    <p>Note 1: This will be aquired after true end completion, and titles #31-#92.</p>
                 </div>
                 <div class="titles_list">
                     <titles_list :data="aquire_arcane" />
@@ -61,8 +58,7 @@
             <div class="titles_group te_defeat">
                 <div class="titles_sub-header">
                     <h3>#31 - #50 (Defeat enemies in true end mode)</h3>
-                    <p>Note 1: This will reset after every playthrough</p>
-                    <p>Note 2: Titles will unlock only after achieving true end requirements (After event #).</p>
+                    <p>Note 1: Titles will unlock only after achieving true end requirements (After event #116).</p>
                 </div>
                 <div class="titles_list">
                     <titles_list :data="te_defeat" />
@@ -72,9 +68,7 @@
             <div class="titles_group defeat">
                 <div class="titles_sub-header">
                     <h3>#51 - #80 (Defeat enemies # of times)</h3>
-                    <p>Note 1: #51 - #71 does not reset per playthrough</p>
-                    <p>Note 2: #72 - #80 will reset every paythrough</p>
-                    <p>Note 3: Titles #72 - #80 will unlock only after achieving true end requirements (After event #).</p>
+                    <p>Note 1: Titles #72 - #80 will unlock only after achieving true end requirements (After event #116).</p>
                 </div>
                 <div class="titles_list">
                     <titles_list :data="defeat" />
@@ -84,9 +78,8 @@
             <div class="titles_group enemy_items">
                 <div class="titles_sub-header">
                     <h3>#81 - #92 (Aquire items from enemy drops # of times)</h3>
-                    <p>Note 1: This does not reset per playthrough</p>
-                    <p>Note 2: Must have items in inventory at the same time per title.</p>
-                    <p>Note 3: Yorks EX ability 'Faceoff' increases rare drops. Also equp 'Drop Rate Up' on all characters</p>
+                    <p>Note 1: Must have items and quantities in inventory at the same time per title.</p>
+                    <p>Note 2: Yorks EX ability 'Faceoff' increases rare drops. Also equp 'Drop Rate Up' on all characters</p>
                 </div>
                 <div class="titles_list">
                     <titles_list :data="enemy_items" />
@@ -96,8 +89,7 @@
             <div class="titles_group heal_items">
                 <div class="titles_sub-header">
                     <h3>#93 - #98 (Aquire # of healing items)</h3>
-                    <p>Note 1: This does not reset per playthrough</p>
-                    <p>Note 2: Must have items in inventory at the same time per title.</p>
+                    <p>Note 1: Must have total quantity of items per title.</p>
                 </div>
                 <div class="titles_list">
                     <titles_list :data="heal_items" />
@@ -107,8 +99,7 @@
             <div class="titles_group full_collect">
                 <div class="titles_sub-header">
                     <h3>#99 - #102 (Aquire all items in set categories)</h3>
-                    <p>Note 1: This does not reset per playthrough</p>
-                    <p>Note 2: Only need to be in inventory once.</p>
+                    <p>Note 1: Only need to be in inventory once to be recorded.</p>
                 </div>
                 <div class="titles_list">
                     <titles_list :data="full_collect" />
@@ -118,19 +109,18 @@
             <div class="titles_group soul_search">
                 <div class="titles_sub-header">
                     <h3>#103 - #107 (Find # of souls)</h3>
-                    <p>Note 1: ????</p>
-                    <p>Note 2: Easier on second playthrough after reaching sould search lvl 10.</p>
+                    <p>Note 1: Easier on second playthrough after reaching sould search lvl 10.</p>
+                    <p>Note 2: Some souls can only be collected in post-game (true end).</p>
                 </div>
                 <div class="titles_list">
-                    <titles_list :data="full_collect" />
+                    <titles_list :data="soul_search" />
                 </div>
             </div>
 
             <div class="titles_group accum_gold">
                 <div class="titles_sub-header">
                     <h3>#108 - #112 (Posses # amount of gold at once)</h3>
-                    <p>Note 1: ????</p>
-                    <p>Note 2: This should be easily aquired after multiple playthroughs and/or purchasing DLC.</p>
+                    <p>Note 1: This should be easily aquired after multiple playthroughs and/or purchasing DLC.</p>
                 </div>
                 <div class="titles_list">
                     <titles_list :data="accum_gold" />
@@ -140,8 +130,7 @@
             <div class="titles_group accum_synth">
                 <div class="titles_sub-header">
                     <h3>#113 - #117 (Synthesise # of times)</h3>
-                    <p>Note 1: This does not reset per playthrough</p>
-                    <p>Note 2: This will be aquired while achieveing titles #99 - #102.</p>
+                    <p>Note 1: This will be aquired while achieveing titles #99 - #102.</p>
                 </div>
                 <div class="titles_list">
                     <titles_list :data="accum_synth" />
@@ -151,8 +140,7 @@
             <div class="titles_group accum_upgrades">
                 <div class="titles_sub-header">
                     <h3>#118 - #122 (Upgrade # of times)</h3>
-                    <p>Note 1: This does not reset per playthrough</p>
-                    <p>Note 2: This will be aquired while achieveing titles #99 - #102.</p>
+                    <p>Note 1: This will be aquired while achieveing titles #99 - #102.</p>
                 </div>
                 <div class="titles_list">
                     <titles_list :data="accum_upgrades" />
@@ -162,11 +150,23 @@
             <div class="titles_group final">
                 <div class="titles_sub-header">
                     <h3>#123 (Complete everything)</h3>
-                    <p>Note 1: This does not reset per playthrough</p>
-                    <p>Note 2: Most likely the last trophy/achievement to aquire.</p>
+                    <p>Note 1: Most likely the last trophy/achievement to aquire.</p>
                 </div>
                 <div class="titles_list">
                     <titles_list :data="final" />
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="titles_group total">
+                <div class="titles_sub-header">
+                    <h3>Total Sum Rewards</h3>
+                </div>
+                <div class="titles-rewards">
+                    <p>Total Gold Accumulated: 33,265,000</p>
+                    <p>Total EP Accumulated: 1160</p>
+                    <p>Total Shared TP Accumulated: 10525</p>
                 </div>
             </div>
           
@@ -174,7 +174,7 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
     import subHeader from '@/components/main-subheader.vue';
     import titles_list from '@/components/parts/append_title.vue'
     import json_titles from '@/assets/data/titles.json';

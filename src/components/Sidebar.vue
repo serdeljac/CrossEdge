@@ -14,9 +14,7 @@
 
                 <!-- Sub-Title -->
                 <div class="subheader">
-                    <h2 class="title">
-                        <router-link :to="{ name: 'home', }">CROSS EDGE</router-link>
-                    </h2>
+                    <h2 class="title" @click="chooseMap('home')">CROSS EDGE</h2>
                 </div>
 
                 <hr />
@@ -26,15 +24,21 @@
                     <h3>TABLE OF CONTENTS</h3>
 
                     <div class="tbc-set">
+                        <ul>
+                            <li @click="chooseMap('home')">⌂ Home</li>
+                        </ul>
+                    </div>
+
+                    <div class="tbc-set">
                         <p>GUIDE</p>
                         <ul>
-                            <li><router-link :to="{ name: 'mapRoom', }">World Maps</router-link></li>
-                            <li><router-link :to="{ name: 'home', }">Dungeon Maps</router-link></li>
-                            <li><router-link :to="{ name: 'playthrough', }">Playthrough Tips</router-link></li>
-                            <li><router-link :to="{ name: 'titles', }">Titles</router-link></li>
-                            <li><router-link :to="{ name: 'home', }">Inventory List</router-link></li>
-                            <li><router-link :to="{ name: 'home', }">Tool: Team Build</router-link></li>
-                            <li><router-link :to="{ name: 'home', }">Tool: Synthesis Guide</router-link></li>
+                            <li @click="chooseMap('mapRoom')">World Maps</li>
+                            <li @click="chooseMap('')">Dungeon Maps</li>
+                            <li @click="chooseMap('playthrough')">Playthrough Tips</li>
+                            <li @click="chooseMap('titles')">Titles</li>
+                            <li @click="chooseMap('')">Inventory List</li>
+                            <li @click="chooseMap('')">Tool: Team Build</li>
+                            <li @click="chooseMap('')">Tool: Synthesis Guide</li>
                         </ul>
                     </div>
 
@@ -54,32 +58,10 @@
                             <li @click="chooseMap('pragma-2')">Pragma - Area 2</li>
                             <li @click="chooseMap('pragma-3')">Pragma - Area 3</li>
                             <li @click="chooseMap('ida-1')">Ida - Area 1</li>
-                            <!-- <li @click="chooseMap('ida-1 (True End)')">Ida - Area 1 (True End)</li>
-                            <li @click="chooseMap('ida-2 (True End)')">Ida - Area 2 (True End)</li> -->
+                            <li @click="chooseMap('ida-1te')">Ida - Area 1 (True End)</li>
+                            <li @click="chooseMap('ida-2')">Ida - Area 2</li>
                         </ul>
                     </div>
-
-                    <!-- <div class="tbc-set">
-                        <p>WORLD MAPS</p>
-                        <ul>
-                            <li><router-link :to="{ name: 'zeine 1', }">Zeine - Area 1</router-link></li>
-                            <li><router-link :to="{ name: 'zeine 2', }">Zeine - Area 2</router-link></li>
-                            <li><router-link :to="{ name: 'zeine 3', }">Zeine - Area 3</router-link></li>
-                            <li><router-link :to="{ name: 'wilkiet 1',}">Wilkiet - Area 1</router-link></li>
-                            <li><router-link :to="{ name: 'wilkiet 2',}">Wilkiet - Area 2</router-link></li>
-                            <li><router-link :to="{ name: 'wilkiet 3',}">Wilkiet - Area 3</router-link></li>
-                            <li><router-link :to="{ name: 'brosste 1',}">Brosste - Area 1</router-link></li>
-                            <li><router-link :to="{ name: 'brosste 2',}">Brosste - Area 2</router-link></li>
-                            <li><router-link :to="{ name: 'brosste 3',}">Brosste - Area 3</router-link></li>
-                            <li><router-link :to="{ name: 'pragma 1',}">Pragma - Area 1</router-link></li>
-                            <li><router-link :to="{ name: 'pragma 2',}">Pragma - Area 2</router-link></li>
-                            <li><router-link :to="{ name: 'pragma 3',}">Pragma - Area 3</router-link></li>
-                            <li><router-link :to="{ name: 'ida 1',}">Ida - Area 1</router-link></li>
-                            <li><router-link :to="{ name: 'ida 1te',}">Ida - Area 1 (True End)</router-link></li>
-                            <li><router-link :to="{ name: 'ida 2te',}">Ida - Area 2 (True End)</router-link></li>
-                            <li>Ida - Area 3 (True End)</li>
-                        </ul>
-                    </div> -->
 
                     <!-- <div class="tbc-set">
                         <p>DUNGEON MAPS</p>

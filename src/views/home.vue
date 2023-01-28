@@ -9,32 +9,51 @@
         </section>
 
         <section class="landing_contents-dungeons">
-          <div class="section-img"></div>
+          <div class="section-img">
+            <img src="../assets/icons/homedungeon.jpg" />
+          </div>
           <h2>Dungeons</h2>
         </section>
 
         <section class="landing_contents-playTips" @click="routerPush('playthrough')">
-          <div class="section-img"></div>
+          <div class="section-img">
+            <img src="../assets/icons/homeplaythrough.jpg" />
+          </div>
           <h2>Playthrough Tips</h2>
         </section>
 
         <section class="landing_contents-titles" @click="routerPush('titles')">
-          <div class="section-img"></div>
+          <div class="section-img">
+            <img src="../assets/icons/hometitles.jpg" />
+          </div>
           <h2>Titles</h2>
         </section>
 
+        <section class="landing_contents-titles">
+          <div class="section-img">
+            <img src="../assets/icons/homebestiary.jpg" />
+          </div>
+          <h2>Bestiary</h2>
+        </section>
+
         <section class="landing_contents-inventory">
-          <div class="section-img"></div>
+          <div class="section-img">
+            <img src="../assets/icons/homeinventory.jpg" />
+          </div>
           <h2>Inventory</h2>
         </section>
 
         <section class="landing_contents-toolTeam">
-          <div class="section-img"></div>
+          <div class="section-img">
+            <img src="../assets/icons/hometeambuild.jpg" />
+          </div>
           <h2>Tool: Team Build</h2>
         </section>
 
         <section class="landing_contents-toolSynth">
-          <div class="section-img"></div>
+          <div class="section-img">
+            <img src="../assets/icons/homesynthguide.jpg" />
+          </div>
           <h2>Tool: Synthesis Guide</h2>
         </section>
 
