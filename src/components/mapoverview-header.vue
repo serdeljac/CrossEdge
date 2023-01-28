@@ -3,7 +3,7 @@
         <h2 class="map_room__title">{{ currentMap }}</h2>
         <div class="map_room__nextmap">
             <span>Next Map: </span>
-            <p>{{ nextMap }}</p>
+            <p><router-link :to="{ name: nextMap, }">{{ nextMap }}</router-link></p>
         </div>
         <div class="map_room__tabs">
             <button class="tab tab1" v-bind:class="{ 'active': tabSelect == 'tab1' }" @click="setActiveTab('tab1')">Event Info</button>

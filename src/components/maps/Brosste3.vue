@@ -48,7 +48,7 @@
         components: { storyevent, soulevent, brosstetown, tablet, dungeon, soul },
         data() {
             return {
-                nextMap: 'pragma-3',
+                nextMap: 'pragma-1',
                 defaultEvt: 'evt085',
             }
         },

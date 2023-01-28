@@ -24,7 +24,7 @@
     import soul from '@/components/parts/soul.vue';
 
     export default {
-        name: "MapIda1TrueEnd",
+        name: "MapIda2TrueEnd",
         components: { storyevent, soulevent, ida2town, tablet, dungeon, soul },
         data() {
             return {

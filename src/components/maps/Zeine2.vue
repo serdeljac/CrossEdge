@@ -44,7 +44,7 @@
         components: { storyevent, soulevent, zeinetown, tablet, dungeon, soul },
         data() {
             return {
-                nextMap: 'ziene-3',
+                nextMap: 'zeine-3',
                 defaultEvt: 'evt042',
             }
         },
