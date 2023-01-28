@@ -1,6 +1,6 @@
 <template>
     <div class="maproom">
-        <subHeader :headerName="'Maps'"/>
+        <subHeader :headerName="'World Maps'"/>
         <div class="maproom_contents">
             <section class="mapblock zeine1">
                 <div class="mapblock-img">
@@ -94,6 +94,9 @@ import subHeader from '@/components/subHeader.vue';
 
     export default {
         name: 'mapRoom',
-        components: {subHeader}
+        components: {subHeader},
+    beforeMount() {
+        this.$emit('mapOverview', false);
+    },
     }
 </script>

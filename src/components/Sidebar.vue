@@ -1,8 +1,6 @@
 <template>
     <aside class="sidebar" :class="{ 'compact': sidebarMode}">
-
         <div class="container" v-if="!sidebarMode">
-            
 
             <!-- Title -->
             <div class="header">
@@ -17,9 +15,7 @@
                 <!-- Sub-Title -->
                 <div class="subheader">
                     <h2 class="title">
-                        <router-link :to="{ name: 'home', }">
-                        CROSS EDGE
-                        </router-link>
+                        <router-link :to="{ name: 'home', }">CROSS EDGE</router-link>
                     </h2>
                 </div>
 
@@ -29,25 +25,26 @@
                 <div class="tablecontents">
                     <h3>TABLE OF CONTENTS</h3>
 
-                    <!-- <div class="tbc-set">
+                    <div class="tbc-set">
                         <p>GUIDE</p>
                         <ul>
-                            <li><router-link :to="{ name: 'playthrough', }">Playthrough TIPS</router-link></li>
-                            <li>Inventory List</li>
-                            <li>TOOL: Team Setup</li>
-                            <li>TOOL: Synthesis Guide</li>
+                            <li><router-link :to="{ name: 'mapRoom', }">World Maps</router-link></li>
+                            <li><router-link :to="{ name: 'home', }">Dungeon Maps</router-link></li>
+                            <li><router-link :to="{ name: 'playthrough', }">Playthrough Tips</router-link></li>
                             <li><router-link :to="{ name: 'titles', }">Titles</router-link></li>
-                            <li><router-link :to="{ name: 'personalteam', }">Personal Team Setup</router-link></li>
+                            <li><router-link :to="{ name: 'home', }">Inventory List</router-link></li>
+                            <li><router-link :to="{ name: 'home', }">Tool: Team Build</router-link></li>
+                            <li><router-link :to="{ name: 'home', }">Tool: Synthesis Guide</router-link></li>
                         </ul>
-                    </div> -->
+                    </div>
 
-                    <!-- <div class="tbc-set">
+                    <div class="tbc-set">
                         <p>WORLD MAPS</p>
                         <ul>
                             <li @click="chooseMap('zeine-1')">Zeine - Area 1</li>
                             <li @click="chooseMap('zeine-2')">Zeine - Area 2</li>
                             <li @click="chooseMap('zeine-3')">Zeine - Area 3</li>
-                            <li @click="chooseMap('wilkiet-1')">Wilkiet - Area 1</li>
+                            <!-- <li @click="chooseMap('wilkiet-1')">Wilkiet - Area 1</li>
                             <li @click="chooseMap('wilkiet-2')">Wilkiet - Area 2</li>
                             <li @click="chooseMap('wilkiet-3')">Wilkiet - Area 3</li>
                             <li @click="chooseMap('brosste-1')">Brosste - Area 1</li>
@@ -58,9 +55,9 @@
                             <li @click="chooseMap('pragma-3')">Pragma - Area 3</li>
                             <li @click="chooseMap('ida-1')">Ida - Area 1</li>
                             <li @click="chooseMap('ida-1 (True End)')">Ida - Area 1 (True End)</li>
-                            <li @click="chooseMap('ida-2 (True End)')">Ida - Area 2 (True End)</li>
+                            <li @click="chooseMap('ida-2 (True End)')">Ida - Area 2 (True End)</li> -->
                         </ul>
-                    </div> -->
+                    </div>
 
                     <!-- <div class="tbc-set">
                         <p>WORLD MAPS</p>

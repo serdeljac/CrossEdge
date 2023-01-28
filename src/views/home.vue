@@ -45,6 +45,9 @@
 
 export default {
   name: "homePage",
+  beforeMount() {
+    this.$emit('mapOverview', false);
+  },
   methods: {
       routerPush(x) {
         this.$router.push({ name: x });

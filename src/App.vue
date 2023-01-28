@@ -1,10 +1,10 @@
 <template>
   <sidebar @detectSize="detectSize"/>
-  <main class="main-content" :class="{'mobile': sidebarMode}">
-    <headerMain />
-    <RouterView />
+  <main class="main-content" :class="{'mobile': sidebarMode, 'map_overview': mapOverview}">
+    <headerMain v-if="!mapOverview"/>
+    <RouterView @mapOverview="checkLink"/>
   </main>
-  <footerMain />
+  <footerMain :mapOverview="mapOverview"/>
 </template>
 
 <script lang="ts">
@@ -17,13 +17,17 @@ import footerMain from '@/components/footer.vue';
   components: { sidebar, headerMain, footerMain },
     data() {
       return {
-        sidebarMode: true
+        sidebarMode: true,
+        mapOverview: false
       }
     },
     methods: {
       detectSize(size) {
         this.sidebarMode = size;
         console.log(size);
+      },
+      checkLink(val) {
+        this.mapOverview = val;
       }
     }
   }

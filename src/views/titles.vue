@@ -201,6 +201,9 @@
                 final: [],
             }
         },
+    beforeMount() {
+        this.$emit('mapOverview', false);
+    },
         created() {
             const arr = json_titles[2].data;
             this.accum_kills = arr.filter(function (e) { return e.category == 'accum_kills' });

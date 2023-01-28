@@ -105,6 +105,9 @@
 
     export default {
         name: "PlaythroughTips",
-    components: { subHeader }
+    components: { subHeader },
+    beforeMount() {
+        this.$emit('mapOverview', false);
+    },
     }
 </script>

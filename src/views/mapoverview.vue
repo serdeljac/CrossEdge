@@ -1,25 +1,25 @@
 <template>
-    <div class="map_room size-map">
-        <div class="map_room__display">
+    <div class="map-overview size-map">
+        <div class="map-overview__display">
 
-            <header class="map_room__header">
-                <h2 class="map_room__title">{{ static['currentMap'] }}</h2>
-                <div class="map_room__nextmap">
+            <header class="map-overview__header">
+                <h2 class="map-overview__title">{{ static['currentMap'] }}</h2>
+                <div class="map-overview__nextmap">
                     <span>Next Map: </span>
                     <p>{{ static['nextMap'] }}</p>
                 </div>
-                <div class="map_room__tabs">
+                <div class="map-overview__tabs">
                     <button class="tab tab1" :class="{ 'active': tabSelect == 'tab1' }" @click="setActiveTab('tab1')">Event Info</button>
                     <button class="tab tab2" :class="{ 'active': tabSelect == 'tab2' }" @click="setActiveTab('tab2')">Titles in area</button>
                     <button class="tab tab3" :class="{ 'active': tabSelect == 'tab3' }" @click="setActiveTab('tab3')">Bestiary</button>
                 </div>
             </header>
 
-            <div class="map_room__map" :class="static['currentMap']">
+            <div class="map-overview__map" :class="static['currentMap']">
                 <div class="contain events">
-                    <router-view 
-                        @setDefaults="appendDefaults"
-                        @evtSelect="evtSelect"/>
+                    <zeine1 v-if="selectedMap=='zeine-1'" @setDefaults="appendDefaults" @evtSelect="evtSelect" />
+                    <zeine2 v-if="selectedMap=='zeine-2'" @setDefaults="appendDefaults" @evtSelect="evtSelect" />
+                    <zeine3 v-if="selectedMap=='zeine-3'" @setDefaults="appendDefaults" @evtSelect="evtSelect" />
                 </div>
             </div>
         </div>
@@ -36,10 +36,14 @@
     import json_eventList from '@/assets/data/events.json';
     import json_bestiaryList from '@/assets/data/bestiary.json';
 
+    import zeine1 from '../components/maps/Zeine1.vue';
+    import zeine2 from '../components/maps/Zeine2.vue';
+    import zeine3 from '../components/maps/Zeine3.vue';
+
     export default {
         name: 'MapRoom',
         props: ['selectedMap'],
-    components: { mapDetails },
+        components: { mapDetails, zeine1, zeine2, zeine3 },
         data() {
             return {
                 static: {
@@ -60,7 +64,7 @@
             this.soulArray = json_soulList[2];
             this.evetArray = json_eventList[2];
             this.bestArray = json_bestiaryList[2];
-            console.log(this.selectedMap);
+            this.$emit('mapOverview', true);
         },
         methods: {
             setActiveTab(tab) {

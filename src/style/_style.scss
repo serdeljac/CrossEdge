@@ -214,149 +214,6 @@ body {
     }
 }
 
-
-
-/************************************************************
-    COMPONENTS/sidebar.vue
-************************************************************/
-
-.sidebar {
-    background: $sidebar-bg;
-    color: #7c7c7c;
-    height: 100vh;
-    box-shadow: 0px -11px 31px -27px #000;
-    transition: all .47s ease;
-    width: $sidebarWidth-lg;
-    box-shadow: 2px 0 10px 3px rgba(0, 0, 0, 0.54);
-    position: absolute;
-    z-index: 100;
-    top: 0;
-
-    &.compact {
-        width: $sidebarWidth-sm;
-
-        .container {
-            width: $sidebarWidth-lg;
-        }
-    }
-
-    .container {
-        transition: all .35s ease;
-        left: 0;
-        padding: 20px 5px 20px 2rem;
-    }
-
-    .container-mobile {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        height: 100%;
-    }
-
-    .header {
-        display: flex;
-        justify-content: space-between;
-
-        &__title {
-            display: inline-flex;
-        }
-
-        &__logo {
-            width: 40px;
-        }
-
-        &__site {
-            color: #fff;
-            font-size: 2rem;
-            margin-left: 20px;
-        }
-
-        &__button {
-            width: 45px;
-            padding-top: 7px;
-        }
-
-        &__menu {
-            cursor: pointer;
-            transition: all .23s ease;
-            position: absolute;
-            width: 40px;
-            left: 250px;
-            z-index: 999;
-
-            rect {
-                fill: #fff;
-            }
-        }
-    }
-
-    .wrapper-scroll {
-        height: calc(100vh - 80px);
-        overflow-y: scroll;
-        padding-right: 10px;
-
-        &::-webkit-scrollbar {
-            background-color: transparent;
-            width: 10px;
-        }
-
-        &::-webkit-scrollbar-thumb {
-            border-radius: 100px;
-            background: #1d44f0;
-            border: 1px solid rgba(255, 255, 255, 0.32);
-        }
-    }
-
-    .subheader h2 {
-        color: #fff;
-        text-align: center;
-        font-weight: 300;
-        font-size: 3rem;
-        margin-top: 20px;
-    }
-
-    hr {
-        margin: 10px 0 15px;
-    }
-
-    .tablecontents {
-        font-size: 1.5rem;
-
-        h3 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .tbc-set {
-            ul {
-                margin-left: 20px;
-                margin-bottom: 20px;
-            }
-
-            li {
-                cursor: pointer;
-                color: #fff;
-            }
-        }
-    }
-}
-
-.overlay {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    left: 0px;
-    top: 0;
-    z-index: 95;
-    background-color: rgba(2, 0, 36, 0.4);
-}
-
-
-
-/************************************************************
-    COMPONENTS/parts/home_page.vue
-************************************************************/
-
 .ce-icon {
     transition: all .23s ease;
     cursor: pointer;
@@ -379,306 +236,12 @@ body {
 
 
 
-/************************************************************
-    VIEWS/true_end.vue
-************************************************************/
-
-.true_end_guide {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 40px auto;
-    color: #fff;
-    width: 100%;
-    max-width: 1200px;
-
-    .title {
-        display: flex;
-        align-items: center;
-
-        h2 {
-            margin-left: 20px;
-            font-size: 5.0rem;
-            color: #fff;
-        }
-    }
-}
 
 
 
 
 
-/************************************************************
-    map.vue
-************************************************************/
 
-.map_room {
-
-    &__display {
-        overflow-x: hidden;
-        overflow-y: scroll;
-        min-height: 100%;
-        height: 100vh;
-        display: grid;
-        grid-template-rows: 140px auto;
-        justify-items: center;
-        align-items: center;
-
-         &::-webkit-scrollbar {
-            background-color: transparent;
-        }
-    }
-
-    .tab {
-        padding: 10px 10px 5px;
-        background: rgb(0, 105, 100);
-        background: linear-gradient(349deg, rgba(0, 105, 100, 1) 0%, rgba(11, 6, 38, 1) 45%, rgba(5, 33, 102, 1) 100%);
-        font-size: 1.5rem;
-        border-radius: 15px;
-        margin-right: 10px;
-        line-height: 1;
-        height: 50px;
-        color: rgb(131, 131, 131);
-        cursor: pointer;
-        border: none;
-        transition: all .23s ease;
-        box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.624);
-
-        &:hover {
-            box-shadow: 0px 0px 7px 3px rgb(13, 102, 157);
-        }
-
-        &.active {
-            color: #fff;
-        }
-    }
-
-    &__header {
-        padding: 10px 0;
-        width: 100%;
-        height: 80px;
-        max-width: 1100px;
-        background: linear-gradient(171deg, rgba(88,4,108,1) 5%, rgba(5,33,102,1) 73%, rgba(5,66,102,1) 100%);
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.624);
-        display: grid;
-        grid-template-columns: 300px 300px 500px;
-        justify-items: center;
-        align-items: center;
-    }
-
-    &__title {
-        color: #fff;
-        font-size: 3rem;
-        margin: 0 60px 0 20px;
-        padding-left: 20px;
-
-        &::first-letter {
-            text-transform: capitalize
-        }
-    }
-
-    &__nextmap {
-        color: #fff;
-        margin-right: 10px;
-        font-size: 1.2rem;
-        text-align: center;
-        height: 100%;
-        width: 250px;
-
-        p {
-            font-size: 1.9rem;
-            font-style: italic;
-
-            &::first-letter {
-                text-transform: capitalize
-            }
-        }
-    }
-
-
-    &__map {
-        width: 1100px !important;
-        margin: 0 auto 40px;
-        background-repeat: no-repeat;
-        background-size: 100% auto;
-        border-radius: 2px;
-        border: 1px solid #000;
-        box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.624);
-        overflow: hidden;
-
-        &::-webkit-scrollbar {
-            background-color: transparent;
-        }
-    }
-
-
-}
-
-/************************************************************
-    MapDetails.vue
-************************************************************/
-
-.map_details {
-    width: 100%;
-    height: calc(100vh - 70px);
-    color: #fff;
-    padding: 20px 10px;
-    overflow-y: scroll;
-    background-color: rgba(0, 0, 0, 0.839);
-    box-shadow: -8px 0 10px 3px rgba(0, 0, 0, 0.839);
-    position: fixed;
-    width: 330px;
-    right: 0;
-    top: 0;
-
-    &::-webkit-scrollbar {
-        background-color: transparent;
-        width: 20px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        border-radius: 100px;
-        background: #8070d4;
-        border: 6px solid rgb(12, 3, 53);
-        cursor: pointer;
-    }
-
-    .title {
-        text-align: center;
-        margin: 20px 0 10px;
-        color: #fff;
-
-        &__sub {
-            font-size: 1.3rem;
-            font-weight: normal;
-            font-style: italic;
-        }
-
-        &__type {
-            text-align: left;
-            margin-bottom: 5px;
-            opacity: 0.2;
-            font-style: italic;
-            position: absolute;
-            top: 20px;
-            font-size: 2rem !important;
-        }
-    }
-
-    .sub {
-        font-style: italic;
-    }
-
-    hr {
-        opacity: 0.7;
-        margin: 15px 5px;
-    }
-
-    //CHECKBOX
-    .mark_completion {
-        font-size: 1.4rem;
-        text-align: center;
-        display: grid;
-        grid-template-columns: 30px auto;
-        align-items: center;
-        margin: 10px 0;
-    }
-
-    .checkbox {
-        width: 30px;
-        height: 30px;
-        border: 1px solid #fff;
-        border-radius: 5px;
-        margin-right: 10px;
-        cursor: pointer;
-        background-color: transparent;
-
-        &.complete {
-            background-color: #fff
-        }
-    }
-
-
-    .te_action {
-        border-radius: 5px;
-        padding: 0.4rem 0.8rem;
-        font-size: 1.3rem;
-        margin-bottom: 20px;
-        background-color: $bg_te_action;
-
-        &.glow_effect {
-            animation: glowBox 0.5s linear infinite;
-        }
-    }
-
-    .event_battles {
-        &__forced {
-            @extend .te_action;
-            margin: 10px 0 0;
-            border-radius: 5px 5px 0 0px;
-            background-color: $bg_battle;
-        }
-    }
-
-    .rewards {
-        @extend .te_action;
-        background-color: $bg_reward;
-
-    }
-
-    .notes {
-        @extend .te_action;
-        background-color: $bg_notes;
-
-        p {
-            font-weight: 200;
-        }
-    }
-
-    .dungeon {
-        font-size: 20px;
-        text-align: center;
-        padding: 20px 0;
-    }
-
-    .bestiary {
-        font-size: 1.2rem;
-
-        h3 {
-            font-size: 2rem;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        &__monster {
-            font-size: 1.6rem;
-        }
-
-        &__title {
-            margin-bottom: 20px;
-            color: #777;
-            padding-left: 10px;
-        }
-    }
-
-}
-
-.view_all_link {
-    position: absolute;
-    bottom: 0;
-    z-index: 100;
-    right: 0;
-    width: 330px;
-    height: 70px;
-    color: #fff;
-    font-size: 2.5rem;
-    background: #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: -8px 0 10px 3px rgba(0, 0, 0, 0.839);
-}
 
 /************************************************************
     TITLES
@@ -750,11 +313,6 @@ body {
     
 }
 
-
-
-
-
-
 /************************************************************
     APP (Root)
 ************************************************************/
@@ -768,6 +326,11 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    &.map_overview {
+        flex-direction: initial;
+        justify-content: initial;
+    }
 
     &.mobile {
         width: calc(100vw - $sidebarWidth-sm);
@@ -925,6 +488,112 @@ body {
 }
 
 /************************************************************
+    MAP OVERVIEW
+************************************************************/
+
+.map-overview {
+    width: calc(100% - 330px);
+
+    &__display {
+        overflow-x: hidden;
+        overflow-y: scroll;
+        min-height: 100%;
+        height: 100vh;
+        display: grid;
+        grid-template-rows: 140px auto;
+        justify-items: center;
+        align-items: center;
+
+         &::-webkit-scrollbar {
+            background-color: transparent;
+        }
+    }
+
+    .tab {
+        padding: 10px 10px 5px;
+        background: rgb(0, 105, 100);
+        background: linear-gradient(349deg, rgba(0, 105, 100, 1) 0%, rgba(11, 6, 38, 1) 45%, rgba(5, 33, 102, 1) 100%);
+        font-size: 1.5rem;
+        border-radius: 15px;
+        margin-right: 10px;
+        line-height: 1;
+        height: 50px;
+        color: rgb(131, 131, 131);
+        cursor: pointer;
+        border: none;
+        transition: all .23s ease;
+        box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.624);
+
+        &:hover {
+            box-shadow: 0px 0px 7px 3px rgb(13, 102, 157);
+        }
+
+        &.active {
+            color: #fff;
+        }
+    }
+
+    &__header {
+        padding: 10px 0;
+        width: 100%;
+        height: 80px;
+        max-width: 1100px;
+        background: linear-gradient(171deg, rgba(88,4,108,1) 5%, rgba(5,33,102,1) 73%, rgba(5,66,102,1) 100%);
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.624);
+        display: grid;
+        grid-template-columns: 300px 300px 500px;
+        justify-items: center;
+        align-items: center;
+    }
+
+    &__title {
+        color: #fff;
+        font-size: 3rem;
+        margin: 0 60px 0 20px;
+        padding-left: 20px;
+
+        &::first-letter {
+            text-transform: capitalize
+        }
+    }
+
+    &__nextmap {
+        color: #fff;
+        margin-right: 10px;
+        font-size: 1.2rem;
+        text-align: center;
+        height: 100%;
+        width: 250px;
+
+        p {
+            font-size: 1.9rem;
+            font-style: italic;
+
+            &::first-letter {
+                text-transform: capitalize
+            }
+        }
+    }
+
+
+    &__map {
+        width: 1100px !important;
+        margin: 0 auto 40px;
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        border-radius: 2px;
+        border: 1px solid #000;
+        box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.624);
+        overflow: hidden;
+
+        &::-webkit-scrollbar {
+            background-color: transparent;
+        }
+    }
+}
+
+/************************************************************
     PLAYTHROUGH TIPS
 ************************************************************/
 
@@ -982,6 +651,14 @@ body {
     justify-content: flex-end;
     font-size: 1.6rem;
     font-style: italic;
+    position: relative;
+    z-index: 90;
+
+    &.map_overview {
+        width: calc(100vw - 320px);
+        padding-right: 2.4rem;
+    }
+
 }
 
 /************************************************************
@@ -1048,4 +725,289 @@ body {
             color: #697ee1;
         }
     }
+}
+
+/************************************************************
+    PARTS - SIDEBAR
+************************************************************/
+
+.sidebar {
+    background: $sidebar-bg;
+    color: #7c7c7c;
+    height: 100vh;
+    box-shadow: 0px -11px 31px -27px #000;
+    transition: all .47s ease;
+    width: $sidebarWidth-lg;
+    box-shadow: 2px 0 10px 3px rgba(0, 0, 0, 0.54);
+    position: absolute;
+    z-index: 100;
+    top: 0;
+
+    &.compact {
+        width: $sidebarWidth-sm;
+
+        .container {
+            width: $sidebarWidth-lg;
+        }
+    }
+
+    .container {
+        transition: all .35s ease;
+        left: 0;
+        padding: 20px 5px 20px 2rem;
+    }
+
+    .container-mobile {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+
+        &__title {
+            display: inline-flex;
+        }
+
+        &__logo {
+            width: 40px;
+        }
+
+        &__site {
+            color: #fff;
+            font-size: 2rem;
+            margin-left: 20px;
+        }
+
+        &__button {
+            width: 45px;
+            padding-top: 7px;
+        }
+
+        &__menu {
+            cursor: pointer;
+            transition: all .23s ease;
+            position: absolute;
+            width: 40px;
+            left: 250px;
+            z-index: 999;
+
+            rect {
+                fill: #fff;
+            }
+        }
+    }
+
+    .wrapper-scroll {
+        height: calc(100vh - 80px);
+        overflow-y: scroll;
+        padding-right: 10px;
+
+        &::-webkit-scrollbar {
+            background-color: transparent;
+            width: 10px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border-radius: 100px;
+            background: #1d44f0;
+            border: 1px solid rgba(255, 255, 255, 0.32);
+        }
+    }
+
+    .subheader h2 {
+        color: #fff;
+        text-align: center;
+        font-weight: 300;
+        font-size: 3rem;
+        margin-top: 20px;
+    }
+
+    hr {
+        margin: 10px 0 15px;
+    }
+
+    .tablecontents {
+        font-size: 1.5rem;
+
+        h3 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .tbc-set {
+            ul {
+                margin-left: 20px;
+                margin-bottom: 20px;
+            }
+
+            li {
+                cursor: pointer;
+                color: #fff;
+            }
+        }
+    }
+}
+
+.overlay {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0px;
+    top: 0;
+    z-index: 95;
+    background-color: rgba(2, 0, 36, 0.4);
+}
+
+
+/************************************************************
+    PARTS - MAP DETAILS
+************************************************************/
+
+.map_details {
+    height: 100vh;
+    color: #fff;
+    padding: 20px 10px 70px;
+    overflow-y: scroll;
+    background-color: rgba(0, 0, 0, 0.839);
+    box-shadow: -8px 0 10px 3px rgba(0, 0, 0, 0.839);
+    position: fixed;
+    z-index: 95;
+    width: 330px;
+    right: 0;
+    top: 0;
+
+    &::-webkit-scrollbar {
+        background-color: transparent;
+        width: 20px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 100px;
+        background: #8070d4;
+        border: 6px solid rgb(12, 3, 53);
+        cursor: pointer;
+    }
+
+    .title {
+        text-align: center;
+        margin: 20px 0 10px;
+        color: #fff;
+
+        &__sub {
+            font-size: 1.3rem;
+            font-weight: normal;
+            font-style: italic;
+        }
+
+        &__type {
+            text-align: left;
+            margin-bottom: 5px;
+            opacity: 0.2;
+            font-style: italic;
+            position: absolute;
+            top: 20px;
+            font-size: 2rem !important;
+        }
+    }
+
+    .sub {
+        font-style: italic;
+    }
+
+    hr {
+        opacity: 0.7;
+        margin: 15px 5px;
+    }
+
+    //CHECKBOX
+    .mark_completion {
+        font-size: 1.4rem;
+        text-align: center;
+        display: grid;
+        grid-template-columns: 30px auto;
+        align-items: center;
+        margin: 10px 0;
+    }
+
+    .checkbox {
+        width: 30px;
+        height: 30px;
+        border: 1px solid #fff;
+        border-radius: 5px;
+        margin-right: 10px;
+        cursor: pointer;
+        background-color: transparent;
+
+        &.complete {
+            background-color: #fff
+        }
+    }
+
+
+    .te_action {
+        border-radius: 5px;
+        padding: 0.4rem 0.8rem;
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+        background-color: $bg_te_action;
+
+        &.glow_effect {
+            animation: glowBox 0.5s linear infinite;
+        }
+    }
+
+    .event_battles {
+        &__forced {
+            @extend .te_action;
+            margin: 10px 0 0;
+            border-radius: 5px 5px 0 0px;
+            background-color: $bg_battle;
+        }
+    }
+
+    .rewards {
+        @extend .te_action;
+        background-color: $bg_reward;
+
+    }
+
+    .notes {
+        @extend .te_action;
+        background-color: $bg_notes;
+
+        p {
+            font-weight: 200;
+        }
+    }
+
+    .dungeon {
+        font-size: 20px;
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    .bestiary {
+        font-size: 1.2rem;
+
+        h3 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        &__monster {
+            font-size: 1.6rem;
+        }
+
+        &__title {
+            margin-bottom: 20px;
+            color: #777;
+            padding-left: 10px;
+        }
+    }
+
 }

@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/home.vue'
+import MapOverview from '../views/mapoverview.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -24,23 +25,27 @@ const router = createRouter({
       name: 'titles',
       component: () => import('../views/titles.vue')
     },
-
-
-
-
-
     {
-      path: '/World_Map',
-      name: 'mapRoom2',
-      component: () => import('../views/maps.vue'),
+      path: '/:selectedMap',
+      name: 'zeine-1',
+      component: MapOverview,
+      props: true
+    },
+    {
+      path: '/:selectedMap',
+      name: 'zeine-2',
+      component: MapOverview,
+      props: true
+    },
+    {
+      path: '/:selectedMap',
+      name: 'zeine-3',
+      component: MapOverview,
+      props: true
     },
 
 
-    {
-      path: '/personalTeam',
-      name: 'personalteam',
-      component: () => import('../views/personalteam.vue')
-    },
+
     {
       path: '/:catchAll(.*)*',
       name: "PageNotFound",
