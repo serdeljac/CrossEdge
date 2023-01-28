@@ -406,28 +406,42 @@ body {
 
     .mapblock {
 
-        &-img {
+        &-contain {
             width: 350px;
             height: 270px;
             overflow: hidden;
             margin: auto;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            display: flex;
-            justify-content: flex-end;
-            align-items: flex-end;
+            cursor: pointer;
+            border-radius: 3px;
+            @extend .ce-shadow;
+
+            &:hover {
+                div {
+                    transform: scale(1.2);
+                }
+            }
         }
+
+
+        &-img {
+            width: 350px;
+            height: 270px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            transition: all .23s ease;
+            will-change: transform;
+        }
+
 
         h3 {
             padding: 2px 15px;
             font-size: 20px;
-            background: #0d9097;
-            border-radius: 20px 0 0;
+            text-align: center;
         }
 
         &.zeine1 .mapblock-img {
             background-image: url(@/assets/maps/Zeine_1.jpg);
+            background-position: center;
         }
         &.zeine2 .mapblock-img {
             background-image: url(@/assets/maps/Zeine_2.jpg);

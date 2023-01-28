@@ -20,6 +20,16 @@
                     <zeine1 v-if="selectedMap=='zeine-1'" @setDefaults="appendDefaults" @evtSelect="evtSelect" />
                     <zeine2 v-if="selectedMap=='zeine-2'" @setDefaults="appendDefaults" @evtSelect="evtSelect" />
                     <zeine3 v-if="selectedMap=='zeine-3'" @setDefaults="appendDefaults" @evtSelect="evtSelect" />
+                    <wilkiet1 v-if="selectedMap=='wilkiet-1'" @setDefaults="appendDefaults" @evtSelect="evtSelect" />
+                    <wilkiet2 v-if="selectedMap=='wilkiet-2'" @setDefaults="appendDefaults" @evtSelect="evtSelect" />
+                    <wilkiet3 v-if="selectedMap=='wilkiet-3'" @setDefaults="appendDefaults" @evtSelect="evtSelect" />
+                    <brosste1 v-if="selectedMap=='brosste-1'" @setDefaults="appendDefaults" @evtSelect="evtSelect" />
+                    <brosste2 v-if="selectedMap=='brosste-2'" @setDefaults="appendDefaults" @evtSelect="evtSelect" />
+                    <brosste3 v-if="selectedMap=='brosste-3'" @setDefaults="appendDefaults" @evtSelect="evtSelect" />
+                    <pragma1 v-if="selectedMap=='pragma-1'" @setDefaults="appendDefaults" @evtSelect="evtSelect" />
+                    <pragma2 v-if="selectedMap=='pragma-2'" @setDefaults="appendDefaults" @evtSelect="evtSelect" />
+                    <pragma3 v-if="selectedMap=='pragma-3'" @setDefaults="appendDefaults" @evtSelect="evtSelect" />
+                    <ida1 v-if="selectedMap=='ida-1'" @setDefaults="appendDefaults" @evtSelect="evtSelect" />
                 </div>
             </div>
         </div>
@@ -39,11 +49,21 @@
     import zeine1 from '../components/maps/Zeine1.vue';
     import zeine2 from '../components/maps/Zeine2.vue';
     import zeine3 from '../components/maps/Zeine3.vue';
+import wilkiet1 from '../components/maps/Wilkiet1.vue';
+import wilkiet2 from '../components/maps/Wilkiet2.vue';
+import wilkiet3 from '../components/maps/Wilkiet3.vue';
+import brosste1 from '../components/maps/Brosste1.vue';
+import brosste2 from '../components/maps/Brosste2.vue';
+import brosste3 from '../components/maps/Brosste3.vue';
+import pragma1 from '../components/maps/Pragma1.vue';
+import pragma2 from '../components/maps/Pragma2.vue';
+import pragma3 from '../components/maps/Pragma3.vue';
+import ida1 from '../components/maps/Ida1.vue';
 
     export default {
         name: 'MapRoom',
         props: ['selectedMap'],
-        components: { mapDetails, zeine1, zeine2, zeine3 },
+    components: { mapDetails, zeine1, zeine2, zeine3, wilkiet1, wilkiet2, wilkiet3, brosste1, brosste2, brosste3, pragma1, pragma2, pragma3, ida1 },
         data() {
             return {
                 static: {
