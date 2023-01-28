@@ -44,7 +44,7 @@
                             <li @click="chooseMap('zeine-1')">Zeine - Area 1</li>
                             <li @click="chooseMap('zeine-2')">Zeine - Area 2</li>
                             <li @click="chooseMap('zeine-3')">Zeine - Area 3</li>
-                            <!-- <li @click="chooseMap('wilkiet-1')">Wilkiet - Area 1</li>
+                            <li @click="chooseMap('wilkiet-1')">Wilkiet - Area 1</li>
                             <li @click="chooseMap('wilkiet-2')">Wilkiet - Area 2</li>
                             <li @click="chooseMap('wilkiet-3')">Wilkiet - Area 3</li>
                             <li @click="chooseMap('brosste-1')">Brosste - Area 1</li>
@@ -54,7 +54,7 @@
                             <li @click="chooseMap('pragma-2')">Pragma - Area 2</li>
                             <li @click="chooseMap('pragma-3')">Pragma - Area 3</li>
                             <li @click="chooseMap('ida-1')">Ida - Area 1</li>
-                            <li @click="chooseMap('ida-1 (True End)')">Ida - Area 1 (True End)</li>
+                            <!-- <li @click="chooseMap('ida-1 (True End)')">Ida - Area 1 (True End)</li>
                             <li @click="chooseMap('ida-2 (True End)')">Ida - Area 2 (True End)</li> -->
                         </ul>
                     </div>
