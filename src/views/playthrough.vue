@@ -32,7 +32,7 @@
                         <p>All Weapons, armor, accessories, items, and costumes</p>
                         <p>Character skill levels</p>
                         <p>Soul search level</p>
-                        <p>Title progression (eg # of defeated enemies)</p>
+                        <p>Title progression (except #103-#107)</p>
                     </li>
                     <li>Reset on next cycle:
                         <p>Character levels (EX skills will be locked again)</p>
@@ -60,7 +60,7 @@
                         <p>Defeat bosses in fewest turns to gain PP</p>
                         <p>Complete requirements for titles in areas</p>
                         <p>Aquire all Arcane books and Sythesis recipes</p>
-                        <p>You can regain title rewards on EVERY PLAYTHROUGH!</p>
+                        <p>You can regain most title rewards on EVERY PLAYTHROUGH!</p>
                     </li>
                     <li>Final Playthrough:
                         <p>Plan your best team for the toughest fights:</p>

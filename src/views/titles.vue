@@ -110,6 +110,7 @@
                 <div class="titles_sub-header">
                     <h3>#103 - #107 (Find # of souls)</h3>
                     <p>Note 1: Easier on second playthrough after reaching sould search lvl 10.</p>
+                    <p>Note 2: Progression will reset on every playthrough.</p>
                     <p>Note 2: Some souls can only be collected in post-game (true end).</p>
                 </div>
                 <div class="titles_list">
