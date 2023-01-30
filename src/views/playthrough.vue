@@ -12,6 +12,11 @@
                     <li>Download all 'FREE' DLC. Purchase for further boosts!
                         <p>Give yourself an boost. Even the bought DLC makes grinding much quicker.</p>
                     </li>
+                    <li>
+                        Play on HARD MODE!
+                        <p>If you achieve True End, you can access a bonus area (Ida-3)</p>
+                        <p>You will also be able to transfer all weeapons, skill levels, and points onto NG+ without limitations (you'll most likely play multiple playthroughs).</p>
+                    </li>
                     <li>Attempt to 'OVERKILL' as much as possible!
                         <p>You will spend a lot of time gathering items for synthesis. Save yourself some time.</p>
                     </li>

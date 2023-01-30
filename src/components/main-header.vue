@@ -2,7 +2,7 @@
     <header class="main_header">
         <img src="../assets/crossedge_logo.jpg" alt="Cross Edge" />
         <div class="platform">
-            <p>PS3/XBOX</p>
+            <p>PS3/XBOX360</p>
         </div>
         <div>
             <h1>Cross Edge Interactive Guide <span>v1.0.0</span></h1>
