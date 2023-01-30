@@ -15,8 +15,8 @@
                     <li>Attempt to 'OVERKILL' as much as possible!
                         <p>You will spend a lot of time gathering items for synthesis. Save yourself some time.</p>
                     </li>
-                    <li>Kill bosses in fewest turns!
-                        <p>You gain more shared PP the quicker you defeat the bosses. Overkill bosses should be secondary!</p>
+                    <li>Overkill bosses in fewest turns!
+                        <p>You get more EXP, G, & EP the quicker you defeat the bosses, but gain great items from overkills!</p>
                     </li>
                     <li>Level up abilities
                         <p>To gain ability XP, you need to use abilities on higher level enemies, then win battle</p>
