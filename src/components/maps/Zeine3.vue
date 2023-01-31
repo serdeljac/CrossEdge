@@ -6,7 +6,7 @@
     <div class="icn order soulevent soulevent-3"      @click="getEventList('events', 'evt056')" order="56"><soulevent /></div>
     <div class="icn order soulevent soulevent-4"      @click="getEventList('events', 'evt057')" order="57"><soulevent /></div>
     <div class="icn order storyevent story-2"         @click="getEventList('events', 'evt058')" order="58"><storyevent /></div>
-    <div class="icn order soulevent soulevent-5"      @click="getEventList('events', 'evt059')" order="59"><soulevent /></div>
+    <div class="icn order soulevent soulevent-5 te"   @click="getEventList('events', 'evt059')" order="59"><soulevent /></div>
     <div class="icn order storyevent story-3"         @click="getEventList('events', 'evt060')" order="60"><storyevent /></div>
     <div class="icn order dungeon dungeon-2"          @click="getEventList('events', 'evt061')" order="61"><dungeon /></div>
     <div class="icn town ziene town-1"                @click="getEventList('events', 'icn033')"><zeinetown /></div>
@@ -39,6 +39,7 @@
     import tablet from '@/components/parts/tablet.vue';
     import dungeon from '@/components/parts/dungeon.vue';
     import soul from '@/components/parts/soul.vue';
+    import $ from 'jquery';
 
     export default {
         name: "MapZeine1",
@@ -56,6 +57,8 @@
         methods: {
             getEventList(type, id) {
                 this.$emit('evtSelect', [type, id, 'tab1']);
+                $('div').removeClass('selected');
+                $('.' + id).addClass('selected');
             },
         },
     }

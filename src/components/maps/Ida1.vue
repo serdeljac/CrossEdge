@@ -21,13 +21,6 @@
     <div class="icn soul soul-3"                      @click="getEventList('souls', 'i103')"><soul /></div>
     <div class="icn soul soul-4"                      @click="getEventList('souls', 'i104')"><soul /></div>
     <div class="icn soul soul-5"                      @click="getEventList('souls', 'i105')"><soul /></div>
-    <div class="icn soul soul-6"                      @click="getEventList('souls', 'i106')"><soul /></div>
-    <div class="icn soul soul-7"                      @click="getEventList('souls', 'i107')"><soul /></div>
-    <div class="icn soul soul-8"                      @click="getEventList('souls', 'i108')"><soul /></div>
-    <div class="icn soul soul-9"                      @click="getEventList('souls', 'i109')"><soul /></div>
-    <div class="icn soul soul-10"                     @click="getEventList('souls', 'i110')"><soul /></div>
-    <div class="icn soul soul-11"                     @click="getEventList('souls', 'i111')"><soul /></div>
-    <div class="icn soul soul-12"                     @click="getEventList('souls', 'i112')"><soul /></div>
 </template>
 
 <script lang="ts">

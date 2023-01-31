@@ -6,9 +6,7 @@
             <div class="playthrough_sub-header">
                 <h3>Before you begin:</h3>
                 <ul>
-                    <li>DO NOT USE ANY SHARED PP or STAT BOOST ITEMS!!
-                        <p>Your goal is to be very strong for post-game collecting. Stats will reset on next game cycle!</p>
-                    </li>
+                    
                     <li>Download all 'FREE' DLC. Purchase for further boosts!
                         <p>Give yourself an boost. Even the bought DLC makes grinding much quicker.</p>
                     </li>
@@ -17,6 +15,9 @@
                         <p>If you achieve True End, you can access a bonus area (Ida-3)</p>
                         <p>You will also be able to transfer all weeapons, skill levels, and points onto NG+ without limitations (you'll most likely play multiple playthroughs).</p>
                     </li>
+                    <li>DO NOT USE ANY SHARED PP or STAT BOOST ITEMS!!
+                        <p>Your goal is to be very strong for post-game collecting. Stats will reset on next game cycle!</p>
+                    </li>
                     <li>Attempt to 'OVERKILL' as much as possible!
                         <p>You will spend a lot of time gathering items for synthesis. Save yourself some time.</p>
                     </li>
@@ -24,13 +25,16 @@
                         <p>You get more EXP, G, & EP the quicker you defeat the bosses, but gain great items from overkills!</p>
                     </li>
                     <li>Level up abilities
-                        <p>To gain ability XP, you need to use abilities on higher level enemies, then win battle</p>
+                        <p>To gain ability XP, you need to use abilities on higher level enemies, then win battle.</p>
+                    </li>
+                    <li>Purchase plenty of 'Serum Poweder'
+                        <p>Random Battles will be an anoyance, so avoid unessesary battles with Serum Powder.</p>
                     </li>
                 </ul>
             </div>
 
             <div class="playthrough_sub-header">
-                <h3>New Game+ carry over:</h3>
+                <h3>New Game+ carry over (Hard Mode):</h3>
                 <ul>
                     <li>Will carry over onto next cycle:
                         <p>Unspent Gold, EP, TP, and Shared PP</p>
@@ -39,7 +43,7 @@
                         <p>Soul search level</p>
                         <p>Title progression (except #103-#107)</p>
                     </li>
-                    <li>Reset on next cycle:
+                    <li>Resets on next cycle:
                         <p>Character levels (EX skills will be locked again)</p>
                         <p>PP gained from character levels</p>
                         <p>Stats that was boosted</p>
@@ -68,7 +72,7 @@
                         <p>You can regain most title rewards on EVERY PLAYTHROUGH!</p>
                     </li>
                     <li>Final Playthrough:
-                        <p>Plan your best team for the toughest fights:</p>
+                        <p>Plan your best team for the toughest fights (My setup has worked for platinum)</p>
                         <p>Spend equal amount of PP on your characters (I personally saved 40,000 PP)</p>
                         <p>VIT is quite important, STR should push characters past 10,000 ATK</p>
                         <p>Collect all souls in the area</p>

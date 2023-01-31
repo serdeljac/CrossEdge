@@ -38,6 +38,20 @@
     }
 }
 
+@keyframes glowBoxIcon {
+    0% {
+        filter: drop-shadow(0px 0px 2px rgb(149, 3, 3));
+    }
+
+    50% {
+        filter: drop-shadow(0px 0px 8px rgb(235, 23, 23));
+    }
+
+    100% {
+        filter: drop-shadow(0px 0px 2px rgb(149, 3, 3));
+    }
+}
+
 
 .ce-shadow {
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, 
@@ -229,6 +243,14 @@ body {
     path {
         fill: none;
     }
+}
+
+.icn.te svg {
+    animation: glowBoxIcon 0.5s linear infinite;
+}
+
+.icn.selected .ce-icon {
+    filter: drop-shadow(0px 0px 5px rgb(244, 255, 194));
 }
 
 
@@ -603,6 +625,7 @@ body {
         &::-webkit-scrollbar {
             background-color: transparent;
         }
+
     }
 }
 
