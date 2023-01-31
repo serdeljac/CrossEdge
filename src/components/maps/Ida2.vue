@@ -1,18 +1,18 @@
 <template>
-    <div class="icn storyevent story-1"               @click="getEventList('events', 'evt148')"><storyevent /></div>
-    <div class="icn storyevent story-2"               @click="getEventList('events', 'evt149')"><storyevent /></div>
-    <div class="icn storyevent story-3"               @click="getEventList('events', 'evt150')"><storyevent /></div>
-    <div class="icn storyevent story-4"               @click="getEventList('events', 'evt151')"><storyevent /></div>
-    <div class="icn storyevent story-5"               @click="getEventList('events', 'evt152')"><storyevent /></div>
-    <div class="icn storyevent story-6"               @click="getEventList('events', 'evt153')"><storyevent /></div>
-    <div class="icn storyevent story-7"               @click="getEventList('events', 'evt154')"><storyevent /></div>
-    <div class="icn storyevent story-8"               @click="getEventList('events', 'evt155')"><storyevent /></div>
-    <div class="icn storyevent story-9"               @click="getEventList('events', 'evt156')"><storyevent /></div>
-    <div class="icn storyevent story-10"              @click="getEventList('events', 'evt157')"><storyevent /></div>
-    <div class="icn storyevent story-11"              @click="getEventList('events', 'evt158')"><storyevent /></div>
-    <div class="icn storyevent story-12"              @click="getEventList('events', 'evt159')"><storyevent /></div>
-    <div class="icn storyevent story-13"              @click="getEventList('events', 'evt160')"><storyevent /></div>
-    <div class="icn town ida town-1"                  @click="getEventList('events', 'icn080')"><ida2town /></div>
+    <div class="icn evt148 storyevent story-1"               @click="getEventList('events', 'evt148')"><storyevent /></div>
+    <div class="icn evt149 storyevent story-2"               @click="getEventList('events', 'evt149')"><storyevent /></div>
+    <div class="icn evt150 storyevent story-3"               @click="getEventList('events', 'evt150')"><storyevent /></div>
+    <div class="icn evt151 storyevent story-4"               @click="getEventList('events', 'evt151')"><storyevent /></div>
+    <div class="icn evt152 storyevent story-5"               @click="getEventList('events', 'evt152')"><storyevent /></div>
+    <div class="icn evt153 storyevent story-6"               @click="getEventList('events', 'evt153')"><storyevent /></div>
+    <div class="icn evt154 storyevent story-7"               @click="getEventList('events', 'evt154')"><storyevent /></div>
+    <div class="icn evt155 storyevent story-8"               @click="getEventList('events', 'evt155')"><storyevent /></div>
+    <div class="icn evt156 storyevent story-9"               @click="getEventList('events', 'evt156')"><storyevent /></div>
+    <div class="icn evt157 storyevent story-10"              @click="getEventList('events', 'evt157')"><storyevent /></div>
+    <div class="icn evt158 storyevent story-11"              @click="getEventList('events', 'evt158')"><storyevent /></div>
+    <div class="icn evt159 storyevent story-12"              @click="getEventList('events', 'evt159')"><storyevent /></div>
+    <div class="icn evt160 storyevent story-13"              @click="getEventList('events', 'evt160')"><storyevent /></div>
+    <div class="icn icn080 town ida town-1"                  @click="getEventList('events', 'icn080')"><ida2town /></div>
 </template>
 
 <script lang="ts">

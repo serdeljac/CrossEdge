@@ -16,16 +16,16 @@
     <div class="icn icn006 tablet tablet-5"                  @click="getEventList('events', 'icn006')"><tablet /></div>
     <div class="icn icn007 dungeon dungeon-2"                @click="getEventList('events', 'icn007')"><dungeon /></div>
 
-    <div class="icn soul z101 soul-1"                        @click="getEventList('souls', 'z101')"><soul /></div>
-    <div class="icn soul z102 soul-2"                        @click="getEventList('souls', 'z102')"><soul /></div>
-    <div class="icn soul z103 soul-3"                        @click="getEventList('souls', 'z103')"><soul /></div>
-    <div class="icn soul z104 soul-4"                        @click="getEventList('souls', 'z104')"><soul /></div>
-    <div class="icn soul z105 soul-5"                        @click="getEventList('souls', 'z105')"><soul /></div>
-    <div class="icn soul z106 soul-6"                        @click="getEventList('souls', 'z106')"><soul /></div>
-    <div class="icn soul z107 soul-7"                        @click="getEventList('souls', 'z107')"><soul /></div>
-    <div class="icn soul z108 soul-8"                        @click="getEventList('souls', 'z108')"><soul /></div>
-    <div class="icn soul z109 soul-9"                        @click="getEventList('souls', 'z109')"><soul /></div>
-    <div class="icn soul z110 soul-10"                       @click="getEventList('souls', 'z110')"><soul /></div>
+    <div class="icn z101 soul soul-1"                        @click="getEventList('souls', 'z101')"><soul /></div>
+    <div class="icn z102 soul soul-2"                        @click="getEventList('souls', 'z102')"><soul /></div>
+    <div class="icn z103 soul soul-3"                        @click="getEventList('souls', 'z103')"><soul /></div>
+    <div class="icn z104 soul soul-4"                        @click="getEventList('souls', 'z104')"><soul /></div>
+    <div class="icn z105 soul soul-5"                        @click="getEventList('souls', 'z105')"><soul /></div>
+    <div class="icn z106 soul soul-6"                        @click="getEventList('souls', 'z106')"><soul /></div>
+    <div class="icn z107 soul soul-7"                        @click="getEventList('souls', 'z107')"><soul /></div>
+    <div class="icn z108 soul soul-8"                        @click="getEventList('souls', 'z108')"><soul /></div>
+    <div class="icn z109 soul soul-9"                        @click="getEventList('souls', 'z109')"><soul /></div>
+    <div class="icn z110 soul soul-10"                       @click="getEventList('souls', 'z110')"><soul /></div>
 </template>
 
 <script lang="ts">

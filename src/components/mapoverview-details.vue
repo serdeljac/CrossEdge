@@ -10,7 +10,7 @@
                     <h4 v-if="data.icon_type == 'event' && data.event_num ">#{{ data.event_num }} {{ data.name }}</h4>
                     <h4 v-if="data.icon_type == 'event' && !data.event_num ">{{ data.name }}</h4>
                     <h4 v-if="data.icon_type == 'icon'">{{ data.name }}</h4>
-                    <p class="title__sub" v-if="data.condition">(True End Route Only)</p>
+                    <p class="title__sub" v-if="data.shortcode && data.target == 'Soul Reward'">(True End Route Only)</p>
                     <p class="title__sub" v-if="data.true_end_name">({{ data.true_end_name }})</p>
                     <p class="title__sub" v-if="data.type == 'Tablet'">(Blockade)</p>
                 </div>
