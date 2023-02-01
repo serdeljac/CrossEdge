@@ -22,6 +22,7 @@
     import tablet from '@/components/parts/tablet.vue';
     import dungeon from '@/components/parts/dungeon.vue';
     import soul from '@/components/parts/soul.vue';
+    import $ from 'jquery';
 
     export default {
         name: "MapIda2",
@@ -39,6 +40,8 @@
         methods: {
             getEventList(type, id) {
                 this.$emit('evtSelect', [type, id, 'tab1']);
+                $('div').removeClass('selected');
+                $('.' + id).addClass('selected');
             },
         },
     }
