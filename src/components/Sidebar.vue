@@ -25,13 +25,7 @@
 
                     <div class="tbc-set">
                         <ul>
-                            <li @click="choosePage('home')">⌂ Home</li>
-                        </ul>
-                    </div>
-
-                    <div class="tbc-set">
-                        <p>GUIDE</p>
-                        <ul>
+                            <li @click="choosePage('home')">Home</li>
                             <li @click="choosePage('mapRoom')">World Maps</li>
                             <li @click="choosePage('dunMapRoom')">Dungeon Maps</li>
                             <li @click="choosePage('playthrough')">Playthrough Tips</li>
