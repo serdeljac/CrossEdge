@@ -5,7 +5,6 @@
         <div v-if="tabOpen == 'tab1'">
             <div v-for="data in info" :key="data.id">
                 <div class="title">
-                    
                     <h4 v-if="data.target == 'Soul Reward'">{{ data.target }} #{{ data.soul }}</h4>
                     <h4 v-if="data.icon_type == 'event' && data.event_num ">#{{ data.event_num }} {{ data.name }}</h4>
                     <h4 v-if="data.icon_type == 'event' && !data.event_num ">{{ data.name }}</h4>
@@ -24,7 +23,7 @@
 
                 <!-- Dungeon Display -->
                 <div class="dungeon" v-if="data.type == 'Dungeon' || data.type == 'DLC'">
-                    <button class="btn" @click="openDungeonMap()">Open Dungeon Map</button>
+                    <button class="btn" @click="openDungeonMap(data.shortcode)">Open Dungeon Map</button>
                 </div>
 
                 <!-- Event Display -->
@@ -136,6 +135,12 @@
                 'defaults': {type: Object},
                 'tabOpen': { type: String },
                 'info' : {type: Object},
+        },
+        emit: ['openDungeon'],
+        methods: {
+            openDungeonMap(dungeon) {
+                this.$emit('openDungeon', [true, dungeon]);
+            }
         },
     }
 </script>

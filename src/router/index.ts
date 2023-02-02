@@ -37,97 +37,97 @@ const router = createRouter({
       component: () => import('../views/titles.vue')
     },
     {
-      path: '/:selectedMap',
+      path: '/Map_Room/:selectedMap',
       name: 'zeine-1',
       component: MapOverview,
       props: true
     },
     {
-      path: '/:selectedMap',
+      path: '/Map_Room/:selectedMap',
       name: 'zeine-2',
       component: MapOverview,
       props: true
     },
     {
-      path: '/:selectedMap',
+      path: '/Map_Room/:selectedMap',
       name: 'zeine-3',
       component: MapOverview,
       props: true
     },
     {
-      path: '/:selectedMap',
+      path: '/Map_Room/:selectedMap',
       name: 'wilkiet-1',
       component: MapOverview,
       props: true
     },
     {
-      path: '/:selectedMap',
+      path: '/Map_Room/:selectedMap',
       name: 'wilkiet-2',
       component: MapOverview,
       props: true
     },
     {
-      path: '/:selectedMap',
+      path: '/Map_Room/:selectedMap',
       name: 'wilkiet-3',
       component: MapOverview,
       props: true
     },
     {
-      path: '/:selectedMap',
+      path: '/Map_Room/:selectedMap',
       name: 'brosste-1',
       component: MapOverview,
       props: true
     },
     {
-      path: '/:selectedMap',
+      path: '/Map_Room/:selectedMap',
       name: 'brosste-2',
       component: MapOverview,
       props: true
     },
     {
-      path: '/:selectedMap',
+      path: '/Map_Room/:selectedMap',
       name: 'brosste-3',
       component: MapOverview,
       props: true
     },
     {
-      path: '/:selectedMap',
+      path: '/Map_Room/:selectedMap',
       name: 'pragma-1',
       component: MapOverview,
       props: true
     },
     {
-      path: '/:selectedMap',
+      path: '/Map_Room/:selectedMap',
       name: 'pragma-2',
       component: MapOverview,
       props: true
     },
     {
-      path: '/:selectedMap',
+      path: '/Map_Room/:selectedMap',
       name: 'pragma-3',
       component: MapOverview,
       props: true
     },
     {
-      path: '/:selectedMap',
+      path: '/Map_Room/:selectedMap',
       name: 'ida-1',
       component: MapOverview,
       props: true
     },
     {
-      path: '/:selectedMap',
+      path: '/Map_Room/:selectedMap',
       name: 'ida-1te',
       component: MapOverview,
       props: true
     },
     {
-      path: '/:selectedMap',
+      path: '/Map_Room/:selectedMap',
       name: 'ida-2',
       component: MapOverview,
       props: true
     },
     {
-      path: '/:selectedMap',
+      path: '/Map_Room/:selectedMap',
       name: 'ida-3',
       component: MapOverview,
       props: true

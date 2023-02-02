@@ -36,9 +36,10 @@
                             <li @click="choosePage('dunMapRoom')">Dungeon Maps</li>
                             <li @click="choosePage('playthrough')">Playthrough Tips</li>
                             <li @click="choosePage('titles')">Titles</li>
-                            <li @click="choosePage('')">Inventory List</li>
-                            <li @click="choosePage('')">Tool: Team Build</li>
-                            <li @click="choosePage('')">Tool: Synthesis Guide</li>
+                            <li class="null">Inventory</li>
+                            <li class="null">Bestiary</li>
+                            <li class="null">Tool: Team Build</li>
+                            <li class="null">Tool: Synthesis Guide</li>
                         </ul>
                     </div>
 

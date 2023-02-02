@@ -29,28 +29,28 @@
           <h2>Titles</h2>
         </section>
 
-        <section class="landing_contents-titles">
-          <div class="section-img">
-            <img src="../assets/icons/homebestiary.jpg" />
-          </div>
-          <h2>Bestiary</h2>
-        </section>
-
-        <section class="landing_contents-inventory">
+        <section class="landing_contents-inventory homenull">
           <div class="section-img">
             <img src="../assets/icons/homeinventory.jpg" />
           </div>
           <h2>Inventory</h2>
         </section>
 
-        <section class="landing_contents-toolTeam">
+        <section class="landing_contents-bestiary homenull">
+          <div class="section-img">
+            <img src="../assets/icons/homebestiary.jpg" />
+          </div>
+          <h2>Bestiary</h2>
+        </section>
+
+        <section class="landing_contents-toolTeam homenull">
           <div class="section-img">
             <img src="../assets/icons/hometeambuild.jpg" />
           </div>
           <h2>Tool: Team Build</h2>
         </section>
 
-        <section class="landing_contents-toolSynth">
+        <section class="landing_contents-toolSynth homenull">
           <div class="section-img">
             <img src="../assets/icons/homesynthguide.jpg" />
           </div>

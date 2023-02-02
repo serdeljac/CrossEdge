@@ -36,9 +36,15 @@
             </div>
         </div>
         <mapDetails
+            @openDungeon="openDungeon"
             :defaults="static"
             :tabOpen="tabSelect"
             :info="dataArray"/>
+
+        <div class="showDungeonMap" :class="{ 'active': displayDungeon }" @click="openDungeon([false, dungeon])">
+            <img v-bind:src="`${'/src/assets/maps/dungeon/' + dungeon + '.jpg'}`" v-bind:alt="dungeon">
+        </div>
+
     </div>
 </template>
 
@@ -85,6 +91,8 @@
                 properMapName: '',
                 properNextMapName: '',
                 tabSelect: 'tab1',
+                displayDungeon: false,
+                dungeon: '',
                 names: {
                     'zeine-1': 'Zeine 1',
                     'zeine-2': 'Zeine 2',
@@ -150,7 +158,10 @@
             fixname(curMap, nxtMap) {
                 this.properMapName = this.names[curMap];
                 this.properNextMapName = this.names[nxtMap];
-                
+            },
+            openDungeon(arr) {
+                this.displayDungeon = arr[0];
+                this.dungeon = arr[1];
             }
         },
     }
