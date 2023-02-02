@@ -16,6 +16,17 @@ const router = createRouter({
       component: () => import('../views/mapRoom.vue'),
     },
     {
+      path: '/Dungeon_Map_Room',
+      name: 'dunMapRoom',
+      component: () => import('../views/dungeonMapRoom.vue'),
+    },
+    {
+      path: '/:dungeon',
+      name: 'dungeonDisplay',
+      component: () => import('../views/dungeonoverview.vue'),
+      props: true
+    },
+    {
       path: '/PlaythroughTips',
       name: 'playthrough',
       component: () => import('../views/playthrough.vue')

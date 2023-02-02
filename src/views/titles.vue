@@ -1,6 +1,6 @@
 <template>
     <div class="titles" >
-        <subHeader :headerName="'Titles'" />
+        <subHeader :headerName="'Titles'" :backlink="'home'"/>
         <div class="titles_content">
 
             <div class="titles_group defeat_enemies">

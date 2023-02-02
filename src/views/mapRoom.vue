@@ -1,6 +1,6 @@
 <template>
     <div class="maproom">
-        <subHeader :headerName="'World Maps'"/>
+        <subHeader :headerName="'World Maps'" :backlink="'home'"/>
         <div class="maproom_contents">
             <section class="mapblock zeine1">
                 <h3>Zeine 1</h3>

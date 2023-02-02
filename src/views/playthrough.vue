@@ -1,6 +1,6 @@
 <template>
     <div class="playthrough">
-        <subHeader :headerName="'Playthrough Tips'" />
+        <subHeader :headerName="'Playthrough Tips'" :backlink="'home'"/>
         <div class="playthrough_content">
 
             <div class="playthrough_sub-header">

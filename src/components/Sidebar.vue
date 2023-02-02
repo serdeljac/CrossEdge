@@ -25,20 +25,20 @@
 
                     <div class="tbc-set">
                         <ul>
-                            <li @click="chooseMap('home')">⌂ Home</li>
+                            <li @click="choosePage('home')">⌂ Home</li>
                         </ul>
                     </div>
 
                     <div class="tbc-set">
                         <p>GUIDE</p>
                         <ul>
-                            <li @click="chooseMap('mapRoom')">World Maps</li>
-                            <li @click="chooseMap('')">Dungeon Maps</li>
-                            <li @click="chooseMap('playthrough')">Playthrough Tips</li>
-                            <li @click="chooseMap('titles')">Titles</li>
-                            <li @click="chooseMap('')">Inventory List</li>
-                            <li @click="chooseMap('')">Tool: Team Build</li>
-                            <li @click="chooseMap('')">Tool: Synthesis Guide</li>
+                            <li @click="choosePage('mapRoom')">World Maps</li>
+                            <li @click="choosePage('dunMapRoom')">Dungeon Maps</li>
+                            <li @click="choosePage('playthrough')">Playthrough Tips</li>
+                            <li @click="choosePage('titles')">Titles</li>
+                            <li @click="choosePage('')">Inventory List</li>
+                            <li @click="choosePage('')">Tool: Team Build</li>
+                            <li @click="choosePage('')">Tool: Synthesis Guide</li>
                         </ul>
                     </div>
 
@@ -121,10 +121,10 @@
                 mobileExpand: false,
             }
         },
-        mounted() {
+        emits: ['detectSize'],
+        beforeMount() {
             window.addEventListener("resize", this.sidebarForce);
             this.sidebarForce();
-            
         },
         methods: {
             sidebarForce() {
@@ -142,6 +142,9 @@
             expandMenu() {
                 this.mobileExpand = !this.mobileExpand;
                 this.sidebarMode = !this.sidebarMode;
+            },
+            choosePage(map) {
+                this.$router.push({ name: map });
             },
             chooseMap(map) {
                 this.$router.push({ name: map, params: {selectedMap: map} });

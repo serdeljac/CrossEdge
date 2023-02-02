@@ -1,5 +1,5 @@
 <template>
-  <sidebar @detectSize="detectSize"/>
+  <sidebar @detectSize="sidebarSize"/>
   <main class="main-content" :class="{'mobile': sidebarMode, 'map_overview': mapOverview}">
     <headerMain v-if="!mapOverview"/>
     <RouterView @mapOverview="checkLink"/>
@@ -22,7 +22,7 @@ import footerMain from '@/components/footer.vue';
       }
     },
     methods: {
-      detectSize(size) {
+      sidebarSize(size) {
         this.sidebarMode = size;
       },
       checkLink(val) {

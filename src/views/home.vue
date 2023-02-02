@@ -8,7 +8,7 @@
           <h2>Maps</h2>
         </section>
 
-        <section class="landing_contents-dungeons">
+        <section class="landing_contents-dungeons" @click="routerPush('dunMapRoom')">
           <div class="section-img">
             <img src="../assets/icons/homedungeon.jpg" />
           </div>
