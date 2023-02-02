@@ -5,8 +5,8 @@
             <!-- Title -->
             <div class="header">
                 <div class="header__title">
-                    <img class="header__logo" src="../assets/sitelogo.svg" />
-                    <div class="header__site">F2G</div>
+                    <img class="header__logo" src="../assets/sitelogo.jpg" />
+                    <div class="header__site">OldBulb Games</div>
                 </div>
             </div>
 
