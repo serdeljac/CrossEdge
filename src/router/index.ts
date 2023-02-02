@@ -11,6 +11,11 @@ const router = createRouter({
       component: HomeView
     },
     {
+      path: '/Version',
+      name: 'version',
+      component: () => import('../views/version.vue'),
+    },
+    {
       path: '/Map_Room',
       name: 'mapRoom',
       component: () => import('../views/mapRoom.vue'),
@@ -132,10 +137,6 @@ const router = createRouter({
       component: MapOverview,
       props: true
     },
-
-
-
-
     {
       path: '/:catchAll(.*)*',
       name: "PageNotFound",
