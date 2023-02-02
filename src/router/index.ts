@@ -21,7 +21,7 @@ const router = createRouter({
       component: () => import('../views/dungeonMapRoom.vue'),
     },
     {
-      path: '/:dungeon',
+      path: '/Dungeon_Map_Room/:dungeon',
       name: 'dungeonDisplay',
       component: () => import('../views/dungeonoverview.vue'),
       props: true

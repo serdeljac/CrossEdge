@@ -63,28 +63,28 @@
                         </ul>
                     </div>
 
-                    <!-- <div class="tbc-set">
+                    <div class="tbc-set">
                         <p>DUNGEON MAPS</p>
                         <ul>
-                            <li>Renuit</li>
-                            <li>Reveldead</li>
-                            <li>Midbase</li>
-                            <li>Hellzeit</li>
-                            <li>Laurelite</li>
-                            <li>Charlephene</li>
-                            <li>Arcadia</li>
-                            <li>Bell Kant (Bel Canto)</li>
-                            <li>Fett Road</li>
-                            <li>Sazaruka (Ripquake)</li>
-                            <li>Ripquake (En Delite)</li>
-                            <li>En Delite (Sazaruka)</li>
-                            <li>Ea Canal - Zeine 1</li>
-                            <li>Nachtlark - Wilkiet 2</li>
-                            <li>Fiesta Barra - Brosste 2</li>
-                            <li>Schine Baal - Pragma 2</li>
-                            <li>Eldehel - Ida 1</li>
+                            <li @click="chooseDungeonMap('Renuit')">Renuit</li>
+                            <li @click="chooseDungeonMap('Reveldead')">Reveldead</li>
+                            <li @click="chooseDungeonMap('Midbase')">Midbase</li>
+                            <li @click="chooseDungeonMap('Hellzeit')">Hellzeit</li>
+                            <li @click="chooseDungeonMap('Laurelite')">Laurelite</li>
+                            <li @click="chooseDungeonMap('Charlephene')">Charlephene</li>
+                            <li @click="chooseDungeonMap('Arcadia')">Arcadia</li>
+                            <li @click="chooseDungeonMap('Bellkant')">Bell Kant (Bel Canto)</li>
+                            <li @click="chooseDungeonMap('Fettroad')">Fett Road</li>
+                            <li @click="chooseDungeonMap('Sazaruka')">Sazaruka (Ripquake)</li>
+                            <li @click="chooseDungeonMap('Ripquake')">Ripquake (En Delite)</li>
+                            <li @click="chooseDungeonMap('Endelite')">En Delite (Sazaruka)</li>
+                            <li @click="chooseDungeonMap('Eacanal')">Ea Canal - Zeine 1</li>
+                            <li @click="chooseDungeonMap('Nachtlark')">Nachtlark - Wilkiet 2</li>
+                            <li @click="chooseDungeonMap('Fiestabarra')">Fiesta Barra - Brosste 2</li>
+                            <li @click="chooseDungeonMap('Schinebaal')">Schine Baal - Pragma 2</li>
+                            <li @click="chooseDungeonMap('Eldehel')">Eldehel - Ida 1</li>
                         </ul>
-                    </div> -->
+                    </div>
 
                     <!-- <div class="tbc-set-3">
                         <hr>
@@ -148,6 +148,9 @@
             },
             chooseMap(map) {
                 this.$router.push({ name: map, params: {selectedMap: map} });
+            }, 
+            chooseDungeonMap(map) {
+                this.$router.push({ name: 'dungeonDisplay', params: { dungeon: map } });
             }
         }
     }

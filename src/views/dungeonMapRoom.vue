@@ -156,7 +156,6 @@ export default {
     },
     methods: {
         chooseMap(map) {
-            const pushArr = [map, 'other']
             this.$router.push({ name: 'dungeonDisplay', params: { dungeon: map } });
         }
     }
