@@ -10,7 +10,8 @@
                     <p>Note 2: No need to farm; should aquire while achieveing other titles</p>
                 </div>
                 <div class="titles_list">
-                    <titles_list :data="accum_kills" />
+                    <titles_header />
+                    <titles_list v-for="arr in accum_kills" :key="arr.id" :data="arr"/>
                 </div>
             </div>
 
@@ -21,7 +22,8 @@
                     <p>Note 2: No need to farm; should aquire while achieveing other titles</p>
                 </div>
                 <div class="titles_list">
-                    <titles_list :data="accum_battles" />
+                    <titles_header />
+                    <titles_list v-for="arr in accum_battles" :key="arr.id" :data="arr" />
                 </div>
             </div>
 
@@ -31,7 +33,8 @@
                     <p>Note 1: Most likely will be achieved during fights in 5-2.</p>
                 </div>
                 <div class="titles_list">
-                    <titles_list :data="accum_dmg" />
+                    <titles_header />
+                    <titles_list v-for="arr in accum_dmg" :key="arr.id" :data="arr" />
                 </div>
             </div>
 
@@ -41,7 +44,8 @@
                     <p>Note 1: Most likely will be achieved during fights in 5-2.</p>
                 </div>
                 <div class="titles_list">
-                    <titles_list :data="accum_hits" />
+                    <titles_header />
+                    <titles_list v-for="arr in accum_hits" :key="arr.id" :data="arr" />
                 </div>
             </div>
 
@@ -52,7 +56,8 @@
                     <p>Note 2: Use must aquire all chracters and gain rewards from titles #1-#28.</p>
                 </div>
                 <div class="titles_list">
-                    <titles_list :data="aquire_arcane" />
+                    <titles_header />
+                    <titles_list v-for="arr in aquire_arcane" :key="arr.id" :data="arr" />
                 </div>
             </div>
 
@@ -62,7 +67,8 @@
                     <p>Note 1: Titles will unlock only after achieving true end requirements (After event #116).</p>
                 </div>
                 <div class="titles_list">
-                    <titles_list :data="te_defeat" />
+                    <titles_header />
+                    <titles_list v-for="arr in te_defeat" :key="arr.id" :data="arr" />
                 </div>
             </div>
 
@@ -72,7 +78,8 @@
                     <p>Note 1: Titles #72 - #80 will unlock only after achieving true end requirements (After event #116).</p>
                 </div>
                 <div class="titles_list">
-                    <titles_list :data="defeat" />
+                    <titles_header />
+                    <titles_list v-for="arr in defeat" :key="arr.id" :data="arr" />
                 </div>
             </div>
 
@@ -83,7 +90,8 @@
                     <p>Note 2: Yorks EX ability 'Faceoff' increases rare drops. Also equp 'Drop Rate Up' on all characters</p>
                 </div>
                 <div class="titles_list">
-                    <titles_list :data="enemy_items" />
+                    <titles_header />
+                    <titles_list v-for="arr in enemy_items" :key="arr.id" :data="arr" />
                 </div>
             </div>
 
@@ -93,7 +101,8 @@
                     <p>Note 1: Must have total quantity of items per title.</p>
                 </div>
                 <div class="titles_list">
-                    <titles_list :data="heal_items" />
+                    <titles_header />
+                    <titles_list v-for="arr in heal_items" :key="arr.id" :data="arr" />
                 </div>
             </div>
 
@@ -103,7 +112,8 @@
                     <p>Note 1: Only need to be in inventory once to be recorded.</p>
                 </div>
                 <div class="titles_list">
-                    <titles_list :data="full_collect" />
+                    <titles_header />
+                    <titles_list v-for="arr in full_collect" :key="arr.id" :data="arr" />
                 </div>
             </div>
 
@@ -115,7 +125,8 @@
                     <p>Note 2: Some souls can only be collected in post-game (true end).</p>
                 </div>
                 <div class="titles_list">
-                    <titles_list :data="soul_search" />
+                    <titles_header />
+                    <titles_list v-for="arr in soul_search" :key="arr.id" :data="arr" />
                 </div>
             </div>
 
@@ -125,7 +136,8 @@
                     <p>Note 1: This should be easily aquired after multiple playthroughs and/or purchasing DLC.</p>
                 </div>
                 <div class="titles_list">
-                    <titles_list :data="accum_gold" />
+                    <titles_header />
+                    <titles_list v-for="arr in accum_gold" :key="arr.id" :data="arr" />
                 </div>
             </div>
 
@@ -135,7 +147,8 @@
                     <p>Note 1: This will be aquired while achieveing titles #99 - #102.</p>
                 </div>
                 <div class="titles_list">
-                    <titles_list :data="accum_synth" />
+                    <titles_header />
+                    <titles_list v-for="arr in accum_synth" :key="arr.id" :data="arr" />
                 </div>
             </div>
 
@@ -145,7 +158,8 @@
                     <p>Note 1: This will be aquired while achieveing titles #99 - #102.</p>
                 </div>
                 <div class="titles_list">
-                    <titles_list :data="accum_upgrades" />
+                    <titles_header />
+                    <titles_list v-for="arr in accum_upgrades" :key="arr.id" :data="arr" />
                 </div>
             </div>
 
@@ -155,7 +169,8 @@
                     <p>Note 1: Most likely the last trophy/achievement to aquire.</p>
                 </div>
                 <div class="titles_list">
-                    <titles_list :data="final" />
+                    <titles_header />
+                    <titles_list v-for="arr in final" :key="arr.id" :data="arr" />
                 </div>
             </div>
 
@@ -178,12 +193,13 @@
 
 <script lang="ts">
     import subHeader from '@/components/main-subheader.vue';
-    import titles_list from '@/components/parts/append_title.vue'
+    import titles_header from '@/components/parts/appendtitle-header.vue'
+    import titles_list from '@/components/parts/appendtitle.vue'
     import json_titles from '@/assets/data/titles.json';
 
     export default {
         name: 'Titles List',
-        components: { subHeader, titles_list },
+    components: { subHeader, titles_header, titles_list },
         data() {
             return {
                 accum_kills: [],
