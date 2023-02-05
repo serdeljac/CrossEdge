@@ -31,7 +31,7 @@
                             <li @click="choosePage('playthrough')">Playthrough Tips</li>
                             <li @click="choosePage('titles')">Titles</li>
                             <li class="null">Inventory</li>
-                            <li class="null">Bestiary</li>
+                            <li @click="choosePage('bestiary')">Bestiary</li>
                             <li class="null">Tool: Team Build</li>
                             <li class="null">Tool: Synthesis Guide</li>
                         </ul>

@@ -37,6 +37,11 @@ const router = createRouter({
       component: () => import('../views/playthrough.vue')
     },
     {
+      path: '/Bestiary',
+      name: 'bestiary',
+      component: () => import('../views/bestiary.vue')
+    },
+    {
       path: '/Titles',
       name: 'titles',
       component: () => import('../views/titles.vue')

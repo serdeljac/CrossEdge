@@ -1,12 +1,12 @@
 <template>
     <footer class="footer" :class="{ 'map_overview': mapOverview }">
-        <p>Created by NAME HERE 2011. All Rights Reserved.</p>
+        <p>Created by OldBulb Games &copy; 2023. All Rights Reserved.</p>
     </footer>
 </template>
 
-<script>
+<script lang="ts">
     export default {
-        name: 'Footer',
+        name: 'FooterBar',
     props: ['mapOverview']
     }
 </script>

@@ -36,7 +36,7 @@
           <h2>Inventory</h2>
         </section>
 
-        <section class="landing_contents-bestiary homenull">
+        <section class="landing_contents-bestiary" @click="routerPush('bestiary')">
           <div class="section-img">
             <img src="../assets/icons/homebestiary.jpg" />
           </div>

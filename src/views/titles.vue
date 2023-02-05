@@ -53,7 +53,7 @@
                 <div class="titles_sub-header">
                     <h3>#29 - #30 (Aquire all combo moves)</h3>
                     <p>Note 1: This will be aquired after true end completion, and titles #31-#92.</p>
-                    <p>Note 2: Use must aquire all chracters and gain rewards from titles #1-#28.</p>
+                    <p>Note 2: Use must aquire all characters and gain rewards from titles #1-#28.</p>
                 </div>
                 <div class="titles_list">
                     <titles_header />
