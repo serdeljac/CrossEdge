@@ -848,7 +848,7 @@ body {
 
     &_list {
         display: grid;
-        grid-template-columns: 40px 120px 120px 160px 160px 160px 160px 160px 100px 100px;
+        grid-template-columns: auto 120px 120px 160px 160px 160px 160px 160px 100px 100px;
         font-size: 1rem;
         align-items: center;
         cursor: pointer;
@@ -879,7 +879,7 @@ body {
 ************************************************************/
 
 .inventory {
-    color: #fff;
+    color: #c5c5c5;
     background: $body-bg;
     min-width: 1300px;
     @extend .ce-shadow;
@@ -921,7 +921,7 @@ body {
 
     &_header, &_list {
         display: grid;
-        grid-template-columns: 30px 160px 80px 80px 170px 170px 170px 170px auto;
+        grid-template-columns: 30px 30px 160px 80px 80px 170px 170px 170px 170px auto;
 
         p {
             height: 30px;
@@ -941,17 +941,47 @@ body {
         }
     }
 
+    &_header {
+        font-size: 1.2rem;
+    }
+
     &_list {
         cursor: pointer;
         border-radius: 2px;
 
-        &.active, &:hover {
-            background-color: #111f5b;
+        &.active {
+            opacity: 0.1;
+            user-select: none;
         }
+
+        &.active:hover {
+            opacity: 0.1
+        }
+        
+        &:hover {
+            background-color: #111f5b;
+            opacity: 1;
+        }
+    }
+
+    .checkbox {
+        transform: scale(1.5)
     }
 
     hr {
         margin: 10px 0;
+    }
+
+    .clear_buttons {
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        .btn {
+            font-size: 1.1rem;
+            margin-left: 30px;
+            margin-right: 10px;
+        }
     }
 }
 

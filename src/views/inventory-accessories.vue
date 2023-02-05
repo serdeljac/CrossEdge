@@ -1,12 +1,12 @@
 <template>
     <div class="inventory">
-        <subHeader :headerName="'Inventory (Armor)'" :backlink="'home'"/>
+        <subHeader :headerName="'Inventory (Accessories)'" :backlink="'home'" />
         <div class="inventory_content">
 
             <div class="inventory_sub-header">
                 <div class="btn" @click="selectCat('inv-weapons')">Weapons</div>
-                <div class="btn active" @click="selectCat('inv-armor')">Armor</div>
-                <div class="btn" @click="selectCat('inv-accessories')">Accessories</div>
+                <div class="btn" @click="selectCat('inv-armor')">Armor</div>
+                <div class="btn active" @click="selectCat('inv-accessories')">Accessories</div>
                 <div class="btn" @click="selectCat('inv-items')">Items</div>
             </div>
 
@@ -24,56 +24,58 @@
                     <p>Convert</p>
                 </div>
                 <hr />
-                <div class="inventory_list ableSel" v-for="data in armorArray" :key="data.id" :class="uniqueClass(data.ID, data.Name)">
-                        <p><input type="checkbox" class="checkbox" @click="selectGear(data.ID, data.Name, '')"></p>
-                        <p>{{ data.ID }}</p>
-                        <p>
-                            <img v-bind:src="'/src/assets/icons/' + data.Icon + '.jpg'" />
-                            {{ data.Name }}
+                <div class="inventory_list ableSel" v-for="data in accesArray" :key="data.id"
+                    :class="uniqueClass(data.ID, data.Name)">
+                    <p><input type="checkbox" class="checkbox" @click="selectGear(data.ID, data.Name, '')"></p>
+                    <p>{{ data.ID }}</p>
+                    <p>
+                        <img v-bind:src="'/src/assets/icons/' + data.Icon + '.jpg'" />
+                        {{ data.Name }}
+                    </p>
+                    <div>
+                        <p v-if="data.Cost_g">{{ data.Cost_g }}G</p>
+                        <p v-else-if="data.Cost_tp">{{ data.Cost_tp }}TP</p>
+                        <p v-else>-</p>
+                    </div>
+                    <div>
+                        <p v-if="data.Synth_cost">{{ data.Synth_cost }}</p>
+                        <p v-else>-</p>
+                    </div>
+                    <div>
+                        <p v-if="data.Synth_item1">
+                            <img v-bind:src="'/src/assets/icons/' + getIcon(data.Synth_item1) + '.jpg'" />
+                            {{ data.Synth_item1 }}
                         </p>
-                        <div>
-                            <p v-if="data.Cost_g">{{ data.Cost_g }}G</p>
-                            <p v-else-if="data.Cost_tp">{{ data.Cost_tp }}TP</p>
-                            <p v-else>-</p>
-                        </div>
-                        <div>
-                            <p v-if="data.Synth_cost">{{ data.Synth_cost }}</p>
-                            <p v-else>-</p>
-                        </div>
-                        <div>
-                            <p v-if="data.Synth_item1">
-                                <img v-bind:src="'/src/assets/icons/' + getIcon(data.Synth_item1) + '.jpg'" />
-                                {{ data.Synth_item1 }}</p>
-                            <p v-else>-</p>
-                        </div>
-                        <div>
-                            <p v-if="data.Synth_item2">
-                                <img v-bind:src="'/src/assets/icons/' + getIcon(data.Synth_item2) + '.jpg'" />
-                                {{ data.Synth_item2 }}
-                            </p>
-                            <p v-else>-</p>
-                        </div>
-                        <div>
-                            <p v-if="data.Synth_item3">
-                                <img v-bind:src="'/src/assets/icons/' + getIcon(data.Synth_item3) + '.jpg'" />
-                                {{ data.Synth_item3 }}
-                            </p>
-                            <p v-else>-</p>
-                        </div>
-                        <div>
-                            <p v-if="data.Synth_item4">
-                                <img v-bind:src="'/src/assets/icons/' + getIcon(data.Synth_item4) + '.jpg'" />
-                                {{ data.Synth_item4 }}
-                            </p>
-                            <p v-else>-</p>
-                        </div>
-                        <div>
-                            <p v-if="data.Convert">
-                                <img v-bind:src="'/src/assets/icons/' + getIcon(data.Convert) + '.jpg'" />
-                                {{ data.Convert }}
-                            </p>
-                            <p v-else>-</p>
-                        </div>
+                        <p v-else>-</p>
+                    </div>
+                    <div>
+                        <p v-if="data.Synth_item2">
+                            <img v-bind:src="'/src/assets/icons/' + getIcon(data.Synth_item2) + '.jpg'" />
+                            {{ data.Synth_item2 }}
+                        </p>
+                        <p v-else>-</p>
+                    </div>
+                    <div>
+                        <p v-if="data.Synth_item3">
+                            <img v-bind:src="'/src/assets/icons/' + getIcon(data.Synth_item3) + '.jpg'" />
+                            {{ data.Synth_item3 }}
+                        </p>
+                        <p v-else>-</p>
+                    </div>
+                    <div>
+                        <p v-if="data.Synth_item4">
+                            <img v-bind:src="'/src/assets/icons/' + getIcon(data.Synth_item4) + '.jpg'" />
+                            {{ data.Synth_item4 }}
+                        </p>
+                        <p v-else>-</p>
+                    </div>
+                    <div>
+                        <p v-if="data.Convert">
+                            <img v-bind:src="'/src/assets/icons/' + getIcon(data.Convert) + '.jpg'" />
+                            {{ data.Convert }}
+                        </p>
+                        <p v-else>-</p>
+                    </div>
                 </div>
                 <div class="clear_buttons">
                     <button class="btn small" @click="selectGear('', '', 'select')">Select All</button>
@@ -93,9 +95,9 @@ import itemsList from '@/assets/data/items.json';
 import activeList from '@/assets/data/active.json';
 import $ from 'jquery';
 
-    export default {
-    name: "inventoryListArmor",
-    components: { subHeader},
+export default {
+    name: "inventoryListAccessory",
+    components: { subHeader },
     data() {
         return {
             armorArray: armorList[2].data,
@@ -103,7 +105,7 @@ import $ from 'jquery';
             itemsArray: itemsList[2].data,
             weapoArray: weaponsList[2].data,
             activArray: activeList[2].data,
-            categorySelect: 'armor'
+            categorySelect: 'accessories'
         }
     },
     methods: {
@@ -112,7 +114,7 @@ import $ from 'jquery';
         },
         uniqueClass(x, y) {
             const id = x;
-            const name = y.substr(0,3)
+            const name = y.substr(0, 3)
             return id + '-' + name;
         },
         selectGear(x, y, z) {
@@ -139,7 +141,7 @@ import $ from 'jquery';
             let x = false;
             switch (x) {
                 case false:
-        
+
                     let item = this.itemsArray.filter(function (e) { return e.Name == find });
                     if (item.length == 1) {
                         return item[0]['Icon'];
@@ -171,10 +173,10 @@ import $ from 'jquery';
                     }
 
                 default:
-                    return 'inv-stat';
+                    // return 'inv-stat';
             }
         },
     },
-    
-    }
+
+}
 </script>
