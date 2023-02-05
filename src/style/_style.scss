@@ -306,6 +306,15 @@ body {
 
         &-requir {
             padding-right: 20px;
+
+            &.hasLink span {
+                color: #697ee1;
+                cursor: pointer;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
         }
     }
 

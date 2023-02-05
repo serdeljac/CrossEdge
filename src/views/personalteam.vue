@@ -134,7 +134,7 @@
     </main>
 </template>
 
-<script>
+<script lang="ts">
 import sidebar from '@/components/Sidebar.vue';
 
     export default {
