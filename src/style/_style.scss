@@ -887,14 +887,6 @@ body {
     
     &_content {
         padding: 20px;
-
-        h3 {
-            width: 100%;
-            text-align: center;
-            margin: 40px 0;
-            font-size: 3rem;
-            text-transform: uppercase;
-        }
     }
 
     &_sub-header {
@@ -907,6 +899,10 @@ body {
             max-width: 200px;
             text-align: center;
             margin: 0 10px;
+
+            &.active {
+                background-color: #697ee1;
+            }
 
             &:hover {
                 background-color: #697ee1;
@@ -925,14 +921,38 @@ body {
 
     &_header, &_list {
         display: grid;
-        grid-template-columns: auto auto auto auto auto auto auto auto auto;
+        grid-template-columns: 30px 160px 80px 80px 170px 170px 170px 170px auto;
+
+        p {
+            height: 30px;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            
+
+            &:first-of-type {
+                padding-left: 5px;
+            }
+        }
+
+        img {
+            height: 80%;
+            margin-right: 5px;
+        }
+    }
+
+    &_list {
+        cursor: pointer;
+        border-radius: 2px;
+
+        &.active, &:hover {
+            background-color: #111f5b;
+        }
     }
 
     hr {
         margin: 10px 0;
     }
-
-
 }
 
 /************************************************************

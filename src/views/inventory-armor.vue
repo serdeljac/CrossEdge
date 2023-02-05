@@ -5,12 +5,10 @@
 
             <div class="inventory_sub-header">
                 <div class="btn" @click="selectCat('inv-weapons')">Weapons</div>
-                <div class="btn" @click="selectCat('inv-armor')">Armor</div>
-                <div class="btn" @click="selectCat('inv-accessories')">Accessories</div>
+                <div class="btn active" @click="selectCat('inv-armor')">Armor</div>
+                <div class="btn " @click="selectCat('inv-accessories')">Accessories</div>
                 <div class="btn" @click="selectCat('inv-items')">Items</div>
             </div>
-
-            <h3>{{ categorySelect }}</h3>
 
             <div class="inventory_body">
                 <div class="inventory_header">
@@ -24,9 +22,55 @@
                     <p>Synth Item 4</p>
                     <p>Convert</p>
                 </div>
-                <hr>
-                <div class="inventory_list">
-                    <armor  v-for="arr in armorArray" :key="arr.id" :data="arr"/>
+                <hr />
+                <div class="inventory_list ableSel" v-for="data in armorArray" :key="data.id" :class="trimName(data.Name)" @click="holdHoverBar(data.Name)">
+                        <p>{{ data.ID }}</p>
+                        <p>
+                            <img v-bind:src="'/src/assets/icons/' + data.Icon + '.jpg'" />
+                            {{ data.Name }}
+                        </p>
+                        <div>
+                            <p v-if="data.Cost_g">{{ data.Cost_g }}G</p>
+                            <p v-else-if="data.Cost_tp">{{ data.Cost_tp }}TP</p>
+                            <p v-else>-</p>
+                        </div>
+                        <div>
+                            <p v-if="data.Synth_cost">{{ data.Synth_cost }}</p>
+                            <p v-else>-</p>
+                        </div>
+                        <div>
+                            <p v-if="data.Synth_item1">
+                                <img v-bind:src="'/src/assets/icons/' + getIcon(data.Synth_item1) + '.jpg'" />
+                                {{ data.Synth_item1 }}</p>
+                            <p v-else>-</p>
+                        </div>
+                        <div>
+                            <p v-if="data.Synth_item2">
+                                <img v-bind:src="'/src/assets/icons/' + getIcon(data.Synth_item2) + '.jpg'" />
+                                {{ data.Synth_item2 }}
+                            </p>
+                            <p v-else>-</p>
+                        </div>
+                        <div>
+                            <p v-if="data.Synth_item3">
+                                <img v-bind:src="'/src/assets/icons/' + getIcon(data.Synth_item3) + '.jpg'" />
+                                {{ data.Synth_item3 }}
+                            </p>
+                            <p v-else>-</p>
+                        </div>
+                        <div>
+                            <p v-if="data.Synth_item4">
+                                <img v-bind:src="'/src/assets/icons/' + getIcon(data.Synth_item4) + '.jpg'" />
+                                {{ data.Synth_item4 }}
+                            </p>
+                            <p v-else>-</p>
+                        </div>
+                        <div>
+                            <p v-if="data.Convert">
+                                <img v-bind:src="'/src/assets/icons/' + getIcon(data.Convert) + '.jpg'" />
+                                {{ data.Convert }}
+                            </p>
+                        </div>
                 </div>
             </div>
         </div>
@@ -35,21 +79,80 @@
 
 <script lang="ts">
 import subHeader from '@/components/main-subheader.vue';
-import armor from '@/components/parts/inventory-armor.vue';
 import armorList from '@/assets/data/armor.json';
+import weaponsList from '@/assets/data/weapons.json';
+import accessoriesList from '@/assets/data/accessories.json';
+import itemsList from '@/assets/data/items.json';
+import activeList from '@/assets/data/active.json';
+import $ from 'jquery';
 
     export default {
     name: "inventoryList",
-    components: { subHeader, armor },
+    components: { subHeader},
     data() {
         return {
             armorArray: armorList[2].data,
-
+            accesArray: accessoriesList[2].data,
+            itemsArray: itemsList[2].data,
+            weapoArray: weaponsList[2].data,
+            activArray: activeList[2].data,
+            categorySelect: 'armor'
         }
     },
     methods: {
         selectCat(x) {
             this.$router.push({ name: x });
+        },
+        trimName(x) {
+            const trim = x.replace(/\s/, '');
+            return trim;
+        },
+        holdHoverBar(x) {
+            const trim = x.replace(/\s/, '');
+            $('.ableSel').removeClass('active');
+            $('.' + trim).addClass('active');
+        },
+        getIcon(find) {
+
+            let x = false;
+
+            switch (x) {
+                case false:
+        
+                    let item = this.itemsArray.filter(function (e) { return e.Name == find });
+                    if (item.length == 1) {
+                        return item[0]['Icon'];
+                        break;
+                    }
+
+                    let arm = this.armorArray.filter(function (e) { return e.Name == find });
+                    if (arm.length == 1) {
+                        return arm[0]['Icon'];
+                        break;
+                    }
+
+                    let wap = this.weapoArray.filter(function (e) { return e.Name == find });
+                    if (wap.length == 1) {
+                        return wap[0]['Icon'];
+                        break;
+                    }
+
+                    let act = this.activArray.filter(function (e) { return e.Name == find });
+                    if (act.length == 1) {
+                        return act[0]['Icon'];
+                        break;
+                    }
+
+                    let acc = this.accesArray.filter(function (e) { return e.Name == find });
+                    if (acc.length == 1) {
+                        return acc[0]['Icon'];
+                        break;
+                    }
+
+                default:
+                    // return 'inv-stat';
+            }
+            
         },
     },
     
