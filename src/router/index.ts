@@ -42,6 +42,11 @@ const router = createRouter({
       component: () => import('../views/bestiary.vue')
     },
     {
+      path: '/Inventory_Armor',
+      name: 'inv-armor',
+      component: () => import('../views/inventory-armor.vue')
+    },
+    {
       path: '/Titles',
       name: 'titles',
       component: () => import('../views/titles.vue')

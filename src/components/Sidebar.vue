@@ -30,7 +30,7 @@
                             <li @click="choosePage('dunMapRoom')">Dungeon Maps</li>
                             <li @click="choosePage('playthrough')">Playthrough Tips</li>
                             <li @click="choosePage('titles')">Titles</li>
-                            <li class="null">Inventory</li>
+                            <li @click="choosePage('inventory')">Inventory</li>
                             <li @click="choosePage('bestiary')">Bestiary</li>
                             <li class="null">Tool: Team Build</li>
                             <li class="null">Tool: Synthesis Guide</li>

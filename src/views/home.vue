@@ -29,7 +29,7 @@
           <h2>Titles</h2>
         </section>
 
-        <section class="landing_contents-inventory homenull">
+        <section class="landing_contents-inventory" @click="routerPush('inv-armor')">
           <div class="section-img">
             <img src="../assets/icons/homeinventory.jpg" />
           </div>

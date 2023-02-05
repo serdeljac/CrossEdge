@@ -81,7 +81,6 @@ import $ from 'jquery';
             const trim = x.replace(/\s/, '');
             $('.ableSel').removeClass('active');
             $('.' + trim).addClass('active');
-            console.log('active!')
         }
     }
 }
