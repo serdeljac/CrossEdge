@@ -1,16 +1,29 @@
 <template>
     <div class="inventory">
-        <subHeader :headerName="'Inventory (Armor)'" :backlink="'home'"/>
+        <subHeader :headerName="'Synthesis (Weapons)'" :backlink="'home'" />
         <div class="inventory_content">
 
             <div class="inventory_sub-header">
-                <div class="btn" @click="selectCat('inv-weapons')">Weapons</div>
-                <div class="btn active" @click="selectCat('inv-armor')">Armor</div>
+                <div class="btn active" @click="selectCat('inv-weapons')">Weapons</div>
+                <div class="btn" @click="selectCat('inv-armor')">Armor</div>
                 <div class="btn" @click="selectCat('inv-accessories')">Accessories</div>
                 <div class="btn" @click="selectCat('inv-items')">Items</div>
             </div>
 
-            <div class="inventory_body">
+            <div class="inventory_filter">
+                <div class="btn" :class="{ 'active': !filterEnable}" @click="weaponFilter('', false)">ALL</div>
+                <div class="btn" :class="{ 'active': filterSelect=='inv-sword'}" @click="weaponFilter('inv-sword', true)">Swords</div>
+                <div class="btn" :class="{ 'active': filterSelect=='inv-dagger'}" @click="weaponFilter('inv-dagger', true)">Daggers</div>
+                <div class="btn" :class="{ 'active': filterSelect=='inv-spear'}" @click="weaponFilter('inv-spear', true)">Spears</div>
+                <div class="btn" :class="{ 'active': filterSelect=='inv-staff'}" @click="weaponFilter('inv-staff', true)">Staves</div>
+                <div class="btn" :class="{ 'active': filterSelect=='inv-fist'}" @click="weaponFilter('inv-fist', true)">Knuckles</div>
+                <div class="btn" :class="{ 'active': filterSelect=='inv-scythe'}" @click="weaponFilter('inv-scythe', true)">Scythes</div>
+                <div class="btn" :class="{ 'active': filterSelect=='inv-gun'}" @click="weaponFilter('inv-gun', true)">Guns</div>
+                <div class="btn" :class="{ 'active': filterSelect=='inv-crystal'}" @click="weaponFilter('inv-crystal', true)">Crystals</div>
+                <div class="btn" :class="{ 'active': filterSelect=='inv-collar'}" @click="weaponFilter('inv-collar', true)">Necklaces</div>
+            </div>
+
+            <div class="inventory_body weapons_list">
                 <div class="inventory_header">
                     <p></p>
                     <p>#</p>
@@ -24,8 +37,9 @@
                     <p>Convert</p>
                 </div>
                 <hr />
-                <div class="inventory_list ableSel" v-for="data in armorArray" :key="data.id" :class="uniqueClass(data.ID, data.Name)">
-                    <div class="filter">
+                <div class="inventory_list ableSel" v-for="data in weapoArray" :key="data.id"
+                    :class="uniqueClass(data.ID, data.Name)">
+                        <div class="filter" v-if="data.Icon == filterSelect || !filterEnable">
                         <p><input type="checkbox" class="checkbox" @click="selectGear(data.ID, data.Name, '')"></p>
                         <p>{{ data.ID }}</p>
                         <p>
@@ -44,7 +58,8 @@
                         <div>
                             <p v-if="data.Synth_item1">
                                 <img v-bind:src="'/src/assets/icons/' + getIcon(data.Synth_item1) + '.jpg'" />
-                                {{ data.Synth_item1 }}</p>
+                                {{ data.Synth_item1 }}
+                            </p>
                             <p v-else>-</p>
                         </div>
                         <div>
@@ -95,9 +110,9 @@ import itemsList from '@/assets/data/items.json';
 import activeList from '@/assets/data/active.json';
 import $ from 'jquery';
 
-    export default {
-    name: "inventoryListArmor",
-    components: { subHeader},
+export default {
+    name: "inventoryListWeapons",
+    components: { subHeader },
     data() {
         return {
             armorArray: armorList[2].data,
@@ -105,7 +120,9 @@ import $ from 'jquery';
             itemsArray: itemsList[2].data,
             weapoArray: weaponsList[2].data,
             activArray: activeList[2].data,
-            categorySelect: 'armor'
+            categorySelect: 'weapons',
+            filterEnable: false,
+            filterSelect: ''
         }
     },
     methods: {
@@ -114,7 +131,7 @@ import $ from 'jquery';
         },
         uniqueClass(x, y) {
             const id = x;
-            const name = y.substr(0,3)
+            const name = y.substr(0, 3)
             return id + '-' + name;
         },
         selectGear(x, y, z) {
@@ -141,7 +158,7 @@ import $ from 'jquery';
             let x = false;
             switch (x) {
                 case false:
-        
+
                     let item = this.itemsArray.filter(function (e) { return e.Name == find });
                     if (item.length == 1) {
                         return item[0]['Icon'];
@@ -173,10 +190,14 @@ import $ from 'jquery';
                     }
 
                 default:
-                    return 'inv-stat';
+                    // return 'inv-stat';
             }
         },
+        weaponFilter(filtName, enable) {
+            this.filterSelect = filtName;
+            this.filterEnable = enable;
+        }
     },
-    
-    }
+
+}
 </script>

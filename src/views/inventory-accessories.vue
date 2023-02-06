@@ -26,6 +26,7 @@
                 <hr />
                 <div class="inventory_list ableSel" v-for="data in accesArray" :key="data.id"
                     :class="uniqueClass(data.ID, data.Name)">
+                    <div class="filter">
                     <p><input type="checkbox" class="checkbox" @click="selectGear(data.ID, data.Name, '')"></p>
                     <p>{{ data.ID }}</p>
                     <p>
@@ -76,6 +77,7 @@
                         </p>
                         <p v-else>-</p>
                     </div>
+                </div>
                 </div>
                 <div class="clear_buttons">
                     <button class="btn small" @click="selectGear('', '', 'select')">Select All</button>

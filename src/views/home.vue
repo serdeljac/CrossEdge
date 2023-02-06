@@ -29,7 +29,7 @@
           <h2>Titles</h2>
         </section>
 
-        <section class="landing_contents-inventory" @click="routerPush('inv-armor')">
+        <section class="landing_contents-inventory" @click="routerPush('inv-weapons')">
           <div class="section-img">
             <img src="../assets/icons/homeinventory.jpg" />
           </div>
@@ -50,7 +50,7 @@
           <h2>Tool: Team Build</h2>
         </section>
 
-        <section class="landing_contents-toolSynth homenull">
+        <section class="landing_contents-toolSynth" @click="routerPush('synthesis-weapons')">
           <div class="section-img">
             <img src="../assets/icons/homesynthguide.jpg" />
           </div>

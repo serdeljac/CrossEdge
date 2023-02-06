@@ -42,6 +42,11 @@ const router = createRouter({
       component: () => import('../views/bestiary.vue')
     },
     {
+      path: '/Inventory_Weapons',
+      name: 'inv-weapons',
+      component: () => import('../views/inventory-weapons.vue')
+    },
+    {
       path: '/Inventory_Armor',
       name: 'inv-armor',
       component: () => import('../views/inventory-armor.vue')
@@ -55,6 +60,11 @@ const router = createRouter({
       path: '/Titles',
       name: 'titles',
       component: () => import('../views/titles.vue')
+    },
+    {
+      path: '/Synthesis_Weapons',
+      name: 'synthesis-weapons',
+      component: () => import('../views/synthesis-weapons.vue')
     },
     {
       path: '/Map_Room/:selectedMap',
