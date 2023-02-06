@@ -44,35 +44,35 @@
                     </div>
                     <div>
                         <p v-if="data.Synth_item1">
-                            <img v-bind:src="'/src/assets/icons/' + getIcon(data.Synth_item1) + '.jpg'" />
+                            <img v-bind:src="'/src/assets/icons/' + getIcon(data.Synth_item1, false) + '.jpg'" />
                             {{ data.Synth_item1 }}
                         </p>
                         <p v-else>-</p>
                     </div>
                     <div>
                         <p v-if="data.Synth_item2">
-                            <img v-bind:src="'/src/assets/icons/' + getIcon(data.Synth_item2) + '.jpg'" />
+                            <img v-bind:src="'/src/assets/icons/' + getIcon(data.Synth_item2, false) + '.jpg'" />
                             {{ data.Synth_item2 }}
                         </p>
                         <p v-else>-</p>
                     </div>
                     <div>
                         <p v-if="data.Synth_item3">
-                            <img v-bind:src="'/src/assets/icons/' + getIcon(data.Synth_item3) + '.jpg'" />
+                            <img v-bind:src="'/src/assets/icons/' + getIcon(data.Synth_item3, false) + '.jpg'" />
                             {{ data.Synth_item3 }}
                         </p>
                         <p v-else>-</p>
                     </div>
                     <div>
                         <p v-if="data.Synth_item4">
-                            <img v-bind:src="'/src/assets/icons/' + getIcon(data.Synth_item4) + '.jpg'" />
+                            <img v-bind:src="'/src/assets/icons/' + getIcon(data.Synth_item4, false) + '.jpg'" />
                             {{ data.Synth_item4 }}
                         </p>
                         <p v-else>-</p>
                     </div>
                     <div>
                         <p v-if="data.Convert">
-                            <img v-bind:src="'/src/assets/icons/' + getIcon(data.Convert) + '.jpg'" />
+                            <img v-bind:src="'/src/assets/icons/' + getIcon(data.Convert, true) + '.jpg'" />
                             {{ data.Convert }}
                         </p>
                         <p v-else>-</p>
@@ -139,7 +139,7 @@ export default {
                 $('.checkbox').prop("checked", false);
             }
         },
-        getIcon(find) {
+        getIcon(find, conv) {
             let x = false;
             switch (x) {
                 case false:
@@ -172,10 +172,13 @@ export default {
                     if (acc.length == 1) {
                         return acc[0]['Icon'];
                         break;
+                    } else if (acc.length == 0 && conv == true) {
+                        return 'inv-stat';
+                        break;
                     }
 
                 default:
-                    // return 'inv-stat';
+                    return false;
             }
         },
     },
