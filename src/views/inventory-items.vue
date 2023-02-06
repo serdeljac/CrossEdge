@@ -34,7 +34,7 @@
 
                     <div>
                         <p v-if="data.Cost_g">
-                            Purchaed from store - {{ data.Cost_g }} <span class="currency">G</span>
+                            Purchased from store - {{ data.Cost_g }} <span class="currency">G</span>
                         </p>
                         <p v-else-if="data.Cost_tp">
                             Exchanged from Store - {{ data.Cost_tp }}<span class="currency">TP</span>
@@ -126,7 +126,7 @@ export default {
             const name = y.substr(0, 3)
             return id + '-' + name;
         },
-        selectGear(x, y, z) {
+    selectGear(x, y, z) {
             const name = this.uniqueClass(x, y);
             const sel = $('.' + name);
 
@@ -152,31 +152,31 @@ export default {
                 case false:
 
                     let item = this.itemsArray.filter(function (e) { return e.Name == find });
-                    if (item.length == 1) {
+                    if (item.length > 0) {
                         return item[0]['Icon'];
                         break;
                     }
 
                     let arm = this.armorArray.filter(function (e) { return e.Name == find });
-                    if (arm.length == 1) {
+                    if (arm.length > 0) {
                         return arm[0]['Icon'];
                         break;
                     }
 
                     let wap = this.weapoArray.filter(function (e) { return e.Name == find });
-                    if (wap.length == 1) {
+                    if (wap.length > 0) {
                         return wap[0]['Icon'];
                         break;
                     }
 
                     let act = this.activArray.filter(function (e) { return e.Name == find });
-                    if (act.length == 1) {
+                    if (act.length > 0) {
                         return act[0]['Icon'];
                         break;
                     }
 
                     let acc = this.accesArray.filter(function (e) { return e.Name == find });
-                    if (acc.length == 1) {
+                    if (acc.length > 0) {
                         return acc[0]['Icon'];
                         break;
                     } else if (acc.length == 0 && conv == true) {
@@ -194,7 +194,7 @@ export default {
                 case false:
 
                     const wap = this.weapoArray.filter(function (e) { return e.Convert == find });
-                    if (wap.length == 1) {
+                    if (wap.length > 0) {
                         if (icon) {
                             return wap[0]['Icon'];
                         }else {
@@ -204,7 +204,7 @@ export default {
                     }
 
                     const arm = this.armorArray.filter(function (e) { return e.Convert == find });
-                    if (arm.length == 1) {
+                    if (arm.length > 0) {
                         if (icon) {
                             return arm[0]['Icon'];
                         } else {
@@ -214,7 +214,7 @@ export default {
                     }
 
                     const acc = this.accesArray.filter(function (e) { return e.Convert == find });
-                    if (acc.length == 1) {
+                    if (acc.length > 0) {
                         if (icon) {
                             return acc[0]['Icon'];
                         } else {
@@ -233,19 +233,19 @@ export default {
                 case false:
 
                     const re1 = this.titleArray.filter(function (e) { return e.reward1 == find });
-                    if (re1.length == 1) {
+                    if (re1.length > 0) {
                         return re1[0]['ID'];
                         break;
                     }
 
                     const re2 = this.titleArray.filter(function (e) { return e.reward2 == find });
-                    if (re2.length == 1) {
+                    if (re2.length > 0) {
                         return re2[0]['ID'];
                         break;
                     }
 
                     const re3 = this.titleArray.filter(function (e) { return e.reward3 == find });
-                    if (re3.length == 1) {
+                    if (re3.length > 0) {
                         return re3[0]['ID'];
                         break;
                     }
@@ -260,7 +260,7 @@ export default {
                 case false:
 
                     const over = this.bestaArray.filter(function (e) { return e.overkill == find });
-                    if (over.length == 1) {
+                    if (over.length > 0) {
 
                         if (link) {
                             return over[0]['zone'];
@@ -271,7 +271,8 @@ export default {
                     }
 
                     const drop1 = this.bestaArray.filter(function (e) { return e.drop1 === find });
-                    if (drop1.length == 1) {
+                
+                    if (drop1.length > 0) {
                         
                         if (link) {
                             return drop1[0]['zone'];
@@ -281,10 +282,8 @@ export default {
                         break;
                     }
 
-                    
-
                     const rare1 = this.bestaArray.filter(function (e) { return e.rare1 == find });
-                    if (rare1.length == 1) {
+                    if (rare1.length > 0) {
 
                         if (link) {
                             return rare1[0]['zone'];
@@ -295,7 +294,7 @@ export default {
                     }
 
                     const drop2 = this.bestaArray.filter(function (e) { return e.drop2 == find });
-                    if (drop2.length == 1) {
+                    if (drop2.length > 0) {
 
                         if (link) {
                             return drop2[0]['zone'];
@@ -306,7 +305,7 @@ export default {
                     }
 
                     const rare2 = this.bestaArray.filter(function (e) { return e.rare2 == find });
-                    if (rare2.length == 1) {
+                    if (rare2.length > 0) {
 
                         if (link) {
                             return rare2[0]['zone'];
