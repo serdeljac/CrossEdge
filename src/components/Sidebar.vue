@@ -33,7 +33,7 @@
                             <li @click="choosePage('inv-weapons')">Inventory</li>
                             <li @click="choosePage('bestiary')">Bestiary</li>
                             <li class="null">Tool: Team Build</li>
-                            <li @click="choosePage('synthesis-weapons')">Tool: Synthesis Guide</li>
+                            <li @click="choosePage('synthesis-weapons')">Tool: Synthesis Generator</li>
                         </ul>
                     </div>
 

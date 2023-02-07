@@ -50,11 +50,11 @@
           <h2>Tool: Team Build</h2>
         </section>
 
-        <section class="landing_contents-toolSynth" @click="routerPush('synthesis-weapons')">
+        <section class="landing_contents-toolSynth homenull">
           <div class="section-img">
             <img src="../assets/icons/homesynthguide.jpg" />
           </div>
-          <h2>Tool: Synthesis Guide</h2>
+          <h2>Tool: Synthesis Generator</h2>
         </section>
 
     </div>

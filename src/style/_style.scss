@@ -48,7 +48,22 @@
     100% {filter: brightness(1);}
 }
 
-.ce-shadow {
+@keyframes generateButtonActive {
+    0% {
+        background-color:#111f5b;
+        box-shadow: 0px 0px 2px 3px #1d44f083;
+    }
+    50% {
+        background-color:#8070d4;
+        box-shadow: 0px 0px 4px 7px #8070d4;
+    }
+    100% {
+        background-color:#111f5b;
+        box-shadow: 0px 0px 2px 3px #1d44f083;
+    }
+}
+
+.ce-shadow2 {
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, 
                 rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, 
                 rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
@@ -818,7 +833,7 @@ body {
 }
 
 /************************************************************
-    BESTIARY TIPS
+    BESTIARY LIST
 ************************************************************/
 
 .bestiary {
@@ -880,7 +895,7 @@ body {
 }
 
 /************************************************************
-    INVENTORY TIPS
+    INVENTORY LIST
 ************************************************************/
 
 .inventory {
@@ -1031,6 +1046,137 @@ body {
             font-size: 1.1rem;
             margin-left: 30px;
             margin-right: 10px;
+        }
+    }
+}
+
+/************************************************************
+    SYNTHESIS
+************************************************************/
+
+.synth {
+    color: #c5c5c5;
+    background: $body-bg;
+    min-width: 1300px;
+    @extend .ce-shadow;
+    min-height: 80px;
+    
+    &_content {
+        padding: 20px;
+    }
+
+    &_filter {
+        width: 100%;
+
+        .group {
+            margin-top: 10px;
+            display: inline-flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .btn {
+            padding: 5px 7px;
+            border-radius: 7px;
+            width: 140px;
+            text-align: center;
+            margin: 0 5px;
+
+            &.active {
+                background-color: #111f5b;
+            }
+        }
+    }
+
+    &_body {
+        margin-top: 40px;
+        background-color: $sidebar-bg;
+        border-radius: 3px;
+        min-height: 700px;
+        font-size: 1.2rem;
+        padding: 20px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+
+        &.generated {
+            font-size: 2rem;
+        }
+    }
+
+    &_header {
+        font-size: 1.2rem;
+        border-bottom: 2px solid #fff;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        &::before {
+            display: block;
+            content: '';
+        }
+    }
+
+    &_list {
+        cursor: pointer;
+        border-radius: 2px;
+
+        p {
+            height: 30px;
+            display: flex;
+            align-items: center;
+            &:first-of-type {
+                padding-left: 5px;
+            }
+        }
+
+        img {
+            height: 80%;
+            margin-right: 5px;
+            user-select: none;
+        }
+
+        .checkbox {
+            transform: scale(1.5)
+        }
+
+        &.active {
+            background-color: #111f5b;
+        }
+
+        &.active:hover {
+            background-color: #263eac;
+        }
+        
+        &:hover {
+            background-color: #263eac;
+            opacity: 1;
+        }
+    }
+
+    &_header, &_list .filter {
+        display: grid;
+        grid-template-columns: 30px 40px 200px 100px 200px 200px 200px 200px 200px;
+        line-height: 1;
+    }
+
+    .clear_buttons {
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        .btn {
+            font-size: 1.6rem;
+            margin: 20px 10px;
+        }
+        .generate {
+            filter: contrast(0);
+            user-select: none;
+        }
+        .generate.active {
+            filter: contrast(1);
+            animation: generateButtonActive 1s linear infinite;
+            user-select: all;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
 }

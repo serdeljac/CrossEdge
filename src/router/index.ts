@@ -69,7 +69,7 @@ const router = createRouter({
     {
       path: '/Synthesis_Weapons',
       name: 'synthesis-weapons',
-      component: () => import('../views/synthesis-weapons.vue')
+      component: () => import('../views/synthesis.vue')
     },
     {
       path: '/Map_Room/:selectedMap',
