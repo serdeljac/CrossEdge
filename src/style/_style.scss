@@ -1172,7 +1172,6 @@ body {
         .generate.active {
             filter: contrast(1);
             animation: generateButtonActive 1s linear infinite;
-            user-select: all;
 
             &:hover {
                 text-decoration: underline;

@@ -1,13 +1,24 @@
 <template>
-    <div class="synth_body generated">
-        <h3>Generated</h3>
-        {{ genArray }}
-    </div>
+
 </template>
 
 <script lang="ts">
+    import synth from '@/assets/data/synthesis.json';
+
     export default {
         name: 'GeneratedMaterials',
-        props: ['genArray']
+        props: ['genArray', 'matArr'],
+        data() {
+            return {
+                synth: synth[2].data,
+                mater: []
+            }
+        },
+        mounted() {
+            this.findMaterials(this.matArr);
+        },
+        methods: {
+
+        }
     }
 </script>

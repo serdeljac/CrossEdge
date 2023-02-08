@@ -62,7 +62,11 @@
                 </div>
             </div>
 
-            <synthGen v-if="itemsChildArray" :genArray="itemsChildArray"/>
+            
+            <div class="synth_body generated">
+                <h3>Generated</h3>
+                {{ finalArr }}
+            </div>
 
         </div>
     </div>
@@ -70,7 +74,7 @@
 
 <script lang="ts">
 import invItem from '../components/parts/inv-display.vue';
-import synthGen from '../components/parts/synthesis-generated.vue';
+import synthList from '@/assets/data/synthesis.json';
 
 import subHeader from '@/components/main-subheader.vue';
 import armorList from '@/assets/data/armor.json';
@@ -82,7 +86,7 @@ import $ from 'jquery';
 
 export default {
     name: "inventoryListWeapons",
-    components: { subHeader, invItem, synthGen },
+    components: { subHeader, invItem },
     data() {
         return {
             armorArray: armorList[2].data,
@@ -93,10 +97,14 @@ export default {
 
             itemsParentArray: [],
             itemsChildArray: [],
+            itemsMaterialArray: '',
 
             filterSelect: 'inv-sword',
             allItems: [],
             genButton: false,
+            synth: synthList[2].data,
+
+            finalArr: [],
         }
     },
     mounted() {
@@ -104,7 +112,6 @@ export default {
         this.generateParentArray();
     },
     methods: {
-        
         addUniqueClass(id, name) {
             return id + '-' + name.substr(0, 3);
         },
@@ -193,6 +200,7 @@ export default {
             } else {
                 this.itemsChildArray = [];
                 this.genButton = false;
+                this.itemsMaterialArray = '';
                 $('.synth_list').removeClass('active');
                 $('.checkbox').prop("checked", false);
             }
@@ -235,9 +243,50 @@ export default {
         generateMaterialsList() {
             const con = $('.generate').hasClass('active');
             if(con) {
-                console.log('POPULATE ARRAY OF MATERIALS!')
+                this.itemsMaterialArray = this.itemsChildArray;
+                this.findMaterials(this.itemsChildArray);
+                
             }
+        },
+
+        findMaterials(arr) {
+            this.finalArr = []; //CLEAR FINAL ARRAY
+            const hold = [];
+            const size = arr.length;
+            for (let i = 0; i < size; i++) {
+                const find = arr[i];
+                const syn = this.synth.filter(function (e) { return e.Name == find });
+                const foundName = syn[0]['Name'];
+                hold.push(foundName);
+                
+            }
+            const tier1 = { 'tier1': hold };
+            this.finalArr.push(tier1);
+
+            const x = this.finalArr[0]['tier1'];
+
+            if (x) {
+                this.tier2find(x);
+            }
+            
+        },
+
+        tier2find(arr) {
+            // const hold = [];
+            // const size = arr.length;
+            // for (let i = 0; i < size; i++) {
+            //     const find = arr[i];
+            //     const syn = this.synth.filter(function (e) { return e.Name == find });
+            //     hold.push(syn[0]['Name']);
+            // }
+
+            // const tier2 = { 'tier2': hold };
+            // this.finalArr.push(tier2);
+            // this.tier2find(hold);
         }
+
+
+        
     },
 
 }
