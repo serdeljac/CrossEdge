@@ -75,6 +75,8 @@
 <script lang="ts">
 import invItem from '../components/parts/inv-display.vue';
 import synthList from '@/assets/data/synthesis.json';
+import bestiList from '@/assets/data/bestiary.json';
+import titleList from '@/assets/data/titles.json';
 
 import subHeader from '@/components/main-subheader.vue';
 import armorList from '@/assets/data/armor.json';
@@ -94,6 +96,8 @@ export default {
             itemsArray: itemsList[2].data,
             weapoArray: weaponsList[2].data,
             activArray: activeList[2].data,
+            bestiArray: bestiList[2].data,
+            titleArray: titleList[2].data,
 
             itemsParentArray: [],
             itemsChildArray: [],
@@ -250,44 +254,142 @@ export default {
         },
 
         findMaterials(arr) {
-            this.finalArr = []; //CLEAR FINAL ARRAY
-            const hold = [];
+            
+            //Clear array (init)
+            this.finalArr = [];
+
             const size = arr.length;
             for (let i = 0; i < size; i++) {
+
+                //Get name from synth document
                 const find = arr[i];
                 const syn = this.synth.filter(function (e) { return e.Name == find });
-                const foundName = syn[0]['Name'];
-                hold.push(foundName);
                 
+                //Append Tier 1 item into object
+                const tier = 'tr' + [i+1];
+                const name = syn[0]['Name'];
+                const pushThis = { [tier] : name};
+                this.finalArr.push(pushThis);
             }
-            const tier1 = { 'tier1': hold };
-            this.finalArr.push(tier1);
 
-            const x = this.finalArr[0]['tier1'];
-
-            if (x) {
-                this.tier2find(x);
-            }
-            
+            //Proceed to next tier
+            this.tier2find(this.finalArr);
         },
 
         tier2find(arr) {
-            // const hold = [];
-            // const size = arr.length;
-            // for (let i = 0; i < size; i++) {
-            //     const find = arr[i];
-            //     const syn = this.synth.filter(function (e) { return e.Name == find });
-            //     hold.push(syn[0]['Name']);
-            // }
 
-            // const tier2 = { 'tier2': hold };
-            // this.finalArr.push(tier2);
-            // this.tier2find(hold);
-        }
+            const size = arr.length;
+            for (let i = 0; i < size; i++) {
+                const fetchprevTeir = arr[i]['tr' + (i + 1)];
+                const sendTierName = 'tr' + (i+1);
 
+                //Search to find any new materials [Give a new tier name, Send Previous tier Name]
+                this.searchSynth(sendTierName, fetchprevTeir);
+            }
+            //Proceed to next tier
+            this.tier3find(this.finalArr);
+        },
 
-        
+        tier3find(arr) {
+
+            const size = arr.length;
+            for (let i = 0; i < size; i++) {
+                const fetchprevTeir = arr[i]['tr' + (i + 1)];
+                const sendTierName = 'tr' + (i + 1);
+
+                //Search to find any new materials [Give a new tier name, Send Previous tier Name]
+                this.searchSynth(sendTierName, fetchprevTeir);
+            }
+        },
+
+        searchSynth(name, fetch) {
+
+            //Get Object of previous tier item
+            const find = fetch;
+            const syn = this.synth.filter(function (e) { return e.Name == find });
+            for (let i = 0; i < 4; i++) {
+
+                //Prep new tier name
+                const objName = name + '-' + (i+1);
+                //Object synth name within parent object
+                const synName = syn[0]['Synth_item' + (i + 1)];
+
+                //Find material Icon
+                const synTypeFind = this.synth.filter(function (e) { return e.Name == synName })[0]['Icon'];
+                
+                if (synName) {
+                    const materialLoc = this.findNonWeapon(synName, synTypeFind);
+                    //If found, append [New tier ID :  [New tier name, Tier icon, Tier Location]
+                    const pushThis = { [objName]: [synName, synTypeFind, materialLoc]};
+                    this.finalArr.push(pushThis);
+                }
+            }
+
+        },
+
+        findNonWeapon(synName, synTypeFind) {
+
+            if (synTypeFind == 'inv-monster') {
+
+                switch (false) {
+                    case false:
+
+                        //CHECK CONVERTS
+                        const synConvert = this.synth.filter(function (e) { return e.Convert == synName })[0];
+                        if (synConvert) {
+                            return [synConvert['Icon'], synConvert['Name']];
+                            break;
+                        }
+
+                        //CHECK TITLES
+                        const synTitle1 = this.titleArray.filter(function (e) { return e.reward1 == synName })[0];
+                        if (synTitle1) {
+                            return ['inv-monster', 'Title: ' + synTitle1['ID']];
+                            break;
+                        }
+
+                        //CHECK BESTIARY
+                        const synBestiary = this.synth.filter(function (e) { return e.Name == synName })[0];
+                        if (synBestiary) {
+                            return this.checkBestiary(synBestiary['Name']);
+                            break;
+                        }
+
+                    default:
+                        return '';
+                }
+            } else {
+                return '';
+            }
+        },
+
+        checkBestiary(item) {
+
+            switch (false) {
+                case false:
+                    const overkill = this.bestiArray.filter(function (e) { return e.overkill == item })[0];
+                    if (overkill) {
+                        return [overkill['name'], overkill['zone']];
+                        break;
+                    }
+
+                    const rare1 = this.bestiArray.filter(function (e) { return e.rare1 == item })[0];
+                    if (rare1) {
+                        return [rare1['Name'], rare1['Zone']];
+                        break;
+                    }
+
+                    const drop1 = this.bestiArray.filter(function (e) { return e.drop1 == item })[0];
+                    if (drop1) {
+                        return [drop1['Name'], drop1['Zone']];
+                        break;
+                    }
+
+                default:
+                    return 'UNKNOWN!'
+            }
+        },
+
     },
-
 }
 </script>
