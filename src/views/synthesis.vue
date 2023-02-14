@@ -65,7 +65,10 @@
             
             <div class="synth_body generated">
                 <h3>Generated</h3>
-                {{ finalArr }}
+                <div v-for="arr in finalArr" :key="arr.id" >
+                
+                {{ arr }}
+                </div>
             </div>
 
         </div>
@@ -109,6 +112,12 @@ export default {
             synth: synthList[2].data,
 
             finalArr: [],
+            tier: {
+                '1': 0,
+                '2': 0,
+                '3': 0,
+                '4': 0
+            }
         }
     },
     mounted() {
@@ -273,12 +282,12 @@ export default {
             }
 
             //Proceed to next tier
-            this.tier2find(this.finalArr);
+            this.tier2find(this.finalArr, size);
         },
 
-        tier2find(arr) {
-
+        tier2find(arr, tierAmt) {
             const size = arr.length;
+            
             for (let i = 0; i < size; i++) {
                 const fetchprevTeir = arr[i]['tr' + (i + 1)];
                 const sendTierName = 'tr' + (i+1);
@@ -286,18 +295,18 @@ export default {
                 //Search to find any new materials [Give a new tier name, Send Previous tier Name]
                 this.searchSynth(sendTierName, fetchprevTeir);
             }
+
             //Proceed to next tier
-            this.tier3find(this.finalArr);
+            this.tier3find(this.finalArr, (this.finalArr.length - tierAmt));
         },
 
-        tier3find(arr) {
+        tier3find(arr, tierAmt) {
 
-            const size = arr.length;
-            for (let i = 0; i < size; i++) {
+            for (let i = 0; i < tierAmt; i++) {
                 const fetchprevTeir = arr[i]['tr' + (i + 1)];
                 const sendTierName = 'tr' + (i + 1);
 
-                //Search to find any new materials [Give a new tier name, Send Previous tier Name]
+                // Search to find any new materials [Give a new tier name, Send Previous tier Name]
                 this.searchSynth(sendTierName, fetchprevTeir);
             }
         },
@@ -339,7 +348,7 @@ export default {
                         if (synConvert) {
                             return [synConvert['Icon'], synConvert['Name']];
                             break;
-                        }
+                        } 
 
                         //CHECK TITLES
                         const synTitle1 = this.titleArray.filter(function (e) { return e.reward1 == synName })[0];
