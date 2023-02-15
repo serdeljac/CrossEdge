@@ -1,18 +1,16 @@
 <template>
-    <div v-if="itemName">
-        <p class="inv-name">
+        <p class="inv-name" v-if="itemName">
+            {{ itemTr  }}
             <img v-bind:src="'/src/assets/icons/' + itemImg + '.jpg'" />
-            {{ itemName }}
+            {{ itemName }} - {{ itemLoc }}
         </p>
-    </div>
-    <div v-else>
-        <p>-</p>
-    </div>
+
+    <p v-else>-</p>
 </template>
 
 <script lang="ts">
     export default {
         name: 'Image&Name',
-        props: ['itemImg', 'itemName']
+    props: ['itemTr', 'itemImg', 'itemName', 'itemLoc'],
     }
 </script>

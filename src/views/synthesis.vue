@@ -69,21 +69,19 @@
                 
                 <div v-if="selectedItems && !genArr">
                     <h3>Selected Items:</h3>
-                    <div v-for="arr in selectedItems" :key="arr.id" >
-                        
-                    {{ arr }}
+                    <div class="list_!" v-for="arr in selectedItems" :key="arr.id" >
+                        <invItem :itemImg="arr.icon" :itemName="arr.name" />
                     </div>
                 </div>
 
                 <div v-else>
                     <h3>Generated:</h3>
-                    <div v-for="arr in genArr" :key="arr.id">
-
-                        {{ arr }}
+                    <div class="list_2" v-for="arr in genArr" :key="arr.id">
+                        <invItem :itemTr="arr[0]" :itemImg="arr[1][1]" :itemName="arr[1][0]" :itemLoc="arr[1][2]"/>
                     </div>
                 </div>
-            </div>
 
+            </div>
         </div>
     </div>
 </template>
@@ -122,8 +120,7 @@ export default {
             genButton: false,                       // Enable/Disable Generate button
             
             genArr: undefined,                      // Array of all generated materials
-
-
+            endSearch: true
         }
     },
     mounted() {
@@ -227,6 +224,7 @@ export default {
                 $('.synth_list').removeClass('active');                     //Remove 'Active' Class to all
                 this.selectedItems = [];                                    //Clear 'selected array'
                 this.genButton = false;                                     //Disable generate button
+                this.genArr = undefined;                                    //Reset generated list
             }
         },
 
@@ -274,27 +272,200 @@ export default {
             }
         },
 
+        //Start searching for materials from selected list
         startGeneratingBuild() {
+            this.genArr = [];
+            const size = this.selectedItems.length;
+
+            for (let i = 0; i < size; i++) {
+                const tier = 'tr' + [i+1];
+                const name = this.selectedItems[i]['name'];
+                const icon = this.selectedItems[i]['icon'];
+                this.genArr.push([tier, [name, icon, '']]);
+            }
             
-            // const size = this.selectedItems.length;
-            // const hold = []
-
-            // for (let i = 0; i < size; i++) {
-            //     const x = [];
-            //     const name = this.selectedItems[i]['Name'];
-            //     const icon = this.selectedItems[i]['Icon'];
-            //     const tier = 'tr' + [i];
-            //     x.push([icon, tier]);
-            //     hold.push(name, x);
-            // }
-
-            // this.genArr.push(hold);
-
+            this.fetchMaterials(this.genArr);
         },
 
+        //Pull materials from selected item
+        fetchMaterials(arr) {
 
+            //Tier 1
+            for (let i = 0; i < arr.length; i++) {
+                const getTier = arr[i][0];
+                    if (getTier.length == 3) {
+                        const curTier = arr[i][0];
+                        const curName = arr[i][1][0];
+                        const curIcon = arr[i][1][1];
+                        this.findMaterials(curTier, curName, curIcon);
+                    }
+                }
 
+            //Tier 2
+            for (let i = 0; i < arr.length; i++) {
+                const getTier = arr[i][0];
+                if (getTier.length == 5) {
+                    const curTier = arr[i][0];
+                    const curName = arr[i][1][0];
+                    const curIcon = arr[i][1][1];
+                    this.findMaterials(curTier, curName, curIcon);
+                }
+            }
 
+            //Tier 3
+            for (let i = 0; i < arr.length; i++) {
+                const getTier = arr[i][0];
+                if (getTier.length == 7) {
+                    const curTier = arr[i][0];
+                    const curName = arr[i][1][0];
+                    const curIcon = arr[i][1][1];
+                    this.findMaterials(curTier, curName, curIcon);
+                }
+            }
+
+            //Tier 4
+            for (let i = 0; i < arr.length; i++) {
+                const getTier = arr[i][0];
+                if (getTier.length == 9) {
+                    const curTier = arr[i][0];
+                    const curName = arr[i][1][0];
+                    const curIcon = arr[i][1][1];
+                    this.findMaterials(curTier, curName, curIcon);
+                }
+            }
+
+            //Tier 5
+            for (let i = 0; i < arr.length; i++) {
+                const getTier = arr[i][0];
+                if (getTier.length == 11) {
+                    const curTier = arr[i][0];
+                    const curName = arr[i][1][0];
+                    const curIcon = arr[i][1][1];
+                    this.findMaterials(curTier, curName, curIcon);
+                }
+            }
+
+            //Tier 6
+            for (let i = 0; i < arr.length; i++) {
+                const getTier = arr[i][0];
+                if (getTier.length == 13) {
+                    const curTier = arr[i][0];
+                    const curName = arr[i][1][0];
+                    const curIcon = arr[i][1][1];
+                    this.findMaterials(curTier, curName, curIcon);
+                }
+            }
+
+            //Tier 7
+            for (let i = 0; i < arr.length; i++) {
+                const getTier = arr[i][0];
+                if (getTier.length == 15) {
+                    const curTier = arr[i][0];
+                    const curName = arr[i][1][0];
+                    const curIcon = arr[i][1][1];
+                    this.findMaterials(curTier, curName, curIcon);
+                }
+            }
+
+            //Tier 8
+            for (let i = 0; i < arr.length; i++) {
+                const getTier = arr[i][0];
+                if (getTier.length == 17) {
+                    const curTier = arr[i][0];
+                    const curName = arr[i][1][0];
+                    const curIcon = arr[i][1][1];
+                    this.findMaterials(curTier, curName, curIcon);
+                }
+            }
+
+            //Tier 9
+            for (let i = 0; i < arr.length; i++) {
+                const getTier = arr[i][0];
+                if (getTier.length == 19) {
+                    const curTier = arr[i][0];
+                    const curName = arr[i][1][0];
+                    const curIcon = arr[i][1][1];
+                    this.findMaterials(curTier, curName, curIcon);
+                }
+            }
+
+            //Tier 10
+            for (let i = 0; i < arr.length; i++) {
+                const getTier = arr[i][0];
+                if (getTier.length == 21) {
+                    const curTier = arr[i][0];
+                    const curName = arr[i][1][0];
+                    const curIcon = arr[i][1][1];
+                    this.findMaterials(curTier, curName, curIcon);
+                }
+            }
+        },
+
+        findMaterials(tier, name, icon) {
+
+                const find = name;
+                const syn = this.synth.filter(function (e) { return e.name == find })[0];
+                
+                for (let i = 1; i < 5; i++) {
+                    
+                    const getMaterial = syn['synth_item' + i];
+                    if (getMaterial) {
+                        const getTier = tier + '-' + [i];
+                        const getIcon = this.fetchIconImage(getMaterial);
+                        const getConvert = this.findNonWeapon(getMaterial, getIcon);
+                        const x = [getTier, [getMaterial, getIcon, getConvert]];
+                        this.genArr.push(x);
+                    }
+                }
+        },
+
+        findNonWeapon(synName, synTypeFind) {
+
+            if (synTypeFind == 'inv-monster') {
+                
+                switch (false) {
+                    case false:
+                        
+                        //CHECK CONVERTS
+                        const convert = this.synth.filter(function (e) { return e.convert == synName })[0];
+                        if (convert) {
+                            return [convert['name'], convert['icon']];
+                            break;
+                        }
+
+                        //CHECK TITLES
+                        const title1 = this.titleArray.filter(function (e) { return e.reward1 == synName })[0];
+                        if (title1) {
+                            return ['Title: ' + title1['ID'], ''];
+                            break;
+                        }
+
+                        //CHECK BESTIARY
+                        const over = this.bestiArray.filter(function (e) { return e.overkill == synName })[0];
+                        if (over) {
+                            return [over['name'], over['zone']];
+                            break;
+                        }
+                        
+                        const drop1 = this.bestiArray.filter(function (e) { return e.drop1 == synName })[0];
+                        if (drop1) {
+                            return [drop1['name'], over['zone']];
+                            break;
+                        }
+
+                        const rare1 = this.bestiArray.filter(function (e) { return e.rare1 == synName })[0];
+                        if (rare1) {
+                            return [rare1['name'], rare1['zone']];
+                            break;
+                        }
+
+                    default:
+                        return '';
+                }
+            } else {
+                return '';
+            }
+        },
 
 
 
@@ -396,41 +567,6 @@ export default {
 
         // },
 
-        // findNonWeapon(synName, synTypeFind) {
-
-        //     if (synTypeFind == 'inv-monster') {
-
-        //         switch (false) {
-        //             case false:
-
-        //                 //CHECK CONVERTS
-        //                 const synConvert = this.synth.filter(function (e) { return e.Convert == synName })[0];
-        //                 if (synConvert) {
-        //                     return [synConvert['Icon'], synConvert['Name']];
-        //                     break;
-        //                 } 
-
-        //                 //CHECK TITLES
-        //                 const synTitle1 = this.titleArray.filter(function (e) { return e.reward1 == synName })[0];
-        //                 if (synTitle1) {
-        //                     return ['inv-monster', 'Title: ' + synTitle1['ID']];
-        //                     break;
-        //                 }
-
-        //                 //CHECK BESTIARY
-        //                 const synBestiary = this.synth.filter(function (e) { return e.Name == synName })[0];
-        //                 if (synBestiary) {
-        //                     return this.checkBestiary(synBestiary['Name']);
-        //                     break;
-        //                 }
-
-        //             default:
-        //                 return '';
-        //         }
-        //     } else {
-        //         return '';
-        //     }
-        // },
 
         // checkBestiary(item) {
 
