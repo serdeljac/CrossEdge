@@ -296,112 +296,103 @@ export default {
                     if (getTier.length == 3) {
                         const curTier = arr[i][0];
                         const curName = arr[i][1][0];
-                        const curIcon = arr[i][1][1];
-                        this.findMaterials(curTier, curName, curIcon);
+                        this.findMaterials(curTier, curName);
                     }
                 }
 
             //Tier 2
             for (let i = 0; i < arr.length; i++) {
                 const getTier = arr[i][0];
-                if (getTier.length == 5) {
+                if (getTier.length == 4) {
                     const curTier = arr[i][0];
                     const curName = arr[i][1][0];
-                    const curIcon = arr[i][1][1];
-                    this.findMaterials(curTier, curName, curIcon);
+                    this.findMaterials(curTier, curName);
                 }
             }
 
             //Tier 3
             for (let i = 0; i < arr.length; i++) {
                 const getTier = arr[i][0];
-                if (getTier.length == 7) {
+                if (getTier.length == 5) {
                     const curTier = arr[i][0];
                     const curName = arr[i][1][0];
-                    const curIcon = arr[i][1][1];
-                    this.findMaterials(curTier, curName, curIcon);
+                    this.findMaterials(curTier, curName);
                 }
             }
 
             //Tier 4
             for (let i = 0; i < arr.length; i++) {
                 const getTier = arr[i][0];
-                if (getTier.length == 9) {
+                if (getTier.length == 6) {
                     const curTier = arr[i][0];
                     const curName = arr[i][1][0];
-                    const curIcon = arr[i][1][1];
-                    this.findMaterials(curTier, curName, curIcon);
+                    this.findMaterials(curTier, curName);
                 }
             }
 
             //Tier 5
             for (let i = 0; i < arr.length; i++) {
                 const getTier = arr[i][0];
-                if (getTier.length == 11) {
+                if (getTier.length == 7) {
                     const curTier = arr[i][0];
                     const curName = arr[i][1][0];
-                    const curIcon = arr[i][1][1];
-                    this.findMaterials(curTier, curName, curIcon);
+                    this.findMaterials(curTier, curName);
                 }
             }
 
             //Tier 6
             for (let i = 0; i < arr.length; i++) {
                 const getTier = arr[i][0];
-                if (getTier.length == 13) {
+                if (getTier.length == 8) {
                     const curTier = arr[i][0];
                     const curName = arr[i][1][0];
-                    const curIcon = arr[i][1][1];
-                    this.findMaterials(curTier, curName, curIcon);
+                    this.findMaterials(curTier, curName);
                 }
             }
 
             //Tier 7
             for (let i = 0; i < arr.length; i++) {
                 const getTier = arr[i][0];
-                if (getTier.length == 15) {
+                if (getTier.length == 9) {
                     const curTier = arr[i][0];
                     const curName = arr[i][1][0];
-                    const curIcon = arr[i][1][1];
-                    this.findMaterials(curTier, curName, curIcon);
+                    this.findMaterials(curTier, curName);
                 }
             }
 
             //Tier 8
             for (let i = 0; i < arr.length; i++) {
                 const getTier = arr[i][0];
-                if (getTier.length == 17) {
+                if (getTier.length == 10) {
                     const curTier = arr[i][0];
                     const curName = arr[i][1][0];
-                    const curIcon = arr[i][1][1];
-                    this.findMaterials(curTier, curName, curIcon);
+                    this.findMaterials(curTier, curName);
                 }
             }
 
             //Tier 9
             for (let i = 0; i < arr.length; i++) {
                 const getTier = arr[i][0];
-                if (getTier.length == 19) {
+                if (getTier.length == 11) {
                     const curTier = arr[i][0];
                     const curName = arr[i][1][0];
-                    const curIcon = arr[i][1][1];
-                    this.findMaterials(curTier, curName, curIcon);
+                    this.findMaterials(curTier, curName);
                 }
             }
 
             //Tier 10
             for (let i = 0; i < arr.length; i++) {
                 const getTier = arr[i][0];
-                if (getTier.length == 21) {
+                if (getTier.length == 12) {
                     const curTier = arr[i][0];
                     const curName = arr[i][1][0];
-                    const curIcon = arr[i][1][1];
-                    this.findMaterials(curTier, curName, curIcon);
+                    this.findMaterials(curTier, curName);
                 }
             }
+            
         },
 
-        findMaterials(tier, name, icon) {
+        findMaterials(tier, name) {
 
                 const find = name;
                 const syn = this.synth.filter(function (e) { return e.name == find })[0];
@@ -410,7 +401,7 @@ export default {
                     
                     const getMaterial = syn['synth_item' + i];
                     if (getMaterial) {
-                        const getTier = tier + '-' + [i];
+                        const getTier = tier + [i];
                         const getIcon = this.fetchIconImage(getMaterial);
                         const getConvert = this.findNonWeapon(getMaterial, getIcon);
                         const x = [getTier, [getMaterial, getIcon, getConvert]];
