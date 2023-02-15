@@ -38,55 +38,55 @@
                 </div>
                 <hr />
                 <div class="inventory_list ableSel" v-for="data in weapoArray" :key="data.id"
-                    :class="uniqueClass(data.ID, data.Name)">
-                        <div class="filter" v-if="data.Icon == filterSelect || !filterEnable">
-                        <p><input type="checkbox" class="checkbox" @click="selectGear(data.ID, data.Name, '')"></p>
+                    :class="uniqueClass(data.ID, data.name)">
+                        <div class="filter" v-if="data.icon == filterSelect || !filterEnable">
+                        <p><input type="checkbox" class="checkbox" @click="selectGear(data.ID, data.name, '')"></p>
                         <p>{{ data.ID }}</p>
                         <p>
-                            <img v-bind:src="'/src/assets/icons/' + data.Icon + '.jpg'" />
-                            {{ data.Name }}
+                            <img v-bind:src="'/src/assets/icons/' + data.icon + '.jpg'" />
+                            {{ data.name }}
                         </p>
                         <div>
-                            <p v-if="data.Cost_g">{{ data.Cost_g }}G</p>
-                            <p v-else-if="data.Cost_tp">{{ data.Cost_tp }}TP</p>
+                            <p v-if="data.cost_g">{{ data.cost_g }}G</p>
+                            <p v-else-if="data.cost_tp">{{ data.cost_tp }}TP</p>
                             <p v-else>-</p>
                         </div>
                         <div>
-                            <p v-if="data.Synth_cost">{{ data.Synth_cost }}</p>
+                            <p v-if="data.synth_cost">{{ data.synth_cost }}</p>
                             <p v-else>-</p>
                         </div>
                         <div>
-                            <p v-if="data.Synth_item1">
-                                <img v-bind:src="'/src/assets/icons/' + getIcon(data.Synth_item1, false) + '.jpg'" />
-                                {{ data.Synth_item1 }}
+                            <p v-if="data.synth_item1">
+                                <img v-bind:src="'/src/assets/icons/' + getIcon(data.synth_item1, false) + '.jpg'" />
+                                {{ data.synth_item1 }}
                             </p>
                             <p v-else>-</p>
                         </div>
                         <div>
-                            <p v-if="data.Synth_item2">
-                                <img v-bind:src="'/src/assets/icons/' + getIcon(data.Synth_item2, false) + '.jpg'" />
-                                {{ data.Synth_item2 }}
+                            <p v-if="data.synth_item2">
+                                <img v-bind:src="'/src/assets/icons/' + getIcon(data.synth_item2, false) + '.jpg'" />
+                                {{ data.synth_item2 }}
                             </p>
                             <p v-else>-</p>
                         </div>
                         <div>
-                            <p v-if="data.Synth_item3">
-                                <img v-bind:src="'/src/assets/icons/' + getIcon(data.Synth_item3, false) + '.jpg'" />
-                                {{ data.Synth_item3 }}
+                            <p v-if="data.synth_item3">
+                                <img v-bind:src="'/src/assets/icons/' + getIcon(data.synth_item3, false) + '.jpg'" />
+                                {{ data.synth_item3 }}
                             </p>
                             <p v-else>-</p>
                         </div>
                         <div>
-                            <p v-if="data.Synth_item4">
-                                <img v-bind:src="'/src/assets/icons/' + getIcon(data.Synth_item4, false) + '.jpg'" />
-                                {{ data.Synth_item4 }}
+                            <p v-if="data.synth_item4">
+                                <img v-bind:src="'/src/assets/icons/' + getIcon(data.synth_item4, false) + '.jpg'" />
+                                {{ data.synth_item4 }}
                             </p>
                             <p v-else>-</p>
                         </div>
                         <div>
-                            <p v-if="data.Convert">
-                                <img v-bind:src="'/src/assets/icons/' + getIcon(data.Convert, true) + '.jpg'" />
-                                {{ data.Convert }}
+                            <p v-if="data.convert">
+                                <img v-bind:src="'/src/assets/icons/' + getIcon(data.convert, true) + '.jpg'" />
+                                {{ data.convert }}
                             </p>
                             <p v-else>-</p>
                         </div>
@@ -159,33 +159,33 @@ export default {
             switch (x) {
                 case false:
 
-                    let item = this.itemsArray.filter(function (e) { return e.Name == find });
+                    let item = this.itemsArray.filter(function (e) { return e.name == find });
                     if (item.length == 1) {
-                        return item[0]['Icon'];
+                        return item[0]['icon'];
                         break;
                     }
 
-                    let arm = this.armorArray.filter(function (e) { return e.Name == find });
+                    let arm = this.armorArray.filter(function (e) { return e.name == find });
                     if (arm.length == 1) {
-                        return arm[0]['Icon'];
+                        return arm[0]['icon'];
                         break;
                     }
 
-                    let wap = this.weapoArray.filter(function (e) { return e.Name == find });
+                    let wap = this.weapoArray.filter(function (e) { return e.name == find });
                     if (wap.length == 1) {
-                        return wap[0]['Icon'];
+                        return wap[0]['icon'];
                         break;
                     }
 
-                    let act = this.activArray.filter(function (e) { return e.Name == find });
+                    let act = this.activArray.filter(function (e) { return e.name == find });
                     if (act.length == 1) {
-                        return act[0]['Icon'];
+                        return act[0]['icon'];
                         break;
                     }
 
-                    let acc = this.accesArray.filter(function (e) { return e.Name == find });
+                    let acc = this.accesArray.filter(function (e) { return e.name == find });
                     if (acc.length == 1) {
-                        return acc[0]['Icon'];
+                        return acc[0]['icon'];
                         break;
                     } else if (acc.length == 0 && conv == true) {
                         return 'inv-stat';

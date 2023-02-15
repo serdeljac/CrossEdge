@@ -34,40 +34,53 @@
                     <p>Convert</p>
                 </div>
 
-                <div class="synth_list" v-for="data in weapoArray" :key="data.id" :class="addUniqueClass(data.ID, data.Name)">
-                    <div class="filter" v-if="data.Icon == filterSelect">
+                <div class="synth_list" v-for="data in displayArray" :key="data.id" :class="getUniqueClass(data.ID, data.name)">
+                    <div class="filter" v-if="data.icon == filterSelect">
                         
-                        <p><input type="checkbox" class="checkbox" @click="selectGear(data.ID, data.Name)"></p>
+                        <p><input type="checkbox" class="checkbox" @click="selectIndividualItem(data.ID, data.name)"></p>
 
                         <p>{{ data.ID }}</p>
 
-                        <invItem :itemImg="data.Icon" :itemName="data.Name" />
+                        <invItem :itemImg="data.icon" :itemName="data.name" />
 
                         <div>
-                            <p v-if="data.Synth_cost">{{ data.Synth_cost }}</p>
+                            <p v-if="data.synth_cost">{{ data.synth_cost }}</p>
                             <p v-else>-</p>
                         </div>
 
-                        <invItem :itemImg="fetchIconImage(data.Synth_item1)" :itemName="data.Synth_item1" />
-                        <invItem :itemImg="fetchIconImage(data.Synth_item2)" :itemName="data.Synth_item2" />
-                        <invItem :itemImg="fetchIconImage(data.Synth_item3)" :itemName="data.Synth_item3" />
-                        <invItem :itemImg="fetchIconImage(data.Synth_item4)" :itemName="data.Synth_item4" />
-                        <invItem :itemImg="fetchIconImage(data.Convert)"     :itemName="data.Convert" />
+                        <invItem :itemImg="fetchIconImage(data.synth_item1)" :itemName="data.synth_item1" />
+                        <invItem :itemImg="fetchIconImage(data.synth_item2)" :itemName="data.synth_item2" />
+                        <invItem :itemImg="fetchIconImage(data.synth_item3)" :itemName="data.synth_item3" />
+                        <invItem :itemImg="fetchIconImage(data.synth_item4)" :itemName="data.synth_item4" />
+                        <invItem :itemImg="fetchIconImage(data.convert)"     :itemName="data.convert" />
                     </div>
                 </div>
+
                 <div class="clear_buttons">
-                    <button class="btn small generate" :class="{ 'active': genButton}" @click="generateMaterialsList()">Generate</button>
+                    <button class="btn small generate" :class="{ 'active': genButton}" @click="startGeneratingBuild()">Generate</button>
                     <button class="btn small" @click="selectAll(true)">Select All</button>
                     <button class="btn small" @click="selectAll(false)">Clear All</button>
                 </div>
+
             </div>
 
             
             <div class="synth_body generated">
-                <h3>Generated</h3>
-                <div v-for="arr in finalArr" :key="arr.id" >
                 
-                {{ arr }}
+                <div v-if="selectedItems && !genArr">
+                    <h3>Selected Items:</h3>
+                    <div v-for="arr in selectedItems" :key="arr.id" >
+                        
+                    {{ arr }}
+                    </div>
+                </div>
+
+                <div v-else>
+                    <h3>Generated:</h3>
+                    <div v-for="arr in genArr" :key="arr.id">
+
+                        {{ arr }}
+                    </div>
                 </div>
             </div>
 
@@ -94,72 +107,68 @@ export default {
     components: { subHeader, invItem },
     data() {
         return {
-            armorArray: armorList[2].data,
-            accesArray: accessoriesList[2].data,
-            itemsArray: itemsList[2].data,
-            weapoArray: weaponsList[2].data,
-            activArray: activeList[2].data,
-            bestiArray: bestiList[2].data,
-            titleArray: titleList[2].data,
+            armorArray: armorList[2].data,          // Array (Armor)
+            accesArray: accessoriesList[2].data,    // Array (Accessories)
+            itemsArray: itemsList[2].data,          // Array (Items)
+            weapoArray: weaponsList[2].data,        // Array (Weapons)
+            activArray: activeList[2].data,         // Array (Active)
+            bestiArray: bestiList[2].data,          // Array (Bestiary)
+            titleArray: titleList[2].data,          // Array (Titles)
+            synth: synthList[2].data,               // Array (Synthesis)
 
-            itemsParentArray: [],
-            itemsChildArray: [],
-            itemsMaterialArray: '',
+            filterSelect: 'inv-sword',              // Selected category
+            displayArray: [],                       // List based on category
+            selectedItems: [],                      // List based on what's selected
+            genButton: false,                       // Enable/Disable Generate button
+            
+            genArr: undefined,                      // Array of all generated materials
 
-            filterSelect: 'inv-sword',
-            allItems: [],
-            genButton: false,
-            synth: synthList[2].data,
 
-            finalArr: [],
-            tier: {
-                '1': 0,
-                '2': 0,
-                '3': 0,
-                '4': 0
-            }
         }
     },
     mounted() {
         //Get all Items within category and set into array
-        this.generateParentArray();
+        this.generateDisplayList();
     },
     methods: {
-        addUniqueClass(id, name) {
+
+        //Add Unique class name to each listed item
+        getUniqueClass(id, name) {
             return id + '-' + name.substr(0, 3);
         },
 
+        //Find Icon associated with the listed item
         fetchIconImage(find) {
             switch (false) {
                 case false:
-                    //Search WEAPOS ARRAY
-                    let wap = this.weapoArray.filter(function (e) { return e.Name == find });
+                    //Search WEAPONS ARRAY
+                    let wap = this.weapoArray.filter(function (e) { return e.name == find });
                     if (wap.length > 0) {
-                        return wap[0]['Icon'];
+                        return wap[0]['icon'];
                         break;
                     }
                     //Search ITEMS ARRAY
-                    let item = this.itemsArray.filter(function (e) { return e.Name == find });
+                    let item = this.itemsArray.filter(function (e) { return e.name == find });
                     if (item.length > 0) {
-                        return item[0]['Icon'];
+                        return item[0]['icon'];
                         break;
                     }
                     //Search ACTIVE ARRAY
-                    let act = this.activArray.filter(function (e) { return e.Name == find });
+                    let act = this.activArray.filter(function (e) { return e.name == find });
                     if (act.length > 0) {
-                        return act[0]['Icon'];
+                        return act[0]['icon'];
                         break;
                     }
                     //Search ARMOR ARRAY
-                    let arm = this.armorArray.filter(function (e) { return e.Name == find });
+                    let arm = this.armorArray.filter(function (e) { return e.name == find });
                     if (arm.length > 0) {
-                        return arm[0]['Icon'];
+                        return arm[0]['icon'];
                         break;
                     }
                     //Search ACCESSORIES ARRAY
-                    let acc = this.accesArray.filter(function (e) { return e.Name == find });
+                    let acc = this.accesArray.filter(function (e) { return e.name == find });
                     if (acc.length > 0) {
-                        return acc[0]['Icon'];
+                        return acc[0]['icon'];
                         break;
                     }
                 default:
@@ -167,237 +176,288 @@ export default {
             }
         },
 
+        //Change items 
         filterChange(name) {
-            this.filterSelect = name;
-            this.itemsChildArray = [];
-            this.genButton = false;
-            this.generateParentArray();
-            this.selectAll(false);
+            this.filterSelect = name;   //Change filter name
+            this.itemsChildArray = [];  //Reset anything in Child
+            this.selectAll(false);      //Reset checked items
+            this.genButton = false;     //Disable Generate button
+            this.generateDisplayList(); //Append new list
+            
         },
 
-        generateParentArray() {
-            this.itemsParentArray = [];
+        //Populate the display list
+        generateDisplayList() {
+            this.displayArray = [];  //Empty display list
             const find = this.filterSelect;
 
             if (find == 'inv-armor') { 
-                const waponNum = this.armorArray.filter(function (e) { return e.Icon == find })
+                const waponNum = this.armorArray.filter(function (e) { return e.icon == find })
                 const size = waponNum.length;
                 for (let i = 0; i < size; i++) {
-                    const curName = waponNum[i]['Name'];
-                    this.itemsParentArray.push(curName);
+                    const curName = waponNum[i];
+                    this.displayArray.push(curName);
                 }
             } else if (find == 'inv-accessories') {
-                const waponNum = this.accesArray.filter(function (e) { return e.Icon == find })
+                const waponNum = this.accesArray.filter(function (e) { return e.icon == find })
                 const size = waponNum.length;
                 for (let i = 0; i < size; i++) {
-                    const curName = waponNum[i]['Name'];
-                    this.itemsParentArray.push(curName);
+                    const curName = waponNum[i];
+                    this.displayArray.push(curName);
                 }
             } else {
-                const waponNum = this.weapoArray.filter(function (e) { return e.Icon == find })
+                const waponNum = this.weapoArray.filter(function (e) { return e.icon == find })
                 const size = waponNum.length;
                 for (let i = 0; i < size; i++) {
-                    const curName = waponNum[i]['Name'];
-                    this.itemsParentArray.push(curName);
+                    const curName = waponNum[i];
+                    this.displayArray.push(curName);
                 }
             }
         },
 
+        //Select item (all)
         selectAll(type) {
             if (type) {
-                this.itemsChildArray = [];
-                this.itemsChildArray = this.itemsParentArray;
-                this.genButton = true;
-                $('.synth_list').addClass('active');
-                $('.checkbox').prop("checked", true);
+                $('.synth_list .checkbox').prop("checked", true);           //Check all checkboxes
+                $('.synth_list').addClass('active');                        //Add 'Active' Class to all
+                this.selectedItems = this.displayArray;                     //Append all items to 'selected array'
+                this.genButton = true;                                      //Enable generate button
             } else {
-                this.itemsChildArray = [];
-                this.genButton = false;
-                this.itemsMaterialArray = '';
-                $('.synth_list').removeClass('active');
-                $('.checkbox').prop("checked", false);
+                $('.synth_list .checkbox').prop("checked", false);          //Uncheck all checkboxes
+                $('.synth_list').removeClass('active');                     //Remove 'Active' Class to all
+                this.selectedItems = [];                                    //Clear 'selected array'
+                this.genButton = false;                                     //Disable generate button
             }
         },
 
-        selectGear(id, name) {
-            const y = this.addUniqueClass(id, name);
+        //Select item (Individual)
+        selectIndividualItem(id, name) {
+            //Grab the selector
+            const y = this.getUniqueClass(id, name);
             const sel = $('.' + y);
 
             if (sel.hasClass('active')) {
-                sel.removeClass('active');
-                sel.children('.checkbox').prop("checked", false);
-                this.buildItemChildArray(name, false);
+                sel.removeClass('active');                                          //Remove 'Active' Class
+                sel.children('.checkbox').prop("checked", false);                   //Uncheck the checkbox
+                const removeItem = this.fetchIndividualSelectedItem(name, false);   //Find Item
+                this.selectedItems.splice(removeItem, 1);                           //Remove
+                
             } else {
-                sel.addClass('active');
-                this.genButton = true;
-                sel.children('.checkbox').prop("checked", true);
-                this.buildItemChildArray(name, true);
+                sel.addClass('active');                                             //Add 'Active' Class
+                this.genButton = true;                                              //Enable the generate button
+                sel.children('.checkbox').prop("checked", true);                    //Check the checkbox
+                const addItem = this.fetchIndividualSelectedItem(name, true);       //Find Item
+                this.selectedItems.push(addItem);                                   //Add
             }
         },
 
-        buildItemChildArray(name, push) {
-            if(push) {
-                this.itemsChildArray.push(name);
+        //Select item (Individual) - Fetch Items
+        fetchIndividualSelectedItem(name, bool) {
+            //If checked, Add to selectedItems Array
+            if (bool) {
+                const find = name;
+                const syn = this.synth.filter(function (e) { return e.name == find })[0];
+                return syn;
             } else {
-                const size = this.itemsChildArray.length;
-
-                for (let i = 0; i < size; i++) {
-                    if (this.itemsChildArray[i] == name) {
-                        this.itemsChildArray.splice(i,i)
-                    }
-                }
-            }
-            if (!$('.synth_list').hasClass('active')) {
-                this.itemsChildArray = [];
-                this.genButton = false;
-            }
-        },
-
-        generateMaterialsList() {
-            const con = $('.generate').hasClass('active');
-            if(con) {
-                this.itemsMaterialArray = this.itemsChildArray;
-                this.findMaterials(this.itemsChildArray);
-                
-            }
-        },
-
-        findMaterials(arr) {
-            
-            //Clear array (init)
-            this.finalArr = [];
-
-            const size = arr.length;
-            for (let i = 0; i < size; i++) {
-
-                //Get name from synth document
-                const find = arr[i];
-                const syn = this.synth.filter(function (e) { return e.Name == find });
-                
-                //Append Tier 1 item into object
-                const tier = 'tr' + [i+1];
-                const name = syn[0]['Name'];
-                const pushThis = { [tier] : name};
-                this.finalArr.push(pushThis);
-            }
-
-            //Proceed to next tier
-            this.tier2find(this.finalArr, size);
-        },
-
-        tier2find(arr, tierAmt) {
-            const size = arr.length;
-            
-            for (let i = 0; i < size; i++) {
-                const fetchprevTeir = arr[i]['tr' + (i + 1)];
-                const sendTierName = 'tr' + (i+1);
-
-                //Search to find any new materials [Give a new tier name, Send Previous tier Name]
-                this.searchSynth(sendTierName, fetchprevTeir);
-            }
-
-            //Proceed to next tier
-            this.tier3find(this.finalArr, (this.finalArr.length - tierAmt));
-        },
-
-        tier3find(arr, tierAmt) {
-
-            for (let i = 0; i < tierAmt; i++) {
-                const fetchprevTeir = arr[i]['tr' + (i + 1)];
-                const sendTierName = 'tr' + (i + 1);
-
-                // Search to find any new materials [Give a new tier name, Send Previous tier Name]
-                this.searchSynth(sendTierName, fetchprevTeir);
-            }
-        },
-
-        searchSynth(name, fetch) {
-
-            //Get Object of previous tier item
-            const find = fetch;
-            const syn = this.synth.filter(function (e) { return e.Name == find });
-            for (let i = 0; i < 4; i++) {
-
-                //Prep new tier name
-                const objName = name + '-' + (i+1);
-                //Object synth name within parent object
-                const synName = syn[0]['Synth_item' + (i + 1)];
-
-                //Find material Icon
-                const synTypeFind = this.synth.filter(function (e) { return e.Name == synName })[0]['Icon'];
-                
-                if (synName) {
-                    const materialLoc = this.findNonWeapon(synName, synTypeFind);
-                    //If found, append [New tier ID :  [New tier name, Tier icon, Tier Location]
-                    const pushThis = { [objName]: [synName, synTypeFind, materialLoc]};
-                    this.finalArr.push(pushThis);
-                }
-            }
-
-        },
-
-        findNonWeapon(synName, synTypeFind) {
-
-            if (synTypeFind == 'inv-monster') {
-
-                switch (false) {
-                    case false:
-
-                        //CHECK CONVERTS
-                        const synConvert = this.synth.filter(function (e) { return e.Convert == synName })[0];
-                        if (synConvert) {
-                            return [synConvert['Icon'], synConvert['Name']];
-                            break;
-                        } 
-
-                        //CHECK TITLES
-                        const synTitle1 = this.titleArray.filter(function (e) { return e.reward1 == synName })[0];
-                        if (synTitle1) {
-                            return ['inv-monster', 'Title: ' + synTitle1['ID']];
-                            break;
+                const size = this.selectedItems.length;
+                if (size == 1) {
+                    //If unchecked item was last, reset everything
+                    this.selectAll(false);
+                    return false;
+                } else {
+                    for (let i = 0; i < size; i++) {
+                        if (this.selectedItems[i]['name'] === name) {
+                            return i;
                         }
-
-                        //CHECK BESTIARY
-                        const synBestiary = this.synth.filter(function (e) { return e.Name == synName })[0];
-                        if (synBestiary) {
-                            return this.checkBestiary(synBestiary['Name']);
-                            break;
-                        }
-
-                    default:
-                        return '';
+                    }
                 }
-            } else {
-                return '';
             }
         },
 
-        checkBestiary(item) {
+        startGeneratingBuild() {
+            
+            // const size = this.selectedItems.length;
+            // const hold = []
 
-            switch (false) {
-                case false:
-                    const overkill = this.bestiArray.filter(function (e) { return e.overkill == item })[0];
-                    if (overkill) {
-                        return [overkill['name'], overkill['zone']];
-                        break;
-                    }
+            // for (let i = 0; i < size; i++) {
+            //     const x = [];
+            //     const name = this.selectedItems[i]['Name'];
+            //     const icon = this.selectedItems[i]['Icon'];
+            //     const tier = 'tr' + [i];
+            //     x.push([icon, tier]);
+            //     hold.push(name, x);
+            // }
 
-                    const rare1 = this.bestiArray.filter(function (e) { return e.rare1 == item })[0];
-                    if (rare1) {
-                        return [rare1['Name'], rare1['Zone']];
-                        break;
-                    }
+            // this.genArr.push(hold);
 
-                    const drop1 = this.bestiArray.filter(function (e) { return e.drop1 == item })[0];
-                    if (drop1) {
-                        return [drop1['Name'], drop1['Zone']];
-                        break;
-                    }
-
-                default:
-                    return 'UNKNOWN!'
-            }
         },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // generateMaterialsList() {
+        //     const con = $('.generate').hasClass('active');
+        //     if(con) {
+        //         this.itemsMaterialArray = this.itemsChildArray;
+        //         this.findMaterials(this.itemsChildArray);
+                
+        //     }
+        // },
+
+        // findMaterials(arr) {
+            
+        //     //Clear array (init)
+        //     this.finalArr = [];
+
+        //     const size = arr.length;
+        //     for (let i = 0; i < size; i++) {
+
+        //         //Get name from synth document
+        //         const find = arr[i];
+        //         const syn = this.synth.filter(function (e) { return e.Name == find });
+                
+        //         //Append Tier 1 item into object
+        //         const tier = 'tr' + [i+1];
+        //         const name = syn[0]['Name'];
+        //         const pushThis = { [tier] : name};
+        //         this.finalArr.push(pushThis);
+        //     }
+
+        //     //Proceed to next tier
+        //     this.tier2find(this.finalArr, size);
+        // },
+
+        // tier2find(arr, tierAmt) {
+        //     const size = arr.length;
+            
+        //     for (let i = 0; i < size; i++) {
+        //         const fetchprevTeir = arr[i]['tr' + (i + 1)];
+        //         const sendTierName = 'tr' + (i+1);
+
+        //         //Search to find any new materials [Give a new tier name, Send Previous tier Name]
+        //         this.searchSynth(sendTierName, fetchprevTeir);
+        //     }
+
+        //     //Proceed to next tier
+        //     this.tier3find(this.finalArr, (this.finalArr.length - tierAmt));
+        // },
+
+        // tier3find(arr, tierAmt) {
+
+        //     for (let i = 0; i < tierAmt; i++) {
+        //         const fetchprevTeir = arr[i]['tr' + (i + 1)];
+        //         const sendTierName = 'tr' + (i + 1);
+
+        //         // Search to find any new materials [Give a new tier name, Send Previous tier Name]
+        //         this.searchSynth(sendTierName, fetchprevTeir);
+        //     }
+        // },
+
+        // searchSynth(name, fetch) {
+
+        //     //Get Object of previous tier item
+        //     const find = fetch;
+        //     const syn = this.synth.filter(function (e) { return e.Name == find });
+        //     for (let i = 0; i < 4; i++) {
+
+        //         //Prep new tier name
+        //         const objName = name + '-' + (i+1);
+        //         //Object synth name within parent object
+        //         const synName = syn[0]['Synth_item' + (i + 1)];
+
+        //         //Find material Icon
+        //         const synTypeFind = this.synth.filter(function (e) { return e.Name == synName })[0]['Icon'];
+                
+        //         if (synName) {
+        //             const materialLoc = this.findNonWeapon(synName, synTypeFind);
+        //             //If found, append [New tier ID :  [New tier name, Tier icon, Tier Location]
+        //             const pushThis = { [objName]: [synName, synTypeFind, materialLoc]};
+        //             this.finalArr.push(pushThis);
+        //         }
+        //     }
+
+        // },
+
+        // findNonWeapon(synName, synTypeFind) {
+
+        //     if (synTypeFind == 'inv-monster') {
+
+        //         switch (false) {
+        //             case false:
+
+        //                 //CHECK CONVERTS
+        //                 const synConvert = this.synth.filter(function (e) { return e.Convert == synName })[0];
+        //                 if (synConvert) {
+        //                     return [synConvert['Icon'], synConvert['Name']];
+        //                     break;
+        //                 } 
+
+        //                 //CHECK TITLES
+        //                 const synTitle1 = this.titleArray.filter(function (e) { return e.reward1 == synName })[0];
+        //                 if (synTitle1) {
+        //                     return ['inv-monster', 'Title: ' + synTitle1['ID']];
+        //                     break;
+        //                 }
+
+        //                 //CHECK BESTIARY
+        //                 const synBestiary = this.synth.filter(function (e) { return e.Name == synName })[0];
+        //                 if (synBestiary) {
+        //                     return this.checkBestiary(synBestiary['Name']);
+        //                     break;
+        //                 }
+
+        //             default:
+        //                 return '';
+        //         }
+        //     } else {
+        //         return '';
+        //     }
+        // },
+
+        // checkBestiary(item) {
+
+        //     switch (false) {
+        //         case false:
+        //             const overkill = this.bestiArray.filter(function (e) { return e.overkill == item })[0];
+        //             if (overkill) {
+        //                 return [overkill['name'], overkill['zone']];
+        //                 break;
+        //             }
+
+        //             const rare1 = this.bestiArray.filter(function (e) { return e.rare1 == item })[0];
+        //             if (rare1) {
+        //                 return [rare1['Name'], rare1['Zone']];
+        //                 break;
+        //             }
+
+        //             const drop1 = this.bestiArray.filter(function (e) { return e.drop1 == item })[0];
+        //             if (drop1) {
+        //                 return [drop1['Name'], drop1['Zone']];
+        //                 break;
+        //             }
+
+        //         default:
+        //             return 'UNKNOWN!'
+        //     }
+        // },
 
     },
 }

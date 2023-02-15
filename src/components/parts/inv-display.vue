@@ -1,6 +1,6 @@
 <template>
     <div v-if="itemName">
-        <p>
+        <p class="inv-name">
             <img v-bind:src="'/src/assets/icons/' + itemImg + '.jpg'" />
             {{ itemName }}
         </p>

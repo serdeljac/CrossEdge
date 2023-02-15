@@ -21,44 +21,44 @@
                 </div>
                 <hr />
                 <div class="inventory_list items ableSel" v-for="data in itemsArray" :key="data.id"
-                    :class="uniqueClass(data.ID, data.Name)">
+                    :class="uniqueClass(data.ID, data.name)">
                     <div class="filter">
 
-                        <p><input type="checkbox" class="checkbox" @click="selectGear(data.ID, data.Name, '')"></p>
+                        <p><input type="checkbox" class="checkbox" @click="selectGear(data.ID, data.name, '')"></p>
                         <p>{{ data.ID }}</p>
 
                     <p>
-                        <img v-bind:src="'/src/assets/icons/' + data.Icon + '.jpg'" />
-                        {{ data.Name }}
+                        <img v-bind:src="'/src/assets/icons/' + data.icon + '.jpg'" />
+                        {{ data.name }}
                     </p>
 
                     <div>
-                        <p v-if="data.Cost_g">
-                            Purchased from store - {{ data.Cost_g }} <span class="currency">G</span>
+                        <p v-if="data.cost_g">
+                            Purchased from store - {{ data.cost_g }} <span class="currency">G</span>
                         </p>
-                        <p v-else-if="data.Cost_tp">
-                            Exchanged from Store - {{ data.Cost_tp }}<span class="currency">TP</span>
+                        <p v-else-if="data.cost_tp">
+                            Exchanged from Store - {{ data.cost_tp }}<span class="currency">TP</span>
                         </p>
-                        <p v-else-if="data.Find_event">
-                            Aquire during event #{{ data.Find_event }}
+                        <p v-else-if="data.find_event">
+                            Aquire during event #{{ data.find_event }}
                         </p>
-                        <p v-else-if="data.Find_title">
-                            Complete title #{{ data.Find_title }}
+                        <p v-else-if="data.find_title">
+                            Complete title #{{ data.find_title }}
                         </p>
-                        <p v-else-if="data.Find_other">
-                            Found: {{ data.Find_other }}
+                        <p v-else-if="data.find_other">
+                            Found: {{ data.find_other }}
                         </p>
                         <div v-else>
-                            <p v-if="searchConverts(data.Name, false)">
+                            <p v-if="searchConverts(data.name, false)">
                                 Convert from 
-                                <img v-bind:src="'/src/assets/icons/' + searchConverts(data.Name, true) + '.jpg'" />
-                                {{ searchConverts(data.Name, false) }}
+                                <img v-bind:src="'/src/assets/icons/' + searchConverts(data.name, true) + '.jpg'" />
+                                {{ searchConverts(data.name, false) }}
                             </p>
-                            <p v-else-if="searchBestiary(data.Name, false)">
-                                <span @click="toPage(searchBestiary(data.Name, true))">{{ searchBestiary(data.Name, false) }}</span>
+                            <p v-else-if="searchBestiary(data.name, false)">
+                                <span @click="toPage(searchBestiary(data.name, true))">{{ searchBestiary(data.name, false) }}</span>
                             </p>
-                            <p v-else-if="searchTitles(data.Name)">
-                                Reward from Title #{{ searchTitles(data.Name) }}
+                            <p v-else-if="searchTitles(data.name)">
+                                Reward from Title #{{ searchTitles(data.name) }}
                             </p>
 
                         </div>
@@ -67,11 +67,11 @@
                     <div>
                         <div class="synth_display" v-if="data.Synth_cost">
                             <p>
-                                {{ data.Synth_cost }}<span class="currency">G</span> -
-                                <img v-if="data.Synth_item1" v-bind:src="'/src/assets/icons/' + getIcon(data.Synth_item1, false) + '.jpg'" />{{ data.Synth_item1 }}
-                                <img v-if="data.Synth_item2" v-bind:src="'/src/assets/icons/' + getIcon(data.Synth_item2, false) + '.jpg'" />{{ data.Synth_item2 }}
-                                <img v-if="data.Synth_item3" v-bind:src="'/src/assets/icons/' + getIcon(data.Synth_item3, false) + '.jpg'" />{{ data.Synth_item3 }}
-                                <img v-if="data.Synth_item4" v-bind:src="'/src/assets/icons/' + getIcon(data.Synth_item4, false) + '.jpg'" />{{ data.Synth_item4 }}
+                                {{ data.synth_cost }}<span class="currency">G</span> -
+                                <img v-if="data.synth_item1" v-bind:src="'/src/assets/icons/' + getIcon(data.synth_item1, false) + '.jpg'" />{{ data.synth_item1 }}
+                                <img v-if="data.synth_item2" v-bind:src="'/src/assets/icons/' + getIcon(data.synth_item2, false) + '.jpg'" />{{ data.synth_item2 }}
+                                <img v-if="data.synth_item3" v-bind:src="'/src/assets/icons/' + getIcon(data.synth_item3, false) + '.jpg'" />{{ data.synth_item3 }}
+                                <img v-if="data.synth_item4" v-bind:src="'/src/assets/icons/' + getIcon(data.synth_item4, false) + '.jpg'" />{{ data.synth_item4 }}
                                 </p>
                         </div>
                     </div>
@@ -151,33 +151,33 @@ export default {
             switch (x) {
                 case false:
 
-                    let item = this.itemsArray.filter(function (e) { return e.Name == find });
+                    let item = this.itemsArray.filter(function (e) { return e.name == find });
                     if (item.length > 0) {
-                        return item[0]['Icon'];
+                        return item[0]['icon'];
                         break;
                     }
 
-                    let arm = this.armorArray.filter(function (e) { return e.Name == find });
+                    let arm = this.armorArray.filter(function (e) { return e.name == find });
                     if (arm.length > 0) {
-                        return arm[0]['Icon'];
+                        return arm[0]['icon'];
                         break;
                     }
 
-                    let wap = this.weapoArray.filter(function (e) { return e.Name == find });
+                    let wap = this.weapoArray.filter(function (e) { return e.name == find });
                     if (wap.length > 0) {
-                        return wap[0]['Icon'];
+                        return wap[0]['icon'];
                         break;
                     }
 
-                    let act = this.activArray.filter(function (e) { return e.Name == find });
+                    let act = this.activArray.filter(function (e) { return e.name == find });
                     if (act.length > 0) {
-                        return act[0]['Icon'];
+                        return act[0]['icon'];
                         break;
                     }
 
-                    let acc = this.accesArray.filter(function (e) { return e.Name == find });
+                    let acc = this.accesArray.filter(function (e) { return e.name == find });
                     if (acc.length > 0) {
-                        return acc[0]['Icon'];
+                        return acc[0]['icon'];
                         break;
                     } else if (acc.length == 0 && conv == true) {
                         return 'inv-stat';
@@ -193,32 +193,32 @@ export default {
             switch (x) {
                 case false:
 
-                    const wap = this.weapoArray.filter(function (e) { return e.Convert == find });
+                    const wap = this.weapoArray.filter(function (e) { return e.convert == find });
                     if (wap.length > 0) {
                         if (icon) {
-                            return wap[0]['Icon'];
+                            return wap[0]['icon'];
                         }else {
-                            return '#' + wap[0]['ID'] + ' - ' + wap[0]['Name'];
+                            return '#' + wap[0]['ID'] + ' - ' + wap[0]['name'];
                         }
                         break;
                     }
 
-                    const arm = this.armorArray.filter(function (e) { return e.Convert == find });
+                    const arm = this.armorArray.filter(function (e) { return e.convert == find });
                     if (arm.length > 0) {
                         if (icon) {
-                            return arm[0]['Icon'];
+                            return arm[0]['icon'];
                         } else {
-                            return '#' + arm[0]['ID'] + ' ' + arm[0]['Name'];
+                            return '#' + arm[0]['ID'] + ' ' + arm[0]['name'];
                         }
                         break;
                     }
 
-                    const acc = this.accesArray.filter(function (e) { return e.Convert == find });
+                    const acc = this.accesArray.filter(function (e) { return e.convert == find });
                     if (acc.length > 0) {
                         if (icon) {
-                            return acc[0]['Icon'];
+                            return acc[0]['icon'];
                         } else {
-                            return '#' + acc[0]['ID'] + ' - ' + acc[0]['Name'];
+                            return '#' + acc[0]['ID'] + ' - ' + acc[0]['name'];
                         }
                         break;
                     }
