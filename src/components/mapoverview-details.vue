@@ -74,14 +74,14 @@
             </div>
         </div>
 
-        <div class="bestiary" v-if="tabOpen == 'tab2'">
+        <div class="bestiaryli" v-if="tabOpen == 'tab2'">
 
             <h3>Enemies to defeat:</h3>
             
             <div class="tbl" v-for="data in info" :key="data.id">
                 <div v-if="data.kill_title">
-                    <p class="bestiary__monster">(#{{ data.ID }}) {{ data.name }}</p>
-                    <ul class="bestiary__title">
+                    <p class="bestiaryli__monster">(#{{ data.ID }}) {{ data.name }}</p>
+                    <ul class="bestiaryli__title">
                         <li>Location: {{ data.area }}</li>
                         <li v-if="data.kill_title">Title: {{ data.kill_title }} - Defeat {{ data.kill_count }}</li>
                     </ul>
@@ -94,8 +94,8 @@
 
             <div class="tbl" v-for="data in info" :key="data.id">
                 <div v-if="data.item_title">
-                    <p class="bestiary__monster">(#{{ data.ID }}) {{ data.name }}</p>
-                    <ul class="bestiary__title">
+                    <p class="bestiaryli__monster">(#{{ data.ID }}) {{ data.name }}</p>
+                    <ul class="bestiaryli__title">
                         <li>Location: {{ data.area }}</li>
                         <li v-if="data.item_title">Title: {{ data.item_title }} {{
                         data.item_name }} {{ data.item_count }}</li>
@@ -105,14 +105,14 @@
 
         </div>
 
-        <div class="bestiary" v-if="tabOpen == 'tab3'">
+        <div class="bestiaryli" v-if="tabOpen == 'tab3'">
         
             <h3>Bestiary:</h3>
         
             <div class="tbl" v-for="data in info" :key="data.id">
                 <div>
-                    <p class="bestiary__monster">(#{{ data.ID }}) {{ data.name }}</p>
-                    <ul class="bestiary__title">
+                    <p class="bestiaryli__monster">(#{{ data.ID }}) {{ data.name }}</p>
+                    <ul class="bestiaryli__title">
                         <li>Location: {{ data.area }}</li>
                         <li class="item_drop" v-if="data.drop1">Drop 1: {{ data.drop1 }}</li>
                         <li class="item_drop" v-if="data.drop2">Drop 2: {{ data.drop2 }}</li>

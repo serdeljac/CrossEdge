@@ -1500,31 +1500,6 @@ body {
         margin: 15px 5px;
     }
 
-    //CHECKBOX
-    .mark_completion {
-        font-size: 1.4rem;
-        text-align: center;
-        display: grid;
-        grid-template-columns: 30px auto;
-        align-items: center;
-        margin: 10px 0;
-    }
-
-    .checkbox {
-        width: 30px;
-        height: 30px;
-        border: 1px solid #fff;
-        border-radius: 5px;
-        margin-right: 10px;
-        cursor: pointer;
-        background-color: transparent;
-
-        &.complete {
-            background-color: #fff
-        }
-    }
-
-
     .te_action {
         border-radius: 5px;
         padding: 0.4rem 0.8rem;
@@ -1565,9 +1540,10 @@ body {
         font-size: 20px;
         text-align: center;
         padding: 20px 0;
+        margin-bottom: 20px;
     }
 
-    .bestiary {
+    .bestiaryli {
         font-size: 1.2rem;
 
         h3 {

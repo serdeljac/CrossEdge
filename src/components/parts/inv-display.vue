@@ -2,7 +2,7 @@
         <p class="inv-name" v-if="itemName">
             {{ itemTr  }}
             <img v-bind:src="'/src/assets/icons/' + itemImg + '.jpg'" />
-            {{ itemName }} - {{ itemLoc }}
+            {{ itemName }}
         </p>
 
     <p v-else>-</p>

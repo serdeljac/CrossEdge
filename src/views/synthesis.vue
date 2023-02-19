@@ -69,15 +69,18 @@
                 
                 <div v-if="selectedItems && !genArr">
                     <h3>Selected Items:</h3>
-                    <div class="list_!" v-for="arr in selectedItems" :key="arr.id" >
+                    <div class="list_1" v-for="arr in selectedItems" :key="arr.id" >
                         <invItem :itemImg="arr.icon" :itemName="arr.name" />
                     </div>
                 </div>
 
                 <div v-else>
                     <h3>Generated:</h3>
-                    <div class="list_2" v-for="arr in genArr" :key="arr.id">
-                        <invItem :itemTr="arr[0]" :itemImg="arr[1][1]" :itemName="arr[1][0]" :itemLoc="arr[1][2]"/>
+                    <div class="list_2">
+                        <invItemGen :itemTr="genArr"/>
+                        <!-- <div class="list_2" v-for="arr in genArr" :key="arr.id">
+                            <invItem :itemTr="arr[0]" :itemImg="arr[1][1]" :itemName="arr[1][0]" :itemLoc="arr[1][2]" />
+                        </div> -->
                     </div>
                 </div>
 
@@ -88,6 +91,7 @@
 
 <script lang="ts">
 import invItem from '../components/parts/inv-display.vue';
+import invItemGen from '../components/parts/inv-display-gen.vue';
 import synthList from '@/assets/data/synthesis.json';
 import bestiList from '@/assets/data/bestiary.json';
 import titleList from '@/assets/data/titles.json';
@@ -102,7 +106,7 @@ import $ from 'jquery';
 
 export default {
     name: "inventoryListWeapons",
-    components: { subHeader, invItem },
+    components: { subHeader, invItem, invItemGen },
     data() {
         return {
             armorArray: armorList[2].data,          // Array (Armor)
@@ -289,6 +293,7 @@ export default {
 
         //Pull materials from selected item
         fetchMaterials(arr) {
+            // arr = PARENT with it's materials
 
             //Tier 1
             for (let i = 0; i < arr.length; i++) {
@@ -296,7 +301,8 @@ export default {
                     if (getTier.length == 3) {
                         const curTier = arr[i][0];
                         const curName = arr[i][1][0];
-                        this.findMaterials(curTier, curName);
+                        const endThis = this.findMaterials(curTier, curName);
+                        console.log(endThis);
                     }
                 }
 
@@ -306,108 +312,37 @@ export default {
                 if (getTier.length == 4) {
                     const curTier = arr[i][0];
                     const curName = arr[i][1][0];
-                    this.findMaterials(curTier, curName);
+                    const endThis = this.findMaterials(curTier, curName);
+                    console.log(endThis);
                 }
             }
 
-            //Tier 3
-            for (let i = 0; i < arr.length; i++) {
-                const getTier = arr[i][0];
-                if (getTier.length == 5) {
-                    const curTier = arr[i][0];
-                    const curName = arr[i][1][0];
-                    this.findMaterials(curTier, curName);
-                }
-            }
-
-            //Tier 4
-            for (let i = 0; i < arr.length; i++) {
-                const getTier = arr[i][0];
-                if (getTier.length == 6) {
-                    const curTier = arr[i][0];
-                    const curName = arr[i][1][0];
-                    this.findMaterials(curTier, curName);
-                }
-            }
-
-            //Tier 5
-            for (let i = 0; i < arr.length; i++) {
-                const getTier = arr[i][0];
-                if (getTier.length == 7) {
-                    const curTier = arr[i][0];
-                    const curName = arr[i][1][0];
-                    this.findMaterials(curTier, curName);
-                }
-            }
-
-            //Tier 6
-            for (let i = 0; i < arr.length; i++) {
-                const getTier = arr[i][0];
-                if (getTier.length == 8) {
-                    const curTier = arr[i][0];
-                    const curName = arr[i][1][0];
-                    this.findMaterials(curTier, curName);
-                }
-            }
-
-            //Tier 7
-            for (let i = 0; i < arr.length; i++) {
-                const getTier = arr[i][0];
-                if (getTier.length == 9) {
-                    const curTier = arr[i][0];
-                    const curName = arr[i][1][0];
-                    this.findMaterials(curTier, curName);
-                }
-            }
-
-            //Tier 8
-            for (let i = 0; i < arr.length; i++) {
-                const getTier = arr[i][0];
-                if (getTier.length == 10) {
-                    const curTier = arr[i][0];
-                    const curName = arr[i][1][0];
-                    this.findMaterials(curTier, curName);
-                }
-            }
-
-            //Tier 9
-            for (let i = 0; i < arr.length; i++) {
-                const getTier = arr[i][0];
-                if (getTier.length == 11) {
-                    const curTier = arr[i][0];
-                    const curName = arr[i][1][0];
-                    this.findMaterials(curTier, curName);
-                }
-            }
-
-            //Tier 10
-            for (let i = 0; i < arr.length; i++) {
-                const getTier = arr[i][0];
-                if (getTier.length == 12) {
-                    const curTier = arr[i][0];
-                    const curName = arr[i][1][0];
-                    this.findMaterials(curTier, curName);
-                }
-            }
             
         },
 
         findMaterials(tier, name) {
 
-                const find = name;
-                const syn = this.synth.filter(function (e) { return e.name == find })[0];
-                
-                for (let i = 1; i < 5; i++) {
-                    
-                    const getMaterial = syn['synth_item' + i];
-                    if (getMaterial) {
+            const find = name;
+            const syn = this.synth.filter(function (e) { return e.name == find })[0];
+            
+            for (let i = 1; i < 5; i++) {
+                const getMaterial = syn['synth_item' + i];
+
+                if (getMaterial) {
+                    if (name != getMaterial) {
                         const getTier = tier + [i];
                         const getIcon = this.fetchIconImage(getMaterial);
                         const getConvert = this.findNonWeapon(getMaterial, getIcon);
                         const x = [getTier, [getMaterial, getIcon, getConvert]];
                         this.genArr.push(x);
+                    } else {
+                        const getTier = tier + [i];
+                        const x = [getTier, ['Buy From store', '', '']];
+                        this.genArr.push(x);
+                        return 'End This!'
                     }
                 }
+            }
         },
 
         findNonWeapon(synName, synTypeFind) {
@@ -451,140 +386,12 @@ export default {
                         }
 
                     default:
-                        return '';
+                        return ['UNKNOWN', 'UNKNOWN'];
                 }
             } else {
                 return '';
             }
         },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // generateMaterialsList() {
-        //     const con = $('.generate').hasClass('active');
-        //     if(con) {
-        //         this.itemsMaterialArray = this.itemsChildArray;
-        //         this.findMaterials(this.itemsChildArray);
-                
-        //     }
-        // },
-
-        // findMaterials(arr) {
-            
-        //     //Clear array (init)
-        //     this.finalArr = [];
-
-        //     const size = arr.length;
-        //     for (let i = 0; i < size; i++) {
-
-        //         //Get name from synth document
-        //         const find = arr[i];
-        //         const syn = this.synth.filter(function (e) { return e.Name == find });
-                
-        //         //Append Tier 1 item into object
-        //         const tier = 'tr' + [i+1];
-        //         const name = syn[0]['Name'];
-        //         const pushThis = { [tier] : name};
-        //         this.finalArr.push(pushThis);
-        //     }
-
-        //     //Proceed to next tier
-        //     this.tier2find(this.finalArr, size);
-        // },
-
-        // tier2find(arr, tierAmt) {
-        //     const size = arr.length;
-            
-        //     for (let i = 0; i < size; i++) {
-        //         const fetchprevTeir = arr[i]['tr' + (i + 1)];
-        //         const sendTierName = 'tr' + (i+1);
-
-        //         //Search to find any new materials [Give a new tier name, Send Previous tier Name]
-        //         this.searchSynth(sendTierName, fetchprevTeir);
-        //     }
-
-        //     //Proceed to next tier
-        //     this.tier3find(this.finalArr, (this.finalArr.length - tierAmt));
-        // },
-
-        // tier3find(arr, tierAmt) {
-
-        //     for (let i = 0; i < tierAmt; i++) {
-        //         const fetchprevTeir = arr[i]['tr' + (i + 1)];
-        //         const sendTierName = 'tr' + (i + 1);
-
-        //         // Search to find any new materials [Give a new tier name, Send Previous tier Name]
-        //         this.searchSynth(sendTierName, fetchprevTeir);
-        //     }
-        // },
-
-        // searchSynth(name, fetch) {
-
-        //     //Get Object of previous tier item
-        //     const find = fetch;
-        //     const syn = this.synth.filter(function (e) { return e.Name == find });
-        //     for (let i = 0; i < 4; i++) {
-
-        //         //Prep new tier name
-        //         const objName = name + '-' + (i+1);
-        //         //Object synth name within parent object
-        //         const synName = syn[0]['Synth_item' + (i + 1)];
-
-        //         //Find material Icon
-        //         const synTypeFind = this.synth.filter(function (e) { return e.Name == synName })[0]['Icon'];
-                
-        //         if (synName) {
-        //             const materialLoc = this.findNonWeapon(synName, synTypeFind);
-        //             //If found, append [New tier ID :  [New tier name, Tier icon, Tier Location]
-        //             const pushThis = { [objName]: [synName, synTypeFind, materialLoc]};
-        //             this.finalArr.push(pushThis);
-        //         }
-        //     }
-
-        // },
-
-
-        // checkBestiary(item) {
-
-        //     switch (false) {
-        //         case false:
-        //             const overkill = this.bestiArray.filter(function (e) { return e.overkill == item })[0];
-        //             if (overkill) {
-        //                 return [overkill['name'], overkill['zone']];
-        //                 break;
-        //             }
-
-        //             const rare1 = this.bestiArray.filter(function (e) { return e.rare1 == item })[0];
-        //             if (rare1) {
-        //                 return [rare1['Name'], rare1['Zone']];
-        //                 break;
-        //             }
-
-        //             const drop1 = this.bestiArray.filter(function (e) { return e.drop1 == item })[0];
-        //             if (drop1) {
-        //                 return [drop1['Name'], drop1['Zone']];
-        //                 break;
-        //             }
-
-        //         default:
-        //             return 'UNKNOWN!'
-        //     }
-        // },
 
     },
 }
