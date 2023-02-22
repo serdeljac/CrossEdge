@@ -276,122 +276,277 @@ export default {
             }
         },
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         //Start searching for materials from selected list
-        startGeneratingBuild() {
-            this.genArr = [];
-            const size = this.selectedItems.length;
-
-            for (let i = 0; i < size; i++) {
-                const tier = 'tr' + [i+1];
-                const name = this.selectedItems[i]['name'];
-                const icon = this.selectedItems[i]['icon'];
-                this.genArr.push([tier, [name, icon, '']]);
-            }
-            
-            this.fetchMaterials(this.genArr);
-        },
-
-        //Pull materials from selected item
-        fetchMaterials(arr) {
-            // arr = PARENT with it's materials
-
-            //Tier 1
-            for (let i = 0; i < arr.length; i++) {
-                const getTier = arr[i][0];
-                    if (getTier.length == 3) {
-                        const curTier = arr[i][0];
-                        const curName = arr[i][1][0];
-                        const endThis = this.findMaterials(curTier, curName);
-                        console.log(endThis);
-                    }
-                }
-
-            //Tier 2
-            for (let i = 0; i < arr.length; i++) {
-                const getTier = arr[i][0];
-                if (getTier.length == 4) {
-                    const curTier = arr[i][0];
-                    const curName = arr[i][1][0];
-                    const endThis = this.findMaterials(curTier, curName);
-                    console.log(endThis);
-                }
-            }
-
-            
-        },
-
-        findMaterials(tier, name) {
-
-            const find = name;
-            const syn = this.synth.filter(function (e) { return e.name == find })[0];
-            
-            for (let i = 1; i < 5; i++) {
-                const getMaterial = syn['synth_item' + i];
-
-                if (getMaterial) {
-                    if (name != getMaterial) {
-                        const getTier = tier + [i];
-                        const getIcon = this.fetchIconImage(getMaterial);
-                        const getConvert = this.findNonWeapon(getMaterial, getIcon);
-                        const x = [getTier, [getMaterial, getIcon, getConvert]];
-                        this.genArr.push(x);
-                    } else {
-                        const getTier = tier + [i];
-                        const x = [getTier, ['Buy From store', '', '']];
-                        this.genArr.push(x);
-                        return 'End This!'
-                    }
-                }
-            }
-        },
-
-        findNonWeapon(synName, synTypeFind) {
-
-            if (synTypeFind == 'inv-monster') {
-                
-                switch (false) {
-                    case false:
-                        
-                        //CHECK CONVERTS
-                        const convert = this.synth.filter(function (e) { return e.convert == synName })[0];
-                        if (convert) {
-                            return [convert['name'], convert['icon']];
-                            break;
-                        }
-
-                        //CHECK TITLES
-                        const title1 = this.titleArray.filter(function (e) { return e.reward1 == synName })[0];
-                        if (title1) {
-                            return ['Title: ' + title1['ID'], ''];
-                            break;
-                        }
-
-                        //CHECK BESTIARY
-                        const over = this.bestiArray.filter(function (e) { return e.overkill == synName })[0];
-                        if (over) {
-                            return [over['name'], over['zone']];
-                            break;
-                        }
-                        
-                        const drop1 = this.bestiArray.filter(function (e) { return e.drop1 == synName })[0];
-                        if (drop1) {
-                            return [drop1['name'], over['zone']];
-                            break;
-                        }
-
-                        const rare1 = this.bestiArray.filter(function (e) { return e.rare1 == synName })[0];
-                        if (rare1) {
-                            return [rare1['name'], rare1['zone']];
-                            break;
-                        }
-
-                    default:
-                        return ['UNKNOWN', 'UNKNOWN'];
+        startGeneratingBuild(subWeapon, subTier) {
+            if (!subWeapon) {
+                this.genArr = [];
+                const size = this.selectedItems.length;
+                for (let i = 0; i < size; i++) {
+                    const name = this.selectedItems[i]['name'];
+                    this.fetchCalledWeapon(name, 'tr');
                 }
             } else {
-                return '';
+                this.fetchCalledWeapon(subWeapon, subTier);
             }
         },
+
+        //Find data on materials for found weapon
+        fetchCalledWeapon(nm, tr) {
+            switch (false) {
+                case false:
+
+                const n = nm;
+                const syn = this.synth.filter(function (e) { return e.name == n })[0];
+                const tier = tr + '1';
+                const name = n;
+                const icon = syn['icon'];
+
+                const buyg = syn['cost_g'];
+                const buytp = syn['cost_tp'];
+                if (buyg || buytp) {
+                    this.buildGen(tier, name, icon, buyg, buytp, '', '');
+                    break;
+                }
+                
+                const synth = [
+                    this.checkSynth(syn['synth_item1']),
+                    this.checkSynth(syn['synth_item2']),
+                    this.checkSynth(syn['synth_item3']),
+                    this.checkSynth(syn['synth_item4']),
+                ];
+                
+                if (synth.length > 0) {
+                    this.buildGen(tier, name, icon, '', '', '', synth);
+                    break;
+                }
+
+                const title = this.checkOtherLoc(name);
+                this.buildGen(tier, name, icon, '', '', title, '');
+                break;
+            }
+        },
+
+        checkSynth(name) {
+            if (!name) {return;}
+            //       done   done
+            // arr = NAME   ICON  BUYG   BUYTP   BESTIARYNAME/ZONE     CONVERT   TITLE
+            const find = name;
+            const syn = this.synth.filter(function (e) { return e.name == find })[0];
+            const icon = syn['icon'];
+            const buyg = syn['cost_g'];
+            const buytp = syn['cost_tp'];
+            const bestiary = this.searchBestiary(find);
+            const convert = this.searchConverts(find);
+            const title = this.searchTitles(find);
+            return [name, icon, buyg, buytp, bestiary, convert, title];
+        },
+
+        searchBestiary(name) {
+
+            const n = name;
+            const over = this.bestiArray.filter(function (e) { return e.overkill == n })[0];
+            if (over) {
+                return [over['name'], over['zone']];
+            }
+
+            const drop1 = this.bestiArray.filter(function (e) { return e.drop1 == n })[0];
+            if (drop1) {
+                return [drop1['name'], drop1['zone']];
+            }
+
+            const rare1 = this.bestiArray.filter(function (e) { return e.rare1 == n })[0];
+            if (rare1) {
+                return [rare1['name'], rare1['zone']];
+            }
+
+            const drop2 = this.bestiArray.filter(function (e) { return e.drop2 == n })[0];
+            if (drop2) {
+                return [drop2['name'], drop2['zone']];
+            }
+
+            const rare2 = this.bestiArray.filter(function (e) { return e.rare2 == n })[0];
+            if (rare2) {
+                return [rare2['name'], rare2['zone']];
+            }
+
+            return '';
+        },
+
+        searchConverts(name) {
+            const n = name;
+            const syn = this.synth.filter(function (e) { return e.convert == n })[0];
+            if (syn) {
+                return syn['name'];
+            }
+
+            return '';
+        },
+
+        searchTitles(name) {
+            const n = name;
+            const rw1 = this.titleArray.filter(function (e) { return e.reward1 == n })[0];
+            if (rw1) {
+                return 'Title reward #' + rw1['ID'];
+            }
+
+            const rw2 = this.titleArray.filter(function (e) { return e.reward2 == n })[0];
+            if (rw2) {
+                return 'Title reward #' + rw2['ID'];
+            }
+
+            const rw3 = this.titleArray.filter(function (e) { return e.reward3 == n })[0];
+            if (rw3) {
+                return 'Title reward #' + rw3['ID'];
+            }
+
+            return '';
+        },
+
+        checkOtherLoc(name) {
+            const n = name;
+
+            switch(false) {
+                case false:
+
+                    const re1 = this.titleArray.filter(function (e) { return e.reward1 == n })[0];
+                    if (re1) {
+                        return 'Title reward #' + re1['ID'];
+                        break;
+                    }
+
+                    const re2 = this.titleArray.filter(function (e) { return e.reward2 == n })[0];
+                    if (re2) {
+                        return 'Title reward #' + re2['ID'];
+                        break;
+                    }
+
+                    const re3 = this.titleArray.filter(function (e) { return e.reward3 == n })[0];
+                    if (re3) {
+                        return 'Title reward #' + re3['ID'];
+                        break;
+                    }
+
+                    const over = this.bestiArray.filter(function (e) { return e.overkill == n })[0];
+                    if (over) {
+                        return 'Overkill: ' + over['name'] + ' in ' + over['zone'];
+                        break;
+                    }
+
+                    const drop1 = this.bestiArray.filter(function (e) { return e.drop1 == n })[0];
+                    if (drop1) {
+                        return 'Drop: ' + drop1['name'] + ' in ' + drop1['zone'];
+                        break;
+                    }
+
+                    const rare1 = this.bestiArray.filter(function (e) { return e.rare1 == n })[0];
+                    if (rare1) {
+                        return 'Rare drop: ' + rare1['name'] + ' in ' + rare1['zone'];
+                        break;
+                    }
+
+                    const drop2 = this.bestiArray.filter(function (e) { return e.drop2 == n })[0];
+                    if (drop2) {
+                        return 'Drop: ' + drop2['name'] + ' in ' + drop2['zone'];
+                        break;
+                    }
+
+                    const rare2 = this.bestiArray.filter(function (e) { return e.rare2 == n })[0];
+                    if (rare2) {
+                        return 'Rare drop: ' + rare2['name'] + ' in ' + rare2['zone'];
+                        break;
+                    }
+
+                    const other = this.synth.filter(function (e) { return e.name == n })[0];
+                    if (other) {
+                        return other['find_other'];
+                    }
+
+            default:
+                return 'ERROR - Cannot Find'
+
+            }
+        },
+
+        //Append found materials to array
+        buildGen(tier, name, icon, buy_g, buy_tp, loc, synth) {
+
+            const newArr = {
+                'tier': tier,
+                'name': name,
+                'icon': icon,
+                'buyg': buy_g,
+                'buytp': buy_tp,
+                'location': loc,
+                'synth': synth,
+            };
+
+            this.genArr.push(newArr);
+            
+
+            for (let i = 0; i < newArr['synth'].length; i++ ) {
+
+                switch(false) {
+                    case false:
+                    const a = newArr['synth'][i][2]; //costg
+                    const b = newArr['synth'][i][3]; //costtp
+                    const c = newArr['synth'][i][4]; //bestiary
+                    const d = newArr['synth'][i][5]; //convert
+                    const e = newArr['synth'][i][6]; //title & other
+
+                    if (d) {
+                       this.startGeneratingBuild(d, newArr['tier']);
+                       break; 
+                    }
+
+                    default:
+                        break;
+                }
+                
+
+                // if (d) {
+                //     this.startGeneratingBuild(newArr['synth'][i][5], newArr['tier']);
+                // } else if (!a && !b && !c && !d && !e) {
+
+                // }
+
+            }
+            console.log(this.genArr);
+        },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     },
 }
