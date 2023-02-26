@@ -1116,6 +1116,21 @@ body {
                 margin-bottom: 10px;
                 display: flex;
                 align-items: center;
+
+                &__generated {
+                    .bind {
+                        display: inline-flex;
+                        font-size: 1.5rem;
+                        align-items: center;
+                    }
+
+                    .synth_name {
+                        margin-right: 7px;
+                    }
+                    ul {
+                        margin-left: 20px;
+                    }
+                }
             }
 
             img {

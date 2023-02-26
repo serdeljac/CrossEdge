@@ -16,10 +16,71 @@
 
 
 
-            <p class="inv-name" v-for="arr in itemTr" :key="arr.id">
-                        {{ arr }}
-                </p>
+    <p class="inv-name" v-for="arr in itemTr" :key="arr.id">
+        {{ arr }}<br />
+    </p>
 
+    <hr>
+
+    <div class="inv-name__generated" v-for="arr in itemTr" :key="arr.id">
+        <div class="weapon_details">
+
+            <div class="bind">
+                <img v-bind:src="'/src/assets/icons/' + arr['icon'] + '.jpg'" />
+                <p>{{ arr['name'] }}</p>
+            </div>
+
+            <ul v-if="arr['synth']">
+
+                <li v-if="arr['synth'][0]">
+                    <div class="bind">
+                        <img v-bind:src="'/src/assets/icons/inv-' + arr['synth'][0][1] + '.jpg'" />
+                        <span class="synth_name">{{ arr['synth'][0][0] }}</span>
+                        <p v-if="arr['synth'][0][2]"> - Buy for {{ arr['synth'][0][2] }}g</p>
+                        <p v-else-if="arr['synth'][0][3]"> - Exchange for {{ arr['synth'][0][3] }}tp</p>
+                        <p v-else-if="arr['synth'][0][5]"> - Convert from {{ arr['synth'][0][5] }}</p>
+                        <p v-else> - {{ arr['synth'][0][4][2] }} <span>{{ arr['synth'][0][4][0] }}</span> in {{ arr['synth'][0][4][1] }}</p>
+                    </div>
+                </li>
+
+                <li v-if="arr['synth'][1]">
+                    <div class="bind">
+                        <img v-bind:src="'/src/assets/icons/inv-' + arr['synth'][1][1] + '.jpg'" />
+                        <span class="synth_name">{{ arr['synth'][1][0] }}</span>
+                        <p v-if="arr['synth'][1][5]"> - Convert from {{ arr['synth'][1][5] }}</p>
+                        <p v-if="arr['synth'][1][4]"> - {{ arr['synth'][1][4][2] }} {{ arr['synth'][1][4][0] }} in {{ arr['synth'][1][4][1] }}</p>
+                        <p v-if="arr['synth'][1][2]"> - Buy for {{ arr['synth'][1][2] }}g</p>
+                        <p v-if="arr['synth'][1][3]"> - Exchange for {{ arr['synth'][1][3] }}tp</p>
+                    </div>
+                </li>
+
+                <li v-if="arr['synth'][2]">
+                    <div class="bind">
+                        <img v-bind:src="'/src/assets/icons/inv-' + arr['synth'][2][1] + '.jpg'" />
+                        <span class="synth_name">{{ arr['synth'][2][0] }}</span>
+                        <p v-if="arr['synth'][2][5]"> - Convert from {{ arr['synth'][2][5] }}</p>
+                        <p v-if="arr['synth'][2][4]"> - {{ arr['synth'][2][4][2] }} {{ arr['synth'][2][4][0] }} in {{ arr['synth'][2][4][1] }}</p>
+                        <p v-if="arr['synth'][2][2]"> - Buy for {{ arr['synth'][2][2] }}g</p>
+                        <p v-if="arr['synth'][2][3]"> - Exchange for {{ arr['synth'][2][3] }}tp</p>
+                    </div>
+                </li>
+
+                <li v-if="arr['synth'][3]">
+                    <div class="bind">
+                        <img v-bind:src="'/src/assets/icons/inv-' + arr['synth'][3][1] + '.jpg'" />
+                        <span class="synth_name">{{ arr['synth'][3][0] }}</span>
+                        <p v-if="arr['synth'][3][5]"> - Convert from {{ arr['synth'][3][5] }}</p>
+                        <p v-if="arr['synth'][3][4]"> - {{ arr['synth'][3][4][2] }} {{ arr['synth'][3][4][0] }} in {{ arr['synth'][3][4][1] }}</p>
+                        <p v-if="arr['synth'][3][2]"> - Buy for {{ arr['synth'][3][2] }}g</p>
+                        <p v-if="arr['synth'][3][3]"> - Exchange for {{ arr['synth'][3][3] }}tp</p>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+        
+        
+    </div>
 </template>
 
 <script lang="ts">

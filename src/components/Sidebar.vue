@@ -34,7 +34,7 @@
                             <li @click="choosePage('bestiary')">Bestiary</li>
                             <li class="null">Tool: Team Build</li>
                             <li class="null">Tool: Synthesis Generator</li>
-                            <!-- <li @click="choosePage('synthesis-weapons')">Tool: Synthesis Generator</li> -->
+                            <li @click="choosePage('synthesis-weapons')">Tool: Synthesis Generator</li>
                         </ul>
                     </div>
 

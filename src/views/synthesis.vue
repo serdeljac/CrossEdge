@@ -318,10 +318,10 @@ export default {
 
                 const buyg = syn['cost_g'];
                 const buytp = syn['cost_tp'];
-                if (buyg || buytp) {
-                    this.buildGen(tier, name, icon, buyg, buytp, '', '');
-                    break;
-                }
+                // if (buyg || buytp) {
+                //     this.buildGen(tier, name, icon, buyg, buytp, '', '');
+                //     break;
+                // }
                 
                 const synth = [
                     this.checkSynth(syn['synth_item1']),
@@ -331,12 +331,12 @@ export default {
                 ];
                 
                 if (synth.length > 0) {
-                    this.buildGen(tier, name, icon, '', '', '', synth);
+                    this.buildGen(tier, name, icon, buyg, buytp, '', synth);
                     break;
                 }
 
                 const title = this.checkOtherLoc(name);
-                this.buildGen(tier, name, icon, '', '', title, '');
+                this.buildGen(tier, name, icon, buyg, buytp, title, '');
                 break;
             }
         },
@@ -347,12 +347,14 @@ export default {
             // arr = NAME   ICON  BUYG   BUYTP   BESTIARYNAME/ZONE     CONVERT   TITLE
             const find = name;
             const syn = this.synth.filter(function (e) { return e.name == find })[0];
-            const icon = syn['icon'];
+            const iconfind = syn['icon'];
+            const icon = iconfind.slice(4);
             const buyg = syn['cost_g'];
             const buytp = syn['cost_tp'];
             const bestiary = this.searchBestiary(find);
             const convert = this.searchConverts(find);
             const title = this.searchTitles(find);
+
             return [name, icon, buyg, buytp, bestiary, convert, title];
         },
 
@@ -361,27 +363,27 @@ export default {
             const n = name;
             const over = this.bestiArray.filter(function (e) { return e.overkill == n })[0];
             if (over) {
-                return [over['name'], over['zone']];
+                return [over['name'], over['zone'], 'Overkill'];
             }
 
             const drop1 = this.bestiArray.filter(function (e) { return e.drop1 == n })[0];
             if (drop1) {
-                return [drop1['name'], drop1['zone']];
+                return [drop1['name'], drop1['zone'], 'Normal drop'];
             }
 
             const rare1 = this.bestiArray.filter(function (e) { return e.rare1 == n })[0];
             if (rare1) {
-                return [rare1['name'], rare1['zone']];
+                return [rare1['name'], rare1['zone'], 'Rare drop'];
             }
 
             const drop2 = this.bestiArray.filter(function (e) { return e.drop2 == n })[0];
             if (drop2) {
-                return [drop2['name'], drop2['zone']];
+                return [drop2['name'], drop2['zone'], 'Normal drop'];
             }
 
             const rare2 = this.bestiArray.filter(function (e) { return e.rare2 == n })[0];
             if (rare2) {
-                return [rare2['name'], rare2['zone']];
+                return [rare2['name'], rare2['zone'], 'Rare drop'];
             }
 
             return '';
