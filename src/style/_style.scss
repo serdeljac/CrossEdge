@@ -1118,15 +1118,12 @@ body {
                 align-items: center;
 
                 &__generated {
-                    .bind {
+                    .bind,p {
                         display: inline-flex;
                         font-size: 1.5rem;
                         align-items: center;
                     }
-
-                    .synth_name {
-                        margin-right: 7px;
-                    }
+                    
                     ul {
                         margin-left: 20px;
                     }
@@ -1136,6 +1133,34 @@ body {
             img {
                 margin: 0 10px;
                 height: 30px;
+            }
+        }
+
+        .synthmaterials {
+            p {
+                margin-right: 7px;
+            }
+
+            img {
+                height: 25px;
+            }
+            span {
+                margin: 0 7px;
+            }
+
+            &_gbuy {
+                color: rgb(169, 226, 12)
+            }
+
+            &_tpbuy {
+                color: rgb(11, 191, 197)
+            }
+
+            &_convert {
+                color: rgb(165, 7, 165)
+            }
+            &_defeat {
+                color: rgb(189, 17, 40)
             }
         }
     }

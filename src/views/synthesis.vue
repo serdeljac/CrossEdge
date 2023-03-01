@@ -300,8 +300,6 @@ export default {
                     const name = this.selectedItems[i]['name'];
                     this.fetchCalledWeapon(name, 'tr');
                 }
-            } else {
-                this.fetchCalledWeapon(subWeapon, subTier);
             }
         },
 
@@ -336,6 +334,7 @@ export default {
                 }
 
                 const title = this.checkOtherLoc(name);
+                console.log('searched');
                 this.buildGen(tier, name, icon, buyg, buytp, title, '');
                 break;
             }
@@ -393,7 +392,7 @@ export default {
             const n = name;
             const syn = this.synth.filter(function (e) { return e.convert == n })[0];
             if (syn) {
-                return syn['name'];
+                return [syn['name'], syn['icon']];
             }
 
             return '';
@@ -476,6 +475,7 @@ export default {
                     const other = this.synth.filter(function (e) { return e.name == n })[0];
                     if (other) {
                         return other['find_other'];
+                        break;
                     }
 
             default:
@@ -500,24 +500,24 @@ export default {
             this.genArr.push(newArr);
             
 
-            for (let i = 0; i < newArr['synth'].length; i++ ) {
+            // for (let i = 0; i < newArr['synth'].length; i++ ) {
 
-                switch(false) {
-                    case false:
-                    const a = newArr['synth'][i][2]; //costg
-                    const b = newArr['synth'][i][3]; //costtp
-                    const c = newArr['synth'][i][4]; //bestiary
-                    const d = newArr['synth'][i][5]; //convert
-                    const e = newArr['synth'][i][6]; //title & other
+            //     switch(false) {
+            //         case false:
+            //         const a = newArr['synth'][i][2]; //costg
+            //         const b = newArr['synth'][i][3]; //costtp
+            //         const c = newArr['synth'][i][4]; //bestiary
+            //         const d = newArr['synth'][i][5]; //convert
+            //         const e = newArr['synth'][i][6]; //title & other
 
-                    if (d) {
-                       this.startGeneratingBuild(d, newArr['tier']);
-                       break; 
-                    }
+            //         if (d) {
+            //            this.startGeneratingBuild(d, newArr['tier']);
+            //            break; 
+            //         }
 
-                    default:
-                        break;
-                }
+            //         default:
+            //             break;
+            //     }
                 
 
                 // if (d) {
@@ -526,8 +526,7 @@ export default {
 
                 // }
 
-            }
-            console.log(this.genArr);
+            
         },
 
 
