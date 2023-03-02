@@ -30,10 +30,26 @@
                 <p>{{ arr['name'] }}</p>
             </div>
 
-            <ul v-if="arr['synth']" class="synthmaterials">
-
+            <ul v-if="arr['synth'][0].length > 0" class="synthmaterials">
                 <li v-if="arr['synth'][0]">
-                    <div class="bind">
+
+                    <div v-if="arr['name'] == arr['synth'][0][0]" class="bind">
+                        <!-- IF WEAPON AND IS SAME AS PARENT -->
+                        <img v-bind:src="'/src/assets/icons/inv-' + arr['synth'][0][1] + '.jpg'" />
+                        <p class="synthmaterials_name">{{ arr['synth'][0][0] }}</p>
+                            <ul>
+                                <li>Found in this location</li>
+                                <li>Can be purchased after synthesis</li>
+                            </ul>
+                    </div>
+
+                    <div v-else-if="arr['synth'][0][1] != 'monster'">
+                        <!-- IF WEAPON AND NOT SAME AS PARENT -->
+                        <img v-bind:src="'/src/assets/icons/inv-' + arr['synth'][0][1] + '.jpg'" />
+                        <p class="synthmaterials_name">{{ arr['synth'][0][0] }}</p>
+                    </div>
+
+                    <div v-else class="bind">
                         <img v-bind:src="'/src/assets/icons/inv-' + arr['synth'][0][1] + '.jpg'" />
                         <p class="synthmaterials_name">{{ arr['synth'][0][0] }}</p>
                         <p v-if="arr['synth'][0][2]" class="synthmaterials_gbuy"> - Buy for {{ arr['synth'][0][2] }}g</p>
@@ -79,7 +95,7 @@
             </ul>
 
             <ul v-else>
-                {{ arr['location'] }}
+                Aquired: {{ arr['location'] }}
             </ul>
         </div>
         

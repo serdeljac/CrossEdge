@@ -27,6 +27,7 @@
                     <p>#</p>
                     <p>Name</p>
                     <p>Synth <br />Cost</p>
+                    <p>Purchase <br/> After Synth?</p>
                     <p>Synthesize #1</p>
                     <p>Synthesize #2</p>
                     <p>Synthesize #3</p>
@@ -37,7 +38,7 @@
                 <div class="synth_list" v-for="data in displayArray" :key="data.id" :class="getUniqueClass(data.ID, data.name)">
                     <div class="filter" v-if="data.icon == filterSelect">
                         
-                        <p><input type="checkbox" class="checkbox" @click="selectIndividualItem(data.ID, data.name)"></p>
+                        <p><input type="radio" name="synth" class="checkbox" @click="selectIndividualItem(data.ID, data.name)"></p>
 
                         <p>{{ data.ID }}</p>
 
@@ -48,6 +49,10 @@
                             <p v-else>-</p>
                         </div>
 
+                        <p>
+                            YES/NO
+                        </p>
+
                         <invItem :itemImg="fetchIconImage(data.synth_item1)" :itemName="data.synth_item1" />
                         <invItem :itemImg="fetchIconImage(data.synth_item2)" :itemName="data.synth_item2" />
                         <invItem :itemImg="fetchIconImage(data.synth_item3)" :itemName="data.synth_item3" />
@@ -57,9 +62,7 @@
                 </div>
 
                 <div class="clear_buttons">
-                    <button class="btn small generate" :class="{ 'active': genButton}" @click="startGeneratingBuild()">Generate</button>
-                    <button class="btn small" @click="selectAll(true)">Select All</button>
-                    <button class="btn small" @click="selectAll(false)">Clear All</button>
+                    <button class="btn small generate" :class="{ 'active': genButton}" @click="startGeneratingBuild('', '', true)">Generate</button>
                 </div>
 
             </div>
@@ -67,20 +70,17 @@
             
             <div class="synth_body generated">
                 
-                <div v-if="selectedItems && !genArr">
+                <div v-if="this.genArr.length == 0">
                     <h3>Selected Items:</h3>
-                    <div class="list_1" v-for="arr in selectedItems" :key="arr.id" >
-                        <invItem :itemImg="arr.icon" :itemName="arr.name" />
+                    <div class="list_1" v-if="this.selectedItems.length > 0">
+                        <invItem :itemImg="this.selectedItems[1]" :itemName="this.selectedItems[0]" />
                     </div>
                 </div>
 
                 <div v-else>
                     <h3>Generated:</h3>
                     <div class="list_2">
-                        <invItemGen :itemTr="genArr"/>
-                        <!-- <div class="list_2" v-for="arr in genArr" :key="arr.id">
-                            <invItem :itemTr="arr[0]" :itemImg="arr[1][1]" :itemName="arr[1][0]" :itemLoc="arr[1][2]" />
-                        </div> -->
+                        <invItemGen :itemTr="this.genArr"/>
                     </div>
                 </div>
 
@@ -123,7 +123,7 @@ export default {
             selectedItems: [],                      // List based on what's selected
             genButton: false,                       // Enable/Disable Generate button
             
-            genArr: undefined,                      // Array of all generated materials
+            genArr: [],                      // Array of all generated materials
             endSearch: true
         }
     },
@@ -132,7 +132,6 @@ export default {
         this.generateDisplayList();
     },
     methods: {
-
         //Add Unique class name to each listed item
         getUniqueClass(id, name) {
             return id + '-' + name.substr(0, 3);
@@ -180,11 +179,10 @@ export default {
         //Change items 
         filterChange(name) {
             this.filterSelect = name;   //Change filter name
-            this.itemsChildArray = [];  //Reset anything in Child
-            this.selectAll(false);      //Reset checked items
+            this.selectedItems = [];    //Reset anything in Child
             this.genButton = false;     //Disable Generate button
+            this.genArr = [];           //Clear Gen Array
             this.generateDisplayList(); //Append new list
-            
         },
 
         //Populate the display list
@@ -216,63 +214,24 @@ export default {
             }
         },
 
-        //Select item (all)
-        selectAll(type) {
-            if (type) {
-                $('.synth_list .checkbox').prop("checked", true);           //Check all checkboxes
-                $('.synth_list').addClass('active');                        //Add 'Active' Class to all
-                this.selectedItems = this.displayArray;                     //Append all items to 'selected array'
-                this.genButton = true;                                      //Enable generate button
-            } else {
-                $('.synth_list .checkbox').prop("checked", false);          //Uncheck all checkboxes
-                $('.synth_list').removeClass('active');                     //Remove 'Active' Class to all
-                this.selectedItems = [];                                    //Clear 'selected array'
-                this.genButton = false;                                     //Disable generate button
-                this.genArr = undefined;                                    //Reset generated list
-            }
-        },
-
         //Select item (Individual)
         selectIndividualItem(id, name) {
-            //Grab the selector
+            this.selectedItems = [];
+            this.genArr = [];
+            $('.synth_list').removeClass('active');
+
+            //Grab the selector and make ACTIVE
             const y = this.getUniqueClass(id, name);
             const sel = $('.' + y);
+            sel.addClass('active');
 
-            if (sel.hasClass('active')) {
-                sel.removeClass('active');                                          //Remove 'Active' Class
-                sel.children('.checkbox').prop("checked", false);                   //Uncheck the checkbox
-                const removeItem = this.fetchIndividualSelectedItem(name, false);   //Find Item
-                this.selectedItems.splice(removeItem, 1);                           //Remove
-                
+            const find = name;
+            const syn = this.synth.filter(function (e) { return e.name == find })[0];
+            this.selectedItems.push(syn['name'], syn['icon']);
+            if (syn) {
+                this.genButton = true;
             } else {
-                sel.addClass('active');                                             //Add 'Active' Class
-                this.genButton = true;                                              //Enable the generate button
-                sel.children('.checkbox').prop("checked", true);                    //Check the checkbox
-                const addItem = this.fetchIndividualSelectedItem(name, true);       //Find Item
-                this.selectedItems.push(addItem);                                   //Add
-            }
-        },
-
-        //Select item (Individual) - Fetch Items
-        fetchIndividualSelectedItem(name, bool) {
-            //If checked, Add to selectedItems Array
-            if (bool) {
-                const find = name;
-                const syn = this.synth.filter(function (e) { return e.name == find })[0];
-                return syn;
-            } else {
-                const size = this.selectedItems.length;
-                if (size == 1) {
-                    //If unchecked item was last, reset everything
-                    this.selectAll(false);
-                    return false;
-                } else {
-                    for (let i = 0; i < size; i++) {
-                        if (this.selectedItems[i]['name'] === name) {
-                            return i;
-                        }
-                    }
-                }
+                console.log('CANNOT FIND SELECTED ITEM, PLEASE INVESTIGATE!');
             }
         },
 
@@ -292,34 +251,29 @@ export default {
 
 
         //Start searching for materials from selected list
-        startGeneratingBuild(subWeapon, subTier) {
-            if (!subWeapon) {
-                this.genArr = [];
-                const size = this.selectedItems.length;
-                for (let i = 0; i < size; i++) {
-                    const name = this.selectedItems[i]['name'];
-                    this.fetchCalledWeapon(name, 'tr');
-                }
+        startGeneratingBuild(recur, tr, clear) {
+
+            if(clear) {
+                this.genArr = []
+            }
+
+
+            if (!recur) {
+                this.fetchCalledWeapon(this.selectedItems[0], 'tr');
             }
         },
 
         //Find data on materials for found weapon
         fetchCalledWeapon(nm, tr) {
-            switch (false) {
-                case false:
 
-                const n = nm;
-                const syn = this.synth.filter(function (e) { return e.name == n })[0];
+                const find = nm;
+                const syn = this.synth.filter(function (e) { return e.name == find })[0];
                 const tier = tr + '1';
-                const name = n;
+                const name = find;
                 const icon = syn['icon'];
 
                 const buyg = syn['cost_g'];
                 const buytp = syn['cost_tp'];
-                // if (buyg || buytp) {
-                //     this.buildGen(tier, name, icon, buyg, buytp, '', '');
-                //     break;
-                // }
                 
                 const synth = [
                     this.checkSynth(syn['synth_item1']),
@@ -327,23 +281,13 @@ export default {
                     this.checkSynth(syn['synth_item3']),
                     this.checkSynth(syn['synth_item4']),
                 ];
-                
-                if (synth.length > 0) {
-                    this.buildGen(tier, name, icon, buyg, buytp, '', synth);
-                    break;
-                }
 
                 const title = this.checkOtherLoc(name);
-                console.log('searched');
-                this.buildGen(tier, name, icon, buyg, buytp, title, '');
-                break;
-            }
+                this.buildGen(tier, name, icon, buyg, buytp, title, synth);
         },
 
         checkSynth(name) {
-            if (!name) {return;}
-            //       done   done
-            // arr = NAME   ICON  BUYG   BUYTP   BESTIARYNAME/ZONE     CONVERT   TITLE
+            if (!name) {return '';}
             const find = name;
             const syn = this.synth.filter(function (e) { return e.name == find })[0];
             const iconfind = syn['icon'];
@@ -498,7 +442,9 @@ export default {
             };
 
             this.genArr.push(newArr);
-            
+
+            // const find = tier
+            // const syn = this.genArr.filter(function (e) { return e.tier == find });
 
             // for (let i = 0; i < newArr['synth'].length; i++ ) {
 
