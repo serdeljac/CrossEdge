@@ -1097,23 +1097,24 @@ body {
         padding: 20px;
         box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 
+        &_header {
+            display: inline-flex;
+            align-items: center;
+            font-size: 2rem;
+
+            &-none {
+                margin-left: 10px;
+                font-style: italic;
+                color: #292929;
+            }
+        }
+
         &.generated {
-
-            h3 {
-                font-size: 2rem;
-                margin-bottom: 10px;
-            }
-
-            .list_1 {
-                display: inline-flex;
-                align-items: center;
-            }
+            min-height: 200px;
 
             .inv-name {
-                font-size: 1.6rem;
                 margin-left: 20px;
                 height: 40px;
-                margin-bottom: 10px;
                 display: flex;
                 align-items: center;
 
@@ -1170,10 +1171,7 @@ body {
         border-bottom: 2px solid #fff;
         padding-bottom: 10px;
         margin-bottom: 10px;
-        &::before {
-            display: block;
-            content: '';
-        }
+
     }
 
     &_list {
@@ -1215,7 +1213,7 @@ body {
 
     &_header, &_list .filter {
         display: grid;
-        grid-template-columns: 30px 40px 200px 89px 130px 200px 200px 200px 200px 200px;
+        grid-template-columns: 40px 200px 89px 130px 200px 200px 200px 200px 200px;
         line-height: 1;
     }
 

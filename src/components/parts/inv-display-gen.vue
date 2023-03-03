@@ -1,28 +1,22 @@
 <template>
-    <!-- <ul class="tier1">
-        <li class="inv-name" v-for="arr in tier1" :key="arr.id">
-            [ {{ arr[0] }} ]
-            <img v-bind:src="'/src/assets/icons/' + arr[1][1] + '.jpg'" />
-                {{ arr[1][0] }}
-        </li>
-        <ul class="tier2">
-            <li class="inv-name" v-for="arr in tier2" :key="arr.id">
-                [ {{ arr[0] }} ]
-                <img v-bind:src="'/src/assets/icons/' + arr[1][1] + '.jpg'" />
-                    {{ arr[1][0] }}
-            </li>
-        </ul>
-    </ul> -->
-
-
-
-    <p class="inv-name" v-for="arr in itemTr" :key="arr.id">
+    <!-- <p class="name" v-for="arr in itemTr" :key="arr.id">
         {{ arr }}<br />
-    </p>
+    </p> -->
 
     <hr>
 
-    <div class="inv-name__generated" v-for="arr in itemTr" :key="arr.id">
+    <div class="name__generated" v-for="arr in itemTr" :key="arr.id">
+        <div class="weapon_details">
+
+            <div class="bind">
+                <img v-bind:src="'/src/assets/icons/' + arr['icon'] + '.jpg'" />
+                <p>{{ arr['name'] }}</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- <div class="name__generated" v-for="arr in itemTr" :key="arr.id">
         <div class="weapon_details">
 
             <div class="bind">
@@ -34,8 +28,7 @@
                 <li v-if="arr['synth'][0]">
 
                     <div v-if="arr['name'] == arr['synth'][0][0]" class="bind">
-                        <!-- IF WEAPON AND IS SAME AS PARENT -->
-                        <img v-bind:src="'/src/assets/icons/inv-' + arr['synth'][0][1] + '.jpg'" />
+                        <img v-bind:src="'/src/assets/icons/' + arr['synth'][0][1] + '.jpg'" />
                         <p class="synthmaterials_name">{{ arr['synth'][0][0] }}</p>
                             <ul>
                                 <li>Found in this location</li>
@@ -44,13 +37,12 @@
                     </div>
 
                     <div v-else-if="arr['synth'][0][1] != 'monster'">
-                        <!-- IF WEAPON AND NOT SAME AS PARENT -->
-                        <img v-bind:src="'/src/assets/icons/inv-' + arr['synth'][0][1] + '.jpg'" />
+                        <img v-bind:src="'/src/assets/icons/' + arr['synth'][0][1] + '.jpg'" />
                         <p class="synthmaterials_name">{{ arr['synth'][0][0] }}</p>
                     </div>
 
                     <div v-else class="bind">
-                        <img v-bind:src="'/src/assets/icons/inv-' + arr['synth'][0][1] + '.jpg'" />
+                        <img v-bind:src="'/src/assets/icons/' + arr['synth'][0][1] + '.jpg'" />
                         <p class="synthmaterials_name">{{ arr['synth'][0][0] }}</p>
                         <p v-if="arr['synth'][0][2]" class="synthmaterials_gbuy"> - Buy for {{ arr['synth'][0][2] }}g</p>
                         <p v-else-if="arr['synth'][0][3]" class="synthmaterials_tpbuy"> - Exchange for {{ arr['synth'][0][3] }}tp</p>
@@ -61,7 +53,7 @@
 
                 <li v-if="arr['synth'][1]">
                     <div class="bind">
-                        <img v-bind:src="'/src/assets/icons/inv-' + arr['synth'][1][1] + '.jpg'" />
+                        <img v-bind:src="'/src/assets/icons/' + arr['synth'][1][1] + '.jpg'" />
                         <p class="synthmaterials_name">{{ arr['synth'][1][0] }}</p>
                         <p v-if="arr['synth'][1][2]" class="synthmaterials_gbuy"> - Buy for {{ arr['synth'][1][2] }}g</p>
                         <p v-else-if="arr['synth'][1][3]" class="synthmaterials_tpbuy"> - Exchange for {{ arr['synth'][1][3] }}tp</p>
@@ -72,7 +64,7 @@
 
                 <li v-if="arr['synth'][2]">
                     <div class="bind">
-                        <img v-bind:src="'/src/assets/icons/inv-' + arr['synth'][2][1] + '.jpg'" />
+                        <img v-bind:src="'/src/assets/icons/' + arr['synth'][2][1] + '.jpg'" />
                         <p class="synthmaterials_name">{{ arr['synth'][2][0] }}</p>
                         <p v-if="arr['synth'][2][2]" class="synthmaterials_gbuy"> - Buy for {{ arr['synth'][2][2] }}g</p>
                         <p v-else-if="arr['synth'][2][3]" class="synthmaterials_tpbuy"> - Exchange for {{ arr['synth'][2][3] }}tp</p>
@@ -83,7 +75,7 @@
 
                 <li v-if="arr['synth'][3]">
                     <div class="bind">
-                        <img v-bind:src="'/src/assets/icons/inv-' + arr['synth'][3][1] + '.jpg'" />
+                        <img v-bind:src="'/src/assets/icons/' + arr['synth'][3][1] + '.jpg'" />
                         <p class="synthmaterials_name">{{ arr['synth'][3][0] }}</p>
                         <p v-if="arr['synth'][3][2]" class="synthmaterials_gbuy"> - Buy for {{ arr['synth'][3][2] }}g</p>
                         <p v-else-if="arr['synth'][3][3]" class="synthmaterials_tpbuy"> - Exchange for {{ arr['synth'][3][3] }}tp</p>
@@ -100,12 +92,15 @@
         </div>
         
         
-    </div>
+    </div> -->
 </template>
 
 <script lang="ts">
     export default {
         name: 'Image&Name',
         props: ['itemTr'],
+        updated() {
+            console.log(this.itemTr)
+        }
     }
 </script>
