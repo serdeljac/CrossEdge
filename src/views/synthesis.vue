@@ -6,6 +6,7 @@
             <div class="synth_filter">
                 <div class="group">
                     <div class="btn" :class="{ 'active': filterSelect=='inv-sword'}" @click="filterChange('inv-sword')">Swords</div>
+                    <div class="btn" :class="{ 'active': filterSelect == 'inv-greatsword' }" @click="filterChange('inv-greatsword')">Greatswords</div>
                     <div class="btn" :class="{ 'active': filterSelect=='inv-dagger'}" @click="filterChange('inv-dagger')">Daggers</div>
                     <div class="btn" :class="{ 'active': filterSelect=='inv-spear'}" @click="filterChange('inv-spear')">Spears</div>
                     <div class="btn" :class="{ 'active': filterSelect=='inv-staff'}" @click="filterChange('inv-staff')">Staves</div>
@@ -78,6 +79,18 @@
                 </div>
 
                 <invItemGen :itemTr="this.genArr"/>
+            </div>
+
+            <div class="synth_body tips">
+                <h3>Tips</h3>
+                <ul>
+                    <li>If there's a shop price, synthesisze ONCE to register it to shop.</li>
+                    <li>The higher Marie's level, the better the grade to improve stats!</li>
+                    <li>I assume the probability of unsuccessful synthesis is about 5-10%.</li>
+                    <li>Save game before synthesizing higher tier weapons.</li>
+                    <li>Some materials can only be aquired via titles/treasures/soul rewards.</li>
+                    <li>This may require multiple playthroughs.</li>
+                </ul>
             </div>
 
         </div>
@@ -235,18 +248,6 @@ export default {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
         //Start searching for materials from selected list
         startGeneratingBuild(recur, tr) {
 
@@ -370,9 +371,11 @@ export default {
         },
 
         searchTitles(name) {
+            
             const n = name;
             const rw1 = this.titleArray.filter(function (e) { return e.reward1 == n })[0];
             if (rw1) {
+                console.log(rw1);
                 return 'Title reward #' + rw1['ID'];
             }
 
@@ -403,7 +406,7 @@ export default {
                     }
 
                     if (re1 && re1['target'] === 'Treasure') {
-                        return 'Treasure in ' + re1['location'];
+                        return 'Treasure in ' + re1['location'] + ' dungeon';
                         break;
                     }
 
@@ -450,27 +453,7 @@ export default {
                     this.fetchCalledWeapon(nm, tr);
                 }
             }
-
-            // console.log(newArr)
         },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

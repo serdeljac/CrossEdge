@@ -5,15 +5,80 @@
 
     <hr>
 
-    <div class="name__generated" v-for="arr in itemTr" :key="arr.id">
-        <div class="weapon_details">
+    <ul class="genlist_header">
+        <li>Materials</li>
+        <li>Action</li>
+        <li>Treasure/Reward</li>
+        <li>Shop cost</li>
+    </ul>
 
-            <div class="bind">
-                <img v-bind:src="'/src/assets/icons/' + arr['icon'] + '.jpg'" />
-                <p>{{ arr['name'] }}</p>
-            </div>
+    <div class="genlist" v-for="arr in itemTr" :key="arr.id">
 
+        <div v-for="synth in arr['synth']" :key="synth.id">
+            <ul v-if="synth['name']">
+            
+                <li v-if="synth['icon'] == 'inv-monster' || synth['icon'] == 'inv-metal' || synth['icon'] == 'inv-item'">
+
+                    <!-- Row 1 - Material -->
+                    <div class="bind">
+                        <invItem v-if="synth['name']" :itemImg="synth['icon']" :itemName="synth['name']" />
+                        <p v-else>ERROR FINDING MATERIAL</p>
+                    </div>
+
+                    <!-- Row 2 - Action -->
+                    <div class="bind">
+                        <invItem v-if="synth['convert']" :itemTr="'Convert'" :itemImg="synth['convert'][1]" :itemName="synth['convert'][0]" />
+                        <p v-else-if="synth['monster']">{{ synth['monster'][2] }} {{ synth['monster'][0] }} in {{ synth['monster'][1] }}</p>
+                        <p v-else-if="synth['title'] || synth['source']">Find via Treasure/Reward</p>
+                        <p v-else-if="synth['buyg'] || synth['buytp']">Purchase from store</p>
+                        <p v-else class="error">ERROR FINDING ACTION</p>
+                    </div>
+
+                    <!-- Row 3 - Treasure Location -->
+                    <div class="bind">
+                        <p v-if="synth['source']">{{ synth['source'] }}</p>
+                        <p v-else-if="synth['title']">{{ synth['title'] }}</p>
+                        <p v-else>-</p>
+                    </div>
+
+                    <!-- Row 4 - Shop Price -->
+                    <div class="bind">
+                        <p v-if="synth['buyg']">{{ synth['buyg'] }}<span class="currency">g</span></p>
+                        <p v-else-if="synth['buytp']">{{ synth['buytp'] }}<span class="currency">g</span></p>
+                        <p v-else>-</p>
+                    </div>
+
+                    
+                    
+                </li>
+
+                <li v-else>
+
+                    <div class="bind">
+                        <invItem v-if="synth['name']" :itemImg="synth['icon']" :itemName="synth['name']" />
+                        <p v-else>ERROR FINDING MATERIAL</p>
+                    </div>
+
+                    <div class="bind">
+                        <p v-if="arr['name'] == synth['name']">-</p>
+                        <p v-else-if="arr['synth']">Cannot synthesize</p>
+                    </div>
+
+                    <div class="bind">
+                        <p v-if="synth['source']">{{ synth['source'] }}</p>
+                        <p v-else-if="synth['title']">{{ synth['title'] }}</p>
+                    </div>
+
+                    <div class="bind">
+                        <p v-if="synth['buyg']">{{ synth['buyg'] }}<span class="currency">g</span></p>
+                        <p v-else-if="synth['buytp']">{{ synth['buytp'] }}<span class="currency">g</span></p>
+                        <p v-else>-</p>
+                    </div>
+                    
+                </li>
+            </ul>
         </div>
+
     </div>
 
     <!-- <div class="name__generated" v-for="arr in itemTr" :key="arr.id">
@@ -96,9 +161,12 @@
 </template>
 
 <script lang="ts">
+import invItem from '@/components/parts/inv-display.vue';
+
     export default {
         name: 'Image&Name',
         props: ['itemTr'],
+        components: {invItem},
         updated() {
             console.log(this.itemTr)
         }

@@ -13,6 +13,7 @@
             <div class="inventory_filter">
                 <div class="btn" :class="{ 'active': !filterEnable}" @click="weaponFilter('', false)">ALL</div>
                 <div class="btn" :class="{ 'active': filterSelect=='inv-sword'}" @click="weaponFilter('inv-sword', true)">Swords</div>
+                <div class="btn" :class="{ 'active': filterSelect == 'inv-greatsword' }" @click="weaponFilter('inv-greatsword', true)">Greatwords</div>
                 <div class="btn" :class="{ 'active': filterSelect=='inv-dagger'}" @click="weaponFilter('inv-dagger', true)">Daggers</div>
                 <div class="btn" :class="{ 'active': filterSelect=='inv-spear'}" @click="weaponFilter('inv-spear', true)">Spears</div>
                 <div class="btn" :class="{ 'active': filterSelect=='inv-staff'}" @click="weaponFilter('inv-staff', true)">Staves</div>
