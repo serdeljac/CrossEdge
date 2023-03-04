@@ -62,23 +62,49 @@
                 </div>
 
                 <div class="clear_buttons">
-                    <button class="btn small generate" :class="{ 'active': genButton}" @click="startGeneratingBuild('', 'tr1')">Generate</button>
+                    <button class="btn small generate" :class="{ 'active': genButton}" @click="startGeneratingBuild('', 'tr1', 1)">Generate List 1</button>
+                    <button class="btn small generate" :class="{ 'active': genButton }" @click="startGeneratingBuild('', 'tr1', 2)">Generate List 2</button>
+                    <button class="btn small generate" :class="{ 'active': genButton }" @click="startGeneratingBuild('', 'tr1', 3)">Generate List 3</button>
+                    <button class="btn small" @click="clearLists()">Clear Lists</button>
                 </div>
 
             </div>
 
             
-            <div class="synth_body generated">
+            <div class="synth_body generated list1">
                 <div class="synth_body_header">
-                    <h3>Synthesizing:</h3>
-                    <invItem :itemImg="this.selectedItem[1]" :itemName="this.selectedItem[0]" v-if="this.selectedItem.length > 0"/>    
+                    <h3>List 1</h3>
+                    <invItem :itemImg="this.genArr1[0]['icon']" :itemName="this.genArr1[0]['name']" v-if="this.genArr1.length > 0"/>       
                     <div v-else class="synth_body_header-none">
                         <p>Please select Weapon</p>
                     </div>
                     <hr />
                 </div>
+                <invItemGen :itemTr="this.genArr1"/>
+            </div>
 
-                <invItemGen :itemTr="this.genArr"/>
+            <div class="synth_body generated list2">
+                <div class="synth_body_header">
+                    <h3>List 2</h3>
+                    <invItem :itemImg="this.genArr2[0]['icon']" :itemName="this.genArr2[0]['name']" v-if="this.genArr2.length > 0"/>         
+                    <div v-else class="synth_body_header-none">
+                        <p>Please select Weapon</p>
+                    </div>
+                    <hr />
+                </div>
+                <invItemGen :itemTr="this.genArr2"/>
+            </div>
+
+            <div class="synth_body generated list3">
+                <div class="synth_body_header">
+                    <h3>List 3</h3>
+                    <invItem :itemImg="this.genArr3[0]['icon']" :itemName="this.genArr3[0]['name']" v-if="this.genArr3.length > 0"/>         
+                    <div v-else class="synth_body_header-none">
+                        <p>Please select Weapon</p>
+                    </div>
+                    <hr />
+                </div>
+                <invItemGen :itemTr="this.genArr3"/>
             </div>
 
             <div class="synth_body tips">
@@ -133,8 +159,9 @@ export default {
             selectedItem: [],                       // Selected item for synthesis
             genButton: false,                       // Enable/Disable Generate button
             
-            genArr: [],                      // Array of all generated materials
-            endSearch: true
+            genArr1: [],                      // Array of all generated materials
+            genArr2: [],                      // Array of all generated materials
+            genArr3: [],                      // Array of all generated materials
         }
     },
     mounted() {
@@ -191,7 +218,6 @@ export default {
             this.filterSelect = name;   //Change filter name
             this.selectedItem = [];    //Reset anything in Child
             this.genButton = false;     //Disable Generate button
-            this.genArr = [];           //Clear Gen Array
             this.generateDisplayList(); //Append new list
         },
 
@@ -227,7 +253,6 @@ export default {
         //Select item (Individual)
         selectIndividualItem(id, name) {
             this.selectedItem = [];
-            this.genArr = [];
             $('.synth_list').removeClass('active');
 
             //Grab the selector and make ACTIVE
@@ -240,27 +265,39 @@ export default {
             this.selectedItem.push(syn['name'], syn['icon']);
             if (syn) {
                 this.genButton = true;
-            } else {
-                console.log('CANNOT FIND SELECTED ITEM, PLEASE INVESTIGATE!');
             }
+        },
+
+        //Clear All Lists
+        clearLists() {
+            this.genArr1 = [];
+            this.genArr2 = [];
+            this.genArr3 = [];
         },
 
 
 
 
         //Start searching for materials from selected list
-        startGeneratingBuild(recur, tr) {
+        startGeneratingBuild(recur, tr, list) {
+
+            if (list == 1 && !recur) {
+                this.genArr1 = [];
+            } else if (list == 2 && !recur) {
+                this.genArr2 = [];
+            } else if (list == 3 && !recur) {
+                this.genArr3 = [];
+            }
 
             //Begin processes of generating build
             if(!recur) {
-                this.genArr = []
-                this.fetchCalledWeapon(this.selectedItem[0], tr);
+                this.fetchCalledWeapon(this.selectedItem[0], tr, list);
             }
 
         },
 
         //Find data on materials for found weapon
-        fetchCalledWeapon(nm, tr) {
+        fetchCalledWeapon(nm, tr, list) {
 
                 //Fetch Synth Data
                 const find = nm;
@@ -292,7 +329,7 @@ export default {
                     this.checkSynth(tier, '4', name, syn['synth_item4']),
                 ];
 
-                this.buildGen(tier, name, icon, buyg, buytp, source, synth);
+                this.buildGen(tier, name, icon, buyg, buytp, source, synth, list);
         },
 
         checkSynth(tr, num, parent, name) {
@@ -310,6 +347,7 @@ export default {
             const source = this.searchSource(find);
 
             const obj = {
+                'id': syn['ID'],
                 'tier': tier,
                 'name': name,
                 'icon': icon,
@@ -364,7 +402,7 @@ export default {
             const n = name;
             const syn = this.synth.filter(function (e) { return e.convert == n })[0];
             if (syn) {
-                return [syn['name'], syn['icon']];
+                return [syn['name'], syn['icon'], syn['ID']];
             }
 
             return '';
@@ -375,7 +413,6 @@ export default {
             const n = name;
             const rw1 = this.titleArray.filter(function (e) { return e.reward1 == n })[0];
             if (rw1) {
-                console.log(rw1);
                 return 'Title reward #' + rw1['ID'];
             }
 
@@ -428,7 +465,7 @@ export default {
         },
 
         //Append found materials to array
-        buildGen(tier, name, icon, buy_g, buy_tp, source, synth) {
+        buildGen(tier, name, icon, buy_g, buy_tp, source, synth, list) {
 
             const newArr = {
                 'tier': tier,
@@ -440,7 +477,15 @@ export default {
                 'synth': synth,
             };
 
-            this.genArr.push(newArr);
+            const listDisplay = list;
+
+            if (list == 1) {
+                this.genArr1.push(newArr);
+            } else if (list == 2) {
+                this.genArr2.push(newArr);
+            } else if (list == 3) {
+                this.genArr3.push(newArr);
+            }
 
             const checkSynth = synth;
             for (let i = 0; i < checkSynth.length; i++) {
@@ -450,9 +495,10 @@ export default {
                         checkSynth[i]['icon'] != 'inv-item')) {
                             const nm = checkSynth[i]['name'];
                             const tr = checkSynth[i]['tier'];
-                    this.fetchCalledWeapon(nm, tr);
+                    this.fetchCalledWeapon(nm, tr, listDisplay);
                 }
             }
+
         },
 
 

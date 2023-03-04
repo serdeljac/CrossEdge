@@ -1,8 +1,4 @@
 <template>
-    <!-- <p class="name" v-for="arr in itemTr" :key="arr.id">
-        {{ arr }}<br />
-    </p> -->
-
     <hr>
 
     <ul class="genlist_header">
@@ -19,7 +15,7 @@
         <div v-for="synth in arr['synth']" :key="synth.id" class="material">
 
             
-            <ul v-if="synth['name']" :class="addUniqueClass(synth['tier'], synth['name'])" @click="checkthis(synth['tier'], synth['name'])">
+            <ul v-if="synth['name']" :class="addUniqueClass(synth['id'], synth['name'])" @click="checkthis(synth['id'], synth['name'])">
             
                 <li v-if="synth['icon'] == 'inv-monster' || synth['icon'] == 'inv-metal' || synth['icon'] == 'inv-item'">
 
@@ -31,8 +27,12 @@
 
                     <!-- Row 2 - Action -->
                     <div class="bind">
-                        <invItem v-if="synth['convert']" :itemTr="'Convert'" :itemImg="synth['convert'][1]" :itemName="synth['convert'][0]" />
-                        <p v-else-if="synth['monster']">{{ synth['monster'][2] }} (#{{ synth['monster'][3] }}) {{ synth['monster'][0] }} in {{ synth['monster'][1] }}</p>
+                        <invItem v-if="synth['convert']" :itemTr="'Convert'" :itemImg="synth['convert'][1]" :itemName="synth['convert'][0] + ' #' + synth['convert'][2]" />
+                        <p v-else-if="synth['monster']">{{ synth['monster'][2] }} (#{{ synth['monster'][3] }}) {{ synth['monster'][0] }} in 
+                            <router-link :to="{ name: synth['monster'][1], params: { selectedMap: synth['monster'][1] } }" target="_blank">
+                                {{ synth['monster'][1] }}
+                            </router-link>
+                        </p>
                         <p v-else-if="synth['title'] || synth['source']">Find via Treasure/Reward</p>
                         <p v-else-if="synth['buyg'] || synth['buytp']">Purchase from store</p>
                         <p v-else class="error">ERROR FINDING ACTION</p>
@@ -102,7 +102,7 @@ import $ from 'jquery';
         },
         methods: {
             checkthis(tier, name) {
-                const id = name.slice(0, 3) + tier.slice(2, -1);
+                const id = name.slice(0, 3) + tier;
                 const sel = $('.' + id);
 
                 if (sel.hasClass('active')) {
@@ -113,7 +113,7 @@ import $ from 'jquery';
                 
             },
             addUniqueClass(tier, name) {
-                return name.slice(0, 3) + tier.slice(2, -1);
+                return name.slice(0, 3) + tier;
             }
         },
     }
