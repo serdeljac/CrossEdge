@@ -334,27 +334,27 @@ export default {
             const n = name;
             const over = this.bestiArray.filter(function (e) { return e.overkill == n })[0];
             if (over) {
-                return [over['name'], over['zone'], 'Overkill'];
+                return [over['name'], over['zone'], 'Overkill', over['ID']];
             }
 
             const drop1 = this.bestiArray.filter(function (e) { return e.drop1 == n })[0];
             if (drop1) {
-                return [drop1['name'], drop1['zone'], 'Normal drop'];
+                return [drop1['name'], drop1['zone'], 'Normal drop', drop1['ID']];
             }
 
             const rare1 = this.bestiArray.filter(function (e) { return e.rare1 == n })[0];
             if (rare1) {
-                return [rare1['name'], rare1['zone'], 'Rare drop'];
+                return [rare1['name'], rare1['zone'], 'Rare drop', rare1['ID']];
             }
 
             const drop2 = this.bestiArray.filter(function (e) { return e.drop2 == n })[0];
             if (drop2) {
-                return [drop2['name'], drop2['zone'], 'Normal drop'];
+                return [drop2['name'], drop2['zone'], 'Normal drop', drop2['ID']];
             }
 
             const rare2 = this.bestiArray.filter(function (e) { return e.rare2 == n })[0];
             if (rare2) {
-                return [rare2['name'], rare2['zone'], 'Rare drop'];
+                return [rare2['name'], rare2['zone'], 'Rare drop', rare2['ID']];
             }
 
             return '';

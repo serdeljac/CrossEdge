@@ -1245,6 +1245,7 @@ body {
 
     .genlist {
 
+
         .bind {
             display: inline-flex;
             align-items: center;
@@ -1259,8 +1260,31 @@ body {
             grid-template-columns: 300px minmax(auto, 400px) minmax(auto, 400px) 100px;
         }
 
+        &_group {
+            img {
+                height: 20px;
+            }
+        }
+
+        .material {
+            margin-left: 20px;
+        }
+
         .inv-name {
             margin-left: 0;
+        }
+
+        ul {
+            cursor: pointer;
+            transition: all .23s ease;
+            &:hover {
+                background-color: #050e33;
+            }
+        }
+
+        ul.active {
+            opacity: 0.1
+
         }
 
         .error {
