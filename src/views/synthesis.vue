@@ -36,8 +36,8 @@
                     <p>Convert</p>
                 </div>
 
-                <div class="synth_list" v-for="data in displayArray" :key="data.id" :class="getUniqueClass(data.ID, data.name)">
-                    <div class="filter" v-if="data.icon == filterSelect" @click="selectIndividualItem(data.ID, data.name)">
+                <div class="synth_list" v-for="data in displayArray" :key="data.id" :class="getUniqueClass(data.name)">
+                    <div class="filter" v-if="data.icon == filterSelect" @click="selectIndividualItem(data.name)">
 
                         <p>{{ data.ID }}</p>
 
@@ -65,46 +65,55 @@
                     <button class="btn small generate" :class="{ 'active': genButton}" @click="startGeneratingBuild('', 'tr1', 1)">Generate List 1</button>
                     <button class="btn small generate" :class="{ 'active': genButton }" @click="startGeneratingBuild('', 'tr1', 2)">Generate List 2</button>
                     <button class="btn small generate" :class="{ 'active': genButton }" @click="startGeneratingBuild('', 'tr1', 3)">Generate List 3</button>
-                    <button class="btn small" @click="clearLists()">Clear Lists</button>
+                    <button class="btn small generate" :class="{ 'active': genButton }" @click="startGeneratingBuild('', 'tr1', 4)">Generate List 3</button>
+                    <button class="btn small" @click="clearLists('all')">Clear All</button>
                 </div>
 
             </div>
 
-            
-            <div class="synth_body generated list1">
+
+            <div class="synth_body generated list1" v-if="this.genArr1.length > 0">
                 <div class="synth_body_header">
-                    <h3>List 1</h3>
-                    <invItem :itemImg="this.genArr1[0]['icon']" :itemName="this.genArr1[0]['name']" v-if="this.genArr1.length > 0"/>       
-                    <div v-else class="synth_body_header-none">
-                        <p>Please select Weapon</p>
+                    <div class="synth_body_header-details">
+                        <h3>List 1</h3>
+                        <invItem :itemImg="this.genArr1[0]['icon']" :itemName="this.genArr1[0]['name']"/>
                     </div>
-                    <hr />
+                    <button class="btn small" @click="clearLists(1)">Clear</button>
                 </div>
                 <invItemGen :itemTr="this.genArr1"/>
             </div>
 
-            <div class="synth_body generated list2">
+            <div class="synth_body generated list2" v-if="this.genArr2.length > 0">
                 <div class="synth_body_header">
-                    <h3>List 2</h3>
-                    <invItem :itemImg="this.genArr2[0]['icon']" :itemName="this.genArr2[0]['name']" v-if="this.genArr2.length > 0"/>         
-                    <div v-else class="synth_body_header-none">
-                        <p>Please select Weapon</p>
+                    <div class="synth_body_header-details">
+                        <h3>List 2</h3>
+                        <invItem :itemImg="this.genArr2[0]['icon']" :itemName="this.genArr2[0]['name']" />
                     </div>
-                    <hr />
+                    <button class="btn small" @click="clearLists(2)">Clear</button>
                 </div>
                 <invItemGen :itemTr="this.genArr2"/>
             </div>
 
-            <div class="synth_body generated list3">
+            <div class="synth_body generated list3" v-if="this.genArr3.length > 0">
                 <div class="synth_body_header">
-                    <h3>List 3</h3>
-                    <invItem :itemImg="this.genArr3[0]['icon']" :itemName="this.genArr3[0]['name']" v-if="this.genArr3.length > 0"/>         
-                    <div v-else class="synth_body_header-none">
-                        <p>Please select Weapon</p>
+                    <div class="synth_body_header-details">
+                        <h3>List 3</h3>
+                        <invItem :itemImg="this.genArr3[0]['icon']" :itemName="this.genArr3[0]['name']" />
                     </div>
-                    <hr />
+                    <button class="btn small" @click="clearLists(3)">Clear</button>
                 </div>
                 <invItemGen :itemTr="this.genArr3"/>
+            </div>
+
+            <div class="synth_body generated list4" v-if="this.genArr4.length > 0">
+                <div class="synth_body_header">
+                    <div class="synth_body_header-details">
+                        <h3>List 4</h3>
+                        <invItem :itemImg="this.genArr4[0]['icon']" :itemName="this.genArr4[0]['name']" />
+                    </div>
+                    <button class="btn small" @click="clearLists(4)">Clear</button>
+                </div>
+                <invItemGen :itemTr="this.genArr4"/>
             </div>
 
             <div class="synth_body tips">
@@ -162,6 +171,7 @@ export default {
             genArr1: [],                      // Array of all generated materials
             genArr2: [],                      // Array of all generated materials
             genArr3: [],                      // Array of all generated materials
+            genArr4: [],                      // Array of all generated materials
         }
     },
     mounted() {
@@ -170,8 +180,8 @@ export default {
     },
     methods: {
         //Add Unique class name to each listed item
-        getUniqueClass(id, name) {
-            return id + '-' + name.substr(0, 3);
+        getUniqueClass(name) {
+            return name.replace(/[^\w]/g, "");
         },
 
         //Find Icon associated with the listed item
@@ -251,12 +261,12 @@ export default {
         },
 
         //Select item (Individual)
-        selectIndividualItem(id, name) {
+        selectIndividualItem(name) {
             this.selectedItem = [];
             $('.synth_list').removeClass('active');
 
             //Grab the selector and make ACTIVE
-            const y = this.getUniqueClass(id, name);
+            const y = this.getUniqueClass(name);
             const sel = $('.' + y);
             sel.addClass('active');
 
@@ -269,10 +279,20 @@ export default {
         },
 
         //Clear All Lists
-        clearLists() {
-            this.genArr1 = [];
-            this.genArr2 = [];
-            this.genArr3 = [];
+        clearLists(x) {
+            if (x == 'all') {
+                this.genArr1 = [];
+                this.genArr2 = [];
+                this.genArr3 = [];
+            } else if (x == 1) {
+                this.genArr1 = [];
+            } else if (x == 2) {
+                this.genArr2 = [];
+            } else if (x == 3) {
+                this.genArr3 = [];
+            } else if (x == 4) {
+                this.genArr4 = [];
+            }
         },
 
 
