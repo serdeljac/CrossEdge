@@ -118,13 +118,20 @@ import $ from 'jquery';
                     materialSelect.addClass('active')
                 }
 
-                console.log($('.genlist_group' + '.' + child).attr('tier'))
+
+
 
                 const parentSel = $('.genlist_group' + '.' + child).attr('tier', tier);
                 if (parentSel.hasClass('active')) {
                     parentSel.removeClass('active');
                 } else {
                     parentSel.addClass('active');
+                    const limit = $('.genlist_group').length;
+                    console.log(limit)
+                    for (let i = 0; i < limit; i++) {
+                        const findTier = $('.genlist_group:nth-of-type(1)').attr('tier');
+                        console.log(findTier)
+                    }
                 }
             },
             addUniqueClass(par, name, request) {
