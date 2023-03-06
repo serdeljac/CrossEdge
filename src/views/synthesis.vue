@@ -62,11 +62,11 @@
                 </div>
 
                 <div class="clear_buttons">
-                    <button class="btn small generate" :class="{ 'active': genButton}" @click="startGeneratingBuild('', 'tr1', 1)">Generate List 1</button>
-                    <button class="btn small generate" :class="{ 'active': genButton }" @click="startGeneratingBuild('', 'tr1', 2)">Generate List 2</button>
-                    <button class="btn small generate" :class="{ 'active': genButton }" @click="startGeneratingBuild('', 'tr1', 3)">Generate List 3</button>
-                    <button class="btn small generate" :class="{ 'active': genButton }" @click="startGeneratingBuild('', 'tr1', 4)">Generate List 3</button>
-                    <button class="btn small" @click="clearLists('all')">Clear All</button>
+                    <button class="btn small generate" :class="{ 'active': genArr1.length > 0 }" @click="startGeneratingBuild('', 'tr1', 1)">Generate List 1</button>
+                    <button class="btn small generate" :class="{ 'active': genArr2.length > 0 }" @click="startGeneratingBuild('', 'tr1', 2)">Generate List 2</button>
+                    <button class="btn small generate" :class="{ 'active': genArr3.length > 0 }" @click="startGeneratingBuild('', 'tr1', 3)">Generate List 3</button>
+                    <button class="btn small generate" :class="{ 'active': genArr4.length > 0 }" @click="startGeneratingBuild('', 'tr1', 4)">Generate List 4</button>
+                    <button class="btn small clear" @click="clearLists('all')">Clear All</button>
                 </div>
 
             </div>
@@ -284,6 +284,7 @@ export default {
                 this.genArr1 = [];
                 this.genArr2 = [];
                 this.genArr3 = [];
+                this.genArr4 = [];
             } else if (x == 1) {
                 this.genArr1 = [];
             } else if (x == 2) {
@@ -307,6 +308,8 @@ export default {
                 this.genArr2 = [];
             } else if (list == 3 && !recur) {
                 this.genArr3 = [];
+            } else if (list == 4 && !recur) {
+                this.genArr4 = [];
             }
 
             //Begin processes of generating build
@@ -505,6 +508,8 @@ export default {
                 this.genArr2.push(newArr);
             } else if (list == 3) {
                 this.genArr3.push(newArr);
+            } else if (list == 4) {
+                this.genArr4.push(newArr);
             }
 
             const checkSynth = synth;

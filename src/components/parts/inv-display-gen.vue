@@ -1,5 +1,5 @@
 <template>
-    <hr>
+    
 
     <ul class="genlist_header">
         <li>Materials</li>
@@ -7,6 +7,8 @@
         <li>Treasure/Reward</li>
         <li>Shop cost</li>
     </ul>
+
+    <hr>
 
     <div class="genlist" v-for="arr in itemTr" :key="arr.id">
         <div
@@ -102,7 +104,6 @@ import $ from 'jquery';
         components: {invItem},
         data() {
             return {
-                selctor: null
             }
         },
         methods: {
@@ -121,18 +122,24 @@ import $ from 'jquery';
 
 
 
-                const parentSel = $('.genlist_group' + '.' + child).attr('tier', tier);
-                if (parentSel.hasClass('active')) {
-                    parentSel.removeClass('active');
-                } else {
-                    parentSel.addClass('active');
-                    const limit = $('.genlist_group').length;
-                    console.log(limit)
-                    for (let i = 0; i < limit; i++) {
-                        const findTier = $('.genlist_group:nth-of-type(1)').attr('tier');
-                        console.log(findTier)
-                    }
-                }
+                // const parentSel = $('.genlist_group' + '.' + child).attr('tier', tier);
+                // if (parentSel.hasClass('active')) {
+                //     parentSel.removeClass('active');
+                // } else {
+                //     parentSel.addClass('active');
+                //     const limit = $('.genlist_group').length;
+                    
+                //     for (let i = 1; i < (limit + 1); i++) {
+                //         console.log(i);
+                //         const chk = $('.genlist:nth-of-type(' + (i + 1) + ') .genlist_group').attr('tier')
+                        
+                //         console.log(tier, chk)
+
+                //         if (tier == chk) {
+                //             console.log('ok')
+                //         }
+                //     }
+                // }
             },
             addUniqueClass(par, name, request) {
 

@@ -50,16 +50,16 @@
 
 @keyframes generateButtonActive {
     0% {
-        background-color:#111f5b;
-        box-shadow: 0px 0px 2px 3px #1d44f083;
+        background-color:#111f5b4b;
+        box-shadow: 0px 0px 1px 1px #1d44f083;
     }
     50% {
-        background-color:#8070d4;
-        box-shadow: 0px 0px 4px 7px #8070d4;
+        background-color:#17095d;
+        box-shadow: 0px 0px 2px 3px #8070d4;
     }
     100% {
-        background-color:#111f5b;
-        box-shadow: 0px 0px 2px 3px #1d44f083;
+        background-color:#111f5b4b;
+        box-shadow: 0px 0px 1px 1px #1d44f083;
     }
 }
 
@@ -1096,12 +1096,15 @@ body {
         padding: 20px;
         box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 
+
+
         &_header {
             display: inline-flex;
             justify-content: space-between;
             align-items: center;
             font-size: 2rem;
             width: 100%;
+            
 
             &-details {
                 display: inline-flex;
@@ -1144,6 +1147,10 @@ body {
                 margin: 0 10px;
                 height: 30px;
             }
+
+            hr {
+                margin: 10px;
+            }
         }
 
         &.tips {
@@ -1184,9 +1191,7 @@ body {
         border-bottom: 2px solid #fff;
         padding-bottom: 10px;
         margin-bottom: 10px;
-
-
-
+        
     }
 
     &_list {
@@ -1242,18 +1247,19 @@ body {
         .btn {
             font-size: 1.6rem;
             margin: 20px 10px;
-        }
-        .generate {
-            filter: contrast(0);
-            user-select: none;
-        }
-        .generate.active {
-            filter: contrast(1);
-            animation: generateButtonActive 1s linear infinite;
-
             &:hover {
                 text-decoration: underline;
             }
+        }
+
+        .clear {
+            margin-left: 80px;
+            font-weight: normal;
+            background-color: #7c7c7c1f;
+        }
+
+        .generate.active {
+            animation: generateButtonActive 1s linear infinite;
         }
     }
 
@@ -1266,7 +1272,7 @@ body {
         .bind {
             display: inline-flex;
             align-items: center;
-            font-size: 20px;
+            font-size: 1.2rem;
             img {
                 height: 30px;
             }
@@ -1277,7 +1283,13 @@ body {
             grid-template-columns: 300px minmax(auto, 400px) minmax(auto, 400px) 100px;
         }
 
+        &_header {
+            margin-top: 20px;
+            justify-items: center;
+        }
+
         &_group {
+            margin-bottom: 20px;
             img {
                 height: 20px;
             }
@@ -1288,7 +1300,12 @@ body {
         }
 
         .inv-name {
-            margin-left: 0;
+            margin: 3px 0;
+            font-size: 1.2rem;
+            height: auto;
+            img {
+                height: 20px;
+            }
         }
 
         ul {
