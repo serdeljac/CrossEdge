@@ -5,20 +5,20 @@
 
             <div class="synth_filter">
                 <div class="group">
-                    <div class="btn" :class="{ 'active': filterSelect=='inv-sword'}" @click="filterChange('inv-sword')">Swords</div>
-                    <div class="btn" :class="{ 'active': filterSelect == 'inv-greatsword' }" @click="filterChange('inv-greatsword')">Greatswords</div>
-                    <div class="btn" :class="{ 'active': filterSelect=='inv-dagger'}" @click="filterChange('inv-dagger')">Daggers</div>
-                    <div class="btn" :class="{ 'active': filterSelect=='inv-spear'}" @click="filterChange('inv-spear')">Spears</div>
-                    <div class="btn" :class="{ 'active': filterSelect=='inv-staff'}" @click="filterChange('inv-staff')">Staves</div>
-                    <div class="btn" :class="{ 'active': filterSelect=='inv-fist'}" @click="filterChange('inv-fist')">Knuckles</div>
-                    <div class="btn" :class="{ 'active': filterSelect=='inv-scythe'}" @click="filterChange('inv-scythe')">Scythes</div>
+                    <div class="btn" :class="{ 'active': filterSelect == 'inv-sword'}" @click="generateDisplayList('inv-sword')">Swords</div>
+                    <div class="btn" :class="{ 'active': filterSelect == 'inv-greatsword' }" @click="generateDisplayList('inv-greatsword')">Greatswords</div>
+                    <div class="btn" :class="{ 'active': filterSelect == 'inv-dagger'}" @click="generateDisplayList('inv-dagger')">Daggers</div>
+                    <div class="btn" :class="{ 'active': filterSelect == 'inv-spear'}" @click="generateDisplayList('inv-spear')">Spears</div>
+                    <div class="btn" :class="{ 'active': filterSelect == 'inv-staff'}" @click="generateDisplayList('inv-staff')">Staves</div>
+                    <div class="btn" :class="{ 'active': filterSelect == 'inv-fist'}" @click="generateDisplayList('inv-fist')">Knuckles</div>
+                    <div class="btn" :class="{ 'active': filterSelect == 'inv-scythe'}" @click="generateDisplayList('inv-scythe')">Scythes</div>
                 </div>
                 <div class="group">
-                    <div class="btn" :class="{ 'active': filterSelect=='inv-gun'}" @click="filterChange('inv-gun')">Guns</div>
-                    <div class="btn" :class="{ 'active': filterSelect=='inv-crystal'}" @click="filterChange('inv-crystal')">Crystals</div>
-                    <div class="btn" :class="{ 'active': filterSelect=='inv-collar'}" @click="filterChange('inv-collar')">Necklaces</div>
-                    <div class="btn" :class="{ 'active': filterSelect=='inv-armor'}" @click="filterChange('inv-armor')">Armor</div>
-                    <div class="btn" :class="{ 'active': filterSelect=='inv-accessories'}" @click="filterChange('inv-accessories')">Accessories</div>
+                    <div class="btn" :class="{ 'active': filterSelect == 'inv-gun'}" @click="generateDisplayList('inv-gun')">Guns</div>
+                    <div class="btn" :class="{ 'active': filterSelect == 'inv-crystal'}" @click="generateDisplayList('inv-crystal')">Crystals</div>
+                    <div class="btn" :class="{ 'active': filterSelect == 'inv-collar'}" @click="generateDisplayList('inv-collar')">Necklaces</div>
+                    <div class="btn" :class="{ 'active': filterSelect == 'inv-armor'}" @click="generateDisplayList('inv-armor')">Armor</div>
+                    <div class="btn" :class="{ 'active': filterSelect == 'inv-accessories'}" @click="generateDisplayList('inv-accessories')">Accessories</div>
                 </div>
             </div>
 
@@ -36,8 +36,8 @@
                     <p>Convert</p>
                 </div>
 
-                <div class="synth_list" v-for="data in displayArray" :key="data.id" :class="getUniqueClass(data.name)">
-                    <div class="filter" v-if="data.icon == filterSelect" @click="selectIndividualItem(data.name)">
+                <div class="synth_list" v-for="data in displayAppend" :key="data.id" :class="getUniqueClass(data.name)">
+                    <div class="filter" @click="selectIndividualItem(data.name)">
 
                         <p>{{ data.ID }}</p>
 
@@ -53,19 +53,19 @@
                             <p v-else>NO</p>
                         </div>
 
-                        <invItem :itemImg="fetchIconImage(data.synth_item1)" :itemName="data.synth_item1" />
-                        <invItem :itemImg="fetchIconImage(data.synth_item2)" :itemName="data.synth_item2" />
-                        <invItem :itemImg="fetchIconImage(data.synth_item3)" :itemName="data.synth_item3" />
-                        <invItem :itemImg="fetchIconImage(data.synth_item4)" :itemName="data.synth_item4" />
-                        <invItem :itemImg="fetchIconImage(data.convert)"     :itemName="data.convert" />
+                        <invItem :itemImg="fetchArrayData(data.synth_item1, 'icon')" :itemName="data.synth_item1" />
+                        <invItem :itemImg="fetchArrayData(data.synth_item2, 'icon')" :itemName="data.synth_item2" />
+                        <invItem :itemImg="fetchArrayData(data.synth_item3, 'icon')" :itemName="data.synth_item3" />
+                        <invItem :itemImg="fetchArrayData(data.synth_item4, 'icon')" :itemName="data.synth_item4" />
+                        <invItem :itemImg="fetchArrayData(data.convert, 'icon')"     :itemName="data.convert" />
                     </div>
                 </div>
 
                 <div class="clear_buttons">
-                    <button class="btn small generate" :class="{ 'active': genArr1.length > 0 }" @click="startGeneratingBuild('', 'tr1', 1)">Generate List 1</button>
-                    <button class="btn small generate" :class="{ 'active': genArr2.length > 0 }" @click="startGeneratingBuild('', 'tr1', 2)">Generate List 2</button>
-                    <button class="btn small generate" :class="{ 'active': genArr3.length > 0 }" @click="startGeneratingBuild('', 'tr1', 3)">Generate List 3</button>
-                    <button class="btn small generate" :class="{ 'active': genArr4.length > 0 }" @click="startGeneratingBuild('', 'tr1', 4)">Generate List 4</button>
+                    <button class="btn small generate" :class="{ 'active': genArr1.length > 0 }" @click="startGeneratingBuild('tr1', 1)">Generate List 1</button>
+                    <button class="btn small generate" :class="{ 'active': genArr2.length > 0 }" @click="startGeneratingBuild('tr1', 2)">Generate List 2</button>
+                    <button class="btn small generate" :class="{ 'active': genArr3.length > 0 }" @click="startGeneratingBuild('tr1', 3)">Generate List 3</button>
+                    <button class="btn small generate" :class="{ 'active': genArr4.length > 0 }" @click="startGeneratingBuild('tr1', 4)">Generate List 4</button>
                     <button class="btn small clear" @click="clearLists('all')">Clear All</button>
                 </div>
 
@@ -135,39 +135,40 @@
 <script lang="ts">
 import invItem from '../components/parts/inv-display.vue';
 import invItemGen from '../components/parts/inv-display-gen.vue';
-import synthList from '@/assets/data/synthesis.json';
-import bestiList from '@/assets/data/bestiary.json';
+import subHeader from '@/components/main-subheader.vue';
+import $ from 'jquery';
+
+import weaponsList from '@/assets/data/synth_weapons.json';
+import armorList from '@/assets/data/synth_armor.json';
+import accessoriesList from '@/assets/data/synth_accessories.json';
+import itemsList from '@/assets/data/collections_items.json';
+import activeList from '@/assets/data/active.json';
 import titleList from '@/assets/data/titles.json';
+import bestiList from '@/assets/data/bestiary.json';
 import treasList from '@/assets/data/treasures.json';
 
-import subHeader from '@/components/main-subheader.vue';
-import armorList from '@/assets/data/armor.json';
-import weaponsList from '@/assets/data/weapons.json';
-import accessoriesList from '@/assets/data/accessories.json';
-import itemsList from '@/assets/data/items.json';
-import activeList from '@/assets/data/active.json';
-import $ from 'jquery';
 
 export default {
     name: "inventoryListWeapons",
     components: { subHeader, invItem, invItemGen },
     data() {
         return {
-            armorArray: armorList[2].data,          // Array (Armor)
-            accesArray: accessoriesList[2].data,    // Array (Accessories)
-            itemsArray: itemsList[2].data,          // Array (Items)
-            weapoArray: weaponsList[2].data,        // Array (Weapons)
-            activArray: activeList[2].data,         // Array (Active)
-            bestiArray: bestiList[2].data,          // Array (Bestiary)
-            titleArray: titleList[2].data,          // Array (Titles)
-            treasArray: treasList[2].data,          // Array (Souls)
-            synth: synthList[2].data,               // Array (Synthesis)
+            displayArray: {
+                'weapons': weaponsList[2].data,
+                'armor': armorList[2].data,
+                'accessories': accessoriesList[2].data,
+                'items': itemsList[2].data,
+                'active': activeList[2].data,
+                'titles': titleList[2].data,
+                'bestiary': bestiList[2].data,
+                'treasure': treasList[2].data
+            },
 
-            filterSelect: 'inv-sword',              // Selected category
-            displayArray: [],                       // List based on category
-            selectedItem: [],                       // Selected item for synthesis
-            genButton: false,                       // Enable/Disable Generate button
-            
+            filterSelect: 'inv-sword',
+            displayAppend: [],
+
+            selectedItem: [],                 // Selected item for synthesis
+            genButton: false,                 // Enable/Disable Generate button
             genArr1: [],                      // Array of all generated materials
             genArr2: [],                      // Array of all generated materials
             genArr3: [],                      // Array of all generated materials
@@ -176,7 +177,7 @@ export default {
     },
     mounted() {
         //Get all Items within category and set into array
-        this.generateDisplayList();
+        this.generateDisplayList(this.filterSelect);
     },
     methods: {
         //Add Unique class name to each listed item
@@ -184,78 +185,54 @@ export default {
             return name.replace(/[^\w]/g, "");
         },
 
-        //Find Icon associated with the listed item
-        fetchIconImage(find) {
-            switch (false) {
-                case false:
-                    //Search WEAPONS ARRAY
-                    let wap = this.weapoArray.filter(function (e) { return e.name == find });
-                    if (wap.length > 0) {
-                        return wap[0]['icon'];
-                        break;
-                    }
-                    //Search ITEMS ARRAY
-                    let item = this.itemsArray.filter(function (e) { return e.name == find });
-                    if (item.length > 0) {
-                        return item[0]['icon'];
-                        break;
-                    }
-                    //Search ACTIVE ARRAY
-                    let act = this.activArray.filter(function (e) { return e.name == find });
-                    if (act.length > 0) {
-                        return act[0]['icon'];
-                        break;
-                    }
-                    //Search ARMOR ARRAY
-                    let arm = this.armorArray.filter(function (e) { return e.name == find });
-                    if (arm.length > 0) {
-                        return arm[0]['icon'];
-                        break;
-                    }
-                    //Search ACCESSORIES ARRAY
-                    let acc = this.accesArray.filter(function (e) { return e.name == find });
-                    if (acc.length > 0) {
-                        return acc[0]['icon'];
-                        break;
-                    }
-                default:
-                    return 'inv-stat';
-            }
-        },
+        fetchArrayData(find, request) {
 
-        //Change items 
-        filterChange(name) {
-            this.filterSelect = name;   //Change filter name
-            this.selectedItem = [];    //Reset anything in Child
-            this.genButton = false;     //Disable Generate button
-            this.generateDisplayList(); //Append new list
+                let wap = this.displayArray['weapons'].filter(function (e) { return e.name == find })[0];
+                if (wap) { 
+                    if (request == 'icon') {return wap['icon'];}
+                    else { return wap; }
+                }
+
+                let arm = this.displayArray['armor'].filter(function (e) { return e.name == find })[0];
+                if (arm) {
+                    if (request == 'icon') { return arm['icon']; }
+                    else { return arm; } 
+                }
+
+                let item = this.displayArray['items'].filter(function (e) { return e.name == find })[0];
+                if (item) {
+                    if (request == 'icon') { return item['icon']; }
+                    else { return item; }
+                }
+
+                let acc = this.displayArray['accessories'].filter(function (e) { return e.name == find })[0];
+                if (acc) {
+                    if (request == 'icon') { return acc['icon']; }
+                    else { return acc; }
+                }
+
+                let act = this.displayArray['active'].filter(function (e) { return e.name == find })[0];
+                if (act) {
+                    if (request == 'icon') { return act['icon']; }
+                    else { return act; }
+                }
+
+                if (request == 'icon') {return 'inv-active';}
+
         },
 
         //Populate the display list
-        generateDisplayList() {
-            this.displayArray = [];  //Empty display list
-            const find = this.filterSelect;
+        generateDisplayList(type) {
+            this.displayAppend = [];
+            this.filterSelect = type;
 
-            if (find == 'inv-armor') { 
-                const waponNum = this.armorArray.filter(function (e) { return e.icon == find })
-                const size = waponNum.length;
-                for (let i = 0; i < size; i++) {
-                    const curName = waponNum[i];
-                    this.displayArray.push(curName);
-                }
-            } else if (find == 'inv-accessories') {
-                const waponNum = this.accesArray.filter(function (e) { return e.icon == find })
-                const size = waponNum.length;
-                for (let i = 0; i < size; i++) {
-                    const curName = waponNum[i];
-                    this.displayArray.push(curName);
-                }
+            if (type == 'inv-armor' || type == 'inv-accessories') {
+                this.displayAppend = this.displayArray[type.slice(4)];
             } else {
-                const waponNum = this.weapoArray.filter(function (e) { return e.icon == find })
-                const size = waponNum.length;
-                for (let i = 0; i < size; i++) {
-                    const curName = waponNum[i];
-                    this.displayArray.push(curName);
+                const waponNum = this.displayArray['weapons'].filter(function (e) { return e.icon == type })
+                const typeNum = waponNum.length;
+                for (let i = 0; i < typeNum; i++) {
+                     this.displayAppend.push(waponNum[i]);
                 }
             }
         },
@@ -263,19 +240,15 @@ export default {
         //Select item (Individual)
         selectIndividualItem(name) {
             this.selectedItem = [];
-            $('.synth_list').removeClass('active');
+            $('.synth_list').removeClass('selectedSynth');
 
             //Grab the selector and make ACTIVE
             const y = this.getUniqueClass(name);
             const sel = $('.' + y);
-            sel.addClass('active');
+            sel.addClass('selectedSynth');
 
-            const find = name;
-            const syn = this.synth.filter(function (e) { return e.name == find })[0];
+            const syn = this.fetchArrayData(name)
             this.selectedItem.push(syn['name'], syn['icon']);
-            if (syn) {
-                this.genButton = true;
-            }
         },
 
         //Clear All Lists
@@ -300,37 +273,30 @@ export default {
 
 
         //Start searching for materials from selected list
-        startGeneratingBuild(recur, tr, list) {
+        startGeneratingBuild(tr, list) {
 
-            if (list == 1 && !recur) {
+            if (list == 1) {
                 this.genArr1 = [];
-            } else if (list == 2 && !recur) {
+            } else if (list == 2) {
                 this.genArr2 = [];
-            } else if (list == 3 && !recur) {
+            } else if (list == 3) {
                 this.genArr3 = [];
-            } else if (list == 4 && !recur) {
+            } else if (list == 4) {
                 this.genArr4 = [];
             }
 
-            //Begin processes of generating build
-            if(!recur) {
-                this.fetchCalledWeapon(this.selectedItem[0], tr, list);
-            }
+            this.fetchCalledWeapon(this.selectedItem[0], this.selectedItem[1].slice(4),tr, list);
 
         },
 
         //Find data on materials for found weapon
-        fetchCalledWeapon(nm, tr, list) {
+        fetchCalledWeapon(nm, type, tr, list) {
 
-                //Fetch Synth Data
-                const find = nm;
-                const syn = this.synth.filter(function (e) { return e.name == find })[0];
-
-                // 'tier' = tier
-                const tier = tr;
-
-                // 'name' = name
-                const name = nm;
+                if (type == 'armor' || type == 'accessories') {
+                    var syn = this.displayArray[type].filter(function (e) { return e.name == nm })[0];
+                } else {
+                    var syn = this.displayArray['weapons'].filter(function (e) { return e.name == nm })[0];
+                }
 
                 // 'icon' = icon
                 const icon = syn['icon'];
@@ -346,28 +312,28 @@ export default {
                 
                 // 'synth' = synth
                 const synth = [
-                    this.checkSynth(tier, '1', name, syn['synth_item1']),
-                    this.checkSynth(tier, '2', name, syn['synth_item2']),
-                    this.checkSynth(tier, '3', name, syn['synth_item3']),
-                    this.checkSynth(tier, '4', name, syn['synth_item4']),
+                    this.checkSynth(tr, '1', nm, syn['synth_item1']),
+                    this.checkSynth(tr, '2', nm, syn['synth_item2']),
+                    this.checkSynth(tr, '3', nm, syn['synth_item3']),
+                    this.checkSynth(tr, '4', nm, syn['synth_item4']),
                 ];
 
-                this.buildGen(tier, name, icon, buyg, buytp, source, synth, list);
+                this.buildGen(tr, nm, icon, buyg, buytp, source, synth, list);
         },
 
         checkSynth(tr, num, parent, name) {
             if (!name) {return '';}
-            const find = name;
-            const syn = this.synth.filter(function (e) { return e.name == find })[0];
+            
+            const syn = this.fetchArrayData(name);
 
             const tier = tr + num;
             const icon = syn['icon'];
             const buyg = syn['cost_g'];
             const buytp = syn['cost_tp'];
-            const bestiary = this.searchBestiary(find);
-            const convert = this.searchConverts(find);
-            const title = this.searchTitles(find);
-            const source = this.searchSource(find);
+            const bestiary = this.searchBestiary(name);
+            const convert = this.searchConverts(name);
+            const title = this.searchTitles(name);
+            const source = this.searchSource(name);
 
             const obj = {
                 'id': syn['ID'],
@@ -390,101 +356,68 @@ export default {
             return obj;
         },
 
-        searchBestiary(name) {
+        searchBestiary(find) {
 
-            const n = name;
-            const over = this.bestiArray.filter(function (e) { return e.overkill == n })[0];
-            if (over) {
-                return [over['name'], over['zone'], 'Overkill', over['ID']];
-            }
+            const over = this.displayArray['bestiary'].filter(function (e) { return e.overkill == find })[0];
+            if (over) {return [over['name'], over['zone'], 'Overkill', over['ID']];}
 
-            const drop1 = this.bestiArray.filter(function (e) { return e.drop1 == n })[0];
-            if (drop1) {
-                return [drop1['name'], drop1['zone'], 'Normal drop', drop1['ID']];
-            }
+            const drop1 = this.displayArray['bestiary'].filter(function (e) { return e.drop1 == find })[0];
+            if (drop1) {return [drop1['name'], drop1['zone'], 'Normal drop', drop1['ID']];}
 
-            const rare1 = this.bestiArray.filter(function (e) { return e.rare1 == n })[0];
-            if (rare1) {
-                return [rare1['name'], rare1['zone'], 'Rare drop', rare1['ID']];
-            }
+            const rare1 = this.displayArray['bestiary'].filter(function (e) { return e.rare1 == find })[0];
+            if (rare1) {return [rare1['name'], rare1['zone'], 'Rare drop', rare1['ID']];}
 
-            const drop2 = this.bestiArray.filter(function (e) { return e.drop2 == n })[0];
-            if (drop2) {
-                return [drop2['name'], drop2['zone'], 'Normal drop', drop2['ID']];
-            }
+            const drop2 = this.displayArray['bestiary'].filter(function (e) { return e.drop2 == find })[0];
+            if (drop2) {return [drop2['name'], drop2['zone'], 'Normal drop', drop2['ID']];}
 
-            const rare2 = this.bestiArray.filter(function (e) { return e.rare2 == n })[0];
-            if (rare2) {
-                return [rare2['name'], rare2['zone'], 'Rare drop', rare2['ID']];
-            }
+            const rare2 = this.displayArray['bestiary'].filter(function (e) { return e.rare2 == find })[0];
+            if (rare2) {return [rare2['name'], rare2['zone'], 'Rare drop', rare2['ID']];}
 
             return '';
         },
 
-        searchConverts(name) {
-            const n = name;
-            const syn = this.synth.filter(function (e) { return e.convert == n })[0];
-            if (syn) {
-                return [syn['name'], syn['icon'], syn['ID']];
-            }
+        searchConverts(find) {
 
-            return '';
-        },
-
-        searchTitles(name) {
+            let wap = this.displayArray['weapons'].filter(function (e) { return e.convert == find })[0];
+            if (wap) {return [wap['name'], wap['icon'], wap['ID']];}
             
-            const n = name;
-            const rw1 = this.titleArray.filter(function (e) { return e.reward1 == n })[0];
-            if (rw1) {
-                return 'Title reward #' + rw1['ID'];
-            }
-
-            const rw2 = this.titleArray.filter(function (e) { return e.reward2 == n })[0];
-            if (rw2) {
-                return 'Title reward #' + rw2['ID'];
-            }
-
-            const rw3 = this.titleArray.filter(function (e) { return e.reward3 == n })[0];
-            if (rw3) {
-                return 'Title reward #' + rw3['ID'];
-            }
+            let arm = this.displayArray['armor'].filter(function (e) { return e.convert == find })[0];
+            if (arm) { return [arm['name'], arm['icon'], arm['ID']]; }
+            
+            let acc = this.displayArray['accessories'].filter(function (e) { return e.convert == find })[0];
+            if (acc) { return [acc['name'], acc['icon'], acc['ID']]; }
 
             return '';
         },
 
-        searchSource(name) {
-            const n = name;
+        searchTitles(find) {
 
-            switch(false) {
-                case false:
+            let rw1 = this.displayArray['titles'].filter(function (e) { return e.reward1 == find })[0];
+            if (rw1) { return 'Title reward #' + rw1['ID']; }
 
-                    const re1 = this.treasArray.filter(function (e) { return e.treasure1 == n })[0];
-                    
-                    if (re1 && re1['target'] === 'Soul Reward') {
-                        return 'Soul Reward ' + re1['soul'] + ' in ' + re1['location'];
-                        break;
-                    }
+            let rw2 = this.displayArray['titles'].filter(function (e) { return e.reward2 == find })[0];
+            if (rw2) { return 'Title reward #' + rw2['ID']; }
 
-                    if (re1 && re1['target'] === 'Treasure') {
-                        return 'Treasure in ' + re1['location'] + ' dungeon';
-                        break;
-                    }
+            let rw3 = this.displayArray['titles'].filter(function (e) { return e.reward3 == find })[0];
+            if (rw3) { return 'Title reward #' + rw3['ID']; }
 
-                    const re2 = this.treasArray.filter(function (e) { return e.treasure2 == n })[0];
-                    if (re2) {
-                        return 'Soul Reward ' + re2['soul'] + ' in ' + re2['location'];
-                        break;
-                    }
+            return '';
+        },
 
-                    const re3 = this.treasArray.filter(function (e) { return e.treasure2 == n })[0];
-                    if (re3) {
-                        return 'Soul Reward ' + re3['soul'] + ' in ' + re3['location'];
-                        break;
-                    }
+        searchSource(find) {
 
-            default:
-                return ''
-            }
+            let tr1 = this.displayArray['treasure'].filter(function (e) { return e.treasure1 == find })[0];
+            if (tr1 && tr1['target'] === 'Soul Reward') {return 'Soul Reward ' + tr1['soul'] + ' in ' + tr1['location'];}
+            else if (tr1 && tr1['target'] === 'Treasure') {return 'Treasure in ' + tr1['location'] + ' dungeon';}
+
+            let tr2 = this.displayArray['treasure'].filter(function (e) { return e.treasure2 == find })[0];
+            if (tr2 && tr2['target'] === 'Soul Reward') { return 'Soul Reward ' + tr2['soul'] + ' in ' + tr2['location'];}
+
+            let tr3 = this.displayArray['treasure'].filter(function (e) { return e.treasure3 == find })[0];
+            if (tr3 && tr3['target'] === 'Soul Reward') { return 'Soul Reward ' + tr3['soul'] + ' in ' + tr3['location']; }
+
+            return ''
+
         },
 
         //Append found materials to array
@@ -500,8 +433,6 @@ export default {
                 'synth': synth,
             };
 
-            const listDisplay = list;
-
             if (list == 1) {
                 this.genArr1.push(newArr);
             } else if (list == 2) {
@@ -512,15 +443,18 @@ export default {
                 this.genArr4.push(newArr);
             }
 
-            const checkSynth = synth;
-            for (let i = 0; i < checkSynth.length; i++) {
-                if (checkSynth[i] && !checkSynth[i]['prevent'] && (
-                        checkSynth[i]['icon'] != 'inv-monster' && 
-                        checkSynth[i]['icon'] != 'inv-metal' &&
-                        checkSynth[i]['icon'] != 'inv-item')) {
-                            const nm = checkSynth[i]['name'];
-                            const tr = checkSynth[i]['tier'];
-                    this.fetchCalledWeapon(nm, tr, listDisplay);
+            console.log(newArr)
+            console.log(list)
+
+            for (let i = 0; i < synth.length; i++) {
+                if (synth[i] && !synth[i]['prevent'] && (
+                        synth[i]['icon'] != 'inv-monster' && 
+                        synth[i]['icon'] != 'inv-metal' &&
+                        synth[i]['icon'] != 'inv-item')) {
+                            const nm = synth[i]['name'];
+                            const tr = synth[i]['tier'];
+                            const icon = synth[i]['icon'];
+                    this.fetchCalledWeapon(nm, icon, tr, list);
                 }
             }
 

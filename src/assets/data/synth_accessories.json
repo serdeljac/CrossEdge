@@ -1,7 +1,7 @@
 [
 {"type":"header","version":"4.9.7","comment":"Export to JSON plugin for PHPMyAdmin"},
 {"type":"database","name":"stjepane_crossedge"},
-{"type":"table","name":"accessories","database":"stjepane_crossedge","data":
+{"type":"table","name":"synth_accessories","database":"stjepane_crossedge","data":
 [
 {"ID":"1","name":"Rusty Ring","icon":"inv-accessories","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"","find_other":"Can be found via soul rewards or overkilling bosses.","convert":"Mysterious Treasure"},
 {"ID":"2","name":"Power Ring","icon":"inv-accessories","synth_cost":"1250G","synth_item1":"Beast Charm","synth_item2":"Bone","synth_item3":"","synth_item4":"","cost_g":"1000","cost_tp":"","find_other":"","convert":"STR+ 15"},
@@ -18,7 +18,7 @@
 {"ID":"13","name":"Hercules' Ring","icon":"inv-accessories","synth_cost":"5000G","synth_item1":"Power Ring","synth_item2":"Lizard Tail","synth_item3":"Fire Crystal","synth_item4":"","cost_g":"4000","cost_tp":"","find_other":"","convert":"STR+ 30"},
 {"ID":"14","name":"Fortitude Ring","icon":"inv-accessories","synth_cost":"5000G","synth_item1":"Vitality Ring","synth_item2":"Bone Powder","synth_item3":"Earth Crystal","synth_item4":"","cost_g":"4000","cost_tp":"","find_other":"","convert":"VIT+ 30"},
 {"ID":"15","name":"Hurricane Ring","icon":"inv-accessories","synth_cost":"5000G","synth_item1":"Speed Ring","synth_item2":"Primary Feather","synth_item3":"Wind Crystal","synth_item4":"","cost_g":"4000","cost_tp":"","find_other":"","convert":"AGI+ 30"},
-{"ID":"16","name":"Sage Ring","icon":"inv-accessories","synth_cost":"5000G","synth_item1":"Wisdom Ring","synth_item2":"Fairy Wing","synth_item3":"Ice Crystal","synth_item4":"","cost_g":"4000","cost_tp":"","find_other":"","convert":"INT+ 30"},
+{"ID":"16","name":"Sage Ring","icon":"inv-accessories","synth_cost":"5000G","synth_item1":"Wisdom Ring","synth_item2":"Fairy Wing","synth_item3":"Ice Crystal (A)","synth_item4":"","cost_g":"4000","cost_tp":"","find_other":"","convert":"INT+ 30"},
 {"ID":"17","name":"Heaven's Luck","icon":"inv-accessories","synth_cost":"5000G","synth_item1":"Luck Ring","synth_item2":"Lucky Dagger","synth_item3":"Giant Tentacle","synth_item4":"Thunder Crystal","cost_g":"4000","cost_tp":"","find_other":"","convert":"LCK+ 30"},
 {"ID":"18","name":"Beast Ring","icon":"inv-accessories","synth_cost":"7000G","synth_item1":"Sharp Sense","synth_item2":"Old Leather","synth_item3":"Dragon Claw","synth_item4":"Beast Bone","cost_g":"","cost_tp":"","find_other":"","convert":"Seal of Quality"},
 {"ID":"19","name":"Double Feather","icon":"inv-accessories","synth_cost":"7000G","synth_item1":"Feather Ring","synth_item2":"Monotone Wings","synth_item3":"Cockatrice Down","synth_item4":"Wing Charm","cost_g":"","cost_tp":"","find_other":"","convert":"Cut Costs+"},

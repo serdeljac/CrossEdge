@@ -104,10 +104,10 @@
 
 <script lang="ts">
 import subHeader from '@/components/main-subheader.vue';
-import armorList from '@/assets/data/armor.json';
-import weaponsList from '@/assets/data/weapons.json';
-import accessoriesList from '@/assets/data/accessories.json';
-import itemsList from '@/assets/data/items.json';
+import armorList from '@/assets/data/collections_armor.json';
+import weaponsList from '@/assets/data/collections_weapons.json';
+import accessoriesList from '@/assets/data/collections_accessories.json';
+import itemsList from '@/assets/data/collections_items.json';
 import activeList from '@/assets/data/active.json';
 import $ from 'jquery';
 
@@ -121,6 +121,7 @@ export default {
             itemsArray: itemsList[2].data,
             weapoArray: weaponsList[2].data,
             activArray: activeList[2].data,
+            
             categorySelect: 'weapons',
             filterEnable: false,
             filterSelect: ''

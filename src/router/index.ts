@@ -42,24 +42,9 @@ const router = createRouter({
       component: () => import('../views/bestiary.vue')
     },
     {
-      path: '/Inventory_Weapons',
-      name: 'inv-weapons',
-      component: () => import('../views/inventory-weapons.vue')
-    },
-    {
-      path: '/Inventory_Armor',
-      name: 'inv-armor',
-      component: () => import('../views/inventory-armor.vue')
-    },
-    {
-      path: '/Inventory_Accessories',
-      name: 'inv-accessories',
-      component: () => import('../views/inventory-accessories.vue')
-    },
-    {
-      path: '/Inventory_Items',
-      name: 'inv-items',
-      component: () => import('../views/inventory-items.vue')
+      path: '/Inventory',
+      name: 'inventory',
+      component: () => import('../views/inventory.vue')
     },
     {
       path: '/Titles',
@@ -67,8 +52,8 @@ const router = createRouter({
       component: () => import('../views/titles.vue')
     },
     {
-      path: '/Synthesis_Weapons',
-      name: 'synthesis-weapons',
+      path: '/Synthesis',
+      name: 'synthesis',
       component: () => import('../views/synthesis.vue')
     },
     {

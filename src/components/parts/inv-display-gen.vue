@@ -1,5 +1,4 @@
 <template>
-    
 
     <ul class="genlist_header">
         <li>Materials</li>

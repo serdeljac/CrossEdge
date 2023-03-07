@@ -901,10 +901,10 @@ body {
 .inventory {
     color: #c5c5c5;
     background: $body-bg;
-    min-width: 1300px;
+    max-width: 1400px;
+    width: 100%;
     @extend .ce-shadow;
-    min-height: 80px;
-    
+
     &_content {
         padding: 20px;
     }
@@ -930,25 +930,6 @@ body {
         }
     }
 
-    &_filter {
-        width: 100%;
-        display: inline-flex;
-        justify-content: center;
-        margin-top: 40px;
-
-        .btn {
-            padding: 5px 7px;
-            border-radius: 7px;
-            width: 120px;
-            text-align: center;
-            margin: 0 5px;
-
-            &.active {
-                background-color: #111f5b;
-            }
-        }
-    }
-
     &_body {
         margin-top: 40px;
         background-color: $sidebar-bg;
@@ -957,28 +938,28 @@ body {
         font-size: 1.2rem;
         padding: 20px;
         box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    }
 
-        &.weapons_list {
-            margin-top: 20px;
-        }
+    &_header, &_list {
+        display: grid;
+        grid-template-columns: 60px 200px 120px 120px 120px 100px auto;
+    }
 
-        .synth_display img {
-            margin: 0 5px;
+    &_header {
+        font-size: 1.2rem;
+
+        p {
+            line-height: 1;
         }
     }
 
     &_list {
+        cursor: pointer;
+        border-radius: 2px;
 
-        &.items .filter {
-            display: grid;
-            grid-template-columns: 40px 40px 250px 400px auto;
-
-            img {margin-left: 10px}
-        }
-
-        .filter {
-            display: grid;
-            grid-template-columns: 30px 30px 160px 80px 80px 170px 170px 170px 170px auto;
+        &:hover {
+            background-color: #111f5b;
+            opacity: 1;
         }
 
         p {
@@ -1000,54 +981,12 @@ body {
         }
     }
 
-    &_header {
-        font-size: 1.2rem;
-        display: grid;
-        grid-template-columns: 30px 30px 160px 80px 80px 170px 170px 170px 170px auto;
 
-        p {
-            line-height: 1;
-        }
-    }
-
-    &_list {
-        cursor: pointer;
-        border-radius: 2px;
-
-        &.active {
-            opacity: 0.1;
-            user-select: none;
-        }
-
-        &.active:hover {
-            opacity: 0.1
-        }
-        
-        &:hover {
-            background-color: #111f5b;
-            opacity: 1;
-        }
-    }
-
-    .checkbox {
-        transform: scale(1.5)
-    }
 
     hr {
         margin: 10px 0;
     }
 
-    .clear_buttons {
-        margin-top: 20px;
-        width: 100%;
-        display: flex;
-        justify-content: flex-end;
-        .btn {
-            font-size: 1.1rem;
-            margin-left: 30px;
-            margin-right: 10px;
-        }
-    }
 }
 
 /************************************************************
@@ -1096,33 +1035,24 @@ body {
         padding: 20px;
         box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 
-
-
         &_header {
             display: inline-flex;
             justify-content: space-between;
             align-items: center;
             font-size: 2rem;
             width: 100%;
-            
+        }
 
-            &-details {
-                display: inline-flex;
-            }
-
-            &-none {
-                margin-left: 10px;
-                font-style: italic;
-                color: #292929;
-            }
-
-            button {
-                margin-right: 80px;
-            }
+        .selectedSynth {
+            background-color: #111f5b;
         }
 
         &.generated {
             min-height: 0;
+
+                    button {
+                margin-right: 80px;
+            }
 
             .inv-name {
                 margin-left: 20px;
@@ -1218,7 +1148,7 @@ body {
         }
 
         &.active {
-            background-color: #111f5b;
+            
         }
 
         &.active:hover {
@@ -1264,6 +1194,8 @@ body {
     }
 
     .genlist {
+
+
 
         .active {
             opacity: 0.1

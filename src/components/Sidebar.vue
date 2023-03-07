@@ -30,11 +30,11 @@
                             <li @click="choosePage('dunMapRoom')">Dungeon Maps</li>
                             <li @click="choosePage('playthrough')">Playthrough Tips</li>
                             <li @click="choosePage('titles')">Titles</li>
-                            <li @click="choosePage('inv-weapons')">Inventory</li>
+                            <li @click="choosePage('inventory')">Inventory</li>
                             <li @click="choosePage('bestiary')">Bestiary</li>
                             <li class="null">Tool: Team Build</li>
                             <li class="null">Tool: Synthesis Generator</li>
-                            <li @click="choosePage('synthesis-weapons')">Tool: Synthesis Generator</li>
+                            <li @click="choosePage('synthesis')">Tool: Synthesis Generator</li>
                         </ul>
                     </div>
 
@@ -82,11 +82,6 @@
                         </ul>
                     </div>
 
-                    <!-- <div class="tbc-set-3">
-                        <hr>
-                        <p>Leave a comment</p>
-                        <p>Logout</p>
-                    </div> -->
                 </div>
             </div>
         </div>

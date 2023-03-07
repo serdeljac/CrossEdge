@@ -1,7 +1,7 @@
 [
 {"type":"header","version":"4.9.7","comment":"Export to JSON plugin for PHPMyAdmin"},
 {"type":"database","name":"stjepane_crossedge"},
-{"type":"table","name":"items","database":"stjepane_crossedge","data":
+{"type":"table","name":"collections_items","database":"stjepane_crossedge","data":
 [
 {"ID":"1","name":"Grass","icon":"inv-item","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"200","cost_tp":"","find_event":"","find_title":"","find_other":""},
 {"ID":"2","name":"Potent Grass","icon":"inv-item","synth_cost":"2500","synth_item1":"Chicken Egg","synth_item2":"Grass","synth_item3":"","synth_item4":"","cost_g":"2000","cost_tp":"","find_event":"","find_title":"","find_other":""},
@@ -491,7 +491,7 @@
 {"ID":"486","name":"Cat's Whiskers","icon":"inv-monster","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"","find_event":"","find_title":"","find_other":""},
 {"ID":"487","name":"Nirvana Scroll","icon":"inv-monster","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"","find_event":"","find_title":"","find_other":""},
 {"ID":"488","name":"Heaven's Gate","icon":"inv-monster","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"","find_event":"","find_title":"","find_other":""},
-{"ID":"489","name":"","icon":"inv-monster","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"","find_event":"","find_title":"","find_other":""},
+{"ID":"489","name":"Sorcerer's Tome","icon":"inv-monster","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"","find_event":"","find_title":"","find_other":""},
 {"ID":"490","name":"Divine Stone","icon":"inv-monster","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"","find_event":"","find_title":"","find_other":""},
 {"ID":"491","name":"","icon":"inv-monster","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"","find_event":"","find_title":"","find_other":""},
 {"ID":"492","name":"Rose Emblem","icon":"inv-monster","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"","find_event":"","find_title":"","find_other":""},

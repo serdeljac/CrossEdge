@@ -1,7 +1,7 @@
 [
 {"type":"header","version":"4.9.7","comment":"Export to JSON plugin for PHPMyAdmin"},
 {"type":"database","name":"stjepane_crossedge"},
-{"type":"table","name":"armor","database":"stjepane_crossedge","data":
+{"type":"table","name":"synth_armor","database":"stjepane_crossedge","data":
 [
 {"ID":"1","name":"Rusty Bracelet","icon":"inv-armor","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"","find_other":"Can be found via soul rewards or overkilling bosses.","convert":"Wheel of Light"},
 {"ID":"2","name":"Iron Bracelet","icon":"inv-armor","synth_cost":"300G","synth_item1":"Iron Bracelet","synth_item2":"Silver Ore","synth_item3":"","synth_item4":"","cost_g":"200","cost_tp":"","find_other":"","convert":"Iron Wheel"},
