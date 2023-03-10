@@ -1000,18 +1000,19 @@ body {
     @extend .ce-shadow;
     min-height: 80px;
     
-    &_content {
-        padding: 20px;
+    &_container {
+        padding: 0 20px;
     }
 
     &_filter {
         width: 100%;
+        max-width: 1200px;
+        margin: auto;
 
         .group {
-            margin-top: 10px;
             display: inline-flex;
+            flex-wrap: wrap;
             justify-content: center;
-            width: 100%;
         }
 
         .btn {
@@ -1019,7 +1020,7 @@ body {
             border-radius: 7px;
             width: 140px;
             text-align: center;
-            margin: 0 5px;
+            margin: 10px 5px;
 
             &.active {
                 background-color: #111f5b;
@@ -1027,171 +1028,92 @@ body {
         }
     }
 
-    &_body {
-        margin-top: 40px;
+    &_display {
+        margin-top: 20px;
         background-color: $sidebar-bg;
         border-radius: 3px;
         font-size: 1.2rem;
         padding: 20px;
         box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 
+        &_header, &_body .filter{
+            display: grid;
+            grid-template-columns: 40px 200px 89px 130px 200px 200px 200px 200px 200px;
+            line-height: 1;
+        }
+
         &_header {
-            display: inline-flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 2rem;
-            width: 100%;
+            font-size: 1.2rem;
+            border-bottom: 2px solid #fff;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
         }
 
-        .selectedSynth {
-            background-color: #111f5b;
-        }
+        &_body {
 
-        &.generated {
-            min-height: 0;
-
-                    button {
-                margin-right: 80px;
+            &.selectedSynth {
+                background-color: #111f5b;
             }
 
-            .inv-name {
-                margin-left: 20px;
-                height: 40px;
-                display: flex;
-                align-items: center;
+            .filter {
+                cursor: pointer;
+                padding: 0 5px;
+                border-radius: 3px;
 
-                &__generated {
-                    .bind,p {
-                        display: inline-flex;
-                        font-size: 1.5rem;
-                        align-items: center;
-                    }
-                    
-                    ul {
-                        margin-left: 20px;
-                    }
+                p {
+                    height: 30px;
+                    display: flex;
+                    align-items: center;
+                }
+
+                img {
+                    height: 80%;
+                    margin-right: 5px;
+                    user-select: none;
+                }
+            
+                &:hover {
+                    background-color: #263eac;
+                    opacity: 1;
+                }
+            }
+        }
+
+        &_buttons {
+            margin-top: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+
+            .btn {
+                font-size: 1.6rem;
+                margin: 20px 10px;
+                &:hover {
+                    text-decoration: underline;
                 }
             }
 
-            img {
-                margin: 0 10px;
-                height: 30px;
+            .clear {
+                margin-left: 80px;
+                font-weight: normal;
+                background-color: #7c7c7c1f;
             }
 
-            hr {
-                margin: 10px;
+            .generate.active {
+                animation: generateButtonActive 1s linear infinite;
             }
         }
-
-        &.tips {
-            min-height: 0;
-        }
-
-        .synthmaterials {
-            p {
-                margin-right: 7px;
-            }
-
-            img {
-                height: 25px;
-            }
-            span {
-                margin: 0 7px;
-            }
-
-            &_gbuy {
-                color: rgb(169, 226, 12)
-            }
-
-            &_tpbuy {
-                color: rgb(11, 191, 197)
-            }
-
-            &_convert {
-                color: rgb(165, 7, 165);
-            }
-            &_defeat {
-                color: rgb(189, 17, 40)
-            }
-        }
-    }
-
-    &_header {
-        font-size: 1.2rem;
-        border-bottom: 2px solid #fff;
-        padding-bottom: 10px;
-        margin-bottom: 10px;
-        
     }
 
     &_list {
-        cursor: pointer;
-        border-radius: 2px;
-
-        p {
-            height: 30px;
-            display: flex;
-            align-items: center;
-            &:first-of-type {
-                padding-left: 5px;
-            }
-        }
-
-        img {
-            height: 80%;
-            margin-right: 5px;
-            user-select: none;
-        }
-
-        .checkbox {
-            transform: scale(1.5)
-        }
-
-        &.active {
-            
-        }
-
-        &.active:hover {
-            background-color: #263eac;
-        }
         
-        &:hover {
-            background-color: #263eac;
-            opacity: 1;
-        }
     }
 
-    &_header, &_list .filter {
-        display: grid;
-        grid-template-columns: 40px 200px 89px 130px 200px 200px 200px 200px 200px;
-        line-height: 1;
-    }
+
 
     
 
-    .clear_buttons {
-        margin-top: 20px;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        .btn {
-            font-size: 1.6rem;
-            margin: 20px 10px;
-            &:hover {
-                text-decoration: underline;
-            }
-        }
 
-        .clear {
-            margin-left: 80px;
-            font-weight: normal;
-            background-color: #7c7c7c1f;
-        }
-
-        .generate.active {
-            animation: generateButtonActive 1s linear infinite;
-        }
-    }
 
     .genlist {
 

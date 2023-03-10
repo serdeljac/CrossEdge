@@ -1,7 +1,7 @@
 <template>
     <div class="synth">
         <subHeader :headerName="'Synthesis Materials Generator'" :backlink="'home'" />
-        <div class="synth_content">
+        <div class="synth_container">
 
             <div class="synth_filter">
                 <div class="group">
@@ -12,8 +12,6 @@
                     <div class="btn" :class="{ 'active': filterSelect == 'inv-staff'}" @click="generateDisplayList('inv-staff')">Staves</div>
                     <div class="btn" :class="{ 'active': filterSelect == 'inv-fist'}" @click="generateDisplayList('inv-fist')">Knuckles</div>
                     <div class="btn" :class="{ 'active': filterSelect == 'inv-scythe'}" @click="generateDisplayList('inv-scythe')">Scythes</div>
-                </div>
-                <div class="group">
                     <div class="btn" :class="{ 'active': filterSelect == 'inv-gun'}" @click="generateDisplayList('inv-gun')">Guns</div>
                     <div class="btn" :class="{ 'active': filterSelect == 'inv-crystal'}" @click="generateDisplayList('inv-crystal')">Crystals</div>
                     <div class="btn" :class="{ 'active': filterSelect == 'inv-collar'}" @click="generateDisplayList('inv-collar')">Necklaces</div>
@@ -22,9 +20,9 @@
                 </div>
             </div>
 
-            <div class="synth_body" :class="filterSelect">
+            <div class="synth_display">
 
-                <div class="synth_header">
+                <div class="synth_display_header">
                     <p>#</p>
                     <p>Name</p>
                     <p>Synth <br />Cost</p>
@@ -36,7 +34,7 @@
                     <p>Convert</p>
                 </div>
 
-                <div class="synth_list" v-for="data in displayAppend" :key="data.id" :class="getUniqueClass(data.name)">
+                <div class="synth_display_body" v-for="data in displayAppend" :key="data.id" :class="getUniqueClass(data.name)">
                     <div class="filter" @click="selectIndividualItem(data.name)">
 
                         <p>{{ data.ID }}</p>
@@ -61,19 +59,18 @@
                     </div>
                 </div>
 
-                <div class="clear_buttons">
+                <div class="synth_display_buttons">
                     <button class="btn small generate" :class="{ 'active': genArr1.length > 0 }" @click="startGeneratingBuild('tr1', 1)">Generate List 1</button>
                     <button class="btn small generate" :class="{ 'active': genArr2.length > 0 }" @click="startGeneratingBuild('tr1', 2)">Generate List 2</button>
                     <button class="btn small generate" :class="{ 'active': genArr3.length > 0 }" @click="startGeneratingBuild('tr1', 3)">Generate List 3</button>
                     <button class="btn small generate" :class="{ 'active': genArr4.length > 0 }" @click="startGeneratingBuild('tr1', 4)">Generate List 4</button>
                     <button class="btn small clear" @click="clearLists('all')">Clear All</button>
                 </div>
-
             </div>
 
 
-            <div class="synth_body generated list1" v-if="this.genArr1.length > 0">
-                <div class="synth_body_header">
+            <div class="synth_list generated list1" v-if="this.genArr1.length > 0">
+                <div class="synth_list_header">
                     <div class="synth_body_header-details">
                         <h3>List 1</h3>
                         <invItem :itemImg="this.genArr1[0]['icon']" :itemName="this.genArr1[0]['name']"/>
@@ -240,7 +237,7 @@ export default {
         //Select item (Individual)
         selectIndividualItem(name) {
             this.selectedItem = [];
-            $('.synth_list').removeClass('selectedSynth');
+            $('.synth_display_body').removeClass('selectedSynth');
 
             //Grab the selector and make ACTIVE
             const y = this.getUniqueClass(name);
@@ -284,7 +281,7 @@ export default {
             } else if (list == 4) {
                 this.genArr4 = [];
             }
-
+            
             this.fetchCalledWeapon(this.selectedItem[0], this.selectedItem[1].slice(4),tr, list);
 
         },
@@ -294,6 +291,7 @@ export default {
 
                 if (type == 'armor' || type == 'accessories') {
                     var syn = this.displayArray[type].filter(function (e) { return e.name == nm })[0];
+                    
                 } else {
                     var syn = this.displayArray['weapons'].filter(function (e) { return e.name == nm })[0];
                 }
@@ -349,9 +347,7 @@ export default {
                 'prevent': false
             }
 
-            if (parent == name) {
-                obj['prevent'] = true;
-            }
+            if (parent == name) {obj['prevent'] = true;}
 
             return obj;
         },
@@ -443,9 +439,6 @@ export default {
                 this.genArr4.push(newArr);
             }
 
-            console.log(newArr)
-            console.log(list)
-
             for (let i = 0; i < synth.length; i++) {
                 if (synth[i] && !synth[i]['prevent'] && (
                         synth[i]['icon'] != 'inv-monster' && 
@@ -454,7 +447,7 @@ export default {
                             const nm = synth[i]['name'];
                             const tr = synth[i]['tier'];
                             const icon = synth[i]['icon'];
-                    this.fetchCalledWeapon(nm, icon, tr, list);
+                    this.fetchCalledWeapon(nm, icon.slice(4), tr, list);
                 }
             }
 

@@ -69,7 +69,7 @@
                         </div>
 
                         <div class="bind">
-                            <p v-if="arr['name'] == synth['name']">Cannot synthesize, but reforged</p>
+                            <p v-if="arr['name'] == synth['name']">Cannot synthesize; only reforged</p>
                             <p v-else-if="synth['id'] == '1'">Cannot synthesize</p>
                             <p v-else-if="!synth['title'] && !synth['source'] && !synth['buyg'] && !synth['buytp']">Synth Only</p>
                         </div>
