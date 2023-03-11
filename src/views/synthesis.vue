@@ -69,49 +69,27 @@
             </div>
 
 
-            <div class="synth_list generated list1" v-if="this.genArr1.length > 0">
+            <div class="synth_list list1" v-if="this.genArr1.length > 0">
                 <div class="synth_list_header">
-                    <div class="synth_body_header-details">
+
+                    <div class="synth_list_header-details">
                         <h3>List 1</h3>
                         <invItem :itemImg="this.genArr1[0]['icon']" :itemName="this.genArr1[0]['name']"/>
                     </div>
+
                     <button class="btn small" @click="clearLists(1)">Clear</button>
+                
+                    <ul class="synth-grid-4col">
+                        <li>Materials</li>
+                        <li>Action</li>
+                        <li>Treasure/Reward</li>
+                        <li>Shop cost</li>
+                    </ul>
                 </div>
                 <invItemGen :itemTr="this.genArr1"/>
             </div>
 
-            <div class="synth_body generated list2" v-if="this.genArr2.length > 0">
-                <div class="synth_body_header">
-                    <div class="synth_body_header-details">
-                        <h3>List 2</h3>
-                        <invItem :itemImg="this.genArr2[0]['icon']" :itemName="this.genArr2[0]['name']" />
-                    </div>
-                    <button class="btn small" @click="clearLists(2)">Clear</button>
-                </div>
-                <invItemGen :itemTr="this.genArr2"/>
-            </div>
 
-            <div class="synth_body generated list3" v-if="this.genArr3.length > 0">
-                <div class="synth_body_header">
-                    <div class="synth_body_header-details">
-                        <h3>List 3</h3>
-                        <invItem :itemImg="this.genArr3[0]['icon']" :itemName="this.genArr3[0]['name']" />
-                    </div>
-                    <button class="btn small" @click="clearLists(3)">Clear</button>
-                </div>
-                <invItemGen :itemTr="this.genArr3"/>
-            </div>
-
-            <div class="synth_body generated list4" v-if="this.genArr4.length > 0">
-                <div class="synth_body_header">
-                    <div class="synth_body_header-details">
-                        <h3>List 4</h3>
-                        <invItem :itemImg="this.genArr4[0]['icon']" :itemName="this.genArr4[0]['name']" />
-                    </div>
-                    <button class="btn small" @click="clearLists(4)">Clear</button>
-                </div>
-                <invItemGen :itemTr="this.genArr4"/>
-            </div>
 
             <div class="synth_body tips">
                 <h3>Tips</h3>

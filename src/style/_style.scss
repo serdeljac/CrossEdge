@@ -281,6 +281,12 @@ body {
     margin-left: 2px;
 }
 
+.synth-grid-4col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 250px;
+    width: 100%;
+}
+
 
 /************************************************************
     TITLES
@@ -1106,7 +1112,48 @@ body {
     }
 
     &_list {
-        
+        margin-top: 20px;
+        background-color: $sidebar-bg;
+        border-radius: 3px;
+        font-size: 1.2rem;
+        padding: 20px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+
+        &_header {
+            display: grid;
+            grid-template-columns: auto 120px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 10px;
+
+            &-details {
+                display: flex;
+
+                h3 {
+                    font-size: 2rem;
+                    margin-right: 20px;
+                }
+            }
+
+            ul {
+                grid-column: 1 / span 2;
+                margin-top: 20px;
+            }
+        }
+
+        &_group {
+            background-color: #3a0000;
+            padding: 6px 10px;
+            border-radius: 3px;
+
+            &-primary {
+                background: green;
+            }
+
+            &-secondary {
+                background: purple;
+            }
+        }
     }
 
 
@@ -1115,68 +1162,7 @@ body {
 
 
 
-    .genlist {
-
-
-
-        .active {
-            opacity: 0.1
-        }
-
-        .bind {
-            display: inline-flex;
-            align-items: center;
-            font-size: 1.2rem;
-            img {
-                height: 30px;
-            }
-        }
-
-        &_header, li {
-            display: grid;
-            grid-template-columns: 300px minmax(auto, 400px) minmax(auto, 400px) 100px;
-        }
-
-        &_header {
-            margin-top: 20px;
-            justify-items: center;
-        }
-
-        &_group {
-            margin-bottom: 20px;
-            img {
-                height: 20px;
-            }
-        }
-
-        .material {
-            margin-left: 20px;
-        }
-
-        .inv-name {
-            margin: 3px 0;
-            font-size: 1.2rem;
-            height: auto;
-            img {
-                height: 20px;
-            }
-        }
-
-        ul {
-            cursor: pointer;
-            transition: all .23s ease;
-            &:hover {
-                background-color: #050e33;
-            }
-        }
-
-
-        .error {
-            background-color: red;
-            padding: 2px 16px;
-            border-radius: 3px;
-        }
-    }
+ 
 }
 
 /************************************************************
