@@ -1,7 +1,8 @@
 <template>
     <div class="synth_list_group" v-for="arr in itemTr" :key="arr.id">
         <div v-if="arr['synth'][0] != ''">
-            <div class="synth_list_group-primary" v-if="!arr['synth'][0] == ''" :class="addUniqueClass(arr['name'], '', false)" v-bind:tier="arr['tier']">
+
+            <div class="synth_list_group-primary sel" v-if="!arr['synth'][0] == ''" :class="addUniqueClass(arr['name'], '', false)" v-bind:tier="arr['tier']">
                 <invItem :itemImg="arr['icon']" :itemName="arr['name']" />
             </div>
 
@@ -28,6 +29,30 @@ import $ from 'jquery';
         data() {
             return {
             }
+        },
+        mounted() {
+            $('sel').click(function() {
+
+                const currentTr = $(this).attr('tier');
+
+                $('.synth_list_group-primary').each(function() {
+                    const t = $(this).attr('tier');
+                    if (t == currentTr && $(this).hasClass('deact')) {
+                        $(this).removeClass('deact');
+                    } else if (t == currentTr) {
+                        $(this).addClass('deact');
+                    }
+                });
+
+                if ($(this).hasClass('deact')) {
+                    $(this).removeClass('deact');
+                }else {
+                    $(this).addClass('deact');
+                }
+            })
+            
+
+            
         },
         methods: {
             checkthis(par, name, tier) {

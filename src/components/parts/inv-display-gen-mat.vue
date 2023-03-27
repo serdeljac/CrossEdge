@@ -1,5 +1,5 @@
 <template>
-    <li class="synth-grid-4col" v-if="synth['name'] && (synth['icon'] == 'inv-monster' || synth['icon'] == 'inv-metal' || synth['icon'] == 'inv-item')">
+    <li class="synth-grid-4col sel" v-if="synth['name'] && (synth['icon'] == 'inv-monster' || synth['icon'] == 'inv-metal' || synth['icon'] == 'inv-item')" v-bind:tier="synth['tier']">
 
         <!-- Row 1 - Material -->
         <div class="bind">
@@ -34,7 +34,7 @@
             <p v-else>-</p>
         </div>
     </li>
-    <li class="synth-grid-4col" v-else-if="synth['name']">
+    <li class="synth-grid-4col sel" v-else-if="synth['name']" v-bind:tier="synth['tier']">
         <div class="bind">
             <invItem v-if="synth['name']" :itemImg="synth['icon']" :itemName="synth['name']" />
             <p v-else>ERROR FINDING MATERIAL</p>
@@ -67,7 +67,7 @@ import invItem from '@/components/parts/inv-display.vue';
         props: ['synth', 'arr'],
         components: { invItem },
         mounted() {
-            console.log(this.synth)
+            // console.log(this.synth)
         }
     }
 </script>

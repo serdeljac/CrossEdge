@@ -73,7 +73,7 @@
                 <div class="synth_list_header">
 
                     <div class="synth_list_header-details">
-                        <h3>List 1</h3>
+                        <h3>Creating 1 - </h3>
                         <invItem :itemImg="this.genArr1[0]['icon']" :itemName="this.genArr1[0]['name']"/>
                     </div>
 
@@ -91,7 +91,7 @@
 
 
 
-            <div class="synth_body tips">
+            <div class="synth_tips">
                 <h3>Tips</h3>
                 <ul>
                     <li>If there's a shop price, synthesisze ONCE to register it to shop.</li>
