@@ -1,5 +1,6 @@
 <template>
-    <li class="synth-grid-4col sel" v-if="synth['name'] && (synth['icon'] == 'inv-monster' || synth['icon'] == 'inv-metal' || synth['icon'] == 'inv-item')" v-bind:tier="synth['tier']">
+
+    <li v-if="synth['name'] && (synth['icon'] == 'inv-monster' || synth['icon'] == 'inv-metal' || synth['icon'] == 'inv-item')" indx place="sec" v-bind:tier="synth['tier']">
 
         <!-- Row 1 - Material -->
         <div class="bind">
@@ -34,7 +35,8 @@
             <p v-else>-</p>
         </div>
     </li>
-    <li class="synth-grid-4col sel" v-else-if="synth['name']" v-bind:tier="synth['tier']">
+
+    <li v-else-if="synth['name']" place="sec" v-bind:tier="synth['tier']">
         <div class="bind">
             <invItem v-if="synth['name']" :itemImg="synth['icon']" :itemName="synth['name']" />
             <p v-else>ERROR FINDING MATERIAL</p>
@@ -57,6 +59,7 @@
             <p v-else>-</p>
         </div>
     </li>
+
 </template>
 
 <script lang="ts">
@@ -66,8 +69,6 @@ import invItem from '@/components/parts/inv-display.vue';
         name: 'SynthesisMaterials',
         props: ['synth', 'arr'],
         components: { invItem },
-        mounted() {
-            // console.log(this.synth)
-        }
+
     }
 </script>

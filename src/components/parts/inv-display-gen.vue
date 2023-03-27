@@ -1,17 +1,15 @@
 <template>
     <div class="synth_list_group" v-for="arr in itemTr" :key="arr.id">
-        <div v-if="arr['synth'][0] != ''">
 
-            <div class="synth_list_group-primary sel" v-if="!arr['synth'][0] == ''" :class="addUniqueClass(arr['name'], '', false)" v-bind:tier="arr['tier']">
-                <invItem :itemImg="arr['icon']" :itemName="arr['name']" />
-            </div>
+        <ul v-if="arr['synth'][0] != ''" :class="addUniqueClass(arr['name'], '', false)">
 
-            <ul class="synth_list_group-secondary" >
-                <invItemMat v-for="synth in arr['synth']" :key="synth.id" :arr="arr" :synth="synth"/>
-            </ul>
-            
+            <li class="synth_list_group-primary sel" place="pri" v-bind:tier="arr['tier']">
+                <invItem :itemImg="arr['icon']" :itemName="arr['name']"/>
+            </li>
 
-        </div>
+            <invItemMat class="synth_list_group-secondary synth-grid-4col sel" v-for="synth in arr['synth']" :key="synth.id" :arr="arr" :synth="synth"/>
+
+        </ul>
 
     </div>
 
@@ -31,28 +29,60 @@ import $ from 'jquery';
             }
         },
         mounted() {
-            $('sel').click(function() {
+            $('.sel').click(function () {
 
-                const currentTr = $(this).attr('tier');
+                const sel = $(this);
+                const sel_place = sel.attr('place');
+                const sel_tier = sel.attr('tier');
+                const sel_class = sel.hasClass('deact');
+                const sel_mat = sel.attr('indx');
 
-                $('.synth_list_group-primary').each(function() {
-                    const t = $(this).attr('tier');
-                    if (t == currentTr && $(this).hasClass('deact')) {
-                        $(this).removeClass('deact');
-                    } else if (t == currentTr) {
-                        $(this).addClass('deact');
+                // console.log('Clicked - {Place: ' + sel_place + ', Tier: ' + sel_tier + ', hasClass: ' + sel_class + '}');
+
+                if (sel_place === 'pri') {
+
+                    // toggleList(sel, sel_class, sel_place);
+
+
+                } else if (sel_place === 'sec') {
+
+                    if (sel_mat !== undefined) {
+                        toggleList(sel, sel_class);
+                        return false;
                     }
-                });
 
-                if ($(this).hasClass('deact')) {
-                    $(this).removeClass('deact');
-                }else {
-                    $(this).addClass('deact');
+                    // toggleList(sel, sel_class);
+                    // checkWeapons(sel_tier);
+                }
+
+                function checkWeapons(tier) {
+                    $('.synth_list_group-primary').each(function() {
+
+                        const cur = $(this);
+                        const cur_tier = cur.attr('tier');
+                        const matchFound = cur_tier.includes(tier);
+
+                        if (matchFound) {
+                            const cur_class = cur.hasClass('deact');
+                            toggleList(cur, cur_class)
+                        }
+
+                    })
+                }
+
+                //Toggle Opacity
+                function toggleList(s, b, p) {
+                    if (b) {
+                        s.removeClass('deact');
+                    } else {
+                        s.addClass('deact');
+                    }
+
+                    if (p) {
+                        console.log('true')
+                    }
                 }
             })
-            
-
-            
         },
         methods: {
             checkthis(par, name, tier) {
@@ -105,7 +135,8 @@ import $ from 'jquery';
                 } else {
                     return child
                 }
-            }
+            },
+            
         },
     }
 </script>

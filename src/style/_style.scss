@@ -1156,9 +1156,11 @@ body {
 
             &-primary {
                 background-color: $synthPrimary;
-                padding: 5px 7px;
+                padding-top: 5px;
                 border-radius: 3px;
-                margin-bottom: 2px;
+                & > .inv-name {
+                    margin-bottom: 10px;
+                }
             }
 
             &-secondary {
