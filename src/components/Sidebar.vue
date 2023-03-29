@@ -33,7 +33,6 @@
                             <li @click="choosePage('inventory')">Inventory</li>
                             <li @click="choosePage('bestiary')">Bestiary</li>
                             <li class="null">Tool: Team Build</li>
-                            <li class="null">Tool: Synthesis Generator</li>
                             <li @click="choosePage('synthesis')">Tool: Synthesis Generator</li>
                         </ul>
                     </div>

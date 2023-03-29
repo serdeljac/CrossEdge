@@ -1,16 +1,12 @@
 <template>
     <div class="synth_list_group" v-for="arr in itemTr" :key="arr.id">
-
         <ul v-if="arr['synth'][0] != ''" :class="addUniqueClass(arr['name'], '', false)">
-
             <li class="synth_list_group-primary sel" place="pri" v-bind:tier="arr['tier']">
                 <invItem :itemImg="arr['icon']" :itemName="arr['name']"/>
             </li>
 
             <invItemMat class="synth_list_group-secondary synth-grid-4col sel" v-for="synth in arr['synth']" :key="synth.id" :arr="arr" :synth="synth"/>
-
         </ul>
-
     </div>
 
 </template>
@@ -37,12 +33,10 @@ import $ from 'jquery';
                 const sel_class = sel.hasClass('deact');
                 const sel_mat = sel.attr('indx');
 
-                // console.log('Clicked - {Place: ' + sel_place + ', Tier: ' + sel_tier + ', hasClass: ' + sel_class + '}');
-
                 if (sel_place === 'pri') {
 
-                    // toggleList(sel, sel_class, sel_place);
-
+                    toggleSub(sel_tier);
+                    complete();
 
                 } else if (sel_place === 'sec') {
 
@@ -50,38 +44,49 @@ import $ from 'jquery';
                         toggleList(sel, sel_class);
                         return false;
                     }
-
-                    // toggleList(sel, sel_class);
-                    // checkWeapons(sel_tier);
+                
+                    toggleList(sel, sel_class);
                 }
 
-                function checkWeapons(tier) {
-                    $('.synth_list_group-primary').each(function() {
-
+                //When weapon deacts/acts, check subsequent weapons and toggle 
+                function toggleSub(t) {
+                
+                    $('.synth_list_group-primary').each(function () {
                         const cur = $(this);
                         const cur_tier = cur.attr('tier');
-                        const matchFound = cur_tier.includes(tier);
+                        const cur_class = cur.hasClass('deact');
+                        const matchFound = cur_tier.includes(t);
 
-                        if (matchFound) {
-                            const cur_class = cur.hasClass('deact');
-                            toggleList(cur, cur_class)
+                        if (matchFound && cur_class) {
+                            toggleList(cur, true)
+                        } else if (matchFound && !cur_class) {
+                            toggleList(cur, false)
                         }
+                    });
 
-                    })
                 }
 
-                //Toggle Opacity
-                function toggleList(s, b, p) {
+                //Toggle Deactivate and Activate list item
+                function toggleList(s, b) {
                     if (b) {
                         s.removeClass('deact');
                     } else {
                         s.addClass('deact');
                     }
-
-                    if (p) {
-                        console.log('true')
-                    }
                 }
+
+                //If the primary is deactivated/activated, toggle it's synth materials equivilantly
+                function complete() {
+                    $('.synth_list_group-primary').each(function () {
+                        const cur = $(this);
+                        const cur_class = cur.hasClass('deact');
+                        const cur_list = cur.siblings('li');
+
+                        if (cur_class) { toggleList(cur_list, false) }
+                        else { toggleList(cur_list, true) }
+                    })
+                }
+
             })
         },
         methods: {
@@ -96,28 +101,6 @@ import $ from 'jquery';
                 } else {
                     materialSelect.addClass('active')
                 }
-
-
-
-
-                // const parentSel = $('.genlist_group' + '.' + child).attr('tier', tier);
-                // if (parentSel.hasClass('active')) {
-                //     parentSel.removeClass('active');
-                // } else {
-                //     parentSel.addClass('active');
-                //     const limit = $('.genlist_group').length;
-                    
-                //     for (let i = 1; i < (limit + 1); i++) {
-                //         console.log(i);
-                //         const chk = $('.genlist:nth-of-type(' + (i + 1) + ') .genlist_group').attr('tier')
-                        
-                //         console.log(tier, chk)
-
-                //         if (tier == chk) {
-                //             console.log('ok')
-                //         }
-                //     }
-                // }
             },
             addUniqueClass(par, name, request) {
 
