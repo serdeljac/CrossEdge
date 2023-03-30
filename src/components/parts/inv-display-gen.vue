@@ -5,7 +5,7 @@
                 <invItem :itemImg="arr['icon']" :itemName="arr['name']"/>
             </li>
 
-            <invItemMat class="synth_list_group-secondary synth-grid-4col sel" v-for="synth in arr['synth']" :key="synth.id" :arr="arr" :synth="synth"/>
+            <invItemMat class="synth_list_group-secondary synth-grid-2col sel" v-for="synth in arr['synth']" :key="synth.id" :arr="arr" :synth="synth"/>
         </ul>
     </div>
 
@@ -25,7 +25,7 @@ import $ from 'jquery';
             }
         },
         mounted() {
-            $('.sel').click(function () {
+            $('.selnull').click(function () {
 
                 const sel = $(this);
                 const sel_place = sel.attr('place');
@@ -36,7 +36,7 @@ import $ from 'jquery';
                 if (sel_place === 'pri') {
 
                     toggleSub(sel_tier);
-                    complete();
+                    // complete();
 
                 } else if (sel_place === 'sec') {
 
@@ -59,8 +59,10 @@ import $ from 'jquery';
 
                         if (matchFound && cur_class) {
                             toggleList(cur, true)
+                            cur.siblings('li').removeClass('deact');
                         } else if (matchFound && !cur_class) {
                             toggleList(cur, false)
+                            cur.siblings('li').addClass('deact');
                         }
                     });
 

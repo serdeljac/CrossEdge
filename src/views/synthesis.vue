@@ -78,12 +78,6 @@
 
                     <button class="btn small" @click="clearLists(1)">Clear</button>
                 
-                    <ul class="synth-grid-4col">
-                        <li>Materials</li>
-                        <li>Action</li>
-                        <li>Treasure/Reward</li>
-                        <li>Shop cost</li>
-                    </ul>
                 </div>
                 <invItemGen :itemTr="this.genArr1"/>
             </div>
@@ -151,10 +145,10 @@
             <div class="synth_tips">
                 <h3>Tips</h3>
                 <ul>
+                    <li>SAVE OFTEN!!</li>
+                    <li>The probability of unsuccessful synthesis is about 5-10%.</li>
                     <li>If there's a shop price, synthesisze ONCE to register it to shop.</li>
                     <li>The higher Marie's level, the better the grade to improve stats!</li>
-                    <li>I assume the probability of unsuccessful synthesis is about 5-10%.</li>
-                    <li>Save game before synthesizing higher tier weapons.</li>
                     <li>Some materials can only be aquired via titles/treasures/soul rewards.</li>
                     <li>This may require multiple playthroughs.</li>
                 </ul>
@@ -382,7 +376,8 @@ export default {
                 'prevent': false
             }
 
-            if (parent == name) {obj['prevent'] = true;}
+            if (parent == name || obj['buyg'] > 0 || obj['buytp'] > 0) {obj['prevent'] = true;}
+            console.log(obj)
 
             return obj;
         },
@@ -475,10 +470,12 @@ export default {
             }
 
             for (let i = 0; i < synth.length; i++) {
+                
                 if (synth[i] && !synth[i]['prevent'] && (
                         synth[i]['icon'] != 'inv-monster' && 
                         synth[i]['icon'] != 'inv-metal' &&
-                        synth[i]['icon'] != 'inv-item')) {
+                        synth[i]['icon'] != 'inv-item') &&
+                        synth[i]['buyg'] == 0) {
                             const nm = synth[i]['name'];
                             const tr = synth[i]['tier'];
                             const icon = synth[i]['icon'];
