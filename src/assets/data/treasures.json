@@ -1,5 +1,5 @@
 [
-{"type":"header","version":"4.9.7","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"header","version":"4.9.11","comment":"Export to JSON plugin for PHPMyAdmin"},
 {"type":"database","name":"stjepane_crossedge"},
 {"type":"table","name":"treasures","database":"stjepane_crossedge","data":
 [
@@ -57,10 +57,10 @@
 {"ID":"w114","target":"Soul Reward","location":"wilkiet-1","soul":"14","treasure1":"Harpoon","treasure2":"Blessing Leaf","treasure3":"AGI Up"},
 {"ID":"w115","target":"Soul Reward","location":"wilkiet-1","soul":"15","treasure1":"Suzaku Ring","treasure2":"Damuscite","treasure3":""},
 {"ID":"w116","target":"Soul Reward","location":"wilkiet-1","soul":"16","treasure1":"Piledriver","treasure2":"Potent Grass","treasure3":"Silver Bar"},
-{"ID":"w201","target":"Soul Reward","location":"wilkiet-2","soul":"1","treasure1":"Grass","treasure2":"Shaman Herb","treasure3":"Stardust"},
+{"ID":"w201","target":"Soul Reward","location":"wilkiet-2","soul":"1","treasure1":"Grass","treasure2":"Shaman Herb","treasure3":"Stardust (A)"},
 {"ID":"w202","target":"Soul Reward","location":"wilkiet-2","soul":"2","treasure1":"Potent Grass","treasure2":"Max HP Up","treasure3":"Ice Element"},
 {"ID":"w203","target":"Soul Reward","location":"wilkiet-2","soul":"3","treasure1":"Ice Guard","treasure2":"Silver Bar","treasure3":"Serum Powder"},
-{"ID":"w204","target":"Soul Reward","location":"wilkiet-2","soul":"4","treasure1":"Earth Guard","treasure2":"AGI Up","treasure3":"Stardust"},
+{"ID":"w204","target":"Soul Reward","location":"wilkiet-2","soul":"4","treasure1":"Earth Guard","treasure2":"AGI Up","treasure3":"Stardust (A)"},
 {"ID":"w205","target":"Soul Reward","location":"wilkiet-2","soul":"5","treasure1":"Battle Shield","treasure2":"Crescent Moon Stone","treasure3":"Startdust"},
 {"ID":"w206","target":"Soul Reward","location":"wilkiet-2","soul":"6","treasure1":"Thunder Guard","treasure2":"Book of Rebirth","treasure3":"Thunder Element"},
 {"ID":"w207","target":"Soul Reward","location":"wilkiet-2","soul":"7","treasure1":"Soulseal Bangle","treasure2":"Platinum Ore","treasure3":"Shaman Herb"},
@@ -95,7 +95,7 @@
 {"ID":"b108","target":"Soul Reward","location":"brosste-1","soul":"8","treasure1":"Blind Guard","treasure2":"Potent Grass","treasure3":"Holy Element"},
 {"ID":"b109","target":"Soul Reward","location":"brosste-1","soul":"9","treasure1":"Healing Staff","treasure2":"Potent Grass","treasure3":"Sun Key"},
 {"ID":"b110","target":"Soul Reward","location":"brosste-1","soul":"10","treasure1":"Holy Symbol","treasure2":"Max HP up","treasure3":"Blessing Leaf"},
-{"ID":"b111","target":"Soul Reward","location":"brosste-1","soul":"11","treasure1":"Hard Shell","treasure2":"Evil Eye","treasure3":"Stardust"},
+{"ID":"b111","target":"Soul Reward","location":"brosste-1","soul":"11","treasure1":"Hard Shell","treasure2":"Evil Eye","treasure3":"Stardust (A)"},
 {"ID":"b112","target":"Soul Reward","location":"brosste-1","soul":"12","treasure1":"Bird's Eye","treasure2":"VIT Up","treasure3":""},
 {"ID":"b113","target":"Soul Reward","location":"brosste-1","soul":"13","treasure1":"Magic Frame","treasure2":"INT Up","treasure3":"Blessing Nut"},
 {"ID":"b114","target":"Soul Reward","location":"brosste-1","soul":"14","treasure1":"Floating Stone","treasure2":"Grassen Ore","treasure3":""},
@@ -299,7 +299,7 @@
 {"ID":"","target":"Treasure","location":"Nachtlark","soul":"DLC","treasure1":"Blessing Nut","treasure2":"","treasure3":""},
 {"ID":"","target":"Treasure","location":"Nachtlark","soul":"DLC","treasure1":"Heart Stone","treasure2":"","treasure3":""},
 {"ID":"","target":"Treasure","location":"Nachtlark","soul":"DLC","treasure1":"Platinum Ore","treasure2":"","treasure3":""},
-{"ID":"","target":"Treasure","location":"Nachtlark","soul":"DLC","treasure1":"Stardust","treasure2":"","treasure3":""},
+{"ID":"","target":"Treasure","location":"Nachtlark","soul":"DLC","treasure1":"Stardust (A)","treasure2":"","treasure3":""},
 {"ID":"","target":"Treasure","location":"Nachtlark","soul":"DLC","treasure1":"Book of Rebirth","treasure2":"","treasure3":""},
 {"ID":"","target":"Treasure","location":"Nachtlark","soul":"DLC","treasure1":"Lake Crystal","treasure2":"","treasure3":""},
 {"ID":"","target":"Treasure","location":"Nachtlark","soul":"DLC","treasure1":"Broken Reef","treasure2":"","treasure3":""},

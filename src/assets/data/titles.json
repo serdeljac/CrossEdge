@@ -1,5 +1,5 @@
 [
-{"type":"header","version":"4.9.7","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"header","version":"4.9.11","comment":"Export to JSON plugin for PHPMyAdmin"},
 {"type":"database","name":"stjepane_crossedge"},
 {"type":"table","name":"titles","database":"stjepane_crossedge","data":
 [
@@ -119,7 +119,7 @@
 {"ID":"114","category":"accum_synth","name":"The Synth Freak","requirement":"Perform 100 Syntheses","req2":"","req3":"","req4":"","req5":"","req6":"","reward1":"Heart of Atlas","reward2":"Moonlight Beauty","reward3":"Sagestone","gold":"10000","ep":"4","tp":"20"},
 {"ID":"115","category":"accum_synth","name":"The Alchemist","requirement":"Perform 200 Syntheses","req2":"","req3":"","req4":"","req5":"","req6":"","reward1":"Holy Morning Mist x2","reward2":"Seed of Happiness","reward3":"Sagestone","gold":"20000","ep":"6","tp":"30"},
 {"ID":"116","category":"accum_synth","name":"The Alchemy Czar","requirement":"Perform 300 Syntheses","req2":"","req3":"","req4":"","req5":"","req6":"","reward1":"Shining Fang","reward2":"Jewelry Branch","reward3":"Sagestone","gold":"30000","ep":"8","tp":"40"},
-{"ID":"117","category":"accum_synth","name":"The Master Alchemist","requirement":"Perform 500 Syntheses","req2":"","req3":"","req4":"","req5":"","req6":"","reward1":"Stardust","reward2":"Sorcerer's Tome","reward3":"Secret Album 12","gold":"50000","ep":"10","tp":"50"},
+{"ID":"117","category":"accum_synth","name":"The Master Alchemist","requirement":"Perform 500 Syntheses","req2":"","req3":"","req4":"","req5":"","req6":"","reward1":"Stardust (B)","reward2":"Sorcerer's Tome","reward3":"Secret Album 12","gold":"50000","ep":"10","tp":"50"},
 {"ID":"118","category":"accum_upgrades","name":"The Cheapskate","requirement":"Perform 100 upgrades","req2":"","req3":"","req4":"","req5":"","req6":"","reward1":"INT Up","reward2":"LCK Up","reward3":"Aerorite","gold":"5000","ep":"2","tp":"10"},
 {"ID":"119","category":"accum_upgrades","name":"The Recyclist","requirement":"Perform 200 upgrades","req2":"","req3":"","req4":"","req5":"","req6":"","reward1":"Giant Bone x2","reward2":"Imp Wings x2","reward3":"Grassen Ore","gold":"15000","ep":"4","tp":"20"},
 {"ID":"120","category":"accum_upgrades","name":"The Green Monster","requirement":"Perform 300 upgrades","req2":"","req3":"","req4":"","req5":"","req6":"","reward1":"Welcoming Cat x2","reward2":"Magician Armor x2","reward3":"Spirit Stone","gold":"30000","ep":"6","tp":"30"},

@@ -1,5 +1,5 @@
 [
-{"type":"header","version":"4.9.7","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"header","version":"4.9.11","comment":"Export to JSON plugin for PHPMyAdmin"},
 {"type":"database","name":"stjepane_crossedge"},
 {"type":"table","name":"collections_items","database":"stjepane_crossedge","data":
 [
@@ -66,7 +66,7 @@
 {"ID":"61","name":"Gravistone","icon":"inv-item","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"8","find_event":"","find_title":"","find_other":""},
 {"ID":"62","name":"Regenstone","icon":"inv-item","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"10","find_event":"","find_title":"","find_other":""},
 {"ID":"63","name":"Cannonite","icon":"inv-item","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"15","find_event":"","find_title":"","find_other":""},
-{"ID":"64","name":"Stardust","icon":"inv-item","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"20","find_event":"","find_title":"","find_other":""},
+{"ID":"64","name":"Stardust (A)","icon":"inv-item","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"20","find_event":"","find_title":"","find_other":""},
 {"ID":"65","name":"Thunderhead Stone","icon":"inv-item","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"25","find_event":"","find_title":"","find_other":""},
 {"ID":"66","name":"Lake Crystal","icon":"inv-item","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"30","find_event":"","find_title":"","find_other":""},
 {"ID":"67","name":"Millenium Shell","icon":"inv-item","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"40","find_event":"","find_title":"","find_other":""},
@@ -267,7 +267,7 @@
 {"ID":"262","name":"Alpha Parts","icon":"inv-monster","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"","find_event":"","find_title":"","find_other":""},
 {"ID":"263","name":"Beta Parts","icon":"inv-monster","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"","find_event":"","find_title":"","find_other":""},
 {"ID":"264","name":"Gamma Parts","icon":"inv-monster","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"","find_event":"","find_title":"","find_other":""},
-{"ID":"265","name":"Shining Blade","icon":"inv-monster","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"","find_event":"","find_title":"","find_other":"Convert Rusty Blade"},
+{"ID":"265","name":"Shining Blade","icon":"inv-monster","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"","find_event":"","find_title":"","find_other":""},
 {"ID":"266","name":"Hard Blade","icon":"inv-monster","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"","find_event":"","find_title":"","find_other":""},
 {"ID":"267","name":"Short Blade","icon":"inv-monster","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"","find_event":"","find_title":"","find_other":""},
 {"ID":"268","name":"Double-edged Blade","icon":"inv-monster","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"","find_event":"","find_title":"","find_other":""},
@@ -491,9 +491,9 @@
 {"ID":"486","name":"Cat's Whiskers","icon":"inv-monster","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"","find_event":"","find_title":"","find_other":""},
 {"ID":"487","name":"Nirvana Scroll","icon":"inv-monster","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"","find_event":"","find_title":"","find_other":""},
 {"ID":"488","name":"Heaven's Gate","icon":"inv-monster","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"","find_event":"","find_title":"","find_other":""},
-{"ID":"489","name":"Sorcerer's Tome","icon":"inv-monster","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"","find_event":"","find_title":"","find_other":""},
+{"ID":"489","name":"Stardust (B)","icon":"inv-monster","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"","find_event":"","find_title":"","find_other":""},
 {"ID":"490","name":"Divine Stone","icon":"inv-monster","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"","find_event":"","find_title":"","find_other":""},
-{"ID":"491","name":"","icon":"inv-monster","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"","find_event":"","find_title":"","find_other":""},
+{"ID":"491","name":"Sorcerer's Tome","icon":"inv-monster","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"","find_event":"","find_title":"","find_other":""},
 {"ID":"492","name":"Rose Emblem","icon":"inv-monster","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"","find_event":"","find_title":"","find_other":""},
 {"ID":"493","name":"King's Soul","icon":"inv-monster","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"","find_event":"","find_title":"","find_other":""},
 {"ID":"494","name":"Rig Veda","icon":"inv-monster","synth_cost":"","synth_item1":"","synth_item2":"","synth_item3":"","synth_item4":"","cost_g":"","cost_tp":"","find_event":"","find_title":"","find_other":""},

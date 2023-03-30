@@ -1,5 +1,5 @@
 [
-{"type":"header","version":"4.9.7","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"header","version":"4.9.11","comment":"Export to JSON plugin for PHPMyAdmin"},
 {"type":"database","name":"stjepane_crossedge"},
 {"type":"table","name":"souls","database":"stjepane_crossedge","data":
 [
@@ -57,10 +57,10 @@
 {"ID":"w114","target":"Soul Reward","location":"wilkiet-1","soul":"14","shortcode":"","treasure1":"Harpoon","qty1":"1","type1":"weapon","treasure2":"Blessing Leaf","qty2":"2","type2":"item","treasure3":"AGI Up","qty3":"1","type3":"item"},
 {"ID":"w115","target":"Soul Reward","location":"wilkiet-1","soul":"15","shortcode":"","treasure1":"Suzaku Ring","qty1":"1","type1":"accessory","treasure2":"Damuscite","qty2":"2","type2":"material","treasure3":"","qty3":"","type3":""},
 {"ID":"w116","target":"Soul Reward","location":"wilkiet-1","soul":"16","shortcode":"","treasure1":"Piledriver","qty1":"1","type1":"weapon","treasure2":"Potent Grass","qty2":"2","type2":"item","treasure3":"Silver Bar","qty3":"2","type3":"material"},
-{"ID":"w201","target":"Soul Reward","location":"wilkiet-2","soul":"1","shortcode":"","treasure1":"Grass","qty1":"2","type1":"item","treasure2":"Shaman Herb","qty2":"2","type2":"item","treasure3":"Stardust","qty3":"2","type3":"material"},
+{"ID":"w201","target":"Soul Reward","location":"wilkiet-2","soul":"1","shortcode":"","treasure1":"Grass","qty1":"2","type1":"item","treasure2":"Shaman Herb","qty2":"2","type2":"item","treasure3":"Stardust (A)","qty3":"2","type3":"material"},
 {"ID":"w202","target":"Soul Reward","location":"wilkiet-2","soul":"2","shortcode":"","treasure1":"Potent Grass","qty1":"2","type1":"item","treasure2":"Max HP Up","qty2":"1","type2":"item","treasure3":"Ice Element","qty3":"2","type3":"material"},
 {"ID":"w203","target":"Soul Reward","location":"wilkiet-2","soul":"3","shortcode":"","treasure1":"Ice Guard","qty1":"1","type1":"armor","treasure2":"Silver Bar","qty2":"2","type2":"material","treasure3":"Serum Powder","qty3":"1","type3":"item"},
-{"ID":"w204","target":"Soul Reward","location":"wilkiet-2","soul":"4","shortcode":"","treasure1":"Earth Guard","qty1":"1","type1":"armor","treasure2":"AGI Up","qty2":"1","type2":"item","treasure3":"Stardust","qty3":"2","type3":"material"},
+{"ID":"w204","target":"Soul Reward","location":"wilkiet-2","soul":"4","shortcode":"","treasure1":"Earth Guard","qty1":"1","type1":"armor","treasure2":"AGI Up","qty2":"1","type2":"item","treasure3":"Stardust (A)","qty3":"2","type3":"material"},
 {"ID":"w205","target":"Soul Reward","location":"wilkiet-2","soul":"5","shortcode":"","treasure1":"Battle Shield","qty1":"1","type1":"armor","treasure2":"Crescent Moon Stone","qty2":"1","type2":"material","treasure3":"Startdust","qty3":"3","type3":"material"},
 {"ID":"w206","target":"Soul Reward","location":"wilkiet-2","soul":"6","shortcode":"","treasure1":"Thunder Guard","qty1":"1","type1":"armor","treasure2":"Book of Rebirth","qty2":"1","type2":"material","treasure3":"Thunder Element","qty3":"2","type3":"material"},
 {"ID":"w207","target":"Soul Reward","location":"wilkiet-2","soul":"7","shortcode":"","treasure1":"Soulseal Bangle","qty1":"1","type1":"armor","treasure2":"Platinum Ore","qty2":"2","type2":"material","treasure3":"Shaman Herb","qty3":"2","type3":"item"},
@@ -95,7 +95,7 @@
 {"ID":"b108","target":"Soul Reward","location":"brosste-1","soul":"8","shortcode":"","treasure1":"Blind Guard","qty1":"1","type1":"armor","treasure2":"Potent Grass","qty2":"2","type2":"item","treasure3":"Holy Element","qty3":"2","type3":"material"},
 {"ID":"b109","target":"Soul Reward","location":"brosste-1","soul":"9","shortcode":"","treasure1":"Healing Staff","qty1":"1","type1":"weapon","treasure2":"Potent Grass","qty2":"2","type2":"item","treasure3":"Sun Key","qty3":"1","type3":"material"},
 {"ID":"b110","target":"Soul Reward","location":"brosste-1","soul":"10","shortcode":"","treasure1":"Holy Symbol","qty1":"1","type1":"armor","treasure2":"Max HP up","qty2":"1","type2":"item","treasure3":"Blessing Leaf","qty3":"2","type3":"item"},
-{"ID":"b111","target":"Soul Reward","location":"brosste-1","soul":"11","shortcode":"","treasure1":"Hard Shell","qty1":"1","type1":"armor","treasure2":"Evil Eye","qty2":"1","type2":"material","treasure3":"Stardust","qty3":"3","type3":"material"},
+{"ID":"b111","target":"Soul Reward","location":"brosste-1","soul":"11","shortcode":"","treasure1":"Hard Shell","qty1":"1","type1":"armor","treasure2":"Evil Eye","qty2":"1","type2":"material","treasure3":"Stardust (A)","qty3":"3","type3":"material"},
 {"ID":"b112","target":"Soul Reward","location":"brosste-1","soul":"12","shortcode":"","treasure1":"Bird's Eye","qty1":"1","type1":"armor","treasure2":"VIT Up","qty2":"1","type2":"item","treasure3":"","qty3":"","type3":""},
 {"ID":"b113","target":"Soul Reward","location":"brosste-1","soul":"13","shortcode":"","treasure1":"Magic Frame","qty1":"1","type1":"armor","treasure2":"INT Up","qty2":"1","type2":"item","treasure3":"Blessing Nut","qty3":"2","type3":"item"},
 {"ID":"b114","target":"Soul Reward","location":"brosste-1","soul":"14","shortcode":"","treasure1":"Floating Stone","qty1":"1","type1":"accessory","treasure2":"Grassen Ore","qty2":"2","type2":"material","treasure3":"","qty3":"","type3":""},
