@@ -135,42 +135,42 @@
                         </div>
                 </div>
 
-                <div class="inventory_list" v-if="categorySelect == 'items'" v-for="data in itemsArray" :key="data.ID"
+                <div class="inventory_list" @click="toggle(getUniqueClass(data.name))" v-if="categorySelect == 'items'" v-for="data in itemsArray" :key="data.ID"
                         :class="getUniqueClass(data.name)">
 
-                            <p>{{ data.ID }}</p>
+                    <p>{{ data.ID }}</p>
 
-                            <invItem :itemImg="data.icon" :itemName="data.name" />
+                    <invItem :itemImg="data.icon" :itemName="data.name" />
 
-                            <div>
-                                <p v-if="data.cost_g || data.cost_tp">YES</p>
-                                <p v-else>NO</p>
-                            </div>
-
-                            <div>
-                                <p v-if="data.synth_cost">{{ data.synth_cost }}<span class="currency">g</span></p>
-                                <p v-else>-</p>
-                            </div>
-
-                            <div>
-                                <p v-if="data.cost_g">{{ data.cost_g }}<span class="currency">g</span></p>
-                                <p v-else>-</p>
-                            </div>
-
-                            <div>
-                                <p v-if="data.cost_tp">{{ data.cost_tp }}<span class="currency">tp</span></p>
-                                <p v-else>-</p>
-                            </div>
-
-                            <div v-if="!data.cost_tp">
-                                <p v-if="data.find_other">{{ data.find_other }}</p>
-                                <p v-else-if="data.find_event">After Event #{{ data.find_event }}</p>
-                                <p v-else>{{ searchResources(data.name) }}</p>
-                            </div>
-                            <div v-else>
-                                <p>-</p>
-                            </div>
+                    <div>
+                        <p v-if="data.cost_g || data.cost_tp">YES</p>
+                        <p v-else>NO</p>
                     </div>
+
+                    <div>
+                        <p v-if="data.synth_cost">{{ data.synth_cost }}<span class="currency">g</span></p>
+                        <p v-else>-</p>
+                    </div>
+
+                    <div>
+                        <p v-if="data.cost_g">{{ data.cost_g }}<span class="currency">g</span></p>
+                        <p v-else>-</p>
+                    </div>
+
+                    <div>
+                        <p v-if="data.cost_tp">{{ data.cost_tp }}<span class="currency">tp</span></p>
+                        <p v-else>-</p>
+                    </div>
+
+                    <div v-if="!data.cost_tp">
+                        <p v-if="data.find_other">{{ data.find_other }}</p>
+                        <p v-else-if="data.find_event">After Event #{{ data.find_event }}</p>
+                        <p v-else>{{ searchResources(data.name) }}</p>
+                    </div>
+                    <div v-else>
+                        <p>-</p>
+                    </div>
+                </div>
 
             </div>
         </div>
@@ -190,6 +190,7 @@ import treasList from '@/assets/data/treasures.json';
 import titleList from '@/assets/data/titles.json';
 import bestiList from '@/assets/data/bestiary.json';
 import activList from '@/assets/data/active.json';
+import $ from 'jquery';
 
 export default {
     name: "inventoryList",
@@ -207,6 +208,21 @@ export default {
 
             categorySelect: 'weapons',
         }
+    },
+    mounted() {
+
+        // $('.sel').click(function() {
+
+        //     const sel = $(this);
+        //     const sel_class = sel.hasClass('active')
+        //     if(!sel_class) {
+        //         sel.addClass('active');
+        //     }else {
+        //         sel.removeClass('active');
+        //     }
+            
+        // })
+
     },
     methods: {
         selectCat(x) {
@@ -271,6 +287,16 @@ export default {
                     return '-';
             }
 
+        },
+        toggle(cls) {
+
+            var sel = $('.' + cls);
+
+            if (sel.hasClass('active')) {
+                sel.removeClass('active');
+            }else {
+                sel.addClass('active');
+            }
         },
 
 
