@@ -1,11 +1,18 @@
 <template>
     <div class="synth_list_group" v-for="arr in itemTr" :key="arr.id">
         <ul v-if="arr['synth'][0] != ''" :class="addUniqueClass(arr['name'], '', false)">
-            <li class="synth_list_group-primary sel" place="pri" v-bind:tier="arr['tier']">
+            <li class="synth_list_group-primary sel" place="pri" :list="arr['list']" v-bind:tier="arr['list'] + arr['tier']">
                 <invItem :itemImg="arr['icon']" :itemName="arr['name']"/>
             </li>
 
-            <invItemMat class="synth_list_group-secondary synth-grid-2col sel" v-for="synth in arr['synth']" :key="synth.id" :arr="arr" :synth="synth"/>
+            <invItemMat 
+                class="synth_list_group-secondary synth-grid-2col sel"
+                v-for="synth in arr['synth']"
+                :key="synth.id"
+                :arr="arr"
+                :synth="synth"
+                :list="arr['list']"/>
+
         </ul>
     </div>
 
@@ -20,12 +27,8 @@ import $ from 'jquery';
         name: 'Image&Name',
         props: ['itemTr'],
         components: {invItem, invItemMat},
-        data() {
-            return {
-            }
-        },
         mounted() {
-            $('.selnull').click(function () {
+            $('.sel').click(function () {
 
                 const sel = $(this);
                 const sel_place = sel.attr('place');
@@ -33,63 +36,43 @@ import $ from 'jquery';
                 const sel_class = sel.hasClass('deact');
                 const sel_mat = sel.attr('indx');
 
-                if (sel_place === 'pri') {
-
-                    toggleSub(sel_tier);
-                    // complete();
-
-                } else if (sel_place === 'sec') {
-
-                    if (sel_mat !== undefined) {
-                        toggleList(sel, sel_class);
-                        return false;
-                    }
+                if (sel_place === 'pri') {toggleSub(sel_tier);} 
                 
+                else if (sel_place === 'sec') {
+
+                    if (sel_mat !== undefined) {toggleList(sel, sel_class); return false;}
                     toggleList(sel, sel_class);
                 }
 
-                //When weapon deacts/acts, check subsequent weapons and toggle 
-                function toggleSub(t) {
-                
-                    $('.synth_list_group-primary').each(function () {
-                        const cur = $(this);
-                        const cur_tier = cur.attr('tier');
-                        const cur_class = cur.hasClass('deact');
-                        const matchFound = cur_tier.includes(t);
 
-                        if (matchFound && cur_class) {
-                            toggleList(cur, true)
-                            cur.siblings('li').removeClass('deact');
-                        } else if (matchFound && !cur_class) {
-                            toggleList(cur, false)
-                            cur.siblings('li').addClass('deact');
-                        }
-                    });
 
-                }
-
-                //Toggle Deactivate and Activate list item
-                function toggleList(s, b) {
-                    if (b) {
-                        s.removeClass('deact');
-                    } else {
-                        s.addClass('deact');
-                    }
-                }
-
-                //If the primary is deactivated/activated, toggle it's synth materials equivilantly
-                function complete() {
-                    $('.synth_list_group-primary').each(function () {
-                        const cur = $(this);
-                        const cur_class = cur.hasClass('deact');
-                        const cur_list = cur.siblings('li');
-
-                        if (cur_class) { toggleList(cur_list, false) }
-                        else { toggleList(cur_list, true) }
-                    })
-                }
 
             })
+
+            //When weapon deacts/acts, check subsequent weapons and toggle 
+            function toggleSub(t) {
+                $('.synth_list_group-primary').each(function () {
+                    const cur = $(this);
+                    const cur_tier = cur.attr('tier');
+                    const cur_class = cur.hasClass('deact');
+                    const matchFound = cur_tier.includes(t);
+                    if (matchFound && !cur_class) {
+                        toggleList(cur, false)
+                        cur.siblings('li').addClass('deact');
+                    }
+                });
+            }
+
+            //Toggle Deactivate and Activate list item
+            function toggleList(s, b) {
+                if (b) {
+                    s.removeClass('deact');
+                } else {
+                    s.addClass('deact');
+                }
+            }
+
+
         },
         methods: {
             checkthis(par, name, tier) {

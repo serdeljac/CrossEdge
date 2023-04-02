@@ -1,5 +1,5 @@
 <template>
-    <li v-if="synth['name'] && (synth['icon'] == 'inv-monster' || synth['icon'] == 'inv-metal' || synth['icon'] == 'inv-item')" indx place="sec" v-bind:tier="synth['tier']">
+    <li v-if="synth['name'] && (synth['icon'] == 'inv-monster' || synth['icon'] == 'inv-metal' || synth['icon'] == 'inv-item')" indx place="sec" v-bind:tier="list + synth['tier']" :list="list">
 
         <div class="bind">
             <invItem :itemImg="synth['icon']" :itemName="synth['name']" />
@@ -13,6 +13,7 @@
                 <router-link :to="{ name: synth['monster'][1], params: { selectedMap: synth['monster'][1] } }" target="_blank">
                     {{ synth['monster'][1] }}
                 </router-link>
+                in {{ synth['monster'][4] }}
             </p>
             <p v-else-if="synth['title'] || synth['source']">Find via Treasure/Reward</p>
             <p v-else-if="synth['source']">{{ synth['source'] }}</p>
@@ -20,7 +21,7 @@
         </div>
     </li>
 
-    <li v-else-if="synth['name']" place="sec" v-bind:tier="synth['tier']">
+    <li v-else-if="synth['name']" place="sec" :list="list" v-bind:tier="list + synth['tier']">
 
         <div class="bind">
             <invItem :itemImg="synth['icon']" :itemName="synth['name']" />
@@ -46,7 +47,7 @@ import invItem from '@/components/parts/inv-display.vue';
 
     export default {
         name: 'SynthesisMaterials',
-        props: ['synth', 'arr'],
+        props: ['synth', 'arr', 'list'],
         components: { invItem },
     }
 </script>
