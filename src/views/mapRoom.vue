@@ -105,6 +105,13 @@
                     <div class="mapblock-img"></div>
                 </div>
             </section>
+
+            <section class="mapblock ida3">
+                <h3>Ida 3</h3>
+                <div class="mapblock-contain" @click="chooseMap('ida-3')">
+                    <div class="mapblock-img"></div>
+                </div>
+            </section>
         </div>
     </div>
 </template>

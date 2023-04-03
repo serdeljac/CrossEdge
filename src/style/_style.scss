@@ -503,7 +503,6 @@ body {
             }
         }
 
-
         &-img {
             width: 350px;
             height: 270px;
@@ -574,6 +573,10 @@ body {
         }
         &.ida2 .mapblock-img {
             background-image: url(@/assets/maps/Ida_2.jpg);
+            background-position: center;
+        }
+        &.ida3 .mapblock-img {
+            background-image: url(@/assets/maps/Ida_3.jpg);
             background-position: center;
         }
         
