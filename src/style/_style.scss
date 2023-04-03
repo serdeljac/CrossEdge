@@ -1353,44 +1353,7 @@ body {
         height: 100%;
     }
 
-    .header {
-        display: flex;
-        justify-content: space-between;
-        padding: 20px 0 40px;
 
-        &__title {
-            display: inline-flex;
-        }
-
-        &__logo {
-            width: 40px;
-            border-radius: 20px;
-        }
-
-        &__site {
-            color: #fff;
-            font-size: 2rem;
-            margin-left: 20px;
-        }
-
-        &__button {
-            width: 45px;
-            padding-top: 7px;
-        }
-
-        &__menu {
-            cursor: pointer;
-            transition: all .23s ease;
-            position: absolute;
-            width: 40px;
-            left: 250px;
-            z-index: 999;
-
-            rect {
-                fill: #fff;
-            }
-        }
-    }
 
     .wrapper-scroll {
         height: calc(100vh - 80px);
@@ -1410,13 +1373,20 @@ body {
         }
     }
 
-    .subheader h2 {
-        color: #fff;
-        text-align: center;
-        font-weight: 300;
-        font-size: 3rem;
-        margin-top: 20px;
-        cursor: pointer;
+    .title {
+        h2 {
+            color: #fff;
+            text-align: center;
+            font-weight: 300;
+            font-size: 3rem;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        h4 {
+            color: #fff;
+            text-align: center;
+            font-size: 1.5rem;
+        }
     }
 
     hr {

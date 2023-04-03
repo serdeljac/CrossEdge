@@ -17,16 +17,12 @@
 
 <script lang="ts">
     import storyevent from '@/components/parts/storyevent.vue';
-    import soulevent from '@/components/parts/soulevent.vue';
     import ida2town from '@/components/parts/ida2_town.vue';
-    import tablet from '@/components/parts/tablet.vue';
-    import dungeon from '@/components/parts/dungeon.vue';
-    import soul from '@/components/parts/soul.vue';
     import $ from 'jquery';
 
     export default {
         name: "MapIda2",
-        components: { storyevent, soulevent, ida2town, tablet, dungeon, soul },
+        components: { storyevent, ida2town,},
         data() {
             return {
                 nextMap: 'ida-3',

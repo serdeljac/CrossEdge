@@ -32,6 +32,7 @@
                     <ida1 v-if="selectedMap=='ida-1'" @setDefaults="appendDefaults" @evtSelect="evtSelect" />
                     <ida1te v-if="selectedMap=='ida-1te'" @setDefaults="appendDefaults" @evtSelect="evtSelect" />
                     <ida2 v-if="selectedMap=='ida-2'" @setDefaults="appendDefaults" @evtSelect="evtSelect" />
+                    <ida3 v-if="selectedMap == 'ida-3'" @setDefaults="appendDefaults" @evtSelect="evtSelect" />
                 </div>
             </div>
         </div>
@@ -69,11 +70,12 @@
     import ida1 from '../components/maps/Ida1.vue';
     import ida1te from '../components/maps/Ida1te.vue';
     import ida2 from '../components/maps/Ida2.vue';
+    import ida3 from '../components/maps/Ida3.vue';
 
     export default {
         name: 'MapRoom',
         props: ['selectedMap'],
-        components: { mapDetails, zeine1, zeine2, zeine3, wilkiet1, wilkiet2, wilkiet3, brosste1, brosste2, brosste3, pragma1, pragma2, pragma3, ida1, ida1te, ida2 },
+        components: { mapDetails, zeine1, zeine2, zeine3, wilkiet1, wilkiet2, wilkiet3, brosste1, brosste2, brosste3, pragma1, pragma2, pragma3, ida1, ida1te, ida2, ida3 },
         data() {
             return {
                 static: {

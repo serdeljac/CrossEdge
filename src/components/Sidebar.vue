@@ -2,19 +2,13 @@
     <aside class="sidebar" :class="{ 'compact': sidebarMode}">
         <div class="container" v-if="!sidebarMode">
 
-            <!-- Title -->
-            <div class="header">
-                <div class="header__title">
-                    <img class="header__logo" src="../assets/sitelogo.jpg" />
-                    <div class="header__site">OldBulb Games</div>
-                </div>
-            </div>
 
             <div class="wrapper-scroll">
 
                 <!-- Sub-Title -->
-                <div class="subheader">
-                    <h2 class="title" @click="chooseMap('home')">CROSS EDGE</h2>
+                <div class="title">
+                    <h2 @click="chooseMap('home')">CROSS EDGE</h2>
+                    <h4>Unofficial Guide</h4>
                 </div>
 
                 <hr />
