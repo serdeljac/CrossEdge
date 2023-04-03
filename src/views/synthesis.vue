@@ -23,7 +23,6 @@
             <div class="synth_display">
 
                 <div class="synth_display_header">
-                    <p>#</p>
                     <p>Name</p>
                     <p>Synth <br />Cost</p>
                     <p>Purchase <br/> After Synth?</p>
@@ -37,7 +36,6 @@
                 <div class="synth_display_body" v-for="data in displayAppend" :key="data.id" :class="getUniqueClass(data.name)">
                     <div class="filter" @click="selectIndividualItem(data.name)">
 
-                        <p>{{ data.ID }}</p>
 
                         <invItem :itemImg="data.icon" :itemName="data.name" />
 
@@ -60,10 +58,10 @@
                 </div>
 
                 <div class="synth_display_buttons">
-                    <button class="btn small generate" :class="{ 'active': genArr1.length > 0 }" @click="startGeneratingBuild('tr1', 1)">Generate List 1</button>
-                    <button class="btn small generate" :class="{ 'active': genArr2.length > 0 }" @click="startGeneratingBuild('tr1', 2)">Generate List 2</button>
-                    <button class="btn small generate" :class="{ 'active': genArr3.length > 0 }" @click="startGeneratingBuild('tr1', 3)">Generate List 3</button>
-                    <button class="btn small generate" :class="{ 'active': genArr4.length > 0 }" @click="startGeneratingBuild('tr1', 4)">Generate List 4</button>
+                    <button class="btn small generate" :class="{ 'active': genArr1.length > 0 }" @click="startGeneratingBuild(1)">Generate List 1</button>
+                    <button class="btn small generate" :class="{ 'active': genArr2.length > 0 }" @click="startGeneratingBuild(2)">Generate List 2</button>
+                    <button class="btn small generate" :class="{ 'active': genArr3.length > 0 }" @click="startGeneratingBuild(3)">Generate List 3</button>
+                    <button class="btn small generate" :class="{ 'active': genArr4.length > 0 }" @click="startGeneratingBuild(4)">Generate List 4</button>
                     <button class="btn small clear" @click="clearLists('all')">Clear All</button>
                 </div>
             </div>
@@ -299,7 +297,7 @@ export default {
 
 
         //Start searching for materials from selected list
-        startGeneratingBuild(tr, list) {
+        startGeneratingBuild(list) {
 
             if (list == 1) {
                 this.genArr1 = [];
@@ -310,42 +308,38 @@ export default {
             } else if (list == 4) {
                 this.genArr4 = [];
             }
+
+            const tier = list + 'tr1';
             
-            this.fetchCalledWeapon(this.selectedItem[0], this.selectedItem[1].slice(4),tr, list);
+            this.fetchCalledWeapon(tier, this.selectedItem[0], this.selectedItem[1].slice(4));
 
         },
 
         //Find data on materials for found weapon
-        fetchCalledWeapon(nm, type, tr, list) {
+        fetchCalledWeapon(tier, name, type) {
 
                 if (type == 'armor' || type == 'accessories') {
-                    var syn = this.displayArray[type].filter(function (e) { return e.name == nm })[0];
-                    
+                    var syn = this.displayArray[type].filter(function (e) { return e.name == name })[0];
                 } else {
-                    var syn = this.displayArray['weapons'].filter(function (e) { return e.name == nm })[0];
+                    var syn = this.displayArray['weapons'].filter(function (e) { return e.name == name })[0];
                 }
 
-                // 'icon' = icon
                 const icon = syn['icon'];
 
-                // 'buyg' = buyg
-                const buyg = syn['cost_g'];
-
-                // 'buytp' = buytp
-                const buytp = syn['cost_tp'];
-
-                // 'source' = source
-                const source = this.searchSource(nm);
+                const purchase = [
+                    syn['cost_g'],
+                    syn['cost_tp']
+                ];
                 
                 // 'synth' = synth
                 const synth = [
-                    this.checkSynth(tr, '1', nm, syn['synth_item1']),
-                    this.checkSynth(tr, '2', nm, syn['synth_item2']),
-                    this.checkSynth(tr, '3', nm, syn['synth_item3']),
-                    this.checkSynth(tr, '4', nm, syn['synth_item4']),
+                    this.checkSynth(tier, '1', name, syn['synth_item1']),
+                    this.checkSynth(tier, '2', name, syn['synth_item2']),
+                    this.checkSynth(tier, '3', name, syn['synth_item3']),
+                    this.checkSynth(tier, '4', name, syn['synth_item4']),
                 ];
 
-                this.buildGen(tr, nm, icon, buyg, buytp, source, synth, list);
+                this.buildGen(tier, name, icon, purchase, synth);
         },
 
         checkSynth(tr, num, parent, name) {
@@ -353,53 +347,22 @@ export default {
             
             const syn = this.fetchArrayData(name);
 
-            const tier = tr + num;
-            const icon = syn['icon'];
-            const buyg = syn['cost_g'];
-            const buytp = syn['cost_tp'];
-            const bestiary = this.searchBestiary(name);
-            const convert = this.searchConverts(name);
-            const title = this.searchTitles(name);
-            const source = this.searchSource(name);
-
             const obj = {
-                'id': syn['ID'],
-                'tier': tier,
+                'tier': tr + num,
                 'name': name,
-                'icon': icon,
-                'buyg': buyg,
-                'buytp': buytp,
-                'monster': bestiary,
-                'convert': convert,
-                'title': title,
-                'source': source,
+                'icon': syn['icon'],
+                'purchase': [syn['cost_g'], syn['cost_tp']],
+                'convert': this.searchConverts(name),
+                'source': this.searchSource(name),
                 'prevent': false
             }
 
-            if (parent == name || obj['buyg'] > 0 || obj['buytp'] > 0) {obj['prevent'] = true;}
+            if (!obj['convert'] || parent == syn['name']) {obj['prevent'] = true;}
 
             return obj;
         },
 
-        searchBestiary(find) {
 
-            const over = this.displayArray['bestiary'].filter(function (e) { return e.overkill == find })[0];
-            if (over) {return [over['name'], over['zone'], 'Overkill', over['ID'], over['area']];}
-
-            const drop1 = this.displayArray['bestiary'].filter(function (e) { return e.drop1 == find })[0];
-            if (drop1) {return [drop1['name'], drop1['zone'], 'Normal drop', drop1['ID'], drop1['area']];}
-
-            const rare1 = this.displayArray['bestiary'].filter(function (e) { return e.rare1 == find })[0];
-            if (rare1) {return [rare1['name'], rare1['zone'], 'Rare drop', rare1['ID'], rare1['area']];}
-
-            const drop2 = this.displayArray['bestiary'].filter(function (e) { return e.drop2 == find })[0];
-            if (drop2) {return [drop2['name'], drop2['zone'], 'Normal drop', drop2['ID'], drop2['area']];}
-
-            const rare2 = this.displayArray['bestiary'].filter(function (e) { return e.rare2 == find })[0];
-            if (rare2) {return [rare2['name'], rare2['zone'], 'Rare drop', rare2['ID'], rare2['area']];}
-
-            return '';
-        },
 
         searchConverts(find) {
 
@@ -415,8 +378,26 @@ export default {
             return '';
         },
 
-        searchTitles(find) {
+        searchSource(find) {
 
+            //BESTIARY
+            const over = this.displayArray['bestiary'].filter(function (e) { return e.overkill == find })[0];
+            if (over) { return [over['name'], over['zone'], 'Overkill', over['ID'], over['area']]; }
+
+            const drop1 = this.displayArray['bestiary'].filter(function (e) { return e.drop1 == find })[0];
+            if (drop1) { return [drop1['name'], drop1['zone'], 'Normal drop', drop1['ID'], drop1['area']]; }
+
+            const rare1 = this.displayArray['bestiary'].filter(function (e) { return e.rare1 == find })[0];
+            if (rare1) { return [rare1['name'], rare1['zone'], 'Rare drop', rare1['ID'], rare1['area']]; }
+
+            const drop2 = this.displayArray['bestiary'].filter(function (e) { return e.drop2 == find })[0];
+            if (drop2) { return [drop2['name'], drop2['zone'], 'Normal drop', drop2['ID'], drop2['area']]; }
+
+            const rare2 = this.displayArray['bestiary'].filter(function (e) { return e.rare2 == find })[0];
+            if (rare2) { return [rare2['name'], rare2['zone'], 'Rare drop', rare2['ID'], rare2['area']]; }
+
+
+            //TITLES
             let rw1 = this.displayArray['titles'].filter(function (e) { return e.reward1 == find })[0];
             if (rw1) { return 'Title reward #' + rw1['ID']; }
 
@@ -426,11 +407,8 @@ export default {
             let rw3 = this.displayArray['titles'].filter(function (e) { return e.reward3 == find })[0];
             if (rw3) { return 'Title reward #' + rw3['ID']; }
 
-            return '';
-        },
 
-        searchSource(find) {
-
+            //OTHER
             let tr1 = this.displayArray['treasure'].filter(function (e) { return e.treasure1 == find })[0];
             if (tr1 && tr1['target'] === 'Soul Reward') {return 'Soul Reward ' + tr1['soul'] + ' in ' + tr1['location'];}
             else if (tr1 && tr1['target'] === 'Treasure') {return 'Treasure in ' + tr1['location'] + ' dungeon';}
@@ -442,22 +420,20 @@ export default {
             if (tr3 && tr3['target'] === 'Soul Reward') { return 'Soul Reward ' + tr3['soul'] + ' in ' + tr3['location']; }
 
             return ''
-
         },
 
         //Append found materials to array
-        buildGen(tier, name, icon, buy_g, buy_tp, source, synth, list) {
+        buildGen(tier, name, icon, purchase, synth) {
 
             const newArr = {
                 'tier': tier,
                 'name': name,
                 'icon': icon,
-                'buyg': buy_g,
-                'buytp': buy_tp,
-                'source': source,
+                'purchase': purchase,
                 'synth': synth,
-                'list': list
             };
+
+            var list = tier.slice(0,1)
 
             if (list == 1) {
                 this.genArr1.push(newArr);
@@ -482,13 +458,13 @@ export default {
                         const nm = synth[i]['name'];
                         const tr = synth[i]['tier'];
                         const icon = synth[i]['icon'];
-                        this.fetchCalledWeapon(nm, icon.slice(4), tr, list);
+                        this.fetchCalledWeapon(nm, icon.slice(4), tr);
                 //Search if item is from converted
                 } else if (synth[i]['convert'].length > 0) {
                     const nm = synth[i]['convert'][0];
                     const tr = synth[i]['tier'];
                     const icon = synth[i]['convert'][1];
-                    this.fetchCalledWeapon(nm, icon.slice(4), tr, list);
+                    this.fetchCalledWeapon(nm, icon.slice(4), tr);
                 }
             }
 

@@ -2,7 +2,6 @@
     <aside class="sidebar" :class="{ 'compact': sidebarMode}">
         <div class="container" v-if="!sidebarMode">
 
-
             <div class="wrapper-scroll">
 
                 <!-- Sub-Title -->
@@ -49,6 +48,7 @@
                             <li @click="chooseMap('ida-1')">Ida - Area 1</li>
                             <li @click="chooseMap('ida-1te')">Ida - Area 1 (True End)</li>
                             <li @click="chooseMap('ida-2')">Ida - Area 2</li>
+                            <li @click="chooseMap('ida-3')">Ida - Area 3</li>
                         </ul>
                     </div>
 

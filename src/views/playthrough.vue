@@ -14,13 +14,13 @@
 
                     <li>
                         Start game on HARD MODE!
-                        <p>If you achieve True End, you can access a bonus area (Ida-3)</p>
+                        <p>If you achieve True End, you can access a bonus area (Ida-3).</p>
                         <p>You will also be able to transfer all Inventory/Skill Levels/G/EP/TP/PP onto NG+.</p>
                         <p>With the DLC and recommended purchases, you can beat the game without much difficulty.</p>
                     </li>
 
                     <li>DO NOT USE ANY SHARED PP or STAT BOOST ITEMS!!
-                        <p>Your stats reset on every playthrough. Make sure to save enouph for Ida-2 boss fights.</p>
+                        <p>Your stats reset on every playthrough. Make sure to save enouph for Ida-3 boss fights.</p>
                     </li>
 
                     <li>Attempt to 'OVERKILL' as much as possible!
@@ -77,17 +77,17 @@
                         <p>Overkill bosses in fewest turns to gain PP and rare items. Use Yorks 'Face Off' if possible.</p>
                         <p>Complete requirements for titles in areas.</p>
                         <p>Aquire all Arcane books and Sythesis recipes.</p>
-                        <p>You can regain most title rewards on EVERY PLAYTHROUGH!</p>
+                        <p>You can regain title rewards on EVERY PLAYTHROUGH!</p>
                     </li>
                     <li>Final Playthrough:
                         <p>This playthrough is for collecting all weapons/armor/accessories/items.</p>
                         <p>Plan your best team for the toughest fights (My setup has worked for platinum).</p>
                         <p>Spend equal amount of PP on your characters that use Fanatic Rave or "_______________"(I personally saved 40,000 PP).</p>
-                        <p>STR should be close to 10,000 for some characters, VIT is also quite important.</p>
                         <p>Collect all souls in every area.</p>
                         <p>Overkill bosses in fewest turns to gain PP and rare items. Use Yorks 'Face Off' if possible.</p>
-                        <p>Aquire all titles. Remaining for final playthrough should be #99-#102 and #113-#123.</p>
+                        <p>Aquire all titles.</p>
                         <p>If strong enough, fight in Ida-3 for some really good rare items.</p>
+                        <p>STR/MAG should be close to 10,000 before going to Ida-3, VIT is also quite important.</p>
                     </li>
                 </ul>
             </div>
@@ -103,13 +103,13 @@
                     </li>
                     <li>
                         Synthesizing:
-                        <p>Save game before synthesizing higher-end gear.</p>
+                        <p>Save game often when synthesizing.</p>
                         <p>There's a chance synthesizing items can fail and make something else.</p>
                         <p>Some synthesisze items need to be make only once, then can be bought!</p>
                     </li>
                     <li>
                         Upgrading:
-                        <p>Upgrading always successds.</p>
+                        <p>Upgrading always succeeds.</p>
                         <p>Use tab buttons to view what items can be upgraded to and materials needed.</p>
                         <p>Weapons/armor/accessories must be at max level 5 to be converted.</p>
                     </li>

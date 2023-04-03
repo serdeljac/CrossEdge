@@ -87,7 +87,7 @@
                 <div class="titles_sub-header">
                     <h3>#81 - #92 (Aquire items from enemy drops # of times)</h3>
                     <p>Note 1: Must have items and quantities in inventory at the same time per title.</p>
-                    <p>Note 2: Yorks EX ability 'Faceoff' increases rare drops. Also equp 'Drop Rate Up' on all characters</p>
+                    <p>Note 2: Yorks EX ability 'Faceoff' increases rare drops. Also equip 'Drop Rate Up' on all characters</p>
                 </div>
                 <div class="titles_list">
                     <titles_header />

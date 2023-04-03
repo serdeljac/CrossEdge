@@ -5,13 +5,17 @@
             <header class="map-overview__header">
                 <h2 class="map-overview__title">{{ properMapName }}</h2>
                 <div class="map-overview__nextmap">
-                    <span>Next Map: </span>
-                    <p @click="chooseMap">{{ properNextMapName }}</p>
+                    <div v-if="properNextMapName">
+                        <span>Next Map: </span>
+                        <p @click="chooseMap">{{ properNextMapName }}</p>
+                    </div>
                 </div>
                 <div class="map-overview__tabs">
-                    <button class="tab tab1" :class="{ 'active': tabSelect == 'tab1' }" @click="setActiveTab('tab1')">Event Info</button>
-                    <button class="tab tab2" :class="{ 'active': tabSelect == 'tab2' }" @click="setActiveTab('tab2')">Titles in area</button>
-                    <button class="tab tab3" :class="{ 'active': tabSelect == 'tab3' }" @click="setActiveTab('tab3')">Bestiary</button>
+                    <div v-if="properNextMapName">
+                        <button class="tab tab1" :class="{ 'active': tabSelect == 'tab1' }" @click="setActiveTab('tab1')">Event Info</button>
+                        <button class="tab tab2" :class="{ 'active': tabSelect == 'tab2' }" @click="setActiveTab('tab2')">Titles in area</button>
+                        <button class="tab tab3" :class="{ 'active': tabSelect == 'tab3' }" @click="setActiveTab('tab3')">Bestiary</button>
+                    </div>
                 </div>
             </header>
 
