@@ -324,45 +324,77 @@ export default {
                     var syn = this.displayArray['weapons'].filter(function (e) { return e.name == name })[0];
                 }
 
-                const icon = syn['icon'];
+                if (syn) {
 
-                const purchase = [
-                    syn['cost_g'],
-                    syn['cost_tp']
-                ];
-                
-                // 'synth' = synth
-                const synth = [
-                    this.checkSynth(tier, '1', name, syn['synth_item1']),
-                    this.checkSynth(tier, '2', name, syn['synth_item2']),
-                    this.checkSynth(tier, '3', name, syn['synth_item3']),
-                    this.checkSynth(tier, '4', name, syn['synth_item4']),
-                ];
+                    const icon = syn['icon'];
 
-                this.buildGen(tier, name, icon, purchase, synth);
+                    var purchase = '';
+                    if (syn['cost_g'] || syn['cost_tp']) {
+                        var purchase = [
+                            syn['cost_g'],
+                            syn['cost_tp']
+                        ];
+                    }
+                    
+                    // 'synth' = synth
+                    var synth = [];
+
+                    if (syn['synth_item1']) {synth[0] = this.checkSynth(tier, '1', name, syn['synth_item1'])}
+                    if (syn['synth_item2']) {synth[1] = this.checkSynth(tier, '2', name, syn['synth_item2']) }
+                    if (syn['synth_item3']) {synth[2] = this.checkSynth(tier, '3', name, syn['synth_item3']) }
+                    if (syn['synth_item4']) {synth[3] = this.checkSynth(tier, '4', name, syn['synth_item4']) }
+
+                    const obj = {
+                        'tier': tier,
+                        'name': name,
+                        'icon': icon,
+                        'purchase': purchase,
+                        'synth': synth
+                    };
+
+                    this.buildGen(obj);
+                    }
         },
 
         checkSynth(tr, num, parent, name) {
-            if (!name) {return '';}
+            if (!name) {return;}
             
             const syn = this.fetchArrayData(name);
 
-            const obj = {
+            var synType = '';
+            if (syn['type'] && parent != name) {
+                var synType = 'equipment';
+            }
+
+            var synPurchase = '';
+            if (syn['cost_g'] || syn['cost_tp']) {
+                var synPurchase = [syn['cost_g'], syn['cost_tp']];
+            }
+
+            var synConvert = this.searchConverts(name);
+
+            var synSource = '';
+            if (!synConvert && !synType) {
+                var synSource = this.searchSource(name)
+            }
+
+            var obj = {
                 'tier': tr + num,
                 'name': name,
                 'icon': syn['icon'],
-                'purchase': [syn['cost_g'], syn['cost_tp']],
-                'convert': this.searchConverts(name),
-                'source': this.searchSource(name),
-                'prevent': false
+                'type': synType,
+                'purchase': synPurchase,
+                'convert': synConvert,
+                'source': synSource,
+                'prevent': true
             }
 
-            if (!obj['convert'] || parent == syn['name']) {obj['prevent'] = true;}
+            if (synConvert) {obj['prevent'] = false;}
+            if (obj['type'] && parent != name) { obj['prevent'] = false; }
 
+            console.log(obj)
             return obj;
         },
-
-
 
         searchConverts(find) {
 
@@ -382,19 +414,19 @@ export default {
 
             //BESTIARY
             const over = this.displayArray['bestiary'].filter(function (e) { return e.overkill == find })[0];
-            if (over) { return [over['name'], over['zone'], 'Overkill', over['ID'], over['area']]; }
+            if (over) { return 'Overkill ' + over['name'] + ' #' + over['ID'] + ' in ' + over['zone'] + ' (' + over['area'] + ')'; }
 
             const drop1 = this.displayArray['bestiary'].filter(function (e) { return e.drop1 == find })[0];
-            if (drop1) { return [drop1['name'], drop1['zone'], 'Normal drop', drop1['ID'], drop1['area']]; }
+            if (drop1) { return 'Overkill ' + drop1['name'] + ' #' + drop1['ID'] + ' in ' + drop1['zone'] + ' (' + drop1['area'] + ')'; }
 
             const rare1 = this.displayArray['bestiary'].filter(function (e) { return e.rare1 == find })[0];
-            if (rare1) { return [rare1['name'], rare1['zone'], 'Rare drop', rare1['ID'], rare1['area']]; }
+            if (rare1) { return 'Overkill ' + rare1['name'] + ' #' + rare1['ID'] + ' in ' + rare1['zone'] + ' (' + rare1['area'] + ')'; }
 
             const drop2 = this.displayArray['bestiary'].filter(function (e) { return e.drop2 == find })[0];
-            if (drop2) { return [drop2['name'], drop2['zone'], 'Normal drop', drop2['ID'], drop2['area']]; }
+            if (drop2) { return 'Overkill ' + drop2['name'] + ' #' + drop2['ID'] + ' in ' + drop2['zone'] + ' (' + drop2['area'] + ')'; }
 
             const rare2 = this.displayArray['bestiary'].filter(function (e) { return e.rare2 == find })[0];
-            if (rare2) { return [rare2['name'], rare2['zone'], 'Rare drop', rare2['ID'], rare2['area']]; }
+            if (rare2) { return 'Overkill ' + rare2['name'] + ' #' + rare2['ID'] + ' in ' + rare2['zone'] + ' (' + rare2['area'] + ')'; }
 
 
             //TITLES
@@ -423,50 +455,46 @@ export default {
         },
 
         //Append found materials to array
-        buildGen(tier, name, icon, purchase, synth) {
+        buildGen(obj) {
 
-            const newArr = {
-                'tier': tier,
-                'name': name,
-                'icon': icon,
-                'purchase': purchase,
-                'synth': synth,
-            };
-
-            var list = tier.slice(0,1)
+            var list = obj['tier'].slice(0,1);
 
             if (list == 1) {
-                this.genArr1.push(newArr);
+                this.genArr1.push(obj);
             } else if (list == 2) {
-                this.genArr2.push(newArr);
+                this.genArr2.push(obj);
             } else if (list == 3) {
-                this.genArr3.push(newArr);
+                this.genArr3.push(obj);
             } else if (list == 4) {
-                this.genArr4.push(newArr);
+                this.genArr4.push(obj);
             }
 
-            for (let i = 0; i < synth.length; i++) {
+            
+            
+            for (let i = 0; i < obj['synth'].length; i++) {
+                
+                    if (!obj['synth'][i]['prevent']) {
 
-                //Stop under these conditions
-                if (!synth[i] || synth[i]['prevent'] || synth[i]['buyg'] || synth[i]['buytp']) {
-                    return false
-                //Search if item is a weapon/armor/accessory
-                } else if (
-                    synth[i]['icon'] != 'inv-monster' && 
-                    synth[i]['icon'] != 'inv-metal' && 
-                    synth[i]['icon'] != 'inv-item') {
-                        const nm = synth[i]['name'];
-                        const tr = synth[i]['tier'];
-                        const icon = synth[i]['icon'];
-                        this.fetchCalledWeapon(nm, icon.slice(4), tr);
-                //Search if item is from converted
-                } else if (synth[i]['convert'].length > 0) {
-                    const nm = synth[i]['convert'][0];
-                    const tr = synth[i]['tier'];
-                    const icon = synth[i]['convert'][1];
-                    this.fetchCalledWeapon(nm, icon.slice(4), tr);
-                }
+                        if (obj['synth'][i]['convert'] && obj['name'] != obj['synth'][i]['convert'][0]) {
+                            //CONVERT
+                            this.fetchCalledWeapon(
+                                obj['synth'][i]['tier'],
+                                obj['synth'][i]['convert'][0],
+                                obj['synth'][i]['convert'][1].slice(4)
+                                );
+                        } else if (obj['name'] != obj['synth'][0]['name']) {
+                            //NO CONVERT
+                            this.fetchCalledWeapon(
+                                obj['synth'][i]['tier'], 
+                                obj['synth'][i]['name'], 
+                                obj['synth'][i]['icon'].slice(4)
+                                );
+                        }
+                    }
+                    
             }
+            
+
 
         },
 

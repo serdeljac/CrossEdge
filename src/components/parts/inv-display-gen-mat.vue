@@ -15,7 +15,7 @@
                 </router-link>
                 in {{ synth['monster'][4] }}
             </p>
-            <p v-else-if="synth['title'] || synth['source']">Find via Treasure/Reward</p>
+            <p v-else-if="synth['title'] || synth['source']">{{ synth['source'] }}</p>
             <p v-else-if="synth['source']">{{ synth['source'] }}</p>
             <p v-else-if="synth['title']">{{ synth['title'] }}</p>
         </div>
