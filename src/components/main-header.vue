@@ -5,7 +5,7 @@
             <p>PS3/XBOX360</p>
         </div>
         <div>
-            <h1>Cross Edge Interactive Guide <span><router-link :to="{name: 'version'}">v1.1.1</router-link></span></h1>
+            <h1>Cross Edge Unofficial Guide <span><router-link :to="{name: 'version'}">v1.1.1</router-link></span></h1>
         </div>
     </header>
 </template>

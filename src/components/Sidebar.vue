@@ -6,15 +6,15 @@
 
                 <!-- Sub-Title -->
                 <div class="title">
-                    <h2 @click="chooseMap('home')">CROSS EDGE</h2>
-                    <h4>Unofficial Guide</h4>
+                    <router-link to="/">
+                        <img src="@/assets/sidebar_logo.png" alt="Cross Edge" />
+                        <h4>Unofficial Guide</h4>
+                    </router-link>
                 </div>
-
-                <hr />
 
                 <!-- Table of Contents -->
                 <div class="tablecontents">
-                    <h3>TABLE OF CONTENTS</h3>
+                    <p>TABLE OF CONTENTS</p>
 
                     <div class="tbc-set">
                         <ul>
@@ -26,7 +26,7 @@
                             <li @click="choosePage('inventory')">Inventory</li>
                             <li @click="choosePage('bestiary')">Bestiary</li>
                             <li class="null">Tool: Team Build</li>
-                            <li @click="choosePage('synthesis')">Tool: Synthesis Generator</li>
+                            <li class="null">Tool: Synthesis Generator</li>
                         </ul>
                     </div>
 
@@ -87,8 +87,6 @@
         </button>
 
         <div class="container-mobile" v-if="sidebarMode">
-            <p>HOME</p>
-            <p>DUNGEON</p>
         </div>
 
     </aside>

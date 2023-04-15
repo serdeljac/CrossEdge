@@ -1325,7 +1325,6 @@ body {
 
 .sidebar {
     background: $sidebar-bg;
-    color: #7c7c7c;
     height: 100vh;
     box-shadow: 0px -11px 31px -27px #000;
     transition: all .47s ease;
@@ -1337,16 +1336,13 @@ body {
 
     &.compact {
         width: $sidebarWidth-sm;
-
-        .container {
-            width: $sidebarWidth-lg;
-        }
+        .container {width: $sidebarWidth-lg;}
     }
 
     .container {
         transition: all .35s ease;
         left: 0;
-        padding: 20px 5px 20px 2rem;
+        padding: 0px 5px 0px 2rem;
     }
 
     .container-mobile {
@@ -1359,10 +1355,9 @@ body {
 
 
     .wrapper-scroll {
-        height: calc(100vh - 80px);
+        height: 100vh;
         overflow-y: scroll;
-        padding-right: 10px;
-        padding-bottom: 40px;
+        padding: 10px 16px 20px 0px;
 
         &::-webkit-scrollbar {
             background-color: transparent;
@@ -1377,23 +1372,15 @@ body {
     }
 
     .title {
-        h2 {
-            color: #fff;
-            text-align: center;
-            font-weight: 300;
-            font-size: 3rem;
-            margin-top: 20px;
-            cursor: pointer;
-        }
+        padding-bottom: 8px;
+        border-bottom: 2px solid #fff;
+        img {margin-bottom: -4px;}
         h4 {
             color: #fff;
             text-align: center;
-            font-size: 1.5rem;
+            font-size: 2rem;
+            letter-spacing: 3px;
         }
-    }
-
-    hr {
-        margin: 10px 0 15px;
     }
 
     .tablecontents {
@@ -1417,10 +1404,7 @@ body {
                 border-radius: 7px;
                 will-change: background-color;
                 transition: background-color .08s ease;
-
-                &:hover {
-                    background-color: $sidebarHov;
-                }
+                &:hover {background-color: $sidebarHov;}
             }
         }
     }

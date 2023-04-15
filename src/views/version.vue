@@ -5,9 +5,7 @@
             <section class="version_sub-header">
                 <h3>v1.1.1 - March 27, 2023 </h3>
                 <div class="version_description">
-                    <p>Major Changes</p>
                     <ul>
-                        <li>Synthesis Page created</li>
                         <li>Item name corrections</li>
                         <li>Minor UI fixes</li>
                     </ul>
@@ -17,7 +15,6 @@
             <section class="version_sub-header">
                 <h3>v1.0.0 - Feburary 2, 2023 </h3>
                 <div class="version_description">
-                    <p>Major Changes</p>
                     <ul>
                         <li>Website deployment</li>
                     </ul>
